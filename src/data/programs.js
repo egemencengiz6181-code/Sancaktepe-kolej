@@ -1,0 +1,176 @@
+export const programs = [
+  {
+    id: 'bogep',
+    tag: 'BÖGEP',
+    title: 'Bütüncül Öğrenme ve Gelişim Programları',
+    subtitle: 'Akademik başarıyı sosyal ve duygusal gelişimle desteklemek',
+    color: '#232e5c',
+    accent: '#e61936',
+    icon: '🌐',
+    desc: 'Akademik dersleri destekleyen ve öğrencinin çok yönlü gelişimini hedefleyen yapıların bütünüdür.',
+    heroDesc: 'BÖGEP, öğrencinin yalnızca akademik değil; sosyal, duygusal, kültürel ve etik boyutlarda da gelişimini destekleyen kapsamlı bir çerçeve programdır. Okul içi ve dışı deneyimleri bir araya getirir.',
+    items: [
+      { code: 'SSP', label: 'Sosyal Sorumluluk Programı' },
+      { code: 'LLL', label: 'Yaşam Boyu Öğrenme Programı' },
+      { code: 'ODE', label: 'Okul Dışı Etkinlikler Programı' },
+      { code: 'MP', label: 'Mentörlük ve Rehberlik Programı' },
+      { code: 'TÖP', label: 'Tematik Öğrenme Programı (MH – Multidisciplinary Hub)' },
+    ],
+    goals: [
+      'Akademik başarıyı sosyal ve duygusal gelişimle desteklemek',
+      'Öğrencinin bireysel potansiyelini ortaya çıkarmak',
+      'Okulu yaşamla bütünleştirmek',
+      'Sorumluluk bilinci ve liderlik becerileri kazandırmak',
+    ],
+    apply: 'BÖGEP kapsamındaki çalışmalar, ders saatleri içinde ve dışında; proje haftaları, kulüp saatleri, atölyeler ve okul dışı öğrenme etkinlikleriyle programa entegre edilir.',
+    details: [
+      {
+        title: 'Sosyal Sorumluluk Programı (SSP)',
+        desc: 'Öğrencilerin topluma katkıda bulunma bilincini ve empati becerilerini geliştiren proje ve etkinlikleri kapsar.',
+      },
+      {
+        title: 'Yaşam Boyu Öğrenme (LLL)',
+        desc: 'Merak, öz-yönetim ve bağımsız öğrenme alışkanlıklarını pekiştiren modüller içerir.',
+      },
+      {
+        title: 'Okul Dışı Etkinlikler (ODE)',
+        desc: 'Müze, doğa, şehir ve üretim alanlarını kapsayan sahaya inme deneyimleridir.',
+      },
+      {
+        title: 'Mentörlük ve Rehberlik (MP)',
+        desc: 'Her öğrenciye atanan mentor rehberliğinde kariyer, akademik ve kişisel gelişim yolculuğu.',
+      },
+    ],
+  },
+  {
+    id: 'otd',
+    tag: 'OTD',
+    title: 'Okuryazarlık Temelli Dersler',
+    subtitle: 'Sadece Ortaokul ve Lise',
+    color: '#e61936',
+    accent: '#ff3352',
+    icon: '📖',
+    desc: 'Öğrencilerin bilgiyi yalnızca öğrenmesini değil; anlamasını, yorumlamasını ve kullanmasını hedefleyen derslerdir.',
+    heroDesc: 'OTD, bilgiyi ham hâliyle almak yerine onu sorgulayan, yorumlayan ve kullanan bir nesil yetiştirmek için tasarlanmıştır. PISA ve TIMSS ölçütlerini temel alarak beceri odaklı bir öğretim anlayışı sunar.',
+    items: [
+      { code: '01', label: 'Dil okuryazarlığı' },
+      { code: '02', label: 'Fen ve matematik okuryazarlığı' },
+      { code: '03', label: 'Tarih ve sosyal bilimler okuryazarlığı' },
+      { code: '04', label: 'Coğrafya ve zaman mekan okuryazarlığı' },
+      { code: '05', label: 'Dijital ve bilişim okuryazarlığı' },
+      { code: '06', label: 'Medya ve veri okuryazarlığı' },
+    ],
+    goals: [
+      'PISA ve TIMSS gibi uluslararası değerlendirmelerde güçlü beceriler',
+      'Üst düzey düşünme ve analiz yetkinliği',
+      'Açık uçlu ve senaryo temelli problem çözme',
+      'Disiplinlerarası bağlantı kurma kapasitesi',
+    ],
+    apply: 'OTD, Türkçe, Matematik, Fen ve Sosyal Bilimler dersleriyle ilişkili fakat bağımsız kazanımlara sahip olarak planlanır. Dersler soru okuma, yazma, analiz ve tartışma odaklı yürütülür.',
+    details: [
+      {
+        title: 'Dil ve Metin Okuryazarlığı',
+        desc: 'Çeşitli türlerde metinleri anlama, yorumlama ve üretme becerilerini geliştirir.',
+      },
+      {
+        title: 'Fen, Matematik ve Veri Okuryazarlığı',
+        desc: 'Sayısal düşünme, grafik yorumlama ve kanıta dayalı argüman oluşturma üzerine odaklanır.',
+      },
+      {
+        title: 'Dijital ve Medya Okuryazarlığı',
+        desc: 'Bilgi kaynaklarını sorgulama, sahte haberden kaçınma ve dijital etik konularını kapsar.',
+      },
+      {
+        title: 'Küresel Bağlam Okuryazarlığı',
+        desc: 'Tarih, coğrafya ve sosyal bilimleri gerçek dünya olaylarıyla ilişkilendirir.',
+      },
+    ],
+  },
+  {
+    id: 'top',
+    tag: 'TÖP',
+    title: 'Tematik Öğrenme Programı',
+    subtitle: 'Disiplinlerarası Bütüncül Yaklaşım',
+    color: '#7c3aed',
+    accent: '#a855f7',
+    icon: '🔭',
+    desc: 'Öğrencilerin farklı disiplinleri ortak bir tema etrafında bütüncül olarak ele almasını sağlar.',
+    heroDesc: 'TÖP – Tematik Öğrenme Programı, farklı derslerin ayrı ayrı değil; ortak temalar etrafında bir araya gelerek öğrenilmesini sağlar. Disiplinlerarası bağlantılar kurarak derin ve kalıcı öğrenme ortamı oluşturur.',
+    items: [
+      { code: '▸', label: 'İnsan ve toplum' },
+      { code: '▸', label: 'Doğa ve sürdürülebilirlik' },
+      { code: '▸', label: 'Bilim, teknoloji ve etik' },
+      { code: '▸', label: 'Kültür, sanat ve kimlik' },
+      { code: '▸', label: 'Gelecek, yapay zekâ ve dijital dönüşüm' },
+    ],
+    goals: [
+      'Disiplinlerarası düşünme',
+      'Bilgiler arasında bağ kurma',
+      'Derin öğrenme ve üretim',
+      'Yaratıcı ve eleştirel bakış açısı',
+    ],
+    apply: 'Temalar; belirli haftalar, proje dönemleri veya yıl geneline yayılan modüller şeklinde programa entegre edilir.',
+    details: [
+      {
+        title: 'Tema Haftaları',
+        desc: 'Yılda birkaç kez tüm okul olarak ortak bir tema üzerine yoğunlaşılan özel öğrenme haftaları.',
+      },
+      {
+        title: 'Multidisciplinary Hub (MH)',
+        desc: 'Öğrencilerin farklı derslerdeki öğrenmelerini birbirine bağladıkları proje stüdyosu.',
+      },
+      {
+        title: 'Proje Dönemleri',
+        desc: 'Uzun soluklu araştırma ve üretim projelerinin yürütüldüğü dönemsel çalışmalar.',
+      },
+      {
+        title: 'Sonuç Sunumları',
+        desc: 'Öğrencilerin yaptıkları çalışmaları akran ve veli topluluğuna sundukları etkinlikler.',
+      },
+    ],
+  },
+  {
+    id: 'kvyod',
+    tag: 'KVYOD',
+    title: 'Küresel Vizyon ve Yaşam Odaklı Dersler',
+    subtitle: 'Dünyayı Bütüncül Okumak',
+    color: '#059669',
+    accent: '#10b981',
+    icon: '🌱',
+    desc: 'Öğrencilerin akademik bilgiyi yaşamla ilişkilendirmesini, dünyayı bütüncül bir bakış açısıyla okuyabilmesini amaçlayan derslerdir.',
+    heroDesc: 'KVYOD, öğrencilere küresel ölçekte düşünme ve yerel ölçekte hareket etme becerisi kazandırır. Sürdürülebilirlik, etik, vatandaşlık ve geleceğin dünyasına hazırlık konularını disiplinlerarası bir çerçevede ele alır.',
+    items: [
+      { code: '▸', label: 'Sürdürülebilir kalkınma hedefleri (SDGs)' },
+      { code: '▸', label: 'Küresel vatandaşlık' },
+      { code: '▸', label: 'İklim, çevre ve ekoloji' },
+      { code: '▸', label: 'Dijital çağ, medya ve bilgi okuryazarlığı' },
+      { code: '▸', label: 'Toplumsal sorunlar ve çözüm odaklı düşünme' },
+      { code: '▸', label: 'Etik, değerler ve sorumluluk bilinci' },
+    ],
+    goals: [
+      'Küresel sorunlara duyarlılık geliştirmek',
+      'Etik, çevresel ve toplumsal farkındalık kazanmak',
+      'Akademik bilgiyi gerçek yaşam bağlamında kullanmak',
+      'Çözüm odaklı ve proaktif bireyler yetiştirmek',
+    ],
+    apply: 'KVYOD, ortaokul ve lise kademelerinde haftalık ders çizelgesine yerleştirilir; bazı kazanımlar proje, bazıları disiplinlerarası çalışmalar yoluyla ele alınır.',
+    details: [
+      {
+        title: 'Küresel Vatandaşlık',
+        desc: 'BM Sürdürülebilir Kalkınma Hedefleri ekseninde dünya sorunlarına duyarlılık eğitimi.',
+      },
+      {
+        title: 'Çevre ve Ekoloji',
+        desc: 'İklim değişikliği, biyoçeşitlilik ve sürdürülebilir yaşam pratiklerini kapsayan modüller.',
+      },
+      {
+        title: 'Etik ve Değerler',
+        desc: 'Felsefi düşünme, etik ikilemler ve sorumluluk bilinci üzerine seminer formatında dersler.',
+      },
+      {
+        title: 'Çözüm Odaklı Projeler',
+        desc: 'Gerçek dünya problemlerine yaratıcı çözüm üretmeye odaklanan proje çalışmaları.',
+      },
+    ],
+  },
+];
