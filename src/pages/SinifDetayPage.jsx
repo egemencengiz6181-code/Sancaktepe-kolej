@@ -148,6 +148,71 @@ export default function SinifDetayPage() {
       {/* ACCENT BAR */}
       <div style={{ height: '4px', background: `linear-gradient(90deg, var(--red), var(--primary), transparent)` }} />
 
+      {/* LEVEL FEATURES STRIP */}
+      {(() => {
+        const featuresMap = {
+          'okul-oncesi': [
+            { icon: '💭', label: 'P4C', desc: 'Çocuklarla Felsefe' },
+            { icon: '🗂️', label: 'Tematik Yapı', desc: 'Konular arası bütünleşik öğrenme' },
+            { icon: '🗣️', label: 'Yoğun İngilizce', desc: 'Native destekli dil ortamı' },
+            { icon: '🎨', label: 'Sanat & Müzik', desc: 'Yaratıcı gelişim atölyeleri' },
+          ],
+          'ilkokul': [
+            { icon: '🗂️', label: 'Tematik Yapı', desc: 'Disiplinlerarası öğrenme' },
+            { icon: '🗣️', label: 'Çift Dil', desc: 'İngilizce + Almanca' },
+            { icon: '📐', label: 'UbD Temeli', desc: 'Anlam merkezli tasarım' },
+            { icon: '🧑‍🏫', label: 'Bireysel Takip', desc: 'Her öğrenciye özel mentor' },
+          ],
+          'ortaokul': [
+            { icon: '📐', label: 'UbD', desc: 'Understanding by Design yaklaşımı' },
+            { icon: '🗂️', label: 'Tematik Yapı', desc: 'Disiplinlerarası projeler' },
+            { icon: '🏆', label: 'LGS Hazırlığı', desc: 'Ulusal sınav başarı odaklı' },
+            { icon: '🧑‍🏫', label: 'Mentorluk', desc: 'Güçlü rehberlik sistemi' },
+          ],
+          'lise': [
+            { icon: '📘', label: '9–10 Temel Program', desc: 'Güçlü akademik altyapı' },
+            { icon: '🔭', label: '11–12 Uzmanlaşma', desc: 'Alan derinleşmesi & seçmeli dersler' },
+            { icon: '🏅', label: 'AP Programı', desc: 'Uluslararası üniversite avantajı' },
+            { icon: '🎯', label: 'Üniversite Hazırlık', desc: 'YKS + yurtdışı danışmanlığı' },
+            { icon: '🗺️', label: 'Kariyer Planlama', desc: 'Bireysel kariyer haritası' },
+            { icon: '🧑‍🏫', label: 'Mentorluk', desc: 'Kişisel akademik danışman' },
+          ],
+        };
+        const features = featuresMap[cls.id] || [];
+        if (!features.length) return null;
+        const accentColor = cls.color === 'var(--primary)' ? '#232e5c' : cls.color === 'var(--red)' ? '#e61936' : cls.color;
+        return (
+          <section style={{ padding: '3rem 0', background: 'var(--white)', borderBottom: '1px solid var(--grey-light)' }}>
+            <div className="section-container">
+              <div style={{ display: 'grid', gridTemplateColumns: `repeat(${Math.min(features.length, 4)}, 1fr)`, gap: '1rem' }} className="features-strip">
+                {features.map((f, i) => (
+                  <motion.div key={f.label} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.07 }}>
+                    <div style={{
+                      padding: '1.5rem 1.25rem',
+                      background: `${accentColor}08`,
+                      border: `1px solid ${accentColor}20`,
+                      borderRadius: '12px',
+                      display: 'flex', alignItems: 'flex-start', gap: '1rem',
+                      transition: 'background 0.2s, border-color 0.2s, transform 0.2s',
+                    }}
+                      onMouseEnter={(e) => { e.currentTarget.style.background = `${accentColor}14`; e.currentTarget.style.borderColor = `${accentColor}45`; e.currentTarget.style.transform = 'translateY(-3px)'; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.background = `${accentColor}08`; e.currentTarget.style.borderColor = `${accentColor}20`; e.currentTarget.style.transform = 'translateY(0)'; }}
+                    >
+                      <span style={{ fontSize: '1.6rem', flexShrink: 0 }}>{f.icon}</span>
+                      <div>
+                        <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 900, letterSpacing: '0.08em', textTransform: 'uppercase', color: accentColor, marginBottom: '0.25rem' }}>{f.label}</div>
+                        <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.8rem', color: 'var(--text-mid)', lineHeight: 1.6 }}>{f.desc}</div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+            <style>{`@media (max-width: 700px) { .features-strip { grid-template-columns: repeat(2, 1fr) !important; } }`}</style>
+          </section>
+        );
+      })()}
+
       {/* MAIN CONTENT */}
       <section style={{ padding: '6rem 0', background: 'var(--off-white)' }}>
         <div className="section-container">

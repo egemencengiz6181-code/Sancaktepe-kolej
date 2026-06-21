@@ -14,7 +14,8 @@ export default function ProgramDetayPage() {
   const prog = programs.find((p) => p.id === id);
   if (!prog) return <Navigate to="/programlar" replace />;
 
-  const others = programs.filter((p) => p.id !== id);
+  const parentProg = prog.parent ? programs.find((p) => p.id === prog.parent) : null;
+  const others = programs.filter((p) => !p.parent && p.id !== id);
 
   return (
     <>
@@ -55,6 +56,15 @@ export default function ProgramDetayPage() {
               onMouseEnter={(e) => { e.currentTarget.style.color = 'rgba(255,255,255,0.8)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(255,255,255,0.4)'; }}
             >Programlar</Link>
+            {parentProg && (
+              <>
+                <span style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.7rem' }}>›</span>
+                <Link to={`/programlar/${parentProg.id}`} style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}
+                  onMouseEnter={(e) => { e.currentTarget.style.color = 'rgba(255,255,255,0.8)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(255,255,255,0.4)'; }}
+                >{parentProg.tag}</Link>
+              </>
+            )}
             <span style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.7rem' }}>›</span>
             <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)' }}>{prog.tag}</span>
           </motion.div>
@@ -228,6 +238,46 @@ export default function ProgramDetayPage() {
                   ))}
                 </div>
               </motion.div>
+
+              {/* Alt programlar (BÖGEP, KVYOD gibi) */}
+              {prog.subPrograms && prog.subPrograms.length > 0 && (
+                <motion.div {...fadeUp(0.15)} style={{ marginBottom: '3.5rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
+                    <div style={{ width: '4px', height: '32px', background: `linear-gradient(180deg, ${prog.color}, ${prog.accent})`, borderRadius: '2px' }} />
+                    <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)' }}>Kapsamındaki Programlar</h2>
+                  </div>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(210px, 1fr))', gap: '1rem' }}>
+                    {prog.subPrograms.map((subId, i) => {
+                      const sub = programs.find((p) => p.id === subId);
+                      if (!sub) return null;
+                      return (
+                        <motion.div key={subId} {...fadeUp(i * 0.07)}>
+                          <Link to={`/programlar/${subId}`} style={{ textDecoration: 'none', display: 'block' }}>
+                            <div
+                              style={{
+                                background: 'var(--white)', borderRadius: '10px',
+                                padding: '1.5rem',
+                                border: `2px solid ${prog.color}15`,
+                                borderTop: `4px solid ${sub.accent}`,
+                                boxShadow: '0 2px 16px rgba(35,46,92,0.07)',
+                                transition: 'all 0.25s',
+                                cursor: 'pointer',
+                              }}
+                              onMouseEnter={(e) => { e.currentTarget.style.borderColor = prog.color; e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = `0 8px 28px ${prog.color}20`; }}
+                              onMouseLeave={(e) => { e.currentTarget.style.borderColor = `${prog.color}15`; e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = '0 2px 16px rgba(35,46,92,0.07)'; }}
+                            >
+                              <div style={{ fontSize: '1.8rem', marginBottom: '0.6rem' }}>{sub.icon}</div>
+                              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.58rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: prog.color }}>{sub.tag}</span>
+                              <p style={{ fontFamily: 'var(--font-serif)', fontSize: '0.92rem', fontWeight: 700, color: 'var(--primary)', marginTop: '0.35rem', lineHeight: 1.35 }}>{sub.title}</p>
+                              <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.63rem', fontWeight: 700, color: 'var(--red)', marginTop: '0.75rem', letterSpacing: '0.06em' }}>Detaylar →</p>
+                            </div>
+                          </Link>
+                        </motion.div>
+                      );
+                    })}
+                  </div>
+                </motion.div>
+              )}
 
               {/* Uygulama notu */}
               <motion.div {...fadeUp(0.2)} style={{

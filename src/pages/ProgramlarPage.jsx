@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { programs, getTopLevelPrograms } from '../data/programs';
+
+const topLevel = getTopLevelPrograms();
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
@@ -8,87 +11,6 @@ const fadeUp = (delay = 0) => ({
   viewport: { once: true },
   transition: { duration: 0.65, delay },
 });
-
-const programs = [
-  {
-    id: 'bogep',
-    tag: 'BÖGEP',
-    title: 'Bütüncül Öğrenme ve Gelişim Programları',
-    subtitle: 'Akademik başarıyı sosyal ve duygusal gelişimle desteklemek',
-    color: 'var(--primary)',
-    accent: 'var(--red-light)',
-    icon: '🌐',
-    desc: 'Akademik dersleri destekleyen ve öğrencinin çok yönlü gelişimini hedefleyen yapıların bütünüdür.',
-    items: [
-      { code: 'SSP', label: 'Sosyal Sorumluluk Programı' },
-      { code: 'LLL', label: 'Yaşam Boyu Öğrenme Programı' },
-      { code: 'ODE', label: 'Okul Dışı Etkinlikler Programı' },
-      { code: 'MP', label: 'Mentörlük ve Rehberlik Programı' },
-      { code: 'TÖP', label: 'Tematik Öğrenme Programı (MH – Multidisciplinary Hub)' },
-    ],
-    goals: ['Akademik başarıyı sosyal ve duygusal gelişimle desteklemek', 'Öğrencinin bireysel potansiyelini ortaya çıkarmak', 'Okulu yaşamla bütünleştirmek'],
-    apply: 'BÖGEP kapsamındaki çalışmalar, ders saatleri içinde ve dışında; proje haftaları, kulüp saatleri, atölyeler ve okul dışı öğrenme etkinlikleriyle programa entegre edilir.',
-  },
-  {
-    id: 'otd',
-    tag: 'OTD',
-    title: 'Okuryazarlık Temelli Dersler',
-    subtitle: 'Sadece Ortaokul ve Lise',
-    color: 'var(--red)',
-    accent: 'var(--red-light)',
-    icon: '📖',
-    desc: 'Öğrencilerin bilgiyi yalnızca öğrenmesini değil; anlamasını, yorumlamasını ve kullanmasını hedefleyen derslerdir.',
-    items: [
-      { code: '01', label: 'Dil okuryazarlığı' },
-      { code: '02', label: 'Fen ve matematik okuryazarlığı' },
-      { code: '03', label: 'Tarih ve sosyal bilimler okuryazarlığı' },
-      { code: '04', label: 'Coğrafya ve zaman mekan okuryazarlığı' },
-      { code: '05', label: 'Dijital ve bilişim okuryazarlığı' },
-      { code: '06', label: 'Medya ve veri okuryazarlığı' },
-    ],
-    goals: ['PISA ve TIMSS gibi uluslararası değerlendirmelerde güçlü beceriler', 'Üst düzey düşünme ve analiz yetkinliği', 'Açık uçlu ve senaryo temelli problem çözme'],
-    apply: 'OTD, Türkçe, Matematik, Fen ve Sosyal Bilimler dersleriyle ilişkili fakat bağımsız kazanımlara sahip olarak planlanır. Dersler soru okuma, yazma, analiz ve tartışma odaklı yürütülür.',
-  },
-  {
-    id: 'top',
-    tag: 'TÖP',
-    title: 'Tematik Öğrenme Programı',
-    subtitle: 'Disiplinlerarası Bütüncül Yaklaşım',
-    color: '#7c3aed',
-    accent: '#a855f7',
-    icon: '🔭',
-    desc: 'Öğrencilerin farklı disiplinleri ortak bir tema etrafında bütüncül olarak ele almasını sağlar.',
-    items: [
-      { code: '▸', label: 'İnsan ve toplum' },
-      { code: '▸', label: 'Doğa ve sürdürülebilirlik' },
-      { code: '▸', label: 'Bilim, teknoloji ve etik' },
-      { code: '▸', label: 'Kültür, sanat ve kimlik' },
-      { code: '▸', label: 'Gelecek, yapay zekâ ve dijital dönüşüm' },
-    ],
-    goals: ['Disiplinlerarası düşünme', 'Bilgiler arasında bağ kurma', 'Derin öğrenme ve üretim'],
-    apply: 'Temalar; belirli haftalar, proje dönemleri veya yıl geneline yayılan modüller şeklinde programa entegre edilir.',
-  },
-  {
-    id: 'kvyod',
-    tag: 'KVYOD',
-    title: 'Küresel Vizyon ve Yaşam Odaklı Dersler',
-    subtitle: 'Dünyayı Bütüncül Okumak',
-    color: '#059669',
-    accent: '#10b981',
-    icon: '🌱',
-    desc: 'Öğrencilerin akademik bilgiyi yaşamla ilişkilendirmesini, dünyayı bütüncül bir bakış açısıyla okuyabilmesini amaçlayan derslerdir.',
-    items: [
-      { code: '▸', label: 'Sürdürülebilir kalkınma hedefleri (SDGs)' },
-      { code: '▸', label: 'Küresel vatandaşlık' },
-      { code: '▸', label: 'İklim, çevre ve ekoloji' },
-      { code: '▸', label: 'Dijital çağ, medya ve bilgi okuryazarlığı' },
-      { code: '▸', label: 'Toplumsal sorunlar ve çözüm odaklı düşünme' },
-      { code: '▸', label: 'Etik, değerler ve sorumluluk bilinci' },
-    ],
-    goals: ['Küresel sorunlara duyarlılık geliştirmek', 'Etik, çevresel ve toplumsal farkındalık kazanmak', 'Akademik bilgiyi gerçek yaşam bağlamında kullanmak'],
-    apply: 'KVYOD, ortaokul ve lise kademelerinde haftalık ders çizelgesine yerleştirilir; bazı kazanımlar proje, bazıları disiplinlerarası çalışmalar yoluyla ele alınır.',
-  },
-];
 
 export default function ProgramlarPage() {
   const [active, setActive] = useState(null);
@@ -116,7 +38,7 @@ export default function ProgramlarPage() {
       <section style={{ padding: '7rem 0', background: 'var(--off-white)' }}>
         <div className="section-container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(280px, 520px))', gap: '1.5rem', justifyContent: 'center' }} className="programlar-grid">
-            {programs.map((prog, i) => (
+            {topLevel.map((prog, i) => (
               <motion.div
                 key={prog.id}
                 {...fadeUp(i * 0.1)}

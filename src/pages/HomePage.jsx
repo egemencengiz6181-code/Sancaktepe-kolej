@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useModal } from '../context/ModalContext';
 import TestimonialsSection from '../components/TestimonialsSection';
+import { news } from '../data/news';
 
 // ── Spotlight card with border glow (no Tailwind) ──────────────
 function SpotlightCard({ children, glowColor = 'blue', style = {}, onClick }) {
@@ -141,6 +142,34 @@ export default function HomePage() {
           { width: 4, height: 4, top: '45%', left: '22%', background: '#fff', opacity: 0.15, dur: 10, delay: 3 },
         ].map((p, i) => <FloatingDot key={i} style={p} />)}
 
+        {/* Watermark text — full width, bottom-aligned */}
+        <div style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          pointerEvents: 'none',
+          zIndex: 0,
+          overflow: 'hidden',
+          lineHeight: 1,
+        }}>
+          <span style={{
+            display: 'block',
+            fontFamily: 'var(--font-serif)',
+            fontWeight: 700,
+            fontStyle: 'italic',
+            fontSize: 'clamp(4rem, 14vw, 14rem)',
+            whiteSpace: 'nowrap',
+            color: 'transparent',
+            WebkitTextStroke: '1px rgba(255,255,255,0.07)',
+            letterSpacing: '-0.01em',
+            userSelect: 'none',
+            paddingLeft: '1vw',
+          }}>
+            Bir okuldan fazlası
+          </span>
+        </div>
+
         <motion.div style={{ y, opacity, width: '100%', position: 'relative', zIndex: 1 }}>
           <div className="section-container">
             <div style={{ display: 'flex', alignItems: 'center', gap: '4rem' }}>
@@ -177,9 +206,15 @@ export default function HomePage() {
 
                 <motion.p
                   initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 0.7 }}
-                  style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.2rem, 2.5vw, 1.65rem)', fontWeight: 300, fontStyle: 'italic', color: 'rgba(255,255,255,0.8)', marginBottom: '1.5rem', lineHeight: 1.5 }}
+                  style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.4rem, 2.8vw, 1.9rem)', fontWeight: 600, fontStyle: 'italic', color: 'rgba(255,255,255,0.95)', marginBottom: '0.6rem', lineHeight: 1.3 }}
                 >
-                  Eğitimde başarı için yanınızdayız.
+                  Bir okuldan fazlası
+                </motion.p>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.78, duration: 0.7 }}
+                  style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1rem, 1.8vw, 1.2rem)', fontWeight: 300, fontStyle: 'italic', color: 'rgba(255,255,255,0.65)', marginBottom: '1.5rem', lineHeight: 1.6 }}
+                >
+                  Düşünen, üreten ve dünyaya değer katan bireyler yetiştiriyoruz.
                 </motion.p>
 
                 <motion.p
@@ -282,41 +317,195 @@ export default function HomePage() {
         `}</style>
       </section>
 
-      {/* QUICK FEATURES */}
-      <section style={{ padding: '6rem 0', background: 'var(--white)' }}>
+      {/* SCHOOL LEVELS */}
+      <section style={{ padding: '5rem 0', background: '#f8f9fb' }}>
         <div className="section-container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '1.5rem' }}>
-            {[
-              { icon: '🏫', title: 'Okul Öncesinden Liseye', desc: 'Anaokulu\'ndan Anadolu Lisesi\'ne tam kademe eğitim.', link: '/siniflar', glow: 'navy' },
-              { icon: '🌍', title: 'Uluslararası Akreditasyon', desc: 'TED-AD onaylı, Cambridge ve IB yaklaşımlarıyla uyumlu.', link: '/hakkimizda', glow: 'blue' },
-              { icon: '🧠', title: 'Bütüncül Programlar', desc: 'BÖGEP, OTD, TÖP ve KVYOD ile çok boyutlu gelişim.', link: '/programlar', glow: 'red' },
-              { icon: '🎯', title: 'Bireysel Mentörlük', desc: 'Her öğrencinin potansiyelini ortaya çıkaran rehberlik sistemi.', link: '/programlar', glow: 'navy' },
-            ].map((f, i) => (
-              <motion.div
-                key={f.title}
-                initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                transition={{ duration: 0.55, delay: i * 0.1 }}
-              >
-                <SpotlightCard
-                  glowColor={f.glow}
-                  onClick={() => window.location.href = f.link}
-                  style={{
-                    padding: '2rem',
-                    background: 'var(--white)',
-                    border: '1px solid var(--grey-light)',
-                    boxShadow: '0 4px 24px rgba(35,46,92,0.07)',
-                    transition: 'box-shadow 0.3s, transform 0.3s',
-                  }}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
+            style={{ textAlign: 'center', marginBottom: '3rem' }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', justifyContent: 'center', marginBottom: '0.75rem' }}>
+              <div className="red-line" />
+              <span className="section-tag">Kademeler</span>
+              <div className="red-line" />
+            </div>
+            <h2 className="section-title" style={{ textAlign: 'center' }}>Eğitim <span>Kademelerimiz</span></h2>
+          </motion.div>
+          {/* 4 uniquely styled level cards */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.25rem' }} className="level-cards-grid">
+
+            {/* Card 1 — Anaokulu: warm gradient, large emoji centered */}
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0 }}>
+              <Link to="/siniflar/okul-oncesi" style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
+                <div style={{
+                  height: '100%', minHeight: '280px',
+                  background: 'linear-gradient(145deg, #fff8ec 0%, #fff3d0 100%)',
+                  borderRadius: '20px',
+                  border: '1.5px solid #f59e0b30',
+                  padding: '2rem 1.75rem',
+                  display: 'flex', flexDirection: 'column',
+                  position: 'relative', overflow: 'hidden',
+                  transition: 'transform 0.3s, box-shadow 0.3s',
+                  boxShadow: '0 4px 24px rgba(245,158,11,0.1)',
+                }}
+                  onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-8px) rotate(-1deg)'; e.currentTarget.style.boxShadow = '0 20px 50px rgba(245,158,11,0.2)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0) rotate(0)'; e.currentTarget.style.boxShadow = '0 4px 24px rgba(245,158,11,0.1)'; }}
                 >
-                  <div style={{ fontSize: '2.2rem', marginBottom: '1rem' }}>{f.icon}</div>
-                  <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.2rem', fontWeight: 700, color: 'var(--text-dark)', marginBottom: '0.6rem' }}>{f.title}</h3>
-                  <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.88rem', color: 'var(--text-mid)', lineHeight: 1.75 }}>{f.desc}</p>
-                  <div style={{ marginTop: '1.2rem', fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--red)' }}>Keşfet →</div>
-                </SpotlightCard>
+                  <div style={{ position: 'absolute', bottom: '-20px', right: '-10px', fontSize: '7rem', opacity: 0.12, lineHeight: 1 }}>🌟</div>
+                  <div style={{ background: '#f59e0b', color: '#fff', fontFamily: 'var(--font-display)', fontSize: '0.58rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', padding: '0.25rem 0.7rem', borderRadius: '20px', display: 'inline-block', marginBottom: '1.5rem', width: 'fit-content' }}>3–6 Yaş</div>
+                  <div style={{ fontSize: '2.4rem', marginBottom: '1rem' }}>🌟</div>
+                  <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.4rem', fontWeight: 700, color: '#92400e', marginBottom: '0.6rem' }}>Anaokulu</h3>
+                  <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.83rem', color: '#a16207', lineHeight: 1.75, flexGrow: 1 }}>Oyun ve keşif odaklı erken çocukluk eğitimi.</p>
+                  <div style={{ marginTop: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.4rem', fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#f59e0b' }}>Keşfet <span>→</span></div>
+                </div>
+              </Link>
+            </motion.div>
+
+            {/* Card 2 — İlkokul: dark navy, horizontal accent line, number */}
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }}>
+              <Link to="/siniflar/ilkokul" style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
+                <div style={{
+                  height: '100%', minHeight: '280px',
+                  background: 'linear-gradient(145deg, #1a2347 0%, #232e5c 100%)',
+                  borderRadius: '20px',
+                  padding: '2rem 1.75rem',
+                  display: 'flex', flexDirection: 'column',
+                  position: 'relative', overflow: 'hidden',
+                  transition: 'transform 0.3s, box-shadow 0.3s',
+                  boxShadow: '0 4px 24px rgba(35,46,92,0.18)',
+                }}
+                  onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-8px)'; e.currentTarget.style.boxShadow = '0 20px 50px rgba(35,46,92,0.35)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 24px rgba(35,46,92,0.18)'; }}
+                >
+                  <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'linear-gradient(90deg, #e61936, #ff3352, transparent)' }} />
+                  <div style={{ position: 'absolute', bottom: '-30px', right: '-15px', fontFamily: 'var(--font-serif)', fontSize: '9rem', fontWeight: 700, color: 'rgba(255,255,255,0.04)', lineHeight: 1 }}>1–4</div>
+                  <div style={{ background: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.7)', fontFamily: 'var(--font-display)', fontSize: '0.58rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', padding: '0.25rem 0.7rem', borderRadius: '20px', display: 'inline-block', marginBottom: '1.5rem', width: 'fit-content', border: '1px solid rgba(255,255,255,0.15)' }}>1.–4. Sınıf</div>
+                  <div style={{ fontSize: '2.4rem', marginBottom: '1rem' }}>📐</div>
+                  <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.4rem', fontWeight: 700, color: '#fff', marginBottom: '0.6rem' }}>İlkokul</h3>
+                  <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.83rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.75, flexGrow: 1 }}>Sağlam akademik temeller ve güçlü beceriler.</p>
+                  <div style={{ marginTop: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.4rem', fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#e61936' }}>Keşfet <span>→</span></div>
+                </div>
+              </Link>
+            </motion.div>
+
+            {/* Card 3 — Ortaokul: white with red left border + tag cloud */}
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}>
+              <Link to="/siniflar/ortaokul" style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
+                <div style={{
+                  height: '100%', minHeight: '280px',
+                  background: '#fff',
+                  borderRadius: '20px',
+                  borderLeft: '4px solid #e61936',
+                  border: '1.5px solid #f0e0e4',
+                  borderLeftWidth: '4px',
+                  padding: '2rem 1.75rem',
+                  display: 'flex', flexDirection: 'column',
+                  position: 'relative', overflow: 'hidden',
+                  transition: 'transform 0.3s, box-shadow 0.3s',
+                  boxShadow: '0 4px 24px rgba(230,25,54,0.07)',
+                }}
+                  onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-8px) rotate(1deg)'; e.currentTarget.style.boxShadow = '0 20px 50px rgba(230,25,54,0.15)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0) rotate(0)'; e.currentTarget.style.boxShadow = '0 4px 24px rgba(230,25,54,0.07)'; }}
+                >
+                  <div style={{ fontSize: '2.4rem', marginBottom: '1rem' }}>🔬</div>
+                  <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.4rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.5rem' }}>Ortaokul</h3>
+                  <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.83rem', color: 'var(--text-mid)', lineHeight: 1.75, flexGrow: 1 }}>Düşünen, sorgulayan ve dünyayı okuyan öğrenciler.</p>
+                  <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
+                    {['UbD', 'LGS', 'PISA', 'Mentörlük'].map((t) => (
+                      <span key={t} style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', background: '#fff0f2', color: '#e61936', border: '1px solid #fdd', padding: '0.2rem 0.55rem', borderRadius: '3px' }}>{t}</span>
+                    ))}
+                  </div>
+                  <div style={{ marginTop: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.4rem', fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#e61936' }}>Keşfet <span>→</span></div>
+                </div>
+              </Link>
+            </motion.div>
+
+            {/* Card 4 — Lise: full-bleed dark with diagonal accent */}
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }}>
+              <Link to="/siniflar/anadolu-lisesi" style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
+                <div style={{
+                  height: '100%', minHeight: '280px',
+                  background: 'linear-gradient(145deg, #0f172a 0%, #1e2e50 60%, #1a2347 100%)',
+                  borderRadius: '20px',
+                  padding: '2rem 1.75rem',
+                  display: 'flex', flexDirection: 'column',
+                  position: 'relative', overflow: 'hidden',
+                  transition: 'transform 0.3s, box-shadow 0.3s',
+                  boxShadow: '0 4px 24px rgba(15,23,42,0.3)',
+                }}
+                  onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-8px)'; e.currentTarget.style.boxShadow = '0 24px 56px rgba(15,23,42,0.5)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 24px rgba(15,23,42,0.3)'; }}
+                >
+                  {/* Diagonal gold line */}
+                  <div style={{ position: 'absolute', top: '30%', right: '-40px', width: '180px', height: '1.5px', background: 'linear-gradient(90deg, transparent, rgba(249,207,25,0.35))', transform: 'rotate(-40deg)', pointerEvents: 'none' }} />
+                  <div style={{ position: 'absolute', top: '45%', right: '-20px', width: '140px', height: '1px', background: 'linear-gradient(90deg, transparent, rgba(249,207,25,0.15))', transform: 'rotate(-40deg)', pointerEvents: 'none' }} />
+                  <div style={{ background: '#f9cf19', color: '#0f172a', fontFamily: 'var(--font-display)', fontSize: '0.58rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', padding: '0.25rem 0.7rem', borderRadius: '20px', display: 'inline-block', marginBottom: '1.5rem', width: 'fit-content' }}>9.–12. Sınıf</div>
+                  <div style={{ fontSize: '2.4rem', marginBottom: '1rem' }}>🎓</div>
+                  <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.4rem', fontWeight: 700, color: '#fff', marginBottom: '0.6rem' }}>Anadolu Lisesi</h3>
+                  <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.83rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.75, flexGrow: 1 }}>Geleceğe hazırlayan uluslararası standartlarda lise eğitimi.</p>
+                  <div style={{ marginTop: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.4rem', fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#f9cf19' }}>Keşfet <span>→</span></div>
+                </div>
+              </Link>
+            </motion.div>
+          </div>
+
+          <style>{`
+            @media (max-width: 900px) { .level-cards-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+            @media (max-width: 540px) { .level-cards-grid { grid-template-columns: 1fr !important; } }
+          `}</style>
+        </div>
+      </section>
+
+      {/* NEDEN KOLEJ SANCAKTEPE — Home */}
+      <section style={{ padding: '6rem 0', background: 'linear-gradient(180deg, #f8f9fb 0%, #fff 100%)' }}>
+        <div className="section-container">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', justifyContent: 'center', marginBottom: '0.75rem' }}>
+              <div className="red-line" />
+              <span className="section-tag">Fark Yaratan Unsurlar</span>
+              <div className="red-line" />
+            </div>
+            <h2 className="section-title" style={{ textAlign: 'center' }}>Neden Kolej <span>Sancaktepe?</span></h2>
+          </motion.div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }} className="neden-home-grid">
+            {[
+              { icon: '🎓', title: 'BÖGEP', sub: 'Bütüncül Öğrenme ve Gelişim Programları', desc: 'Akademik, sosyal, duygusal ve fiziksel gelişimi tek çatı altında birleştiriyor.' },
+              { icon: '🌍', title: 'KVYOD', sub: 'Küresel Vizyon ve Yaşam Odaklı Dersler', desc: 'Öğrencileri dünyaya hazırlayan yaşam becerileri ve küresel bakış açısı.' },
+              { icon: '📖', title: 'OYP', sub: 'Okuryazar Temelli Eğitim', desc: 'Okuduğunu anlayan, eleştirel düşünen, iletişim kurabilen bireyler.' },
+              { icon: '🔬', title: 'UD', sub: 'Uygulamalı Dersler ve Branşlaşma', desc: 'Teoriden pratiğe, güçlü olduğun alanda derinleşme imkânı.' },
+              { icon: '💭', title: 'P4C', sub: 'Çocuklarla Felsefe', desc: 'Küçük yaştan sorgulama ve merak — erken felsefi düşünme.' },
+              { icon: '🗣️', title: 'Çift Dilli Eğitim', sub: 'İngilizce + Almanca', desc: 'Anaokulu\'ndan 6. Sınıfa kadar iki dilli akademik ortam.' },
+              { icon: '🏆', title: 'AP Programı', sub: '11–12. Sınıf', desc: 'Uluslararası üniversite başvurularında güçlü avantaj.' },
+              { icon: '🌐', title: 'Dünya Vatandaşlığı', sub: 'Evrensel Perspektif', desc: 'Küresel sorunlara duyarlı, farklılıklara saygılı bireyler.' },
+              { icon: '🧑‍🏫', title: 'Bireysel Mentörlük', sub: 'Kişisel Gelişim', desc: 'Her öğrencinin yanında, hedefine ulaşmasını sağlayan mentor.' },
+            ].map((item, i) => (
+              <motion.div key={item.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.05 }}>
+                <div style={{
+                  background: 'var(--white)', borderRadius: '12px',
+                  border: '1px solid var(--grey-light)',
+                  padding: '1.5rem 1.25rem',
+                  boxShadow: '0 2px 12px rgba(35,46,92,0.04)',
+                  display: 'flex', gap: '1rem', alignItems: 'flex-start',
+                  transition: 'transform 0.2s, border-color 0.2s, box-shadow 0.2s',
+                }}
+                  onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.borderColor = 'var(--red)'; e.currentTarget.style.boxShadow = '0 8px 28px rgba(35,46,92,0.09)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = 'var(--grey-light)'; e.currentTarget.style.boxShadow = '0 2px 12px rgba(35,46,92,0.04)'; }}
+                >
+                  <span style={{ fontSize: '1.8rem', flexShrink: 0 }}>{item.icon}</span>
+                  <div>
+                    <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 900, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--red)', marginBottom: '0.2rem' }}>{item.title}</div>
+                    <p style={{ fontFamily: 'var(--font-serif)', fontSize: '0.85rem', fontWeight: 600, color: 'var(--primary)', marginBottom: '0.35rem', lineHeight: 1.35 }}>{item.sub}</p>
+                    <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.78rem', color: 'var(--text-mid)', lineHeight: 1.7 }}>{item.desc}</p>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
+        <style>{`
+          @media (max-width: 900px) { .neden-home-grid { grid-template-columns: repeat(2,1fr) !important; } }
+          @media (max-width: 540px) { .neden-home-grid { grid-template-columns: 1fr !important; } }
+        `}</style>
       </section>
 
       {/* HABERLER */}
@@ -331,7 +520,18 @@ export default function HomePage() {
               <span className="section-tag">Güncel</span>
               <div className="red-line" />
             </div>
-            <h2 className="section-title">Okul <span>Haberlerimiz</span></h2>
+            <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
+              <h2 className="section-title">Okul <span>Haberlerimiz</span></h2>
+              <Link to="/haberler" style={{
+                textDecoration: 'none', fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800,
+                letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--red)',
+                display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
+                padding: '0.5rem 0', borderBottom: '2px solid var(--red)',
+                transition: 'opacity 0.2s',
+              }}>
+                Tüm Haberler →
+              </Link>
+            </div>
           </motion.div>
         </div>
 
@@ -347,52 +547,9 @@ export default function HomePage() {
               paddingBottom: '1rem',
             }}
           >
-            {[
-              {
-                img: 'https://images.unsplash.com/photo-1588072432836-e10032774350?w=600&q=80',
-                tag: 'Akademi',
-                title: 'UbD Modeli ile Öğrenciler Gerçek Hayat Problemlerini Çözüyor',
-                date: '6 Haziran 2026',
-                desc: 'Anlam merkezli tasarım yaklaşımıyla yürütülen proje dersleri, öğrencilerin analitik düşünce becerilerini hızla geliştiriyor.',
-              },
-              {
-                img: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80',
-                tag: 'Etkinlik',
-                title: 'Bilim Fuarında Kolej Sancaktepe Öğrencilerinden 3 Birincilik',
-                date: '28 Mayıs 2026',
-                desc: 'Bu yılki bölge bilim olimpiyatında öğrencilerimiz enerji, biyoloji ve matematik kategorilerinde birincilik ödülü aldı.',
-              },
-              {
-                img: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&q=80',
-                tag: 'Kültür',
-                title: 'Geleneksel Türk Sanatları Atölyeleri Yeniden Başladı',
-                date: '20 Mayıs 2026',
-                desc: 'Hat, ebru ve Türk müziği atölyelerimiz, kültürel kimliği sanat yoluyla yaşatmayı hedefliyor.',
-              },
-              {
-                img: 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&q=80',
-                tag: 'Spor',
-                title: 'Futbol Takımımız İstanbul Genelinde Finale Yükseldi',
-                date: '14 Mayıs 2026',
-                desc: "Kolej Sancaktepe futbol takımı, İstanbul Okul Sporları Ligi'nde finallere kalmayı başaran ilk lisemiz oldu.",
-              },
-              {
-                img: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=80',
-                tag: 'Akreditasyon',
-                title: 'TED-AD Denetim Heyeti Okulumuzda İncelemelerde Bulundu',
-                date: '5 Mayıs 2026',
-                desc: 'Yıllık akreditasyon denetiminde okulumuz tüm kriterlerden tam puan aldı ve uluslararası standartlarda güçlenmeye devam etti.',
-              },
-              {
-                img: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=600&q=80',
-                tag: 'Kariyer',
-                title: "Mezunlarımız Üniversite Sınavlarında Türkiye Genelinde İlk 1000'de",
-                date: '25 Nisan 2026',
-                desc: 'Bu yılki mezun sınıfımızdan 12 öğrenci, ülke genelinde ilk 1000 dereceye girmeyi başardı.',
-              },
-            ].map((item, i) => (
+            {news.map((item, i) => (
               <motion.div
-                key={i}
+                key={item.slug}
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
@@ -409,28 +566,30 @@ export default function HomePage() {
                 }}
                 whileHover={{ y: -6, boxShadow: '0 16px 40px rgba(35,46,92,0.13)' }}
               >
-                <div style={{ height: '180px', overflow: 'hidden', position: 'relative' }}>
-                  <img
-                    src={item.img}
-                    alt={item.title}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.5s' }}
-                    onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.06)')}
-                    onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
-                  />
-                  <div style={{
-                    position: 'absolute', top: '0.75rem', left: '0.75rem',
-                    background: 'var(--red)', color: '#fff',
-                    fontFamily: 'var(--font-display)', fontSize: '0.58rem', fontWeight: 900,
-                    letterSpacing: '0.18em', textTransform: 'uppercase',
-                    padding: '0.25rem 0.6rem', borderRadius: '3px',
-                  }}>{item.tag}</div>
-                </div>
-                <div style={{ padding: '1.25rem' }}>
-                  <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 700, color: 'var(--grey)', letterSpacing: '0.08em', marginBottom: '0.5rem' }}>{item.date}</div>
-                  <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1rem', fontWeight: 700, color: 'var(--text-dark)', lineHeight: 1.4, marginBottom: '0.6rem' }}>{item.title}</h3>
-                  <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.8rem', color: 'var(--text-mid)', lineHeight: 1.7 }}>{item.desc}</p>
-                  <div style={{ marginTop: '1rem', fontFamily: 'var(--font-display)', fontSize: '0.63rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--red)' }}>Devamını Oku →</div>
-                </div>
+                <Link to={`/haberler/${item.slug}`} style={{ textDecoration: 'none', display: 'block' }}>
+                  <div style={{ height: '180px', overflow: 'hidden', position: 'relative' }}>
+                    <img
+                      src={item.imgThumb}
+                      alt={item.title}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.5s' }}
+                      onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.06)')}
+                      onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+                    />
+                    <div style={{
+                      position: 'absolute', top: '0.75rem', left: '0.75rem',
+                      background: 'var(--red)', color: '#fff',
+                      fontFamily: 'var(--font-display)', fontSize: '0.58rem', fontWeight: 900,
+                      letterSpacing: '0.18em', textTransform: 'uppercase',
+                      padding: '0.25rem 0.6rem', borderRadius: '3px',
+                    }}>{item.tag}</div>
+                  </div>
+                  <div style={{ padding: '1.25rem' }}>
+                    <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 700, color: 'var(--grey)', letterSpacing: '0.08em', marginBottom: '0.5rem' }}>{item.date}</div>
+                    <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1rem', fontWeight: 700, color: 'var(--text-dark)', lineHeight: 1.4, marginBottom: '0.6rem' }}>{item.title}</h3>
+                    <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.8rem', color: 'var(--text-mid)', lineHeight: 1.7 }}>{item.desc}</p>
+                    <div style={{ marginTop: '1rem', fontFamily: 'var(--font-display)', fontSize: '0.63rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--red)' }}>Devamını Oku →</div>
+                  </div>
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -450,6 +609,65 @@ export default function HomePage() {
 
       {/* TESTIMONIALS */}
       <TestimonialsSection />
+
+      {/* KAMPÜS YAŞAMI */}
+      <section style={{ padding: '6rem 0', background: 'var(--white)', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: 0, right: 0, width: '40%', height: '100%', background: 'linear-gradient(135deg, #f8f9fb 0%, #eef0f8 100%)', borderRadius: '0 0 0 60%', pointerEvents: 'none' }} />
+        <div className="section-container" style={{ position: 'relative', zIndex: 1 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'center' }} className="kampus-grid">
+            {/* Left — text */}
+            <div>
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.75rem' }}>
+                  <div className="red-line" />
+                  <span className="section-tag">Okul Hayatı</span>
+                </div>
+                <h2 className="section-title" style={{ marginBottom: '1.5rem' }}>Kampüs <span>Yaşamı</span></h2>
+                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.98rem', color: 'var(--text-mid)', lineHeight: 1.9, marginBottom: '2.5rem', maxWidth: '460px' }}>
+                  Kolej Sancaktepe'de öğrenim yalnızca sınıfla sınırlı değil. Spor, sanat, kulüpler ve modern laboratuvarlarla desteklenen zengin kampüs yaşamı, her öğrencinin potansiyelini farklı alanlarda keşfetmesini sağlar.
+                </p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                  {[
+                    { icon: '⚽', label: 'Spor', desc: 'Futbol, basketbol, yüzme, atletizm ve daha fazlası' },
+                    { icon: '🎨', label: 'Sanat', desc: 'Görsel sanatlar, müzik, drama ve geleneksel Türk sanatları atölyeleri' },
+                    { icon: '🏛', label: 'Kulüpler', desc: '20\'den fazla öğrenci kulübü ile ilgi alanına göre gelişim' },
+                    { icon: '🔬', label: 'Laboratuvarlar', desc: 'Fen, teknoloji ve kodlama laboratuvarları' },
+                    { icon: '📚', label: 'Kütüphane', desc: 'Geniş kaynak koleksiyonu ve sessiz çalışma alanları' },
+                  ].map((item) => (
+                    <div key={item.label} style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start', padding: '1rem 1.25rem', background: 'var(--off-white)', borderRadius: '10px', border: '1px solid var(--grey-light)', transition: 'border-color 0.2s, transform 0.2s' }}
+                      onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--red)'; e.currentTarget.style.transform = 'translateX(6px)'; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--grey-light)'; e.currentTarget.style.transform = 'translateX(0)'; }}
+                    >
+                      <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>{item.icon}</span>
+                      <div>
+                        <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.72rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.2rem' }}>{item.label}</div>
+                        <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.82rem', color: 'var(--text-mid)', lineHeight: 1.65 }}>{item.desc}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Right — visual grid */}
+            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.2 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '220px 160px', gap: '1rem' }}>
+                <div style={{ gridRow: '1 / 3', borderRadius: '14px', overflow: 'hidden', boxShadow: '0 12px 40px rgba(35,46,92,0.12)' }}>
+                  <img src="/gallery/IMG_0835.jpeg" alt="Kampüs" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.5s' }} onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')} onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')} />
+                </div>
+                <div style={{ borderRadius: '14px', overflow: 'hidden', boxShadow: '0 8px 28px rgba(35,46,92,0.1)' }}>
+                  <img src="/gallery/okul-oncesi-1.webp" alt="Spor" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.5s' }} onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')} onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')} />
+                </div>
+                <div style={{ borderRadius: '14px', overflow: 'hidden', background: 'linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '1.5rem', boxShadow: '0 8px 28px rgba(35,46,92,0.18)' }}>
+                  <div style={{ fontFamily: 'var(--font-serif)', fontSize: '2.5rem', fontWeight: 700, color: '#fff', lineHeight: 1 }}>20+</div>
+                  <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)', marginTop: '0.4rem', textAlign: 'center' }}>Öğrenci Kulübü</div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+        <style>{`@media (max-width: 860px) { .kampus-grid { grid-template-columns: 1fr !important; } }`}</style>
+      </section>
 
       {/* CTA BAND */}
       <section style={{

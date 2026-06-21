@@ -33,6 +33,61 @@ export default function HakkimizdaPage() {
         </div>
       </div>
 
+      {/* NEDEN KOLEJ SANCAKTEPE */}
+      <section style={{ padding: '7rem 0', background: 'var(--off-white)', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, var(--red), var(--primary), transparent)' }} />
+        <div className="section-container">
+          <motion.div {...fadeUp(0)} style={{ textAlign: 'center', marginBottom: '4rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', justifyContent: 'center', marginBottom: '0.75rem' }}>
+              <div className="red-line" />
+              <span className="section-tag">Fark Yaratan Unsurlar</span>
+              <div className="red-line" />
+            </div>
+            <h2 className="section-title" style={{ textAlign: 'center' }}>Neden Kolej <span>Sancaktepe?</span></h2>
+            <p style={{ fontFamily: 'var(--font-sans)', fontSize: '1rem', color: 'var(--text-mid)', maxWidth: '560px', margin: '1rem auto 0', lineHeight: 1.85 }}>
+              Standart eğitimin ötesine geçen, bütüncül ve uluslararası bir yaklaşım.
+            </p>
+          </motion.div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.25rem' }} className="neden-grid">
+            {[
+              { icon: '🎓', title: 'BÖGEP', sub: 'Bütüncül Öğrenme ve Gelişim Programları', desc: 'Akademik, sosyal, duygusal ve fiziksel gelişimi tek çatı altında birleştiren kapsamlı program.' },
+              { icon: '🌍', title: 'KVYOD', sub: 'Küresel Vizyon ve Yaşam Odaklı Dersler', desc: 'Öğrencileri dünyaya hazırlayan, yaşam becerileri ve küresel bakış açısı kazandıran dersler.' },
+              { icon: '📖', title: 'OYP', sub: 'Okuryazar Temelli Eğitim', desc: 'Okuduğunu anlayan, eleştirel düşünen ve iletişim kurabilen bireyler yetiştirme odaklı program.' },
+              { icon: '🔬', title: 'UD', sub: 'Uygulamalı Dersler ve Branşlaşma Modeli', desc: 'Teorik bilgiyi pratiğe dönüştüren, öğrencinin güçlü olduğu alanda derinleşmesini sağlayan model.' },
+              { icon: '💭', title: 'P4C', sub: 'Anaokulu — Çocuklarla Felsefe', desc: 'Küçük yaştan itibaren sorgulama, merak ve felsefi düşünmeyi teşvik eden özel program.' },
+              { icon: '🗣️', title: 'Çift Dilli Eğitim', sub: 'Anaokulu\'ndan 6. Sınıfa', desc: 'Fen ve Matematik derslerinin 1 saatinin İngilizce işlenmesiyle erken çift dil temeli.' },
+              { icon: '🇩🇪', title: 'Almanca', sub: 'İkinci Yabancı Dil', desc: 'Tüm kademelerde Almanca ikinci yabancı dil olarak sunulur; Avrupa bağlantısı güçlenir.' },
+              { icon: '🏆', title: 'AP Programı', sub: '11–12. Sınıf', desc: 'Advanced Placement dersleriyle uluslararası üniversitelere başvuruda güçlü bir avantaj.' },
+              { icon: '🌐', title: 'Dünya Vatandaşlığı', sub: 'Evrensel Perspektif', desc: 'Kültürel farklılıklara saygılı, küresel sorunlara duyarlı ve dünya ile bağlantılı bireyler.' },
+            ].map((item, i) => (
+              <motion.div key={item.title} {...fadeUp(i * 0.06)}>
+                <div style={{
+                  background: 'var(--white)', borderRadius: '14px',
+                  border: '1px solid var(--grey-light)',
+                  padding: '1.75rem 1.5rem',
+                  boxShadow: '0 2px 16px rgba(35,46,92,0.05)',
+                  transition: 'transform 0.25s, box-shadow 0.25s, border-color 0.25s',
+                  height: '100%',
+                }}
+                  onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 12px 36px rgba(35,46,92,0.1)'; e.currentTarget.style.borderColor = 'var(--red)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 2px 16px rgba(35,46,92,0.05)'; e.currentTarget.style.borderColor = 'var(--grey-light)'; }}
+                >
+                  <div style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>{item.icon}</div>
+                  <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.72rem', fontWeight: 900, letterSpacing: '0.08em', color: 'var(--red)', marginBottom: '0.3rem' }}>{item.title}</div>
+                  <p style={{ fontFamily: 'var(--font-serif)', fontSize: '0.88rem', fontWeight: 600, color: 'var(--primary)', marginBottom: '0.6rem', lineHeight: 1.4 }}>{item.sub}</p>
+                  <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.8rem', color: 'var(--text-mid)', lineHeight: 1.75 }}>{item.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+        <style>{`
+          @media (max-width: 900px) { .neden-grid { grid-template-columns: repeat(2,1fr) !important; } }
+          @media (max-width: 540px) { .neden-grid { grid-template-columns: 1fr !important; } }
+        `}</style>
+      </section>
+
       {/* TED-AD Tanıtım */}
       <section style={{ padding: '7rem 0', background: 'var(--white)' }}>
         <div className="section-container">
