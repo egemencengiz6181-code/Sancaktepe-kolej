@@ -79,7 +79,7 @@ export default function KampusPage() {
         }} />
 
         <motion.div
-          style={{ position: 'relative', zIndex: 2, opacity: heroOpacity }}
+          style={{ position: 'relative', zIndex: 2, opacity: heroOpacity, paddingTop: 'clamp(80px, 14vh, 110px)', paddingBottom: 'clamp(40px, 6vh, 60px)' }}
           className="section-container"
         >
           <motion.div

@@ -170,7 +170,7 @@ export default function HomePage() {
           </span>
         </div>
 
-        <motion.div style={{ y, opacity, width: '100%', position: 'relative', zIndex: 1 }}>
+        <motion.div style={{ y, opacity, width: '100%', position: 'relative', zIndex: 1, paddingTop: 'clamp(80px, 14vh, 120px)', paddingBottom: 'clamp(40px, 8vh, 80px)' }}>
           <div className="section-container">
             <div style={{ display: 'flex', alignItems: 'center', gap: '4rem' }}>
               {/* Left — text */}

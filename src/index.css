@@ -111,7 +111,7 @@ body {
 
 .page-hero {
   background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 55%, var(--primary-light) 100%);
-  padding: 7rem 0 4.5rem;
+  padding: clamp(6rem, 14vh, 8rem) 0 4.5rem;
   position: relative;
   overflow: hidden;
 }
