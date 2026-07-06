@@ -1,143 +1,172 @@
-import { useState, useRef, forwardRef, useCallback } from 'react';
-import HTMLFlipBook from 'react-pageflip';
+import { useState, useCallback, useRef } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
+import { motion, AnimatePresence } from 'framer-motion';
 import 'react-pdf/dist/Page/AnnotationLayer.css';
 import 'react-pdf/dist/Page/TextLayer.css';
 
-pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+// Serve worker from public folder — most reliable approach for Vite
+pdfjs.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.mjs';
 
-// Forward-ref wrapper so react-pageflip can manage page elements
-const PdfPageSlide = forwardRef(function PdfPageSlide({ pageNumber, width, height }, ref) {
-  return (
-    <div ref={ref} style={{ background: '#fff', overflow: 'hidden', width, height }}>
-      <Page
-        pageNumber={pageNumber}
-        width={width}
-        height={height}
-        renderAnnotationLayer={false}
-        renderTextLayer={false}
-      />
-    </div>
-  );
-});
+const PAGE_W = 400;
+const PAGE_H = Math.round(PAGE_W * 1.414); // A4 ratio
+
+// Flip animation — 3D rotateY
+const flipVariants = {
+  enterRight:  { rotateY: 90,  opacity: 0, filter: 'brightness(0.4)' },
+  enterLeft:   { rotateY: -90, opacity: 0, filter: 'brightness(0.4)' },
+  visible:     { rotateY: 0,   opacity: 1, filter: 'brightness(1)' },
+  exitRight:   { rotateY: -90, opacity: 0, filter: 'brightness(0.4)' },
+  exitLeft:    { rotateY: 90,  opacity: 0, filter: 'brightness(0.4)' },
+};
+
+// Spread: show even/odd pages as facing pages (left + right)
+function getSpreadStart(page, numPages) {
+  // page 1 is cover (right only), then page 2-3, 4-5, …
+  if (page <= 1) return 1;
+  return page % 2 === 0 ? page : page - 1;
+}
 
 export default function PdfFlipBook({ url = '/web%20genel%20dergi.pdf' }) {
   const [numPages, setNumPages] = useState(null);
-  const [currentPage, setCurrentPage] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
-  const bookRef = useRef(null);
+  const [spreadStart, setSpreadStart] = useState(1); // first page of current spread
+  const [direction, setDirection] = useState(1);     // 1=forward, -1=backward
+  const [loadError, setLoadError] = useState(false);
+  const [loadedPages, setLoadedPages] = useState({});
+  const containerRef = useRef(null);
 
-  const onDocumentLoad = useCallback(({ numPages }) => {
-    setNumPages(numPages);
-    setIsLoading(false);
-  }, []);
+  const onDocLoad = useCallback(({ numPages }) => setNumPages(numPages), []);
+  const onDocError = useCallback(() => setLoadError(true), []);
 
-  const onFlip = useCallback((e) => {
-    setCurrentPage(e.data);
-  }, []);
+  // Spread pages: cover is alone, others in pairs
+  const isCover    = spreadStart === 1;
+  const leftPage   = isCover ? null : spreadStart;
+  const rightPage  = isCover ? 1 : (spreadStart + 1 <= numPages ? spreadStart + 1 : null);
 
-  const prevPage = () => bookRef.current?.pageFlip().flipPrev();
-  const nextPage = () => bookRef.current?.pageFlip().flipNext();
+  const canGoNext = numPages && spreadStart < numPages - (isCover ? 0 : 1);
+  const canGoPrev = spreadStart > 1;
 
-  // Responsive width: fit inside container
-  const PAGE_W = 420;
-  const PAGE_H = Math.round(PAGE_W * 1.414); // A4 ratio
+  const goNext = () => {
+    if (!canGoNext) return;
+    setDirection(1);
+    setSpreadStart(isCover ? 2 : spreadStart + 2);
+  };
+  const goPrev = () => {
+    if (!canGoPrev) return;
+    setDirection(-1);
+    setSpreadStart(spreadStart <= 2 ? 1 : spreadStart - 2);
+  };
+
+  const navBtnStyle = (disabled) => ({
+    width: '46px', height: '46px', borderRadius: '50%',
+    border: `1px solid ${disabled ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.3)'}`,
+    background: disabled ? 'rgba(255,255,255,0.03)' : 'rgba(255,255,255,0.1)',
+    color: disabled ? 'rgba(255,255,255,0.2)' : '#fff',
+    fontSize: '1.5rem', cursor: disabled ? 'default' : 'pointer',
+    display: 'flex', alignItems: 'center', justifyContent: 'center',
+    transition: 'background 0.2s',
+    flexShrink: 0,
+  });
+
+  // Page number display
+  const currentPageNum = isCover ? 1 : spreadStart;
+  const totalLabel     = numPages ? `${currentPageNum}${!isCover && rightPage ? `–${rightPage}` : ''} / ${numPages}` : '…';
+
+  const spreadKey = `spread-${spreadStart}`;
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
-      {isLoading && (
-        <div style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-display)', fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', padding: '4rem 0' }}>
-          Dergi Yükleniyor...
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.75rem', userSelect: 'none' }}>
+      {loadError && (
+        <div style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-sans)', fontSize: '0.9rem', textAlign: 'center', padding: '3rem 1rem' }}>
+          PDF yüklenemedi.{' '}
+          <a href={url} style={{ color: 'var(--red)', textDecoration: 'underline' }}>Buradan indirebilirsiniz.</a>
         </div>
       )}
 
-      <Document
-        file={url}
-        onLoadSuccess={onDocumentLoad}
-        onLoadError={() => setIsLoading(false)}
-        loading={null}
-      >
-        {numPages && (
-          <>
-            <div style={{ position: 'relative' }} className="flipbook-wrap">
-              <HTMLFlipBook
-                ref={bookRef}
-                width={PAGE_W}
-                height={PAGE_H}
-                size="fixed"
-                minWidth={280}
-                maxWidth={PAGE_W}
-                minHeight={400}
-                maxHeight={PAGE_H}
-                showCover={true}
-                mobileScrollSupport={true}
-                onFlip={onFlip}
-                className="flipbook"
-                style={{ boxShadow: '0 30px 80px rgba(0,0,0,0.6)', borderRadius: '4px' }}
-                startPage={0}
-                drawShadow={true}
-                flippingTime={700}
-                usePortrait={false}
-                startZIndex={20}
-                autoSize={false}
-                maxShadowOpacity={0.5}
-                showPageCorners={true}
-                disableFlipByClick={false}
-              >
-                {Array.from({ length: numPages }, (_, i) => (
-                  <PdfPageSlide key={i} pageNumber={i + 1} width={PAGE_W} height={PAGE_H} />
-                ))}
-              </HTMLFlipBook>
+      {!loadError && (
+        <Document
+          file={url}
+          onLoadSuccess={onDocLoad}
+          onLoadError={onDocError}
+          loading={
+            <div style={{ color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-display)', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', padding: '5rem 2rem', textAlign: 'center' }}>
+              Yükleniyor…
             </div>
+          }
+        >
+          {numPages && (
+            <>
+              {/* Book block */}
+              <div ref={containerRef} style={{ position: 'relative' }}>
+                {/* Book shadow/spine glow */}
+                <div style={{ position: 'absolute', bottom: '-20px', left: '50%', transform: 'translateX(-50%)', width: '80%', height: '20px', background: 'rgba(0,0,0,0.4)', filter: 'blur(12px)', borderRadius: '50%', zIndex: 0 }} />
 
-            {/* Controls */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-              <button
-                onClick={prevPage}
-                style={{
-                  width: '44px', height: '44px', borderRadius: '50%',
-                  border: '1px solid rgba(255,255,255,0.25)',
-                  background: 'rgba(255,255,255,0.08)',
-                  color: '#fff', fontSize: '1.4rem', cursor: 'pointer',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  transition: 'background 0.2s',
-                }}
-                onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--red)'; e.currentTarget.style.borderColor = 'var(--red)'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)'; }}
-              >‹</button>
+                <AnimatePresence mode="wait" custom={direction}>
+                  <motion.div
+                    key={spreadKey}
+                    custom={direction}
+                    initial={direction > 0 ? 'enterRight' : 'enterLeft'}
+                    animate="visible"
+                    exit={direction > 0 ? 'exitRight' : 'exitLeft'}
+                    variants={flipVariants}
+                    transition={{ duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
+                    style={{ perspective: '2000px', display: 'flex', gap: 0, position: 'relative', zIndex: 1 }}
+                  >
+                    {/* Left page */}
+                    {leftPage ? (
+                      <div style={{ boxShadow: 'inset -4px 0 12px rgba(0,0,0,0.25), 0 4px 30px rgba(0,0,0,0.5)', borderRadius: '4px 0 0 4px', overflow: 'hidden', background: '#fff' }}>
+                        <Page pageNumber={leftPage} width={PAGE_W} renderAnnotationLayer={false} renderTextLayer={false} />
+                      </div>
+                    ) : null}
 
-              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 800, letterSpacing: '0.15em', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', minWidth: '80px', textAlign: 'center' }}>
-                {currentPage + 1} / {numPages}
-              </span>
+                    {/* Right page / cover */}
+                    {rightPage ? (
+                      <div style={{ boxShadow: leftPage ? 'inset 4px 0 12px rgba(0,0,0,0.15), 0 4px 30px rgba(0,0,0,0.5)' : '0 8px 50px rgba(0,0,0,0.6)', borderRadius: leftPage ? '0 4px 4px 0' : '4px', overflow: 'hidden', background: '#fff' }}>
+                        <Page pageNumber={rightPage} width={PAGE_W} renderAnnotationLayer={false} renderTextLayer={false} />
+                      </div>
+                    ) : null}
+                  </motion.div>
+                </AnimatePresence>
+              </div>
 
-              <button
-                onClick={nextPage}
-                style={{
-                  width: '44px', height: '44px', borderRadius: '50%',
-                  border: '1px solid rgba(255,255,255,0.25)',
-                  background: 'rgba(255,255,255,0.08)',
-                  color: '#fff', fontSize: '1.4rem', cursor: 'pointer',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  transition: 'background 0.2s',
-                }}
-                onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--primary)'; e.currentTarget.style.borderColor = 'var(--primary)'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)'; }}
-              >›</button>
-            </div>
+              {/* Navigation */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+                <button
+                  onClick={goPrev}
+                  disabled={!canGoPrev}
+                  style={navBtnStyle(!canGoPrev)}
+                  onMouseEnter={(e) => { if (canGoPrev) e.currentTarget.style.background = 'var(--red)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.background = canGoPrev ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.03)'; }}
+                >‹</button>
 
-            <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.75rem', color: 'rgba(255,255,255,0.3)', textAlign: 'center' }}>
-              Sayfaları çevirmek için tıklayın veya köşeyi sürükleyin
-            </p>
-          </>
-        )}
-      </Document>
+                <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.14em', color: 'rgba(255,255,255,0.45)', textTransform: 'uppercase', minWidth: '90px', textAlign: 'center' }}>
+                  {totalLabel}
+                </span>
+
+                <button
+                  onClick={goNext}
+                  disabled={!canGoNext}
+                  style={navBtnStyle(!canGoNext)}
+                  onMouseEnter={(e) => { if (canGoNext) e.currentTarget.style.background = 'var(--primary)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.background = canGoNext ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.03)'; }}
+                >›</button>
+              </div>
+
+              <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.75rem', color: 'rgba(255,255,255,0.25)', textAlign: 'center', margin: 0 }}>
+                Sayfaları ilerletmek için okları kullanın
+              </p>
+            </>
+          )}
+        </Document>
+      )}
 
       <style>{`
-        .flipbook-wrap .flipbook { margin: 0 auto; }
-        @media (max-width: 500px) {
-          .flipbook-wrap .stf__wrapper { transform: scale(0.7); transform-origin: top center; }
+        @media (max-width: 920px) {
+          .flipbook-spread > div { display: none !important; }
+          .flipbook-spread > div:last-child { display: block !important; border-radius: 4px !important; box-shadow: 0 8px 40px rgba(0,0,0,0.6) !important; }
         }
       `}</style>
     </div>
   );
 }
+
+
