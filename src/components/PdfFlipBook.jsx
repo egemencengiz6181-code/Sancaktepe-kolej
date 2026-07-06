@@ -4,8 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import 'react-pdf/dist/Page/AnnotationLayer.css';
 import 'react-pdf/dist/Page/TextLayer.css';
 
-// Serve worker from public folder — most reliable approach for Vite
-pdfjs.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.mjs';
+// Non-ESM worker (export stripped) — works as a regular Worker in all browsers
+pdfjs.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.js';
 
 const PAGE_W = 400;
 const PAGE_H = Math.round(PAGE_W * 1.414); // A4 ratio
@@ -31,7 +31,6 @@ export default function PdfFlipBook({ url = '/web%20genel%20dergi.pdf' }) {
   const [spreadStart, setSpreadStart] = useState(1); // first page of current spread
   const [direction, setDirection] = useState(1);     // 1=forward, -1=backward
   const [loadError, setLoadError] = useState(false);
-  const [loadedPages, setLoadedPages] = useState({});
   const containerRef = useRef(null);
 
   const onDocLoad = useCallback(({ numPages }) => setNumPages(numPages), []);

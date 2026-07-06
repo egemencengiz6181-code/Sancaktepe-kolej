@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, Component } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
 import { ModalProvider } from './context/ModalContext';
@@ -69,6 +69,21 @@ const LiseYurtIciPage = lazy(() => import('./pages/siniflar/lise/LiseYurtIciPage
 const LiseYurtDisiPage = lazy(() => import('./pages/siniflar/lise/LiseYurtDisiPage'));
 const LiseCizelgePage = lazy(() => import('./pages/siniflar/lise/LiseCizelgePage'));
 
+class ErrorBoundary extends Component {
+  constructor(props) { super(props); this.state = { hasError: false }; }
+  static getDerivedStateFromError() { return { hasError: true }; }
+  componentDidCatch(error) {
+    // Reload on chunk load errors (stale deployment cache)
+    if (error?.name === 'ChunkLoadError' || /Loading chunk/.test(error?.message)) {
+      window.location.reload();
+    }
+  }
+  render() {
+    if (this.state.hasError) return <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#666', fontFamily: 'sans-serif', fontSize: '1rem' }}>Sayfa yüklenemedi. <button onClick={() => window.location.reload()} style={{ marginLeft: 8, color: 'var(--red)', background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline' }}>Yenile</button></div>;
+    return this.props.children;
+  }
+}
+
 function Layout({ children }) {
   return (
     <>
@@ -89,6 +104,7 @@ export default function App() {
     <ModalProvider>
       <BrowserRouter>
         <Layout>
+          <ErrorBoundary>
           <Suspense fallback={<div style={{ minHeight: '60vh' }} />}>
             <Routes>
               <Route path="/" element={<HomePage />} />
@@ -153,6 +169,7 @@ export default function App() {
               <Route path="/siniflar/lise/haftalik-cizelge" element={<LiseCizelgePage />} />
             </Routes>
           </Suspense>
+          </ErrorBoundary>
         </Layout>
       </BrowserRouter>
     </ModalProvider>
