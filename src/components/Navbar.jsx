@@ -6,17 +6,119 @@ import { classes } from '../data/classes';
 import { useModal } from '../context/ModalContext';
 import { useTheme } from '../context/ModalContext';
 
-const navLinks = [
+const leftLinks = [
   { label: 'Ana Sayfa', href: '/' },
-  { label: 'Hakkımızda', href: '/hakkimizda' },
+  { label: 'Kurumsal', href: '/hakkimizda', dropdown: 'kurumsal' },
   { label: 'Programlar', href: '/programlar', mega: 'programlar' },
   { label: 'Sınıflar', href: '/siniflar', mega: 'siniflar' },
-  { label: 'Kampüs', href: '/kampus' },
+];
+
+const kurumsalLinks = [
+  { label: 'Hakkımızda', href: '/hakkimizda' },
+  { label: 'Türk Eğitim Derneği', href: '/ted' },
+  { label: 'Akademik Kadro', href: '/akademik-kadro' },
+  { label: 'Vizyon, Misyon ve Değerlerimiz', href: '/vizyon-misyon' },
+];
+
+const kayitLinks = [
+  { label: 'Kayıt Koşulları', href: '/kayit/kosullar' },
+  { label: 'Burslar', href: '/kayit/burslar' },
+  { label: 'Kayıt Ücretleri', href: '/kayit/ucretler' },
+  { label: 'Yurt Dışından Aday Kayıt', href: '/kayit/yurt-disindan' },
+  { label: 'Lise Kayıt', href: '/kayit/lise' },
+  { label: 'Ortaokul Kayıt', href: '/kayit/ortaokul' },
+  { label: 'Okul Öncesi ve İlkokul Kayıt', href: '/kayit/okul-oncesi-ilkokul' },
+  { label: 'Başvuru Formu', href: '/kayit/basvuru-formu' },
+];
+
+const kampusLinks = [
+  { label: 'Kampüse Genel Bakış', href: '/kampus' },
+  { label: 'Fiziki Yapı', href: '/kampus/fiziki-yapi' },
+  { label: 'Spor Tesisleri', href: '/kampus/spor-tesisleri' },
+  { label: 'Sağlık Hizmetleri', href: '/kampus/saglik-hizmetleri' },
+  { label: 'Kütuphane', href: '/kampus/kutuphane' },
+  { label: 'Atölyeler', href: '/kampus/atolyeler' },
+  { label: 'Yemek Hizmetleri', href: '/kampus/yemek-hizmetleri' },
+  { label: 'Ulaşım Hizmetleri', href: '/kampus/ulasim-hizmetleri' },
+  { label: 'Güvenlik Hizmetleri', href: '/kampus/guvenlik-hizmetleri' },
+  { label: 'Laboratuvarlar', href: '/kampus/laboratuvarlar' },
+];
+
+const rightLinks = [
+  { label: 'Kayıt', href: '/kayit/kosullar', dropdown: 'kayit' },
+  { label: 'Kampüs', href: '/kampus', dropdown: 'kampus' },
   { label: 'Haberler', href: '/haberler' },
   { label: 'Galeri', href: '/galeri' },
   { label: 'İletişim', href: '/iletisim' },
 ];
 
+const allNavLinks = [
+  ...leftLinks.filter(l => !l.dropdown),
+  ...kurumsalLinks,
+  ...rightLinks.filter(l => !l.dropdown),
+  ...kayitLinks,
+  ...kampusLinks,
+];
+
+// ─── Dropdown Menu (slim vertical list, used for Kurumsal) ─────────────────────
+// Positioned via a static wrapper div (no Framer transform conflict)
+function DropdownMenu({ links, triggerRef, onClose }) {
+  return (
+    <div style={{
+      position: 'absolute',
+      top: '100%',
+      left: 0,
+      zIndex: 200,
+      marginTop: '6px',
+      minWidth: '240px',
+    }}>
+      <motion.div
+        initial={{ opacity: 0, y: -6 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -6 }}
+        transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
+        style={{
+          background: 'rgba(255,255,255,0.98)',
+          backdropFilter: 'blur(20px)',
+          borderRadius: '10px',
+          boxShadow: '0 16px 48px rgba(35,46,92,0.14), 0 0 0 1px rgba(35,46,92,0.07)',
+          overflow: 'hidden',
+          width: '100%',
+        }}
+      >
+        {links.map((link, i) => (
+          <Link
+            key={link.href}
+            to={link.href}
+            onClick={onClose}
+            style={{
+              display: 'block',
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.72rem',
+              fontWeight: 700,
+              letterSpacing: '0.06em',
+              textTransform: 'uppercase',
+              color: 'var(--primary)',
+              textDecoration: 'none',
+              padding: '0.85rem 1.25rem',
+              borderBottom: i < links.length - 1 ? '1px solid rgba(35,46,92,0.07)' : 'none',
+              transition: 'background 0.15s, color 0.15s, padding-left 0.15s',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(35,46,92,0.06)'; e.currentTarget.style.color = 'var(--red)'; e.currentTarget.style.paddingLeft = '1.6rem'; }}
+            onMouseLeave={e => { e.currentTarget.style.background = ''; e.currentTarget.style.color = 'var(--primary)'; e.currentTarget.style.paddingLeft = '1.25rem'; }}
+          >
+            {i === 0 && (
+              <span style={{ display: 'inline-block', width: '6px', height: '6px', borderRadius: '50%', background: 'var(--primary)', marginRight: '0.6rem', verticalAlign: 'middle', position: 'relative', top: '-1px' }} />
+            )}
+            {link.label}
+          </Link>
+        ))}
+      </motion.div>
+    </div>
+  );
+}
+
+// ─── Mega Menu ────────────────────────────────────────────────────────────────
 function MegaMenu({ type, onClose }) {
   const items = type === 'programlar' ? programs : classes;
   const basePath = type === 'programlar' ? '/programlar' : '/siniflar';
@@ -25,46 +127,51 @@ function MegaMenu({ type, onClose }) {
     ? 'Eğitim programlarımıza genel bakış'
     : 'Okul öncesinden liseye tam kademe';
 
+  // Outer div handles centering (static transform, no Framer conflict).
+  // Inner motion.div handles only the entrance animation.
   return (
+    <div style={{
+      position: 'absolute',
+      top: '100%',
+      left: '50%',
+      transform: 'translateX(-50%)',
+      width: '920px',
+      maxWidth: 'calc(100vw - 4rem)',
+      zIndex: 200,
+      marginTop: '6px',
+    }}>
     <motion.div
-      initial={{ opacity: 0, y: -8 }}
+      initial={{ opacity: 0, y: -6 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -8 }}
+      exit={{ opacity: 0, y: -6 }}
       transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
       style={{
-        position: 'absolute',
-        top: 'calc(100% + 0.5rem)',
-        left: 'calc(50% - 460px)',
         background: 'rgba(255,255,255,0.98)',
         backdropFilter: 'blur(24px)',
         borderRadius: '12px',
         boxShadow: '0 20px 60px rgba(35,46,92,0.15), 0 0 0 1px rgba(35,46,92,0.08)',
         padding: '1.5rem',
-        width: '920px',
-        maxWidth: 'calc(100vw - 4rem)',
-        zIndex: 200,
+        width: '100%',
       }}
     >
-      {/* Arrow */}
       <div style={{
         position: 'absolute', top: '-6px', left: '50%', transform: 'translateX(-50%)',
         width: '12px', height: '12px', background: 'rgba(255,255,255,0.98)',
         boxShadow: '-2px -2px 4px rgba(35,46,92,0.06)',
-        borderRadius: '2px 0 0 0',
-        rotate: '45deg',
+        borderRadius: '2px 0 0 0', rotate: '45deg',
       }} />
 
       <div style={{ display: 'grid', gridTemplateColumns: '1.1fr repeat(4, 1fr)', gap: '0.75rem' }}>
-        {/* Overview card */}
         <Link to={basePath} onClick={onClose} style={{ textDecoration: 'none' }}>
+
           <div style={{
             background: 'linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%)',
             borderRadius: '8px', padding: '1.5rem',
             height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
             transition: 'transform 0.25s',
           }}
-            onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-3px)'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; }}
+            onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-3px)'; }}
+            onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; }}
           >
             <div>
               <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 800, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)', marginBottom: '0.5rem' }}>
@@ -79,7 +186,6 @@ function MegaMenu({ type, onClose }) {
           </div>
         </Link>
 
-        {/* Item cards */}
         {items.map((item) => {
           const colorVal = item.color === 'var(--primary)' ? '#232e5c'
             : item.color === 'var(--red)' ? '#e61936'
@@ -90,17 +196,15 @@ function MegaMenu({ type, onClose }) {
                 borderRadius: '8px', padding: '1.1rem 1.25rem',
                 border: '1px solid var(--grey-light)',
                 background: 'var(--off-white)',
-                transition: 'all 0.25s',
-                height: '100%',
-                display: 'flex', flexDirection: 'column',
+                transition: 'all 0.25s', height: '100%', display: 'flex', flexDirection: 'column',
               }}
-                onMouseEnter={(e) => {
+                onMouseEnter={e => {
                   e.currentTarget.style.background = 'var(--white)';
                   e.currentTarget.style.borderColor = colorVal;
                   e.currentTarget.style.boxShadow = `0 6px 24px ${colorVal}18`;
                   e.currentTarget.style.transform = 'translateY(-3px)';
                 }}
-                onMouseLeave={(e) => {
+                onMouseLeave={e => {
                   e.currentTarget.style.background = 'var(--off-white)';
                   e.currentTarget.style.borderColor = 'var(--grey-light)';
                   e.currentTarget.style.boxShadow = 'none';
@@ -123,7 +227,7 @@ function MegaMenu({ type, onClose }) {
                   {type === 'programlar' ? item.title : item.level}
                 </p>
                 <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.73rem', color: 'var(--grey)', lineHeight: 1.55, marginBottom: '0.6rem' }}>
-                  {type === 'programlar' ? item.subtitle : item.subtitle}
+                  {item.subtitle}
                 </p>
                 <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 800, color: 'var(--red)', letterSpacing: '0.06em' }}>
                   Keşfet →
@@ -133,25 +237,165 @@ function MegaMenu({ type, onClose }) {
           );
         })}
       </div>
+
+      {type === 'siniflar' && (
+        <div style={{ borderTop: '1px solid rgba(35,46,92,0.08)', paddingTop: '0.85rem', marginTop: '0.85rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem' }}>
+            {/* Okul Öncesi */}
+            <div>
+              <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.58rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#a16207', marginBottom: '0.5rem' }}>
+                Okul Öncesi
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+                {[
+                  { to: '/siniflar/okul-oncesi/genel-bilgiler', icon: '📋', label: 'Genel Bilgiler' },
+                  { to: '/siniflar/okul-oncesi/brans-dersleri', icon: '📚', label: 'Branş Dersleri' },
+                  { to: '/siniflar/okul-oncesi/pdr', icon: '💚', label: "PDR'den Bakış" },
+                  { to: '/siniflar/okul-oncesi/haftalik-cizelge', icon: '🗓️', label: 'Haftalık Çizelge' },
+                ].map((link) => (
+                  <Link key={link.to} to={link.to} onClick={onClose} style={{ textDecoration: 'none' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', padding: '0.5rem 0.7rem', borderRadius: '6px', background: 'rgba(245,158,11,0.05)', border: '1px solid rgba(245,158,11,0.15)', transition: 'all 0.2s' }}
+                      onMouseEnter={e => { e.currentTarget.style.background = 'rgba(245,158,11,0.12)'; e.currentTarget.style.borderColor = 'rgba(245,158,11,0.3)'; }}
+                      onMouseLeave={e => { e.currentTarget.style.background = 'rgba(245,158,11,0.05)'; e.currentTarget.style.borderColor = 'rgba(245,158,11,0.15)'; }}
+                    >
+                      <span style={{ fontSize: '0.85rem', flexShrink: 0 }}>{link.icon}</span>
+                      <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 800, color: '#a16207', letterSpacing: '0.02em' }}>{link.label}</span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* İlkokul */}
+            <div>
+              <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.58rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.5rem' }}>
+                İlkokul
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+                {[
+                  { to: '/siniflar/ilkokul/genel-bilgiler', icon: '📋', label: 'Genel Bilgiler' },
+                  { to: '/siniflar/ilkokul/brans-dersleri', icon: '📚', label: 'Branş Dersleri' },
+                  { to: '/siniflar/ilkokul/uygulamalar-projeler', icon: '🔭', label: 'Uygulamalar ve Projeler' },
+                  { to: '/siniflar/ilkokul/pdr', icon: '💬', label: "PDR'den Bakış" },
+                  { to: '/siniflar/ilkokul/degerler-egitimi', icon: '⭐', label: 'Değerler Eğitimi' },
+                  { to: '/siniflar/ilkokul/haftalik-cizelge', icon: '🗓️', label: 'Haftalık Çizelge' },
+                ].map((link) => (
+                  <Link key={link.to} to={link.to} onClick={onClose} style={{ textDecoration: 'none' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', padding: '0.5rem 0.7rem', borderRadius: '6px', background: 'rgba(35,46,92,0.04)', border: '1px solid rgba(35,46,92,0.1)', transition: 'all 0.2s' }}
+                      onMouseEnter={e => { e.currentTarget.style.background = 'rgba(35,46,92,0.1)'; e.currentTarget.style.borderColor = 'rgba(35,46,92,0.25)'; }}
+                      onMouseLeave={e => { e.currentTarget.style.background = 'rgba(35,46,92,0.04)'; e.currentTarget.style.borderColor = 'rgba(35,46,92,0.1)'; }}
+                    >
+                      <span style={{ fontSize: '0.85rem', flexShrink: 0 }}>{link.icon}</span>
+                      <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 800, color: 'var(--primary)', letterSpacing: '0.02em' }}>{link.label}</span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Ortaokul */}
+            <div>
+              <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.58rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--red)', marginBottom: '0.5rem' }}>
+                Ortaokul
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+                {[
+                  { to: '/siniflar/ortaokul/genel-bilgiler', icon: '📋', label: 'Genel Bilgiler' },
+                  { to: '/siniflar/ortaokul/brans-dersleri', icon: '📚', label: 'Branş Dersleri' },
+                  { to: '/siniflar/ortaokul/uygulamalar-projeler', icon: '♻️', label: 'Uygulamalar ve Projeler' },
+                  { to: '/siniflar/ortaokul/pdr', icon: '💬', label: "PDR'den Bakış" },
+                  { to: '/siniflar/ortaokul/haftalik-cizelge', icon: '🗓️', label: 'Haftalık Çizelge' },
+                ].map((link) => (
+                  <Link key={link.to} to={link.to} onClick={onClose} style={{ textDecoration: 'none' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', padding: '0.5rem 0.7rem', borderRadius: '6px', background: 'rgba(230,25,54,0.04)', border: '1px solid rgba(230,25,54,0.12)', transition: 'all 0.2s' }}
+                      onMouseEnter={e => { e.currentTarget.style.background = 'rgba(230,25,54,0.1)'; e.currentTarget.style.borderColor = 'rgba(230,25,54,0.28)'; }}
+                      onMouseLeave={e => { e.currentTarget.style.background = 'rgba(230,25,54,0.04)'; e.currentTarget.style.borderColor = 'rgba(230,25,54,0.12)'; }}
+                    >
+                      <span style={{ fontSize: '0.85rem', flexShrink: 0 }}>{link.icon}</span>
+                      <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 800, color: '#b01528', letterSpacing: '0.02em' }}>{link.label}</span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Lise */}
+            <div>
+              <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.58rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.5rem' }}>
+                Lise
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+                {[
+                  { to: '/siniflar/lise/genel-bilgiler', icon: '📋', label: 'Genel Bilgiler' },
+                  { to: '/siniflar/lise/uluslararasi-programlar', icon: '🌍', label: 'Uluslararası Programlar' },
+                  { to: '/siniflar/lise/akademik-bolumler', icon: '📚', label: 'Akademik Bölümler' },
+                  { to: '/siniflar/lise/rehberlik-kariyer', icon: '💼', label: 'Rehberlik ve Kariyer' },
+                  { to: '/siniflar/lise/yurt-ici-universite', icon: '🎓', label: 'Yurt İçi Üniversite' },
+                  { to: '/siniflar/lise/yurt-disi-universite', icon: '✈️', label: 'Yurt Dışı Üniversite' },
+                  { to: '/siniflar/lise/haftalik-cizelge', icon: '🗓️', label: 'Haftalık Çizelge' },
+                ].map((link) => (
+                  <Link key={link.to} to={link.to} onClick={onClose} style={{ textDecoration: 'none' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', padding: '0.5rem 0.7rem', borderRadius: '6px', background: 'rgba(35,46,92,0.04)', border: '1px solid rgba(35,46,92,0.1)', transition: 'all 0.2s' }}
+                      onMouseEnter={e => { e.currentTarget.style.background = 'rgba(35,46,92,0.1)'; e.currentTarget.style.borderColor = 'rgba(35,46,92,0.25)'; }}
+                      onMouseLeave={e => { e.currentTarget.style.background = 'rgba(35,46,92,0.04)'; e.currentTarget.style.borderColor = 'rgba(35,46,92,0.1)'; }}
+                    >
+                      <span style={{ fontSize: '0.85rem', flexShrink: 0 }}>{link.icon}</span>
+                      <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 800, color: 'var(--primary)', letterSpacing: '0.02em' }}>{link.label}</span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {type === 'programlar' && (
+        <div style={{ borderTop: '1px solid rgba(35,46,92,0.08)', paddingTop: '0.85rem', marginTop: '0.85rem' }}>
+          <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.58rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: '0.6rem' }}>
+            Uluslararası Programlar
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.6rem' }}>
+            <Link to="/programlar/uluslararasi" onClick={onClose} style={{ textDecoration: 'none' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.65rem 1rem', borderRadius: '7px', background: 'rgba(35,46,92,0.04)', border: '1px solid rgba(35,46,92,0.08)', transition: 'all 0.2s' }}
+                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(35,46,92,0.09)'; e.currentTarget.style.borderColor = 'rgba(35,46,92,0.2)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(35,46,92,0.04)'; e.currentTarget.style.borderColor = 'rgba(35,46,92,0.08)'; }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                  <span style={{ fontSize: '1rem' }}>🌍</span>
+                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.72rem', fontWeight: 800, color: 'var(--primary)', letterSpacing: '0.02em' }}>Uluslararası Programlar</span>
+                </div>
+                <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 800, color: 'var(--red)' }}>→</span>
+              </div>
+            </Link>
+            <Link to="/programlar/ap-sinav-merkezi" onClick={onClose} style={{ textDecoration: 'none' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.65rem 1rem', borderRadius: '7px', background: 'rgba(230,25,54,0.04)', border: '1px solid rgba(230,25,54,0.12)', transition: 'all 0.2s' }}
+                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(230,25,54,0.09)'; e.currentTarget.style.borderColor = 'rgba(230,25,54,0.25)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(230,25,54,0.04)'; e.currentTarget.style.borderColor = 'rgba(230,25,54,0.12)'; }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                  <span style={{ fontSize: '1rem' }}>🎓</span>
+                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.72rem', fontWeight: 800, color: 'var(--red)', letterSpacing: '0.02em' }}>AP Sınav Merkezi</span>
+                </div>
+                <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 800, color: 'var(--red)' }}>→</span>
+              </div>
+            </Link>
+          </div>
+        </div>
+      )}
     </motion.div>
+    </div>
   );
 }
 
+// ─── Navbar ───────────────────────────────────────────────────────────────────
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openMega, setOpenMega] = useState(null);
   const location = useLocation();
-  const isHome = location.pathname === '/';
   const megaTimer = useRef(null);
   const { setOpen: openModal } = useModal();
   const { dark, setDark } = useTheme();
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   useEffect(() => {
     setMobileOpen(false);
@@ -159,168 +403,202 @@ export default function Navbar() {
     window.scrollTo({ top: 0 });
   }, [location.pathname]);
 
-  const transparent = isHome && !scrolled;
+  const handleMegaEnter = (key) => { clearTimeout(megaTimer.current); setOpenMega(key); };
+  const handleMegaLeave = () => { megaTimer.current = setTimeout(() => setOpenMega(null), 120); };
 
-  const handleMegaEnter = (key) => {
-    clearTimeout(megaTimer.current);
-    setOpenMega(key);
-  };
-  const handleMegaLeave = () => {
-    megaTimer.current = setTimeout(() => setOpenMega(null), 120);
+  const NAV_H = 64;
+
+  const linkStyle = (active) => ({
+    textDecoration: 'none',
+    fontFamily: 'var(--font-display)',
+    fontSize: '0.72rem',
+    fontWeight: 700,
+    letterSpacing: '0.07em',
+    textTransform: 'uppercase',
+    color: active ? '#fff' : 'rgba(255,255,255,0.78)',
+    padding: '0.35rem 0',
+    borderBottom: active ? '2px solid rgba(255,255,255,0.9)' : '2px solid transparent',
+    transition: 'color 0.2s, border-color 0.2s',
+    whiteSpace: 'nowrap',
+    display: 'flex', alignItems: 'center', gap: '0.2rem',
+  });
+
+  const renderLink = (link) => {
+    const dropdownLinksMap = { kurumsal: kurumsalLinks, kayit: kayitLinks, kampus: kampusLinks };
+    const dropLinks = link.dropdown ? (dropdownLinksMap[link.dropdown] || []) : [];
+    const isDropdownActive = link.dropdown && dropLinks.some(l => location.pathname === l.href || location.pathname.startsWith(l.href + '/'));
+    const active = location.pathname === link.href
+      || (link.mega && location.pathname.startsWith(link.href + '/'))
+      || isDropdownActive;
+    const hasPopup = link.mega || link.dropdown;
+    const popupKey = link.mega || link.dropdown;
+    return (
+      <li key={link.href}
+        style={{ position: 'relative' }}
+        onMouseEnter={() => hasPopup ? handleMegaEnter(popupKey) : null}
+        onMouseLeave={() => hasPopup ? handleMegaLeave() : null}
+      >
+        <Link
+          to={link.href}
+          style={linkStyle(active)}
+          onMouseEnter={e => { if (!active) { e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderBottomColor = 'rgba(255,255,255,0.5)'; } }}
+          onMouseLeave={e => { if (!active) { e.currentTarget.style.color = 'rgba(255,255,255,0.78)'; e.currentTarget.style.borderBottomColor = 'transparent'; } }}
+        >
+          {link.label}
+          {hasPopup && (
+            <svg width="9" height="5" viewBox="0 0 10 6" fill="none" style={{ opacity: 0.6, transition: 'transform 0.2s', transform: openMega === popupKey ? 'rotate(180deg)' : 'rotate(0)' }}>
+              <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          )}
+        </Link>
+        {link.mega && (
+          <AnimatePresence>
+            {openMega === link.mega && (
+              <MegaMenu type={link.mega} onClose={() => setOpenMega(null)} />
+            )}
+          </AnimatePresence>
+        )}
+        {link.dropdown === 'kurumsal' && (
+          <AnimatePresence>
+            {openMega === 'kurumsal' && (
+              <DropdownMenu links={kurumsalLinks} onClose={() => setOpenMega(null)} />
+            )}
+          </AnimatePresence>
+        )}
+        {link.dropdown === 'kayit' && (
+          <AnimatePresence>
+            {openMega === 'kayit' && (
+              <DropdownMenu links={kayitLinks} onClose={() => setOpenMega(null)} />
+            )}
+          </AnimatePresence>
+        )}
+        {link.dropdown === 'kampus' && (
+          <AnimatePresence>
+            {openMega === 'kampus' && (
+              <DropdownMenu links={kampusLinks} onClose={() => setOpenMega(null)} />
+            )}
+          </AnimatePresence>
+        )}
+      </li>
+    );
   };
 
   return (
     <>
+      {/* ── Desktop ── */}
       <motion.nav
+        className="nav-desktop-bar"
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         style={{
           position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
-          padding: scrolled ? '0.6rem 2.5rem' : '1rem 2.5rem',
-          background: transparent ? 'transparent' : dark ? 'rgba(18,24,46,0.97)' : 'rgba(255,255,255,0.97)',
-          backdropFilter: !transparent ? 'blur(20px)' : 'none',
-          borderBottom: !transparent ? `1px solid ${dark ? 'rgba(255,255,255,0.08)' : 'rgba(35,46,92,0.1)'}` : 'none',
-          transition: 'all 0.4s ease',
-          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          boxShadow: !transparent ? '0 2px 20px rgba(35,46,92,0.08)' : 'none',
+          height: `${NAV_H}px`,
+          background: 'var(--primary)',
+          boxShadow: '0 2px 16px rgba(10,18,50,0.28)',
+          overflow: 'visible',
         }}
       >
-        {/* Logo */}
-        <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-          <img
-            src="/logo/kolej%20sancaktepe%20logo%20-%20yatay.png"
-            alt="Kolej Sancaktepe"
-            style={{ height: scrolled ? '36px' : '46px', objectFit: 'contain', transition: 'height 0.3s' }}
-            onError={(e) => { e.target.style.display = 'none'; if (e.target.nextSibling) e.target.nextSibling.style.display = 'flex'; }}
-          />
-          <span style={{ display: 'none', fontFamily: 'var(--font-serif)', fontSize: '1.3rem', fontWeight: 700, color: transparent ? '#fff' : 'var(--primary)', letterSpacing: '0.02em', alignItems: 'center', gap: '0.3rem' }}>
-            Kolej <span style={{ color: 'var(--red)' }}>Sancaktepe</span>
-          </span>
-        </Link>
+        <div style={{
+          display: 'flex', alignItems: 'center',
+          height: '100%', padding: '0 2rem', gap: '1.5rem',
+        }}>
+          {/* Left links */}
+          <ul style={{
+            flex: 1, display: 'flex', alignItems: 'center',
+            justifyContent: 'flex-end', gap: '1.75rem',
+            listStyle: 'none', margin: 0, padding: 0,
+          }}>
+            {leftLinks.map(renderLink)}
+          </ul>
 
-        {/* Desktop nav */}
-        <ul className="nav-desktop" style={{ display: 'flex', gap: '0.25rem', listStyle: 'none', alignItems: 'center' }}>
-          {navLinks.map((link) => {
-            const active = location.pathname === link.href || (link.mega && location.pathname.startsWith(link.href + '/'));
-            return (
-              <li key={link.href}
-                onMouseEnter={() => link.mega ? handleMegaEnter(link.mega) : null}
-                onMouseLeave={() => link.mega ? handleMegaLeave() : null}
-              >
-                <Link
-                  to={link.href}
-                  style={{
-                    textDecoration: 'none',
-                    fontFamily: 'var(--font-display)', fontSize: '0.72rem', fontWeight: 700,
-                    letterSpacing: '0.08em', textTransform: 'uppercase',
-                    color: transparent
-                      ? (active ? '#fff' : 'rgba(255,255,255,0.85)')
-                      : dark
-                        ? (active ? 'var(--red)' : 'rgba(220,228,244,0.85)')
-                        : (active ? 'var(--red)' : 'var(--primary)'),
-                    padding: '0.5rem 0.75rem',
-                    borderRadius: '3px',
-                    background: active && !transparent ? 'rgba(230,25,54,0.08)' : 'transparent',
-                    transition: 'all 0.25s',
-                    display: 'flex', alignItems: 'center', gap: '0.25rem',
-                    position: 'relative',
-                  }}
-                  onMouseEnter={(e) => { if (!active) e.currentTarget.style.color = transparent ? '#fff' : 'var(--red)'; }}
-                  onMouseLeave={(e) => { if (!active) e.currentTarget.style.color = transparent ? 'rgba(255,255,255,0.85)' : 'var(--primary)'; }}
-                >
-                  {link.label}
-                  {link.mega && (
-                    <svg width="10" height="6" viewBox="0 0 10 6" fill="none" style={{ opacity: 0.5, transition: 'transform 0.2s', transform: openMega === link.mega ? 'rotate(180deg)' : 'rotate(0)' }}>
-                      <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  )}
-                  {active && (
-                    <motion.div layoutId="nav-indicator" style={{
-                      position: 'absolute', bottom: '0px', left: '0.75rem', right: '0.75rem',
-                      height: '2px', background: transparent ? 'rgba(255,255,255,0.8)' : 'var(--red)', borderRadius: '1px',
-                    }} />
-                  )}
-                </Link>
-
-                {/* Mega menu */}
-                {link.mega && (
-                  <AnimatePresence>
-                    {openMega === link.mega && (
-                      <MegaMenu type={link.mega} onClose={() => setOpenMega(null)} />
-                    )}
-                  </AnimatePresence>
-                )}
-              </li>
-            );
-          })}
-          <li style={{ marginLeft: '0.25rem' }}>
-            <button
-              onClick={() => setDark(!dark)}
-              aria-label={dark ? 'Açık Mod' : 'Koyu Mod'}
-              style={{
-                background: transparent ? 'rgba(255,255,255,0.1)' : dark ? 'rgba(255,255,255,0.08)' : 'rgba(35,46,92,0.07)',
-                border: transparent ? '1px solid rgba(255,255,255,0.2)' : dark ? '1px solid rgba(255,255,255,0.12)' : '1px solid rgba(35,46,92,0.12)',
-                borderRadius: '8px',
-                width: '38px', height: '38px',
-                cursor: 'pointer',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: '1rem',
-                transition: 'all 0.3s',
-                color: transparent ? '#fff' : dark ? '#e2e8f0' : 'var(--primary)',
-              }}
-              onMouseEnter={(e) => { e.currentTarget.style.background = dark ? 'rgba(255,255,255,0.15)' : 'rgba(35,46,92,0.12)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.background = transparent ? 'rgba(255,255,255,0.1)' : dark ? 'rgba(255,255,255,0.08)' : 'rgba(35,46,92,0.07)'; }}
-            >
-              {dark ? '☀️' : '🌙'}
-            </button>
-          </li>
-          <li style={{ marginLeft: '0.5rem' }}>
-            <button onClick={() => openModal(true)} style={{
-              fontFamily: 'var(--font-display)', fontSize: '0.72rem', fontWeight: 800,
-              letterSpacing: '0.1em', textTransform: 'uppercase',
-              color: '#fff',
-              background: 'linear-gradient(135deg, var(--red), var(--red-light))',
-              padding: '0.6rem 1.4rem', borderRadius: '3px', border: 'none', cursor: 'pointer',
-              transition: 'all 0.3s', boxShadow: '0 4px 16px rgba(230,25,54,0.3)',
+          {/* Center logo — clipped to show only the emblem (top 58% of image = figure, bottom 42% = text) */}
+          <Link
+            to="/"
+            style={{
+              display: 'block',
+              textDecoration: 'none',
+              flexShrink: 0,
+              width: '82px',
+              height: '48px',    /* 82 × 0.585 ≈ 48px = just the red figure */
+              overflow: 'hidden',
+              filter: 'drop-shadow(0 3px 8px rgba(0,0,0,0.30))',
             }}
-              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(230,25,54,0.4)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 16px rgba(230,25,54,0.3)'; }}
-            >
-              Kayıt Ol
-            </button>
-          </li>
-        </ul>
+          >
+            <img
+              src="/logo/kolej%20sancaktepe%20logo%20-%20kare.png"
+              alt="Kolej Sancaktepe"
+              style={{ width: '82px', height: '82px', display: 'block', objectFit: 'fill' }}
+            />
+          </Link>
 
-        {/* Hamburger + dark toggle (mobile) */}
-        <div className="nav-burger" style={{ display: 'none', alignItems: 'center', gap: '0.5rem' }}>
+          {/* Right links + dark toggle */}
+          <ul style={{
+            flex: 1, display: 'flex', alignItems: 'center',
+            justifyContent: 'flex-start', gap: '1.75rem',
+            listStyle: 'none', margin: 0, padding: 0,
+          }}>
+            {rightLinks.map(renderLink)}
+            <li>
+              <button
+                onClick={() => setDark(!dark)}
+                aria-label={dark ? 'Açık Mod' : 'Koyu Mod'}
+                style={{
+                  background: 'rgba(255,255,255,0.12)',
+                  border: '1px solid rgba(255,255,255,0.22)',
+                  borderRadius: '8px', width: '34px', height: '34px',
+                  cursor: 'pointer', display: 'flex', alignItems: 'center',
+                  justifyContent: 'center', fontSize: '0.95rem',
+                  transition: 'background 0.25s',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.22)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.12)'; }}
+              >
+                {dark ? '☀️' : '🌙'}
+              </button>
+            </li>
+          </ul>
+        </div>
+      </motion.nav>
+
+      {/* ── Mobile bar ── */}
+      <div className="nav-mobile-bar" style={{
+        display: 'none', position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
+        height: '58px', background: 'var(--primary)',
+        boxShadow: '0 2px 16px rgba(10,18,50,0.28)',
+        alignItems: 'center', justifyContent: 'space-between', padding: '0 1.25rem',
+      }}>
+        <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+          <img src="/logo/kolej%20sancaktepe%20logo%20-%20kare.png" alt="Kolej Sancaktepe"
+            style={{ height: '42px', width: '42px', objectFit: 'contain' }} />
+        </Link>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
           <button
             onClick={() => setDark(!dark)}
             aria-label={dark ? 'Açık Mod' : 'Koyu Mod'}
             style={{
-              background: transparent ? 'rgba(255,255,255,0.1)' : dark ? 'rgba(255,255,255,0.08)' : 'rgba(35,46,92,0.07)',
-              border: transparent ? '1px solid rgba(255,255,255,0.2)' : dark ? '1px solid rgba(255,255,255,0.12)' : '1px solid rgba(35,46,92,0.12)',
-              borderRadius: '8px', width: '36px', height: '36px', cursor: 'pointer',
-              display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.95rem',
-              color: transparent ? '#fff' : dark ? '#e2e8f0' : 'var(--primary)',
+              background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.22)',
+              borderRadius: '7px', width: '32px', height: '32px', cursor: 'pointer',
+              display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.9rem',
             }}
           >
             {dark ? '☀️' : '🌙'}
           </button>
-          <button onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menü" style={{ background: 'none', border: 'none', display: 'flex', flexDirection: 'column', gap: '5px', padding: '4px', cursor: 'pointer' }}>
+          <button onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menü"
+            style={{ background: 'none', border: 'none', display: 'flex', flexDirection: 'column', gap: '5px', padding: '4px', cursor: 'pointer' }}>
             {[0, 1, 2].map((i) => (
               <motion.span key={i}
                 animate={mobileOpen
                   ? i === 0 ? { rotate: 45, y: 9 } : i === 1 ? { opacity: 0 } : { rotate: -45, y: -9 }
                   : { rotate: 0, y: 0, opacity: 1 }}
-                style={{ display: 'block', width: '24px', height: '2px', background: transparent ? '#fff' : dark ? '#e2e8f4' : 'var(--primary)', borderRadius: '1px' }}
+                style={{ display: 'block', width: '24px', height: '2px', background: '#fff', borderRadius: '1px' }}
               />
             ))}
           </button>
         </div>
-      </motion.nav>
+      </div>
 
-      {/* Mobile menu */}
+      {/* ── Mobile menu ── */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -330,36 +608,72 @@ export default function Navbar() {
             transition={{ duration: 0.25 }}
             style={{
               position: 'fixed', top: '58px', left: 0, right: 0,
-              background: dark ? 'rgba(18,24,46,0.98)' : 'rgba(255,255,255,0.98)', backdropFilter: 'blur(20px)',
-              zIndex: 99, padding: '1.5rem 2rem',
-              borderBottom: '2px solid var(--red)',
-              boxShadow: '0 8px 32px rgba(35,46,92,0.12)',
+              background: 'var(--primary)', zIndex: 99, padding: '1.25rem 1.5rem',
+              borderBottom: '2px solid rgba(255,255,255,0.15)',
+              boxShadow: '0 8px 32px rgba(10,18,50,0.3)',
               maxHeight: '85vh', overflowY: 'auto',
             }}
           >
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
-              {navLinks.map((link) => (
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.1rem', margin: 0, padding: 0 }}>
+              {allNavLinks.map((link) => (
                 <li key={link.href}>
                   <Link to={link.href} style={{
-                    textDecoration: 'none', fontFamily: 'var(--font-display)', fontSize: '0.82rem', fontWeight: 700,
+                    textDecoration: 'none', fontFamily: 'var(--font-display)', fontSize: '0.8rem', fontWeight: 700,
                     letterSpacing: '0.12em', textTransform: 'uppercase',
-                    color: location.pathname === link.href ? 'var(--red)' : 'var(--text-dark)',
-                    display: 'block', padding: '0.75rem 0.5rem',
-                    borderBottom: '1px solid var(--grey-light)',
+                    color: location.pathname === link.href ? '#fff' : 'rgba(255,255,255,0.72)',
+                    display: 'block', padding: '0.8rem 0.5rem',
+                    borderBottom: '1px solid rgba(255,255,255,0.1)',
                   }}>
                     {link.label}
                   </Link>
-                  {/* Mobile sub-items */}
                   {link.mega && (
                     <div style={{ paddingLeft: '1rem', paddingBottom: '0.5rem' }}>
                       {(link.mega === 'programlar' ? programs : classes).map((item) => (
                         <Link key={item.id} to={`${link.href}/${item.id}`} style={{
-                          textDecoration: 'none', fontFamily: 'var(--font-sans)', fontSize: '0.8rem',
-                          color: 'var(--text-mid)', display: 'flex', alignItems: 'center', gap: '0.5rem',
-                          padding: '0.5rem 0.5rem',
-                          borderBottom: '1px solid var(--grey-light)',
+                          textDecoration: 'none', fontFamily: 'var(--font-sans)', fontSize: '0.78rem',
+                          color: 'rgba(255,255,255,0.55)', display: 'block',
+                          padding: '0.45rem 0.5rem', borderBottom: '1px solid rgba(255,255,255,0.07)',
                         }}>
-                          <span>{link.mega === 'programlar' ? item.tag + ' – ' + item.title : item.level}</span>
+                          {link.mega === 'programlar' ? item.tag + ' – ' + item.title : item.level}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                  {link.dropdown === 'kurumsal' && (
+                    <div style={{ paddingLeft: '1rem', paddingBottom: '0.5rem' }}>
+                      {kurumsalLinks.map((sub) => (
+                        <Link key={sub.href} to={sub.href} style={{
+                          textDecoration: 'none', fontFamily: 'var(--font-sans)', fontSize: '0.78rem',
+                          color: 'rgba(255,255,255,0.55)', display: 'block',
+                          padding: '0.45rem 0.5rem', borderBottom: '1px solid rgba(255,255,255,0.07)',
+                        }}>
+                          {sub.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                  {link.dropdown === 'kayit' && (
+                    <div style={{ paddingLeft: '1rem', paddingBottom: '0.5rem' }}>
+                      {kayitLinks.map((sub) => (
+                        <Link key={sub.href} to={sub.href} style={{
+                          textDecoration: 'none', fontFamily: 'var(--font-sans)', fontSize: '0.78rem',
+                          color: 'rgba(255,255,255,0.55)', display: 'block',
+                          padding: '0.45rem 0.5rem', borderBottom: '1px solid rgba(255,255,255,0.07)',
+                        }}>
+                          {sub.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                  {link.dropdown === 'kampus' && (
+                    <div style={{ paddingLeft: '1rem', paddingBottom: '0.5rem' }}>
+                      {kampusLinks.map((sub) => (
+                        <Link key={sub.href} to={sub.href} style={{
+                          textDecoration: 'none', fontFamily: 'var(--font-sans)', fontSize: '0.78rem',
+                          color: 'rgba(255,255,255,0.55)', display: 'block',
+                          padding: '0.45rem 0.5rem', borderBottom: '1px solid rgba(255,255,255,0.07)',
+                        }}>
+                          {sub.label}
                         </Link>
                       ))}
                     </div>
@@ -367,7 +681,7 @@ export default function Navbar() {
                 </li>
               ))}
               <li style={{ marginTop: '1rem' }}>
-                <button onClick={() => openModal(true)} style={{
+                <button onClick={() => { openModal(true); setMobileOpen(false); }} style={{
                   fontFamily: 'var(--font-display)', fontSize: '0.78rem', fontWeight: 800,
                   letterSpacing: '0.12em', textTransform: 'uppercase', color: '#fff',
                   background: 'var(--red)', padding: '0.9rem 1.5rem', borderRadius: '3px',
@@ -383,8 +697,8 @@ export default function Navbar() {
 
       <style>{`
         @media (max-width: 960px) {
-          .nav-desktop { display: none !important; }
-          .nav-burger { display: flex !important; align-items: center; }
+          .nav-desktop-bar { display: none !important; }
+          .nav-mobile-bar { display: flex !important; }
         }
       `}</style>
     </>

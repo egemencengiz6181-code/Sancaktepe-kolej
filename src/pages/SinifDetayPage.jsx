@@ -2,6 +2,39 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { classes } from '../data/classes';
 
+const CLASS_SUB_PAGES = {
+  'okul-oncesi': [
+    { to: '/siniflar/okul-oncesi/genel-bilgiler', icon: '📋', label: 'Genel Bilgiler', desc: 'Program ve eğitim anlayışı' },
+    { to: '/siniflar/okul-oncesi/brans-dersleri', icon: '📚', label: 'Branş Dersleri', desc: 'İngilizce, sanat, müzik ve daha fazlası' },
+    { to: '/siniflar/okul-oncesi/pdr', icon: '💚', label: "PDR'den Bakış", desc: 'Rehberlik ve psikolojik destek' },
+    { to: '/siniflar/okul-oncesi/haftalik-cizelge', icon: '🗓️', label: 'Haftalık Zaman Çizelgesi', desc: 'Dönemlik ders programı' },
+  ],
+  'ilkokul': [
+    { to: '/siniflar/ilkokul/genel-bilgiler', icon: '📋', label: 'Genel Bilgiler', desc: 'Program ve eğitim anlayışı' },
+    { to: '/siniflar/ilkokul/brans-dersleri', icon: '📚', label: 'Branş Dersleri', desc: 'Türkçe, Matematik, Fen ve daha fazlası' },
+    { to: '/siniflar/ilkokul/uygulamalar-projeler', icon: '🔭', label: 'Uygulamalar ve Projeler', desc: 'Seesaw, P4C, Keşif Atölyesi' },
+    { to: '/siniflar/ilkokul/pdr', icon: '💬', label: "PDR'den Bakış", desc: 'Rehberlik ve psikolojik destek' },
+    { to: '/siniflar/ilkokul/degerler-egitimi', icon: '⭐', label: 'Değerler Eğitimi', desc: '14 temel değer müfredata entegre' },
+    { to: '/siniflar/ilkokul/haftalik-cizelge', icon: '🗓️', label: 'Haftalık Zaman Çizelgesi', desc: 'Dönemlik ders programı' },
+  ],
+  'ortaokul': [
+    { to: '/siniflar/ortaokul/genel-bilgiler', icon: '📋', label: 'Genel Bilgiler', desc: 'Program ve eğitim anlayışı' },
+    { to: '/siniflar/ortaokul/brans-dersleri', icon: '📚', label: 'Branş Dersleri', desc: 'Tüm branş dersleri içerikleri' },
+    { to: '/siniflar/ortaokul/uygulamalar-projeler', icon: '♻️', label: 'Uygulamalar ve Projeler', desc: 'Eko-Okul Projesi ve diğerleri' },
+    { to: '/siniflar/ortaokul/pdr', icon: '💬', label: "PDR'den Bakış", desc: 'Rehberlik ve psikolojik destek' },
+    { to: '/siniflar/ortaokul/haftalik-cizelge', icon: '🗓️', label: 'Haftalık Zaman Çizelgesi', desc: 'Dönemlik ders programı' },
+  ],
+  'lise': [
+    { to: '/siniflar/lise/genel-bilgiler', icon: '📋', label: 'Genel Bilgiler', desc: 'Program ve eğitim anlayışı' },
+    { to: '/siniflar/lise/uluslararasi-programlar', icon: '🌍', label: 'Uluslararası Programlar', desc: 'AP, Kanada Değişim, Edinburgh Ödülü' },
+    { to: '/siniflar/lise/akademik-bolumler', icon: '📚', label: 'Akademik Bölümler', desc: 'Tüm branş dersleri içerikleri' },
+    { to: '/siniflar/lise/rehberlik-kariyer', icon: '💼', label: 'Rehberlik ve Kariyer', desc: 'PDR ve kariyer danışmanlığı' },
+    { to: '/siniflar/lise/yurt-ici-universite', icon: '🎓', label: 'Yurt İçi Üniversite', desc: 'YKS hazırlık ve kariyer danışmanlığı' },
+    { to: '/siniflar/lise/yurt-disi-universite', icon: '✈️', label: 'Yurt Dışı Üniversite', desc: 'Uluslararası başvuru danışmanlığı' },
+    { to: '/siniflar/lise/haftalik-cizelge', icon: '🗓️', label: 'Haftalık Zaman Çizelgesi', desc: 'Dönemlik ders programı' },
+  ],
+};
+
 const GALLERY_MAP = {
   'okul-oncesi': [
     '/gallery/okul-oncesi-1.webp',
@@ -326,6 +359,33 @@ export default function SinifDetayPage() {
                 </div>
               </motion.div>
 
+              {/* Sub-pages quick links */}
+              {CLASS_SUB_PAGES[cls.id] && (
+                <motion.div {...fadeUp(0.15)} style={{ marginBottom: '3.5rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.75rem' }}>
+                    <div style={{ width: '4px', height: '32px', background: 'linear-gradient(180deg, var(--red), var(--primary))', borderRadius: '2px' }} />
+                    <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)' }}>Bölüm Sayfaları</h2>
+                  </div>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }} className="subpages-grid">
+                    {CLASS_SUB_PAGES[cls.id].map((sp) => (
+                      <Link key={sp.to} to={sp.to} style={{ textDecoration: 'none' }}>
+                        <div style={{ background: 'var(--white)', borderRadius: '10px', padding: '1.25rem 1.5rem', border: '1px solid var(--grey-light)', display: 'flex', alignItems: 'center', gap: '1rem', transition: 'all 0.2s', boxShadow: '0 2px 8px rgba(35,46,92,0.05)' }}
+                          onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#f59e0b'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(245,158,11,0.15)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                          onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--grey-light)'; e.currentTarget.style.boxShadow = '0 2px 8px rgba(35,46,92,0.05)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+                        >
+                          <span style={{ fontSize: '1.6rem', flexShrink: 0 }}>{sp.icon}</span>
+                          <div style={{ flex: 1 }}>
+                            <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 900, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.2rem' }}>{sp.label}</div>
+                            <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.8rem', color: 'var(--grey)' }}>{sp.desc}</div>
+                          </div>
+                          <span style={{ color: 'var(--red)', fontFamily: 'var(--font-display)', fontSize: '0.75rem', fontWeight: 800, flexShrink: 0 }}>→</span>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+
               {/* Detailed desc */}
               <motion.div {...fadeUp(0.2)} style={{
                 background: 'var(--white)', borderRadius: '10px',
@@ -426,6 +486,7 @@ export default function SinifDetayPage() {
           .sinif-content-grid { grid-template-columns: 1fr !important; }
           .sinif-content-grid > div:first-child { position: static !important; }
           .highlights-grid { grid-template-columns: 1fr !important; }
+          .subpages-grid { grid-template-columns: 1fr !important; }
           .photo-grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
         }
         @media (max-width: 480px) {

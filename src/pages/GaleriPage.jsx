@@ -2,47 +2,73 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // ─── All photos ────────────────────────────────────────────────
+const enc = (path) => path.replace(/ /g, '%20');
+
 const ALL_PHOTOS = [
-  // Okul Yaşamı
-  { src: '/gallery/IMG_0828.jpeg', cat: 'okul', label: 'Okul Yaşamı' },
-  { src: '/gallery/IMG_0830.jpeg', cat: 'okul', label: 'Okul Yaşamı' },
-  { src: '/gallery/IMG_0831.jpeg', cat: 'okul', label: 'Okul Yaşamı' },
-  { src: '/gallery/IMG_0832.jpeg', cat: 'okul', label: 'Okul Yaşamı' },
-  { src: '/gallery/IMG_0833.jpeg', cat: 'okul', label: 'Okul Yaşamı' },
-  { src: '/gallery/IMG_0834.jpeg', cat: 'okul', label: 'Okul Yaşamı' },
-  { src: '/gallery/IMG_0835.jpeg', cat: 'okul', label: 'Okul Yaşamı' },
-  { src: '/gallery/IMG_0836.jpeg', cat: 'okul', label: 'Okul Yaşamı' },
-  { src: '/gallery/IMG_0837.jpeg', cat: 'okul', label: 'Okul Yaşamı' },
-  { src: '/gallery/IMG_0838.jpeg', cat: 'okul', label: 'Okul Yaşamı' },
+  // İdari
+  { src: enc('/gallery/idari/IMG_0828.jpeg'), cat: 'idari', label: 'İdari' },
+  { src: enc('/gallery/idari/IMG_0830.jpeg'), cat: 'idari', label: 'İdari' },
+  { src: enc('/gallery/idari/IMG_0831.jpeg'), cat: 'idari', label: 'İdari' },
+  { src: enc('/gallery/idari/IMG_0832.jpeg'), cat: 'idari', label: 'İdari' },
+  { src: enc('/gallery/idari/IMG_0833.jpeg'), cat: 'idari', label: 'İdari' },
+  { src: enc('/gallery/idari/IMG_0834.jpeg'), cat: 'idari', label: 'İdari' },
+  { src: enc('/gallery/idari/IMG_0835.jpeg'), cat: 'idari', label: 'İdari' },
+  { src: enc('/gallery/idari/IMG_0836.jpeg'), cat: 'idari', label: 'İdari' },
+  { src: enc('/gallery/idari/IMG_0837.jpeg'), cat: 'idari', label: 'İdari' },
+  { src: enc('/gallery/idari/IMG_0838.jpeg'), cat: 'idari', label: 'İdari' },
   // Okul Öncesi
-  { src: '/gallery/okul-oncesi-1.webp', cat: 'okul-oncesi', label: 'Okul Öncesi' },
-  { src: '/gallery/okul-oncesi-2.webp', cat: 'okul-oncesi', label: 'Okul Öncesi' },
-  { src: '/gallery/okul-oncesi-3.webp', cat: 'okul-oncesi', label: 'Okul Öncesi' },
-  { src: '/gallery/okul-oncesi-4.webp', cat: 'okul-oncesi', label: 'Okul Öncesi' },
+  { src: enc('/gallery/okul öncesi/WhatsApp Image 2026-06-22 at 12.35.56.jpeg'), cat: 'okul-oncesi', label: 'Okul Öncesi' },
+  { src: enc('/gallery/okul öncesi/WhatsApp Image 2026-06-22 at 12.35.56 (1).jpeg'), cat: 'okul-oncesi', label: 'Okul Öncesi' },
+  { src: enc('/gallery/okul öncesi/WhatsApp Image 2026-06-22 at 12.35.56 (2).jpeg'), cat: 'okul-oncesi', label: 'Okul Öncesi' },
+  { src: enc('/gallery/okul öncesi/WhatsApp Image 2026-06-22 at 12.35.56 (3).jpeg'), cat: 'okul-oncesi', label: 'Okul Öncesi' },
   // İlkokul
-  { src: '/gallery/ilkokul-1.webp', cat: 'ilkokul', label: 'İlkokul' },
-  { src: '/gallery/ilkokul-2.webp', cat: 'ilkokul', label: 'İlkokul' },
-  { src: '/gallery/ilkokul-3.webp', cat: 'ilkokul', label: 'İlkokul' },
-  { src: '/gallery/ilkokul-4.webp', cat: 'ilkokul', label: 'İlkokul' },
+  { src: enc('/gallery/ilkokul/WhatsApp Image 2026-06-22 at 12.23.33.jpeg'), cat: 'ilkokul', label: 'İlkokul' },
+  { src: enc('/gallery/ilkokul/WhatsApp Image 2026-06-22 at 12.23.35 (1).jpeg'), cat: 'ilkokul', label: 'İlkokul' },
+  { src: enc('/gallery/ilkokul/WhatsApp Image 2026-06-22 at 12.23.36.jpeg'), cat: 'ilkokul', label: 'İlkokul' },
+  { src: enc('/gallery/ilkokul/WhatsApp Image 2026-06-22 at 12.23.37 (3).jpeg'), cat: 'ilkokul', label: 'İlkokul' },
+  { src: enc('/gallery/ilkokul/WhatsApp Image 2026-06-22 at 12.23.37 (4).jpeg'), cat: 'ilkokul', label: 'İlkokul' },
+  { src: enc('/gallery/ilkokul/WhatsApp Image 2026-06-22 at 12.23.37 (6).jpeg'), cat: 'ilkokul', label: 'İlkokul' },
+  { src: enc('/gallery/ilkokul/WhatsApp Image 2026-06-22 at 12.23.37 (7).jpeg'), cat: 'ilkokul', label: 'İlkokul' },
   // Ortaokul
-  { src: '/gallery/ortaokul-1.webp', cat: 'ortaokul', label: 'Ortaokul' },
-  { src: '/gallery/ortaokul-2.webp', cat: 'ortaokul', label: 'Ortaokul' },
-  { src: '/gallery/ortaokul-3.webp', cat: 'ortaokul', label: 'Ortaokul' },
-  { src: '/gallery/ortaokul-4.webp', cat: 'ortaokul', label: 'Ortaokul' },
-  // Lise
-  { src: '/gallery/lise-1.webp', cat: 'lise', label: 'Anadolu Lisesi' },
-  { src: '/gallery/lise-2.webp', cat: 'lise', label: 'Anadolu Lisesi' },
-  { src: '/gallery/lise-3.webp', cat: 'lise', label: 'Anadolu Lisesi' },
-  { src: '/gallery/lise-4.webp', cat: 'lise', label: 'Anadolu Lisesi' },
+  { src: enc('/gallery/ortaokul/WhatsApp Image 2026-06-22 at 12.23.34 (3).jpeg'), cat: 'ortaokul', label: 'Ortaokul' },
+  { src: enc('/gallery/ortaokul/WhatsApp Image 2026-06-22 at 12.23.34 (4).jpeg'), cat: 'ortaokul', label: 'Ortaokul' },
+  { src: enc('/gallery/ortaokul/WhatsApp Image 2026-06-22 at 12.23.35.jpeg'), cat: 'ortaokul', label: 'Ortaokul' },
+  { src: enc('/gallery/ortaokul/WhatsApp Image 2026-06-22 at 12.23.36 (2).jpeg'), cat: 'ortaokul', label: 'Ortaokul' },
+  { src: enc('/gallery/ortaokul/WhatsApp Image 2026-06-22 at 12.23.36 (8).jpeg'), cat: 'ortaokul', label: 'Ortaokul' },
+  { src: enc('/gallery/ortaokul/WhatsApp Image 2026-06-22 at 12.23.37 (5).jpeg'), cat: 'ortaokul', label: 'Ortaokul' },
+  { src: enc('/gallery/ortaokul/WhatsApp Image 2026-06-22 at 12.23.38 (1).jpeg'), cat: 'ortaokul', label: 'Ortaokul' },
+  // Anadolu Lisesi
+  { src: enc('/gallery/anadolu lisesi/WhatsApp Image 2026-06-22 at 12.23.33 (6).jpeg'), cat: 'lise', label: 'Anadolu Lisesi' },
+  { src: enc('/gallery/anadolu lisesi/WhatsApp Image 2026-06-22 at 12.23.34 (5).jpeg'), cat: 'lise', label: 'Anadolu Lisesi' },
+  { src: enc('/gallery/anadolu lisesi/WhatsApp Image 2026-06-22 at 12.23.36 (4).jpeg'), cat: 'lise', label: 'Anadolu Lisesi' },
+  { src: enc('/gallery/anadolu lisesi/WhatsApp Image 2026-06-22 at 12.23.36 (5).jpeg'), cat: 'lise', label: 'Anadolu Lisesi' },
+  { src: enc('/gallery/anadolu lisesi/WhatsApp Image 2026-06-22 at 12.23.36 (6).jpeg'), cat: 'lise', label: 'Anadolu Lisesi' },
+  // Kütüphane
+  { src: enc('/gallery/kütüphane/WhatsApp Image 2026-06-22 at 12.23.33 (2).jpeg'), cat: 'kutuphane', label: 'Kütüphane' },
+  { src: enc('/gallery/kütüphane/WhatsApp Image 2026-06-22 at 12.23.33 (4).jpeg'), cat: 'kutuphane', label: 'Kütüphane' },
+  { src: enc('/gallery/kütüphane/WhatsApp Image 2026-06-22 at 12.23.33 (7).jpeg'), cat: 'kutuphane', label: 'Kütüphane' },
+  { src: enc('/gallery/kütüphane/WhatsApp Image 2026-06-22 at 12.23.33 (8).jpeg'), cat: 'kutuphane', label: 'Kütüphane' },
+  { src: enc('/gallery/kütüphane/WhatsApp Image 2026-06-22 at 12.23.34 (1).jpeg'), cat: 'kutuphane', label: 'Kütüphane' },
+  { src: enc('/gallery/kütüphane/WhatsApp Image 2026-06-22 at 12.23.34 (2).jpeg'), cat: 'kutuphane', label: 'Kütüphane' },
+  { src: enc('/gallery/kütüphane/WhatsApp Image 2026-06-22 at 12.23.36 (1).jpeg'), cat: 'kutuphane', label: 'Kütüphane' },
+  { src: enc('/gallery/kütüphane/WhatsApp Image 2026-06-22 at 12.23.36 (7).jpeg'), cat: 'kutuphane', label: 'Kütüphane' },
+  { src: enc('/gallery/kütüphane/WhatsApp Image 2026-06-22 at 12.23.37.jpeg'), cat: 'kutuphane', label: 'Kütüphane' },
+  { src: enc('/gallery/kütüphane/WhatsApp Image 2026-06-22 at 12.23.38 (2).jpeg'), cat: 'kutuphane', label: 'Kütüphane' },
+  // Sosyal Bahçe
+  { src: enc('/gallery/sosyal bahçe/WhatsApp Image 2026-06-22 at 12.23.33 (5).jpeg'), cat: 'sosyal-bahce', label: 'Sosyal Bahçe' },
+  { src: enc('/gallery/sosyal bahçe/WhatsApp Image 2026-06-22 at 12.23.34.jpeg'), cat: 'sosyal-bahce', label: 'Sosyal Bahçe' },
+  { src: enc('/gallery/sosyal bahçe/WhatsApp Image 2026-06-22 at 12.23.35 (2).jpeg'), cat: 'sosyal-bahce', label: 'Sosyal Bahçe' },
 ];
 
 const TABS = [
   { id: 'all', label: 'Tümü' },
-  { id: 'okul', label: 'Okul Yaşamı' },
+  { id: 'idari', label: 'İdari' },
   { id: 'okul-oncesi', label: 'Okul Öncesi' },
   { id: 'ilkokul', label: 'İlkokul' },
   { id: 'ortaokul', label: 'Ortaokul' },
   { id: 'lise', label: 'Anadolu Lisesi' },
+  { id: 'kutuphane', label: 'Kütüphane' },
+  { id: 'sosyal-bahce', label: 'Sosyal Bahçe' },
 ];
 
 // ─── Lightbox ─────────────────────────────────────────────────

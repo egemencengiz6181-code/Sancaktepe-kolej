@@ -1,6 +1,9 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { lazy, Suspense } from 'react';
 import { programs } from '../data/programs';
+
+const PdfFlipBook = lazy(() => import('../components/PdfFlipBook'));
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -294,6 +297,53 @@ export default function ProgramDetayPage() {
           </div>
         </div>
       </section>
+
+      {/* PDF BROŞÜR / DERGİ */}
+      {prog.pdf && (
+        <section style={{ padding: '6rem 0', background: 'linear-gradient(135deg, #060e1c 0%, #0a1628 50%, #0e2044 100%)', position: 'relative', overflow: 'hidden' }}>
+          <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px)', backgroundSize: '56px 56px', pointerEvents: 'none' }} />
+          <div className="section-container" style={{ position: 'relative', zIndex: 1 }}>
+            <motion.div {...fadeUp(0)} style={{ textAlign: 'center', marginBottom: '3rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', justifyContent: 'center', marginBottom: '0.75rem' }}>
+                <div style={{ width: '40px', height: '1px', background: 'rgba(230,25,54,0.6)' }} />
+                <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)' }}>Program Broşürü</span>
+                <div style={{ width: '40px', height: '1px', background: 'rgba(230,25,54,0.6)' }} />
+              </div>
+              <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.6rem,3vw,2.2rem)', fontWeight: 700, color: '#fff', lineHeight: 1.2 }}>
+                {prog.tag} <span style={{ color: 'rgba(255,255,255,0.45)', fontStyle: 'italic' }}>Tanıtım Kitapçığı</span>
+              </h2>
+              <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', color: 'rgba(255,255,255,0.4)', maxWidth: '420px', margin: '0.65rem auto 0', lineHeight: 1.8 }}>
+                Sayfaları çevirerek ya da köşeyi sürükleyerek programı keşfedin.
+              </p>
+            </motion.div>
+
+            <Suspense fallback={
+              <div style={{ textAlign: 'center', padding: '4rem', color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-display)', fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
+                Yükleniyor...
+              </div>
+            }>
+              <PdfFlipBook url={prog.pdf} />
+            </Suspense>
+
+            <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
+              <a
+                href={prog.pdf}
+                download
+                style={{
+                  fontFamily: 'var(--font-display)', fontSize: '0.72rem', fontWeight: 800,
+                  letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)',
+                  border: '1px solid rgba(255,255,255,0.2)', padding: '0.75rem 1.75rem',
+                  borderRadius: '4px', textDecoration: 'none', display: 'inline-block', transition: 'all 0.2s',
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.5)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(255,255,255,0.6)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'; }}
+              >
+                ⬇ PDF İndir
+              </a>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* OTHER PROGRAMS */}
       <section style={{ padding: '5rem 0', background: 'var(--white)', borderTop: '1px solid var(--grey-light)' }}>

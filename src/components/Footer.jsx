@@ -27,7 +27,7 @@ export default function Footer() {
       }} />
 
       <div className="section-container" style={{ position: 'relative', zIndex: 1 }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1.8fr 1fr 1.2fr 1.2fr', gap: '3rem', marginBottom: '4rem' }} className="footer-grid">
+        <div style={{ display: 'grid', gridTemplateColumns: '1.8fr 1fr 1fr 1.2fr 1.2fr', gap: '2.5rem', marginBottom: '4rem' }} className="footer-grid">
           {/* Brand */}
           <div>
             <div style={{ marginBottom: '1.5rem' }}>
@@ -48,6 +48,30 @@ export default function Footer() {
             <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)', marginBottom: '1.5rem' }}>Sayfalar</h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
               {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link to={link.href} style={{ textDecoration: 'none', fontFamily: 'var(--font-sans)', fontSize: '0.88rem', color: 'rgba(255,255,255,0.55)', transition: 'color 0.3s', display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = '#fff')}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.55)')}
+                  >
+                    <span style={{ color: 'var(--red)', fontSize: '0.6rem' }}>▸</span>
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Birimler */}
+          <div>
+            <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)', marginBottom: '1.5rem' }}>Birimler</h4>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+              {[
+                { href: '/birimler/olcme-degerlendirme', label: 'Ölçme Değerlendirme' },
+                { href: '/birimler/pdr', label: 'Psikolojik Danışmanlık ve Rehberlik' },
+                { href: '/birimler/sks', label: 'SKS Koordinatörlüğü' },
+                { href: '/birimler/yabanci-dil', label: 'Yabancı Dil' },
+                { href: '/birimler/fark-yaratan-programlar', label: 'Fark Yaratan Programlar' },
+              ].map((link) => (
                 <li key={link.href}>
                   <Link to={link.href} style={{ textDecoration: 'none', fontFamily: 'var(--font-sans)', fontSize: '0.88rem', color: 'rgba(255,255,255,0.55)', transition: 'color 0.3s', display: 'flex', alignItems: 'center', gap: '0.5rem' }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = '#fff')}

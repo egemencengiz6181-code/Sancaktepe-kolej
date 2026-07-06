@@ -277,21 +277,21 @@ export default function HomePage() {
               }}>
                 {/* Back photo: ortaokul-4 — top-left, tilted */}
                 <HeroPhoto
-                  src="/gallery/ortaokul-4.webp"
+                  src={encodeURI('/gallery/ortaokul/WhatsApp Image 2026-06-22 at 12.23.34 (3).jpeg')}
                   delay={0.7}
                   floatY={8}
                   style={{ width: '230px', height: '165px', top: '0', left: '0', zIndex: 1, transform: 'rotate(-4deg)', boxShadow: '0 20px 60px rgba(0,0,0,0.5)' }}
                 />
                 {/* Main photo: IMG_0835 — center, tall */}
                 <HeroPhoto
-                  src="/gallery/IMG_0835.jpeg"
+                  src="/gallery/idari/IMG_0835.jpeg"
                   delay={0.5}
                   floatY={14}
                   style={{ width: '275px', height: '390px', top: '60px', left: '85px', zIndex: 3, boxShadow: '0 32px 80px rgba(0,0,0,0.55)' }}
                 />
                 {/* Front photo: okul-oncesi-1 — bottom-right */}
                 <HeroPhoto
-                  src="/gallery/okul-oncesi-1.webp"
+                  src={encodeURI('/gallery/okul öncesi/WhatsApp Image 2026-06-22 at 12.35.56.jpeg')}
                   delay={0.9}
                   floatY={10}
                   style={{ width: '210px', height: '150px', bottom: '20px', right: '0', zIndex: 4, transform: 'rotate(3deg)', boxShadow: '0 20px 50px rgba(0,0,0,0.5)' }}
@@ -314,6 +314,99 @@ export default function HomePage() {
 
         <style>{`
           @media (max-width: 960px) { .hero-collage { display: none !important; } }
+        `}</style>
+      </section>
+
+      {/* PROGRAM COVERS CAROUSEL */}
+      <section style={{ padding: '3.5rem 0', background: '#0a1628', overflow: 'hidden', position: 'relative' }}>
+        <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px)', backgroundSize: '48px 48px', pointerEvents: 'none' }} />
+        <div style={{ textAlign: 'center', marginBottom: '1.75rem', position: 'relative', zIndex: 1 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', justifyContent: 'center', marginBottom: '0.5rem' }}>
+            <div style={{ width: '32px', height: '1px', background: 'rgba(230,25,54,0.5)' }} />
+            <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)' }}>Eğitim Programlarımız</span>
+            <div style={{ width: '32px', height: '1px', background: 'rgba(230,25,54,0.5)' }} />
+          </div>
+          <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.4rem,3vw,2rem)', fontWeight: 700, color: '#fff', lineHeight: 1.15 }}>
+            Bütüncül <span style={{ color: 'var(--red)' }}>Program Kataloğu</span>
+          </h2>
+        </div>
+        {/* Infinite scroll strip */}
+        <div style={{ position: 'relative', zIndex: 1 }} className="covers-track-wrap">
+          <div className="covers-track">
+            {[
+              { img: '/kapaklar/Bögep.jpg', label: 'BÖGEP', sub: 'Bütüncül Öğrenme ve Gelişim', to: '/programlar/bogep' },
+              { img: '/kapaklar/KVYOD.jpg', label: 'KVYOD', sub: 'Küresel Vizyon ve Yaşam', to: '/programlar/kvyod' },
+              { img: '/kapaklar/OYP.jpg', label: 'OYP', sub: 'Okuryazarlık Programı', to: '/programlar/okuryazarlik' },
+              { img: '/kapaklar/TÖP.jpg', label: 'TÖP', sub: 'Tematik Öğrenme', to: '/programlar/tematik-ogrenme' },
+              { img: '/kapaklar/UD.jpg', label: 'UD', sub: 'Uygulamalı Dersler', to: '/programlar/uygulamali-dersler' },
+              { img: '/kapaklar/AP.jpg', label: 'AP', sub: 'Advanced Placement', to: '/programlar/ap' },
+              { img: encodeURI('/kapaklar/Kanada çift diploma programı.jpg'), label: 'Kanada', sub: 'Çift Diploma Programı', to: '/siniflar/lise/uluslararasi-programlar' },
+              { img: '/kapaklar/UbD.jpg', label: 'UbD', sub: 'Tasarım ile Öğrenme', to: '/programlar/bogep' },
+              { img: '/kapaklar/P4C.jpg', label: 'P4C', sub: 'Çocuklarla Felsefe', to: '/siniflar/okul-oncesi/genel-bilgiler' },
+              { img: '/kapaklar/YDP.jpg', label: 'YDP', sub: 'Yabancı Dil Programı', to: '/programlar' },
+              { img: encodeURI('/kapaklar/ÖD.jpg'), label: 'ÖD', sub: 'Ölçme Değerlendirme', to: '/programlar' },
+              // duplicate for infinite loop
+              { img: '/kapaklar/Bögep.jpg', label: 'BÖGEP', sub: 'Bütüncül Öğrenme ve Gelişim', to: '/programlar/bogep' },
+              { img: '/kapaklar/KVYOD.jpg', label: 'KVYOD', sub: 'Küresel Vizyon ve Yaşam', to: '/programlar/kvyod' },
+              { img: '/kapaklar/OYP.jpg', label: 'OYP', sub: 'Okuryazarlık Programı', to: '/programlar/okuryazarlik' },
+              { img: '/kapaklar/TÖP.jpg', label: 'TÖP', sub: 'Tematik Öğrenme', to: '/programlar/tematik-ogrenme' },
+              { img: '/kapaklar/UD.jpg', label: 'UD', sub: 'Uygulamalı Dersler', to: '/programlar/uygulamali-dersler' },
+              { img: '/kapaklar/AP.jpg', label: 'AP', sub: 'Advanced Placement', to: '/programlar/ap' },
+            ].map((item, i) => (
+              <Link key={i} to={item.to} style={{ textDecoration: 'none', flexShrink: 0 }}>
+                <div className="cover-card"
+                  onMouseEnter={(e) => { e.currentTarget.closest('.covers-track-wrap').style.setProperty('--paused', 'paused'); }}
+                  onMouseLeave={(e) => { e.currentTarget.closest('.covers-track-wrap').style.setProperty('--paused', 'running'); }}
+                >
+                  <div style={{ position: 'relative', width: '100%', height: '100%', borderRadius: '10px', overflow: 'hidden' }}>
+                    <img src={item.img} alt={item.label} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.4s ease' }} className="cover-img" />
+                    <div className="cover-overlay">
+                      <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.72rem', fontWeight: 900, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#fff', marginBottom: '0.2rem' }}>{item.label}</div>
+                      <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.72rem', color: 'rgba(255,255,255,0.7)', lineHeight: 1.4 }}>{item.sub}</div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+        <style>{`
+          .covers-track-wrap { --paused: running; }
+          .covers-track {
+            display: flex;
+            gap: 1rem;
+            padding: 0 1rem;
+            animation: covers-scroll 36s linear infinite;
+            animation-play-state: var(--paused);
+            width: max-content;
+          }
+          @keyframes covers-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .cover-card {
+            width: 200px;
+            height: 280px;
+            cursor: pointer;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+          }
+          .cover-card:hover { transform: translateY(-6px) scale(1.03); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+          .cover-card:hover .cover-img { transform: scale(1.06); }
+          .cover-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 1rem 0.85rem 0.85rem;
+            background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+            transform: translateY(8px);
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+          }
+          .cover-card:hover .cover-overlay { opacity: 1; transform: translateY(0); }
         `}</style>
       </section>
 

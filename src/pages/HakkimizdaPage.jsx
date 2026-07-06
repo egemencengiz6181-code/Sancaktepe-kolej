@@ -1,4 +1,7 @@
 import { motion } from 'framer-motion';
+import { lazy, Suspense } from 'react';
+
+const PdfFlipBook = lazy(() => import('../components/PdfFlipBook'));
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
@@ -12,7 +15,7 @@ export default function HakkimizdaPage() {
     <>
       {/* Page Hero */}
       <div className="page-hero" style={{
-        backgroundImage: "linear-gradient(135deg, rgba(26,35,71,0.92) 0%, rgba(35,46,92,0.88) 55%, rgba(46,61,122,0.88) 100%), url('/gallery/IMG_0828.jpeg')",
+        backgroundImage: "linear-gradient(135deg, rgba(26,35,71,0.92) 0%, rgba(35,46,92,0.88) 55%, rgba(46,61,122,0.88) 100%), url('/gallery/idari/IMG_0828.jpeg')",
         backgroundSize: 'cover', backgroundPosition: 'center',
       }}>
         <div className="section-container" style={{ position: 'relative', zIndex: 1 }}>
@@ -322,6 +325,52 @@ export default function HakkimizdaPage() {
           .about-grid, .vm-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
         }
       `}</style>
+
+      {/* DERGI FLIPBOOK */}
+      <section style={{ padding: '7rem 0', background: 'linear-gradient(135deg, #060e1c 0%, #0a1628 50%, #0e2044 100%)', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px)', backgroundSize: '56px 56px', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', top: '-80px', left: '15%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(230,25,54,0.07) 0%, transparent 65%)', pointerEvents: 'none' }} />
+        <div className="section-container" style={{ position: 'relative', zIndex: 1 }}>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', justifyContent: 'center', marginBottom: '0.75rem' }}>
+              <div style={{ width: '40px', height: '1px', background: 'rgba(230,25,54,0.6)' }} />
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)' }}>Tanıtım Dergisi</span>
+              <div style={{ width: '40px', height: '1px', background: 'rgba(230,25,54,0.6)' }} />
+            </div>
+            <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.8rem,3.5vw,2.6rem)', fontWeight: 700, color: '#fff', lineHeight: 1.2 }}>
+              Kolej Sancaktepe <span style={{ color: 'rgba(255,255,255,0.5)', fontStyle: 'italic' }}>Dergisi</span>
+            </h2>
+            <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'rgba(255,255,255,0.45)', maxWidth: '480px', margin: '0.75rem auto 0', lineHeight: 1.85 }}>
+              Okulumuzun eğitim anlayışını, programlarını ve okul yaşamını tanıtan dijital dergimizi sayfaları çevirerek keşfedin.
+            </p>
+          </motion.div>
+
+          <Suspense fallback={
+            <div style={{ textAlign: 'center', padding: '4rem', color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-display)', fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
+              Yükleniyor...
+            </div>
+          }>
+            <PdfFlipBook />
+          </Suspense>
+
+          <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
+            <a
+              href="/web%20genel%20dergi.pdf"
+              download="Kolej-Sancaktepe-Dergi.pdf"
+              style={{
+                fontFamily: 'var(--font-display)', fontSize: '0.72rem', fontWeight: 800,
+                letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)',
+                border: '1px solid rgba(255,255,255,0.2)', padding: '0.75rem 1.75rem',
+                borderRadius: '4px', textDecoration: 'none', transition: 'all 0.2s', display: 'inline-block',
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.5)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(255,255,255,0.6)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'; }}
+            >
+              ⬇ PDF İndir
+            </a>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
