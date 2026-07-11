@@ -379,7 +379,6 @@ export default function LiseAkademikBolumlerPage() {
       <section id="beden" style={{ padding: '5rem 0', background: 'var(--off-white)', scrollMarginTop: '80px' }}>
         <div className="section-container"><div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <motion.div {...fadeUp(0)} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-            <span style={{ fontSize: '2rem' }}>⚽</span>
             <Tag label="Beden Eğitimi" color="#16a34a" bg="#16a34a12" border="#16a34a25" />
           </motion.div>
           <motion.h2 {...fadeUp(0.04)} style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.5rem,2.8vw,2rem)', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>Beden Eğitimi</motion.h2>

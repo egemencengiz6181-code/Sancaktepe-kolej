@@ -137,7 +137,7 @@ export default function APSinavMerkeziPage() {
           </div>
           <motion.div {...fadeUp(0.3)} style={{ marginTop: '2rem', textAlign: 'center' }}>
             <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', color: 'rgba(255,255,255,0.45)', maxWidth: '540px', margin: '0 auto', lineHeight: 1.75 }}>
-              ⚠️ Her sınav için sınav ücretinin son başvuru tarihinden sonra artacağını unutmayın. Kontenjanlar dolmadan başvurunuzu tamamlamanızı tavsiye ederiz.
+              Her sınav için sınav ücretinin son başvuru tarihinden sonra artacağını unutmayın. Kontenjanlar dolmadan başvurunuzu tamamlamanızı tavsiye ederiz.
             </p>
           </motion.div>
         </div>

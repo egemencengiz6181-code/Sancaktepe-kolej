@@ -243,7 +243,6 @@ export default function OrtaokulBransPage() {
       <section id="beden" style={{ padding: '5rem 0', background: 'var(--white)', scrollMarginTop: '80px' }}>
         <div className="section-container"><div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <motion.div {...fadeUp(0)} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-            <span style={{ fontSize: '2rem' }}>⚽</span>
             <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#16a34a', background: '#16a34a12', border: '1px solid #16a34a25', padding: '0.2rem 0.55rem', borderRadius: '4px' }}>Beden Eğitimi</span>
           </motion.div>
           <motion.h2 {...fadeUp(0.04)} style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.5rem,2.8vw,2rem)', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>Beden Eğitimi</motion.h2>

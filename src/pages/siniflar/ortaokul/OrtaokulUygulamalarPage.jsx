@@ -47,7 +47,7 @@ export default function OrtaokulUygulamalarPage() {
           <div style={{ maxWidth: '860px', margin: '0 auto' }}>
 
             <motion.div {...fadeUp(0)} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem' }}>
-              <span style={{ fontSize: '2.5rem' }}>♻️</span>
+
               <div>
                 <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.2rem' }}>Öne Çıkan Proje</p>
                 <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.7rem', fontWeight: 700, color: 'var(--primary)', margin: 0 }}>Eko-Okul Projesi</h2>
