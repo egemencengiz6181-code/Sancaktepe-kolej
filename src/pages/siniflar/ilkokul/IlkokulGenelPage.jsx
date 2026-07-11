@@ -19,11 +19,11 @@ const SKILLS = [
 ];
 
 const SUB_LINKS = [
-  { to: '/siniflar/ilkokul/brans-dersleri', icon: '📚', label: 'Branş Dersleri' },
-  { to: '/siniflar/ilkokul/uygulamalar-projeler', icon: '🔬', label: 'Uygulamalar ve Projeler' },
-  { to: '/siniflar/ilkokul/pdr', icon: '💙', label: "PDR'den Bakış" },
-  { to: '/siniflar/ilkokul/degerler-egitimi', icon: '⭐', label: 'Değerler Eğitimi' },
-  { to: '/siniflar/ilkokul/haftalik-cizelge', icon: '🗓️', label: 'Haftalık Zaman Çizelgesi' },
+  { to: '/siniflar/ilkokul/brans-dersleri', label: 'Branş Dersleri' },
+  { to: '/siniflar/ilkokul/uygulamalar-projeler', label: 'Uygulamalar ve Projeler' },
+  { to: '/siniflar/ilkokul/pdr', label: "PDR'den Bakış" },
+  { to: '/siniflar/ilkokul/degerler-egitimi', label: 'Değerler Eğitimi' },
+  { to: '/siniflar/ilkokul/haftalik-cizelge', label: 'Haftalık Zaman Çizelgesi' },
 ];
 
 export default function IlkokulGenelPage() {
@@ -88,12 +88,12 @@ export default function IlkokulGenelPage() {
             <div>
               <motion.div {...fadeUp(0.1)} style={{ background: 'var(--white)', borderRadius: '12px', padding: '1.75rem', border: '1px solid var(--grey-light)', boxShadow: '0 4px 20px rgba(35,46,92,0.06)', marginBottom: '1.5rem' }}>
                 <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: '1rem' }}>Bu Bölümdeki Sayfalar</p>
-                {[{ to: '/siniflar/ilkokul', icon: '📐', label: 'Kademeye Genel Bakış' }, ...SUB_LINKS].map((l) => (
+                {[{ to: '/siniflar/ilkokul', label: 'Kademeye Genel Bakış' }, ...SUB_LINKS].map((l) => (
                   <Link key={l.to} to={l.to} style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', textDecoration: 'none', padding: '0.6rem 0', borderBottom: '1px solid var(--grey-light)', transition: 'padding 0.2s' }}
                     onMouseEnter={e => { e.currentTarget.style.paddingLeft = '0.4rem'; }}
                     onMouseLeave={e => { e.currentTarget.style.paddingLeft = '0'; }}
                   >
-                    <span style={{ fontSize: '1rem', flexShrink: 0 }}>{l.icon}</span>
+                    
                     <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', color: 'var(--primary)', fontWeight: 600 }}>{l.label}</span>
                     <span style={{ marginLeft: 'auto', color: 'var(--red)', fontSize: '0.7rem' }}>→</span>
                   </Link>

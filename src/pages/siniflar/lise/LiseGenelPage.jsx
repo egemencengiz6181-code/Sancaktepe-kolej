@@ -11,23 +11,23 @@ const fadeUp = (delay = 0) => ({
 const COLOR = '#232e5c';
 
 const SUB_LINKS = [
-  { to: '/siniflar/lise/uluslararasi-programlar', label: 'Uluslararası Programlar', icon: '🌍' },
-  { to: '/siniflar/lise/akademik-bolumler', label: 'Akademik Bölümler', icon: '📚' },
-  { to: '/siniflar/lise/rehberlik-kariyer', label: 'Rehberlik ve Kariyer', icon: '💼' },
-  { to: '/siniflar/lise/yurt-ici-universite', label: 'Yurt İçi Üniversite', icon: '🎓' },
-  { to: '/siniflar/lise/yurt-disi-universite', label: 'Yurt Dışı Üniversite', icon: '✈️' },
-  { to: '/siniflar/lise/haftalik-cizelge', label: 'Haftalık Çizelge', icon: '🗓️' },
+  { to: '/siniflar/lise/uluslararasi-programlar', label: 'Uluslararası Programlar' },
+  { to: '/siniflar/lise/akademik-bolumler', label: 'Akademik Bölümler' },
+  { to: '/siniflar/lise/rehberlik-kariyer', label: 'Rehberlik ve Kariyer' },
+  { to: '/siniflar/lise/yurt-ici-universite', label: 'Yurt İçi Üniversite' },
+  { to: '/siniflar/lise/yurt-disi-universite', label: 'Yurt Dışı Üniversite' },
+  { to: '/siniflar/lise/haftalik-cizelge', label: 'Haftalık Çizelge' },
 ];
 
 const SKILLS = [
-  { icon: '🏆', title: 'Ulusal & Uluslararası Platformlar', desc: 'Bilim, kültür, sanat ve spor yarışmalarında temsil' },
-  { icon: '🔬', title: 'Tam Donanımlı Laboratuvarlar', desc: 'Fizik, kimya, biyoloji laboratuvarları ve bilgisayar sınıfları' },
-  { icon: '💡', title: 'Disiplinler Arası Çalışmalar', desc: 'Farklı alanları birleştiren proje ve araştırmalar' },
-  { icon: '🎓', title: 'AP Programı', desc: 'College Board onaylı ileri seviye üniversite dersleri' },
-  { icon: '🌐', title: 'Yoğun Yabancı Dil Eğitimi', desc: '9–10. sınıflarda İngilizce matematik ve fen dersleri' },
-  { icon: '🎭', title: 'Kültür & Sanat Ortamları', desc: 'Müzik atölyeleri, görsel sanatlar, tiyatro ve konserler' },
-  { icon: '🤝', title: 'Toplum Hizmeti', desc: 'Değerler eğitimine katkı sağlayan sosyal sorumluluk projeleri' },
-  { icon: '📌', title: 'Kariyer Danışmanlığı', desc: 'Yurt içi ve yurt dışı üniversite hazırlık süreci desteği' },
+  { title: 'Ulusal & Uluslararası Platformlar', desc: 'Bilim, kültür, sanat ve spor yarışmalarında temsil' },
+  { title: 'Tam Donanımlı Laboratuvarlar', desc: 'Fizik, kimya, biyoloji laboratuvarları ve bilgisayar sınıfları' },
+  { title: 'Disiplinler Arası Çalışmalar', desc: 'Farklı alanları birleştiren proje ve araştırmalar' },
+  { title: 'AP Programı', desc: 'College Board onaylı ileri seviye üniversite dersleri' },
+  { title: 'Yoğun Yabancı Dil Eğitimi', desc: '9–10. sınıflarda İngilizce matematik ve fen dersleri' },
+  { title: 'Kültür & Sanat Ortamları', desc: 'Müzik atölyeleri, görsel sanatlar, tiyatro ve konserler' },
+  { title: 'Toplum Hizmeti', desc: 'Değerler eğitimine katkı sağlayan sosyal sorumluluk projeleri' },
+  { title: 'Kariyer Danışmanlığı', desc: 'Yurt içi ve yurt dışı üniversite hazırlık süreci desteği' },
 ];
 
 export default function LiseGenelPage() {
@@ -97,7 +97,7 @@ export default function LiseGenelPage() {
                       onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(35,46,92,0.08)'; }}
                       onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}
                     >
-                      <span style={{ fontSize: '1.4rem', display: 'block', marginBottom: '0.6rem' }}>{s.icon}</span>
+                      
                       <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.3rem' }}>{s.title}</p>
                       <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.82rem', color: 'var(--text-mid)', lineHeight: 1.75, margin: 0 }}>{s.desc}</p>
                     </div>
@@ -117,7 +117,7 @@ export default function LiseGenelPage() {
                         onMouseEnter={e => e.currentTarget.style.background = 'rgba(35,46,92,0.08)'}
                         onMouseLeave={e => e.currentTarget.style.background = 'var(--off-white)'}
                       >
-                        <span>{l.icon}</span> {l.label}
+                         {l.label}
                       </Link>
                     ))}
                   </div>

@@ -7,7 +7,6 @@ const classes = [
     level: 'Okul Öncesi',
     ages: 'Anaokulu',
     subtitle: 'Oyunla Keşfeden, Merakla Öğrenen Çocuklar',
-    icon: '🌟',
     color: '#f59e0b',
     desc: 'Anaokulumuz, çocukların erken yaşta merak duygusunu, dil becerilerini ve düşünme alışkanlıklarını geliştirmeyi amaçlayan bütüncül bir eğitim yaklaşımı sunar.',
     approach: [
@@ -29,7 +28,6 @@ const classes = [
     level: 'İlkokul',
     ages: '1. - 4. Sınıf',
     subtitle: 'Sağlam Temeller, Güçlü Beceriler',
-    icon: '📐',
     color: '#3b82f6',
     desc: 'İlkokulumuz, öğrencilerin temel akademik becerilerini kazandığı, aynı zamanda düşünme, iletişim ve okuryazarlık alanlarında güçlendiği bir öğrenme ortamı sunar.',
     approach: [
@@ -51,7 +49,6 @@ const classes = [
     level: 'Ortaokul',
     ages: '5. - 8. Sınıf',
     subtitle: 'Düşünen, Sorgulayan, Dünyayı Okuyan Öğrenciler',
-    icon: '🔬',
     color: '#8b5cf6',
     desc: 'Ortaokulumuz, öğrencilerin akademik gelişimlerinin yanında eleştirel düşünme, problem çözme ve küresel farkındalık kazandıkları bir öğrenme süreci sunar.',
     approach: [
@@ -74,7 +71,6 @@ const classes = [
     level: 'Anadolu Lisesi',
     ages: '9. - 12. Sınıf',
     subtitle: 'Geleceği Okuyan, Yönünü Belirleyen Gençler',
-    icon: '🎓',
     color: '#c9a84c',
     desc: 'Anadolu Lisemiz, öğrencileri yalnızca üniversiteye değil, hayata ve dünyaya hazırlayan çok yönlü bir eğitim anlayışı sunar.',
     approach: [
@@ -166,7 +162,7 @@ export default function Classes() {
                 gap: '0.5rem',
               }}
             >
-              <span>{cls.icon}</span> {cls.level}
+              {cls.level}
             </button>
           ))}
         </motion.div>
@@ -206,12 +202,6 @@ export default function Classes() {
                   width: '4px',
                   background: `linear-gradient(180deg, ${active.color}, transparent)`,
                 }} />
-
-                <div style={{
-                  fontSize: '3.5rem',
-                  marginBottom: '1.5rem',
-                  lineHeight: 1,
-                }}>{active.icon}</div>
 
                 <div style={{
                   fontFamily: 'var(--font-display)',
@@ -264,7 +254,7 @@ export default function Classes() {
                     textTransform: 'uppercase',
                     color: active.color,
                     marginBottom: '0.5rem',
-                  }}>🎯 Hedefimiz</p>
+                  }}>Hedefimiz</p>
                   <p style={{
                     fontFamily: 'var(--font-sans)',
                     fontSize: '0.85rem',
@@ -345,7 +335,7 @@ export default function Classes() {
                           borderRadius: '3px',
                         }}
                       >
-                        <span style={{ color: active.color, fontSize: '0.7rem', marginTop: '0.25rem' }}>✦</span>
+                        
                         <span style={{
                           fontFamily: 'var(--font-sans)',
                           fontSize: '0.8rem',

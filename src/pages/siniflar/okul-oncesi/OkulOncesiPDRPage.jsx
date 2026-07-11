@@ -85,7 +85,7 @@ export default function OkulOncesiPDRPage() {
             <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.65)' }}>PDR'den Bakış</span>
           </motion.div>
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15, duration: 0.6 }} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(34,197,94,0.15)', border: '1px solid rgba(34,197,94,0.3)', borderRadius: '4px', padding: '0.35rem 0.9rem', marginBottom: '1.5rem' }}>
-            <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.15em', color: '#22c55e', textTransform: 'uppercase' }}>💚 Psikolojik Danışmanlık ve Rehberlik</span>
+            
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25, duration: 0.75, ease: [0.22, 1, 0.36, 1] }} style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2rem,4vw,3.2rem)', fontWeight: 700, color: '#fff', lineHeight: 1.12, marginBottom: '0.75rem' }}>
             PDR'den Bakış
@@ -112,9 +112,7 @@ export default function OkulOncesiPDRPage() {
               <div key={section.group} style={{ marginBottom: '3rem' }}>
                 <motion.div {...fadeUp(0.05)}>
                   <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.3rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                    <span style={{ width: '30px', height: '30px', background: '#22c55e', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontSize: '0.9rem' }}>
-                      {si === 0 ? '🎓' : '👨‍👩‍👧'}
-                    </span>
+                    
                     {section.group}
                   </h3>
                 </motion.div>

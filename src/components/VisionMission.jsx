@@ -97,7 +97,7 @@ export default function VisionMission() {
                 alignItems: 'center',
                 justifyContent: 'center',
               }}>
-                <span style={{ fontSize: '0.9rem' }}>👁</span>
+                
               </div>
               <span style={{
                 fontFamily: 'var(--font-display)',
@@ -186,7 +186,7 @@ export default function VisionMission() {
                 justifyContent: 'center',
                 border: '1px solid rgba(201,168,76,0.3)',
               }}>
-                <span style={{ fontSize: '0.9rem' }}>🎯</span>
+                
               </div>
               <span style={{
                 fontFamily: 'var(--font-display)',

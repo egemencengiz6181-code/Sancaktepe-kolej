@@ -82,7 +82,7 @@ export default function LiseRehberlikPage() {
               ]} />
             </motion.div>
 
-            <GroupTitle icon="🎓" delay={0.08}>Öğrencilere Yönelik Hizmetler</GroupTitle>
+            <GroupTitle delay={0.08}>Öğrencilere Yönelik Hizmetler</GroupTitle>
             <InfoCard title="Gelişim Takibi" delay={0.1} body="Öğrencilerin duygusal, eğitsel ve sosyal gelişimlerinin takibi bireysel, grup görüşmeleri ve sınıf rehberlik çalışmalarıyla takip edilir. Eğitim Öğretim dönemi içerisinde her öğrenci ile öğrencinin ihtiyacı dışında en az bir defa bireysel süreç değerlendirme görüşmesi yapılır." />
             <InfoCard title="Sınıf Rehberlik Çalışmaları" delay={0.12} body="Öğrencilerin kariyer, duygusal ve sosyal gelişimlerini destekleyici sınıf rehberliği çalışmaları, K-12 bütünlüğü içinde birbirini tamamlayıcı yıllık rehberlik programı dahilinde düzenlenir. Hedef belirleme, motivasyon, kendini tanıma, mesleki ilgi ve becerilerin farkındalığı, ders çalışma becerileri, öfke kontrolü, ergenlik dönemi özellikleri, sınav kaygısı, iletişim becerileri, karar verebilme becerileri vb. konularda sınıf çalışmaları yürütülür. Lise hazırlık ve 9. sınıflarda her hafta düzenli olarak rehberlik dersi yapılmaktadır." />
             <InfoCard title="Oryantasyon Çalışmaları" delay={0.14} body='Liseye geçen öğrencilerin duygusal, sosyal ve eğitsel hazırlığını güçlendirmek için "Okul Oryantasyon Programı" çerçevesinde çalışmalar düzenlenir. Bu kapsamda öğrencilerimiz için çeşitli sınıf çalışmaları, bilgilendirme çalışmaları, grup dinamiği etkinlikleri düzenlenir.' />
@@ -95,21 +95,21 @@ export default function LiseRehberlikPage() {
             <InfoCard title="Mesleki Deneyimleme Programı" delay={0.28} body="Öğrencilerimiz 10. sınıftan itibaren merak ettikleri meslekleri yerinde gözlemek amacıyla en az bir günlük gölge programı uygularlar." />
             <InfoCard title="Mezunlarımızla Paylaşım Saatleri" delay={0.30} body="Lise öğrencilerimiz her yıl farklı alandan iki meslek sahibi mezunumuzla bir araya gelerek interaktif paylaşımda bulunurlar." />
 
-            <GroupTitle icon="👨‍👩‍👧" delay={0.32}>Velilere Yönelik Hizmetler</GroupTitle>
+            <GroupTitle delay={0.32}>Velilere Yönelik Hizmetler</GroupTitle>
             <InfoCard title="Anne Baba Sempozyumu" delay={0.34} body="İki yılda bir belirlenen bir konuda hem okul velisine hem de dış katılımcılara yönelik farklı konuşmacıların ve atölyelerin yer aldığı tam günlü anne baba sempozyumu organize edilir." />
             <InfoCard title="Genel Veli Seminerleri" delay={0.36} body="Her öğretim yılında, farklı temalarda tüm velilerimize yönelik dönemde iki genel veli semineri düzenlenir. İhtiyaçlar doğrultusunda yaş ve sınıf seviyelerine göre veli paylaşım toplantıları da düzenlenir." />
             <InfoCard title="Bültenler" delay={0.38} body="Her ay düzenli olarak çeşitli temalarla ilgili kapsamlı bir bülten velilerimize e-postalar aracılığıyla gönderilir." />
             <InfoCard title="Veliye Yönelik Aylık Bilgilendirici Paylaşımlar" delay={0.40} body="Yapılan sınıf rehberlik çalışmaları hakkında her ay velilerimize içerik ve gözlemler ile ilgili bilgilendirici paylaşımlar ilgili sınıf psikolojik danışmanı tarafından e-mail yoluyla yapılır." />
             <InfoCard title="Okul Portalı Paylaşımları" delay={0.42} body="Yapılan sınıf rehberlik çalışmaları hakkında her ay öğrenci ve velilerimize rehberlik dersi içerikleri, aylık film ve kitap önerileri verilir." />
 
-            <GroupTitle icon="🏫" delay={0.44}>Öğretmenlere Yönelik Hizmetler</GroupTitle>
+            <GroupTitle delay={0.44}>Öğretmenlere Yönelik Hizmetler</GroupTitle>
             <InfoCard title="Sınıf Rehberlik Çalışmalarının Planlanması" delay={0.46} body="Okulumuzun rehberlik ve psikolojik danışma hizmetleri yıllık planının öğretmenler, okul yönetimi ve Rehberlik ve Psikolojik Danışma Bölümü iş birliği ile yürütülmesi sağlanır." />
             <InfoCard title="Öğretmen Oryantasyonu" delay={0.48} body="Öğretmenler arasında grup dinamiğini güçlendirmek amacıyla ağustos ayı seminer döneminde grup çalışmaları ve seminerler düzenlenir. Yıl içerisinde de öğretmenlerle eğitim ve atölye çalışmaları devam etmektedir." />
             <InfoCard title="Öğrenci Gelişim Takibi" delay={0.50} body="Öğrencilerin sınıf içindeki duygusal, eğitsel ve sosyal gelişimlerinin düzenli takibi sınıf rehber öğretmenleri ile birlikte yapılan haftalık bireysel görüşmelerle takip edilmektedir. Ayrıca öğrencinin ihtiyacına göre okul yönetimi ve ders öğretmenleri birlikte planlamalar ve uygulamalar gerçekleştirilir." />
             <InfoCard title="Öğrenci Bilgilendirme Toplantıları" delay={0.52} body="Tüm öğretmenler, öğrencilerin gelişimlerinin takibini sağlayan oryantasyon ve şube öğretmenler kurulu gibi toplantılarda, öğrencilerin gelişimleri hakkında bilgilendirilir." />
             <InfoCard title="Aday Öğrenci Tanıma Çalışmaları" delay={0.54} body="Okulumuza öğrenci kabul sürecinde, aday öğrencinin sosyal-duygusal durumu ve eğitsel becerilere hazır oluşluk bakımından gözlenmesi ve geri bildirim verilmesi sağlanır." />
 
-            <GroupTitle icon="📋" delay={0.56}>PDR Uzmanlarının Mesleki Gelişimine Yönelik Hizmetler</GroupTitle>
+            <GroupTitle delay={0.56}>PDR Uzmanlarının Mesleki Gelişimine Yönelik Hizmetler</GroupTitle>
             <InfoCard title="Süpervizyon" delay={0.58} body="Tüm psikolojik danışmanlarımız dönemde iki defa psikiyatrist ve psikanalist eşliğinde süpervizyon desteği alırlar." />
             <InfoCard title="Sempozyum Sunumları" delay={0.60} body="Çeşitli platformlar tarafından düzenlenen sempozyum, kongre, etkinliklerde okulumuzu temsilen yılda en az bir sunum gerçekleştirilir." />
             <InfoCard title="Profesyonel Gelişime Yönelik Çalışmalar" delay={0.62} body="Tüm psikolojik danışmanlarımız her yıl en az iki defa mesleki gelişimlerine katkıda bulunacak seminer, sempozyum, kongre, konferans ya da süreli eğitimlere katılırlar." />

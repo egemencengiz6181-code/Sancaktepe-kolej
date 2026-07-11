@@ -9,20 +9,20 @@ const fadeUp = (delay = 0) => ({
 });
 
 const VALUES = [
-  { label: 'Sevgi', icon: '❤️' },
-  { label: 'Dürüstlük', icon: '🤝' },
-  { label: 'Duyarlılık', icon: '🌱' },
-  { label: 'Güven', icon: '🛡️' },
-  { label: 'Hoşgörü', icon: '🕊️' },
-  { label: 'Sabır', icon: '⏳' },
-  { label: 'Saygı', icon: '🌟' },
-  { label: 'Dayanışma', icon: '🤲' },
-  { label: 'Barış', icon: '☮️' },
-  { label: 'Yardımlaşma', icon: '🙌' },
-  { label: 'Adalet', icon: '⚖️' },
-  { label: 'Empati', icon: '💛' },
-  { label: 'Sorumluluk', icon: '📌' },
-  { label: 'Dostluk', icon: '🫂' },
+  { label: 'Sevgi' },
+  { label: 'Dürüstlük' },
+  { label: 'Duyarlılık' },
+  { label: 'Güven' },
+  { label: 'Hoşgörü' },
+  { label: 'Sabır' },
+  { label: 'Saygı' },
+  { label: 'Dayanışma' },
+  { label: 'Barış' },
+  { label: 'Yardımlaşma' },
+  { label: 'Adalet' },
+  { label: 'Empati' },
+  { label: 'Sorumluluk' },
+  { label: 'Dostluk' },
 ];
 
 export default function IlkokulDegerlerPage() {
@@ -69,7 +69,7 @@ export default function IlkokulDegerlerPage() {
                     onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(35,46,92,0.1)'; }}
                     onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 2px 10px rgba(35,46,92,0.04)'; }}
                   >
-                    <div style={{ fontSize: '1.75rem', marginBottom: '0.75rem' }}>{v.icon}</div>
+                    
                     <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.75rem', fontWeight: 800, letterSpacing: '0.05em', color: 'var(--primary)', margin: 0 }}>{v.label}</p>
                   </div>
                 </motion.div>

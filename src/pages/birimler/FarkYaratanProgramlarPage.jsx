@@ -28,7 +28,6 @@ const CANADA_STEPS = [
 const PROGRAMS = [
   {
     id: 'ap',
-    icon: '🎓',
     tag: 'AP',
     title: 'Advanced Placement (AP)',
     body: [
@@ -39,7 +38,6 @@ const PROGRAMS = [
   },
   {
     id: 'kanada',
-    icon: '🍁',
     tag: 'Değişim Programı',
     title: 'TED-Kanada Değişim Programı',
     body: [
@@ -50,7 +48,6 @@ const PROGRAMS = [
   },
   {
     id: 'ses-bilim',
-    icon: '🔬',
     tag: 'Ses Bilim',
     title: 'Eğlenceli Ses Bilim Programı',
     body: [
@@ -60,7 +57,6 @@ const PROGRAMS = [
   },
   {
     id: 'genclik',
-    icon: '🏅',
     tag: 'Uluslararası Ödül',
     title: 'Uluslararası Gençlik Ödülü',
     body: [
@@ -70,7 +66,6 @@ const PROGRAMS = [
   },
   {
     id: 'kultur',
-    icon: '✈️',
     tag: 'Kültür Programı',
     title: 'Uluslararası Akademik ve Kültür Programları',
     body: [
@@ -106,7 +101,7 @@ export default function FarkYaratanProgramlarPage() {
           <div className="section-container">
             <div style={{ maxWidth: '800px', margin: '0 auto' }}>
               <motion.div {...fadeUp(0)} style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <span style={{ fontSize: '2rem' }}>{prog.icon}</span>
+                
                 <div>
                   <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--red)', background: 'rgba(230,25,54,0.08)', padding: '0.2rem 0.6rem', borderRadius: '4px', border: '1px solid rgba(230,25,54,0.2)' }}>{prog.tag}</span>
                 </div>

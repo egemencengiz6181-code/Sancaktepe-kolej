@@ -62,7 +62,7 @@ export default function IlkokulPDRPage() {
               <P>Bölümümüz, tüm öğrencilere çözüm ve süreç odaklı yaklaşan rehberlik anlayışını esas alır. Gelişimsel, önleyici ve yönlendirici çalışmalarımız bireysel, sınıf ve grup düzeyinde olup öğrenci-aile ve okul arasındaki işbirliğine dayanır.</P>
             </motion.div>
 
-            <GroupTitle icon="🎓" delay={0.05}>Öğrencilere Yönelik Hizmetler</GroupTitle>
+            <GroupTitle delay={0.05}>Öğrencilere Yönelik Hizmetler</GroupTitle>
             <InfoCard title="Okul Olgunluğu Çalışması" delay={0.07} body="Anasınıfı öğrencilerinin ilköğretim birinci sınıfa geçerken gelişimsel ve akademik olarak hazır bulunuşluk durumu desteklemek amacıyla görsel algı ve okul olgunluğu çalışmaları yapılır. Gözlem ve çalışmalar doğrultusunda veliler ile bilgi paylaşımı yapılır." />
             <InfoCard title="Gelişim Takibi" delay={0.09} body="Öğrencilerin duygusal, eğitsel ve sosyal gelişimlerinin takibi bireysel, grup görüşmeleri ve sınıf rehberlik çalışmalarıyla sürdürülür. Her öğrenci ile öğrencinin ihtiyacı dışında en az bir defa bireysel süreç değerlendirme görüşmesi yapılır." />
             <InfoCard title="Sınıf Rehberlik Çalışmaları" delay={0.11} body="Öğrencilerin eğitsel, duygusal ve sosyal gelişimlerini destekleyici sınıf rehberliği çalışmaları K-12 bütünlüğü içinde yıllık rehberlik programı dahilinde düzenlenir. Duygular, hedef belirleme, motivasyon, kendini tanıma, öfke kontrolü, iletişim ve karar verme becerileri gibi konularda sınıf çalışmaları yürütülür. 8. sınıf öğrencileri ile haftada bir defa Kariyer Planlama dersleri yapılır." />
@@ -71,20 +71,20 @@ export default function IlkokulPDRPage() {
             <InfoCard title="Kariyer Günü" delay={0.17} body="Öğrencilerin gelecek planlarını desteklemek ve hedefledikleri meslekleri daha yakından tanımalarını sağlamak amacıyla Kariyer Günü etkinliği düzenlenir. Her yıl Mayıs ayında üç farklı mesleği uzmanlarından öğrenme ve paylaşım fırsatı sunulur." />
             <InfoCard title="TAP Vakfı İş Birliğiyle Cinsel Sağlık Eğitimi" delay={0.19} body="Öğrencilerin duygusal ve fiziksel gelişimlerine sağlık çerçevesinde destek olmak amacıyla Türkiye Aile Sağlığı ve Planlaması Vakfı (TAP) iş birliği ile ortaokul ve lise düzeylerinde iki ders saati cinsel sağlık eğitimi programları düzenlenir." />
 
-            <GroupTitle icon="👨‍👩‍👧" delay={0.22}>Velilere Yönelik Hizmetler</GroupTitle>
+            <GroupTitle delay={0.22}>Velilere Yönelik Hizmetler</GroupTitle>
             <InfoCard title="Anne Baba Sempozyumu" delay={0.24} body="İki yılda bir belirlenen bir konuda hem okul velisine hem de dış katılımcılara yönelik farklı konuşmacıların ve atölyelerin yer aldığı tam günlü anne baba sempozyumu organize edilir." />
             <InfoCard title="Genel Veli Seminerleri" delay={0.26} body="Her öğretim yılında, farklı temalarda tüm velilerimize yönelik dönemde iki genel veli semineri düzenlenir. İhtiyaçlar doğrultusunda yaş ve sınıf seviyelerine göre veli seminerleri de düzenlenir." />
             <InfoCard title="Bültenler" delay={0.28} body="Her ay düzenli olarak çeşitli temalarla ilgili kapsamlı bir bülten velilerimize e-postalar aracılığıyla gönderilir." />
             <InfoCard title="Aylık Bilgilendirici Paylaşımlar" delay={0.30} body="Yapılan sınıf rehberlik çalışmaları hakkında her ay velilerimize içerik ve gözlemler ile ilgili bilgilendirici paylaşımlar ilgili sınıf psikolojik danışmanı tarafından e-mail yoluyla yapılır." />
             <InfoCard title="Okul Portalı Paylaşımları" delay={0.32} body="Yapılan sınıf rehberlik çalışmaları hakkında her ay öğrenci ve velilerimize rehberlik dersi içerikleri, aylık film ve kitap önerileri verilir." />
 
-            <GroupTitle icon="🏫" delay={0.34}>Öğretmenlere Yönelik Hizmetler</GroupTitle>
+            <GroupTitle delay={0.34}>Öğretmenlere Yönelik Hizmetler</GroupTitle>
             <InfoCard title="Sınıf Rehberlik Çalışmalarının Planlanması" delay={0.36} body="Okulumuzun rehberlik ve psikolojik danışma hizmetleri yıllık planının öğretmenler, okul yönetimi ve Psikolojik Danışma ve Rehberlik Bölümü işbirliği ile yürütülmesi sağlanır." />
             <InfoCard title="Öğretmen Oryantasyonu" delay={0.38} body="Öğretmenler arasında grup dinamiğini güçlendirmek amacıyla ağustos ayı seminer döneminde grup çalışmaları ve seminerler düzenlenir. Yıl içerisinde de öğretmenlerle eğitim ve atölye çalışmaları devam etmektedir." />
             <InfoCard title="Öğrenci Gelişim Takibi" delay={0.40} body="Öğrencilerin sınıf içindeki gelişiminin düzenli takibi sınıf rehber öğretmenleri ile birlikte yapılan haftalık bireysel görüşmelerle sürdürülmektedir. Öğrencinin ihtiyacına göre okul yönetimi ve ders öğretmenleri birlikte planlama ve uygulamalar gerçekleştirir." />
             <InfoCard title="Aday Öğrenci Tanıma Çalışmaları" delay={0.42} body="Okulumuza öğrenci kabul sürecinde, aday öğrencinin sosyal-duygusal durumu ve eğitsel becerilere hazır oluşluk bakımından gözlenmesi ve geri bildirim verilmesi sağlanır." />
 
-            <GroupTitle icon="📋" delay={0.44}>PDR Uzmanlarının Mesleki Gelişimi</GroupTitle>
+            <GroupTitle delay={0.44}>PDR Uzmanlarının Mesleki Gelişimi</GroupTitle>
             <InfoCard title="Süpervizyon" delay={0.46} body="Tüm psikolojik danışmanlarımız dönemde iki defa psikiyatrist ve psikanalist eşliğinde süpervizyon desteği alırlar." />
             <InfoCard title="Sempozyum Sunumları" delay={0.48} body="Çeşitli platformlar tarafından düzenlenen sempozyum, kongre ve etkinliklerde okulumuzu temsilen yılda en az bir sunum gerçekleştirilir." />
             <InfoCard title="Profesyonel Gelişim" delay={0.50} body="Tüm psikolojik danışmanlarımız her yıl en az iki defa mesleki gelişimlerine katkıda bulunacak seminer, sempozyum, kongre, konferans ya da süreli eğitimlere katılırlar." />

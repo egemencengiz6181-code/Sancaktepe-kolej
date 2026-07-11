@@ -8,8 +8,7 @@ const programs = [
     title: 'Bütüncül Öğrenme ve Gelişim Programları',
     subtitle: 'Akademik başarıyı sosyal ve duygusal gelişimle desteklemek',
     color: '#c9a84c',
-    icon: '🌐',
-    desc: 'Akademik dersleri destekleyen ve öğrencinin çok yönlü gelişimini hedefleyen yapıların bütünüdür.',
+      desc: 'Akademik dersleri destekleyen ve öğrencinin çok yönlü gelişimini hedefleyen yapıların bütünüdür.',
     items: [
       { code: 'SSP', label: 'Sosyal Sorumluluk Programı' },
       { code: 'LLL', label: 'Yaşam Boyu Öğrenme Programı' },
@@ -30,8 +29,7 @@ const programs = [
     title: 'Okuryazarlık Temelli Dersler',
     subtitle: 'Sadece Ortaokul ve Lise',
     color: '#4a9eff',
-    icon: '📖',
-    desc: 'Öğrencilerin bilgiyi yalnızca öğrenmesini değil; anlamasını, yorumlamasını ve kullanmasını hedefleyen derslerdir.',
+      desc: 'Öğrencilerin bilgiyi yalnızca öğrenmesini değil; anlamasını, yorumlamasını ve kullanmasını hedefleyen derslerdir.',
     items: [
       { code: '01', label: 'Dil okuryazarlığı' },
       { code: '02', label: 'Fen ve matematik okuryazarlığı' },
@@ -53,8 +51,7 @@ const programs = [
     title: 'Tematik Öğrenme Programı',
     subtitle: 'Disiplinlerarası Bütüncül Yaklaşım',
     color: '#a855f7',
-    icon: '🔭',
-    desc: 'Öğrencilerin farklı disiplinleri ortak bir tema etrafında bütüncül olarak ele almasını sağlar.',
+      desc: 'Öğrencilerin farklı disiplinleri ortak bir tema etrafında bütüncül olarak ele almasını sağlar.',
     items: [
       { code: '▸', label: 'İnsan ve toplum' },
       { code: '▸', label: 'Doğa ve sürdürülebilirlik' },
@@ -75,8 +72,7 @@ const programs = [
     title: 'Küresel Vizyon ve Yaşam Odaklı Dersler',
     subtitle: 'Dünyayı Bütüncül Okumak',
     color: '#10b981',
-    icon: '🌱',
-    desc: 'Öğrencilerin akademik bilgiyi yaşamla ilişkilendirmesini, dünyayı bütüncül bir bakış açısıyla okuyabilmesini amaçlayan derslerdir.',
+      desc: 'Öğrencilerin akademik bilgiyi yaşamla ilişkilendirmesini, dünyayı bütüncül bir bakış açısıyla okuyabilmesini amaçlayan derslerdir.',
     items: [
       { code: '▸', label: 'Sürdürülebilir kalkınma hedefleri (SDGs)' },
       { code: '▸', label: 'Küresel vatandaşlık' },
@@ -177,7 +173,7 @@ export default function Programs() {
                   alignItems: 'center',
                   justifyContent: 'center',
                   fontSize: '1.5rem',
-                }}>{prog.icon}</div>
+                }}></div>
                 <span style={{
                   fontFamily: 'var(--font-display)',
                   fontSize: '0.65rem',
@@ -285,7 +281,7 @@ export default function Programs() {
                       }}>Amaç</p>
                       {prog.goals.map((g, j) => (
                         <div key={j} style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.4rem', alignItems: 'flex-start' }}>
-                          <span style={{ color: prog.color, flexShrink: 0 }}>✓</span>
+                          <span style={{ color: prog.color, flexShrink: 0 }}></span>
                           <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.83rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>{g}</span>
                         </div>
                       ))}
@@ -303,7 +299,7 @@ export default function Programs() {
                           lineHeight: 1.7,
                           color: 'rgba(255,255,255,0.5)',
                           fontStyle: 'italic',
-                        }}>📌 {prog.apply}</p>
+                        }}}>{prog.apply}</p>
                       </div>
                     </div>
                   </motion.div>

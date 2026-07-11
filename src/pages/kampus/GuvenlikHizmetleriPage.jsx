@@ -13,17 +13,14 @@ const P = ({ children }) => (
 
 const RISK_GROUPS = [
   {
-    icon: '⚠️',
     title: 'Kaza ve Yaralanma Riskleri',
     desc: 'Öğrencilerin günlük hayatta maruz kalabilecekleri kaza ve yaralanma risklerini en aza indirmek için yaşam alanları güvenlik esaslarına uygun olarak düzenlenmiş, öğrencilerin güvenliğine uygun materyaller seçilmiştir.',
   },
   {
-    icon: '🔒',
     title: 'Dış Riskler',
     desc: 'Okulumuz güvenlik hizmeti, İçişleri Bakanlığı tarafından yetkilendirilmiş bir güvenlik firması tarafından sağlanmaktadır. 18 güvenlik personeli 8/16 vardiya sistemiyle 24 saat nöbet tutmaktadır.',
   },
   {
-    icon: '🌍',
     title: 'Doğal Riskler',
     desc: 'Deprem başta olmak üzere doğal afetlere karşı 6331 Sayılı İş Sağlığı ve Güvenliği Kanunu çerçevesinde öğrenciler, öğretmenler ve tüm çalışanlar için haberli/habersiz tatbikatlar ve bilinçlendirme programları düzenlenmektedir.',
   },
@@ -54,13 +51,13 @@ export default function GuvenlikHizmetleriPage() {
         <div className="section-container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem', textAlign: 'center' }} className="guvs-grid">
             {[
-              { icon: '👮', val: '18', label: 'Güvenlik Personeli' },
-              { icon: '📹', val: '24/7', label: 'Kamera Gözetimi' },
-              { icon: '🔄', val: '8/16', label: 'Vardiya Sistemi' },
-              { icon: '🚨', val: '112', label: 'Acil Destek Hattı' },
+              { val: '18', label: 'Güvenlik Personeli' },
+              { val: '24/7', label: 'Kamera Gözetimi' },
+              { val: '8/16', label: 'Vardiya Sistemi' },
+              { val: '112', label: 'Acil Destek Hattı' },
             ].map(s => (
               <div key={s.label}>
-                <div style={{ fontSize: '1.8rem', marginBottom: '0.25rem' }}>{s.icon}</div>
+                
                 <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: '#fff', lineHeight: 1 }}>{s.val}</div>
                 <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)', marginTop: '0.25rem' }}>{s.label}</div>
               </div>
@@ -89,7 +86,7 @@ export default function GuvenlikHizmetleriPage() {
                   boxShadow: '0 2px 12px rgba(35,46,92,0.05)',
                   height: '100%',
                 }}>
-                  <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>{r.icon}</div>
+                  
                   <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.05rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.75rem' }}>{r.title}</h3>
                   <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.88rem', color: 'var(--text-mid)', lineHeight: 1.8 }}>{r.desc}</p>
                 </div>

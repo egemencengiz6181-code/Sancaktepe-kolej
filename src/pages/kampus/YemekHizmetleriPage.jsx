@@ -109,7 +109,7 @@ export default function YemekHizmetleriPage() {
                       padding: '0.55rem 0', borderBottom: '1px solid var(--grey-light)',
                       display: 'flex', alignItems: 'center', gap: '0.6rem',
                     }}>
-                      <span style={{ color: 'var(--red)', fontWeight: 700, flexShrink: 0 }}>✓</span>
+                      <span style={{ color: 'var(--red)', fontWeight: 700, flexShrink: 0 }}></span>
                       {c}
                     </li>
                   ))}

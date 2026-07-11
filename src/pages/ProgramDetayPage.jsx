@@ -141,7 +141,7 @@ export default function ProgramDetayPage() {
               }}>
                 <div style={{ height: '4px', background: `linear-gradient(90deg, ${prog.color}, ${prog.accent})` }} />
                 <div style={{ padding: '2rem' }}>
-                  <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>{prog.icon}</div>
+                  
                   <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.2em', color: prog.color, textTransform: 'uppercase', marginBottom: '0.5rem' }}>{prog.tag}</div>
                   <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.1rem', fontWeight: 700, color: 'var(--primary)', lineHeight: 1.35, marginBottom: '1rem' }}>{prog.title}</h3>
                   <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.83rem', lineHeight: 1.75, color: 'var(--text-mid)' }}>{prog.desc}</p>
@@ -156,10 +156,10 @@ export default function ProgramDetayPage() {
                 padding: '1.75rem',
                 marginBottom: '1.5rem',
               }}>
-                <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: prog.color, marginBottom: '1rem' }}>🎯 Program Amaçları</p>
+                <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: prog.color, marginBottom: '1rem' }}>Program Amaçları</p>
                 {prog.goals.map((g, i) => (
                   <div key={i} style={{ display: 'flex', gap: '0.6rem', marginBottom: '0.6rem', alignItems: 'flex-start' }}>
-                    <span style={{ color: prog.color, fontWeight: 800, fontSize: '0.9rem', lineHeight: 1.5, flexShrink: 0 }}>✓</span>
+                    
                     <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.83rem', color: 'var(--text-mid)', lineHeight: 1.65 }}>{g}</span>
                   </div>
                 ))}
@@ -186,37 +186,12 @@ export default function ProgramDetayPage() {
 
             {/* RIGHT: Detailed content */}
             <div>
-              {/* Program içeriği */}
-              <motion.div {...fadeUp(0)} style={{ marginBottom: '3.5rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
-                  <div style={{ width: '4px', height: '32px', background: `linear-gradient(180deg, ${prog.color}, ${prog.accent})`, borderRadius: '2px' }} />
-                  <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)' }}>Program İçeriği</h2>
-                </div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '1rem' }}>
-                  {prog.items.map((item, i) => (
-                    <motion.div
-                      key={i} {...fadeUp(i * 0.06)}
-                      style={{
-                        background: 'var(--white)', borderRadius: '8px',
-                        padding: '1.25rem 1.5rem',
-                        border: `1px solid ${prog.color}18`,
-                        borderLeft: `3px solid ${prog.color}`,
-                        boxShadow: '0 2px 12px rgba(35,46,92,0.06)',
-                        display: 'flex', alignItems: 'flex-start', gap: '0.75rem',
-                      }}
-                    >
-                      <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 900, color: prog.color, background: `${prog.color}12`, padding: '0.25rem 0.5rem', borderRadius: '3px', flexShrink: 0, marginTop: '0.1rem' }}>{item.code}</span>
-                      <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.88rem', color: 'var(--text-mid)', lineHeight: 1.6 }}>{item.label}</span>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
 
               {/* Detay bölümleri */}
               <motion.div {...fadeUp(0.1)} style={{ marginBottom: '3.5rem' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
                   <div style={{ width: '4px', height: '32px', background: `linear-gradient(180deg, ${prog.color}, ${prog.accent})`, borderRadius: '2px' }} />
-                  <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)' }}>Uygulama Alanları</h2>
+                  <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)' }}>Program</h2>
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.25rem' }} className="details-grid">
                   {prog.details.map((d, i) => (
@@ -269,7 +244,7 @@ export default function ProgramDetayPage() {
                               onMouseEnter={(e) => { e.currentTarget.style.borderColor = prog.color; e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = `0 8px 28px ${prog.color}20`; }}
                               onMouseLeave={(e) => { e.currentTarget.style.borderColor = `${prog.color}15`; e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = '0 2px 16px rgba(35,46,92,0.07)'; }}
                             >
-                              <div style={{ fontSize: '1.8rem', marginBottom: '0.6rem' }}>{sub.icon}</div>
+                              
                               <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.58rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: prog.color }}>{sub.tag}</span>
                               <p style={{ fontFamily: 'var(--font-serif)', fontSize: '0.92rem', fontWeight: 700, color: 'var(--primary)', marginTop: '0.35rem', lineHeight: 1.35 }}>{sub.title}</p>
                               <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.63rem', fontWeight: 700, color: 'var(--red)', marginTop: '0.75rem', letterSpacing: '0.06em' }}>Detaylar →</p>
@@ -290,7 +265,7 @@ export default function ProgramDetayPage() {
                 padding: '2rem',
                 borderLeft: `5px solid ${prog.color}`,
               }}>
-                <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: prog.color, marginBottom: '0.75rem' }}>📌 Nasıl Uygulanır?</p>
+                <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: prog.color, marginBottom: '0.75rem' }}> Nasıl Uygulanır?</p>
                 <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.85, color: 'var(--text-mid)', fontStyle: 'italic' }}>{prog.apply}</p>
               </motion.div>
             </div>
@@ -366,7 +341,7 @@ export default function ProgramDetayPage() {
                     onMouseEnter={(e) => { e.currentTarget.style.borderColor = p.color; e.currentTarget.style.background = 'var(--white)'; e.currentTarget.style.boxShadow = `0 8px 30px ${p.color}20`; }}
                     onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'transparent'; e.currentTarget.style.background = 'var(--off-white)'; e.currentTarget.style.boxShadow = 'none'; }}
                   >
-                    <div style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>{p.icon}</div>
+                    
                     <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 900, letterSpacing: '0.15em', color: p.color, textTransform: 'uppercase' }}>{p.tag}</span>
                     <p style={{ fontFamily: 'var(--font-serif)', fontSize: '0.95rem', fontWeight: 700, color: 'var(--primary)', marginTop: '0.4rem', lineHeight: 1.35 }}>{p.title}</p>
                     <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 700, color: 'var(--red)', marginTop: '0.75rem', letterSpacing: '0.06em' }}>Keşfet →</p>

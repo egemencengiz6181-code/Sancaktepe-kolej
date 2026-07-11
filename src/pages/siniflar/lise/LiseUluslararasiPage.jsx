@@ -25,7 +25,6 @@ const BList = ({ items }) => (
 const PROGRAMS = [
   {
     id: 'ap',
-    icon: '🎓',
     tag: 'AP — Advanced Placement',
     color: '#232e5c',
     tagBg: 'rgba(35,46,92,0.08)',
@@ -33,7 +32,6 @@ const PROGRAMS = [
   },
   {
     id: 'kanada',
-    icon: '🍁',
     tag: 'Kanada Uluslararası Öğrenci Değişim Programı',
     color: '#dc2626',
     tagBg: 'rgba(220,38,38,0.08)',
@@ -41,7 +39,6 @@ const PROGRAMS = [
   },
   {
     id: 'edinburgh',
-    icon: '🏅',
     tag: 'Uluslararası Gençlik Ödülü — Türkiye',
     color: '#7c3aed',
     tagBg: 'rgba(124,58,237,0.08)',
@@ -84,7 +81,7 @@ export default function LiseUluslararasiPage() {
       <section id="ap" style={{ padding: '5.5rem 0', background: 'var(--off-white)', scrollMarginTop: '80px' }}>
         <div className="section-container"><div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <motion.div {...fadeUp(0)} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-            <span style={{ fontSize: '2.5rem' }}>🎓</span>
+            
             <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#232e5c', background: 'rgba(35,46,92,0.08)', border: '1px solid rgba(35,46,92,0.2)', padding: '0.2rem 0.55rem', borderRadius: '4px' }}>AP — Advanced Placement</span>
           </motion.div>
           <motion.h2 {...fadeUp(0.04)} style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.5rem,2.8vw,2rem)', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>AP (Advanced Placement / İleri Seviye Programlara Yerleştirme)</motion.h2>
@@ -103,7 +100,7 @@ export default function LiseUluslararasiPage() {
       <section id="kanada" style={{ padding: '5.5rem 0', background: 'var(--white)', scrollMarginTop: '80px' }}>
         <div className="section-container"><div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <motion.div {...fadeUp(0)} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-            <span style={{ fontSize: '2.5rem' }}>🍁</span>
+            
             <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#dc2626', background: 'rgba(220,38,38,0.08)', border: '1px solid rgba(220,38,38,0.2)', padding: '0.2rem 0.55rem', borderRadius: '4px' }}>Kanada Değişim Programı</span>
           </motion.div>
           <motion.h2 {...fadeUp(0.04)} style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.5rem,2.8vw,2rem)', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>Kanada Uluslararası Öğrenci Değişim Programı</motion.h2>
@@ -131,7 +128,7 @@ export default function LiseUluslararasiPage() {
       <section id="edinburgh" style={{ padding: '5.5rem 0', background: 'var(--off-white)', scrollMarginTop: '80px' }}>
         <div className="section-container"><div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <motion.div {...fadeUp(0)} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-            <span style={{ fontSize: '2.5rem' }}>🏅</span>
+            
             <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#7c3aed', background: 'rgba(124,58,237,0.08)', border: '1px solid rgba(124,58,237,0.2)', padding: '0.2rem 0.55rem', borderRadius: '4px' }}>Uluslararası Gençlik Ödülü</span>
           </motion.div>
           <motion.h2 {...fadeUp(0.04)} style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.5rem,2.8vw,2rem)', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>Uluslararası Gençlik Ödülü — Türkiye</motion.h2>

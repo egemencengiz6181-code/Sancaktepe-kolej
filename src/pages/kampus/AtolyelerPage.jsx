@@ -9,37 +9,31 @@ const fadeUp = (delay = 0) => ({
 
 const WORKSHOPS = [
   {
-    icon: '🎭',
     title: 'Sahne Sanatları',
     desc: 'Tiyatro, performans sanatları ve sahne sunumu alanlarında öğrencilerimiz; özgüven, beden dili ve ifade güçlerini keşfeder. Yıl boyunca sahne çalışmaları ve gösterilerle bu beceriler geliştirilir.',
     img: 'https://images.unsplash.com/photo-1503095396549-807759245b35?w=700&q=80&auto=format',
   },
   {
-    icon: '💃',
     title: 'Dans Atölyesi',
     desc: 'Klasik bale, modern dans, halk dansları ve çeşitli dans stilleri üzerine uzman eğitmenler rehberliğinde çalışmalar yürütülür. Dans, öğrencilerin ritim, koordinasyon ve bedensel farkındalıklarını artıran bütünsel bir sanat dalıdır.',
     img: 'https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?w=700&q=80&auto=format',
   },
   {
-    icon: '🎨',
     title: 'Drama Atölyesi',
     desc: 'Yaratıcı drama çalışmaları, öğrencilerin empati kurma, problem çözme ve sözlü ifade becerilerini güçlendirir. Rol yapma, doğaçlama ve senaryo çalışmaları ile bu atölye derse entegre edilmektedir.',
     img: 'https://images.unsplash.com/photo-1516880711640-ef7db81be3e1?w=700&q=80&auto=format',
   },
   {
-    icon: '🎸',
     title: 'Bireysel Müzik Odaları',
     desc: 'Ses geçirmez bireysel müzik odalarımızda öğrenciler keman, piyano, gitar, bateri ve daha pek çok enstrümanı özel ders formatında çalışabilir. Müzik teorisi ve kulak eğitimi dersleri de programın ayrılmaz bir parçasıdır.',
     img: 'https://images.unsplash.com/photo-1513883049090-d0b7439799bf?w=700&q=80&auto=format',
   },
   {
-    icon: '🖌️',
     title: 'Görsel Tasarım',
     desc: 'Resim, grafik tasarım, dijital sanat ve fotoğrafçılık branşlarında öğrenciler hem geleneksel hem dijital medyayı kullanarak özgün eserler üretir. Tasarım düşüncesi ve görsel okuryazarlık bu atölyenin temel çıktılarıdır.',
     img: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=700&q=80&auto=format',
   },
   {
-    icon: '🏺',
     title: 'Seramik Atölyesi',
     desc: 'El becerisi, sabır ve yaratıcılığı bir arada geliştiren seramik atölyemizde öğrenciler çamur yoğurmaktan sırlı ürünler yaratmaya kadar geniş bir süreçten geçer. Her öğrenci kendi özgün eserini tasarlar ve hayata geçirir.',
     img: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=700&q=80&auto=format',
@@ -126,7 +120,7 @@ export default function AtolyelerPage() {
                   <img src={w.img} alt={w.title} style={{ width: '100%', height: '180px', objectFit: 'cover' }} loading="lazy" />
                   <div style={{ padding: '1.5rem' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
-                      <span style={{ fontSize: '1.5rem' }}>{w.icon}</span>
+                      
                       <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1rem', fontWeight: 700, color: 'var(--primary)' }}>{w.title}</h3>
                     </div>
                     <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', color: 'var(--text-mid)', lineHeight: 1.75 }}>{w.desc}</p>

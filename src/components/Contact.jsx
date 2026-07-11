@@ -126,7 +126,7 @@ export default function Contact() {
                 height: '2px',
                 background: 'linear-gradient(90deg, var(--gold), var(--gold-light), transparent)',
               }} />
-              <div style={{ fontSize: '1.8rem', marginBottom: '1rem' }}>📞</div>
+              
               <h3 style={{
                 fontFamily: 'var(--font-display)',
                 fontSize: '0.7rem',
@@ -177,7 +177,7 @@ export default function Contact() {
               padding: '2rem',
               marginBottom: '1.5rem',
             }}>
-              <div style={{ fontSize: '1.8rem', marginBottom: '1rem' }}>📍</div>
+              
               <h3 style={{
                 fontFamily: 'var(--font-display)',
                 fontSize: '0.7rem',
@@ -267,7 +267,7 @@ export default function Contact() {
                   textAlign: 'center',
                 }}
               >
-                <div style={{ fontSize: '3rem' }}>✅</div>
+                
                 <h3 style={{
                   fontFamily: 'var(--font-serif)',
                   fontSize: '1.8rem',

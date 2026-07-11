@@ -186,9 +186,7 @@ export default function BasvuruFormuPage() {
                   borderRight: i < 3 ? '1px solid var(--grey-light)' : 'none',
                   transition: 'background 0.3s',
                 }}>
-                  <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 900, letterSpacing: '0.1em', textTransform: 'uppercase', color: step >= s.num ? '#fff' : 'var(--grey)', marginBottom: '0.2rem' }}>
-                    {step > s.num ? '✓' : `0${s.num}`}
-                  </div>
+                  
                   <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.75rem', color: step >= s.num ? 'rgba(255,255,255,0.85)' : 'var(--grey)', display: 'none' }} className="step-label">{s.label}</div>
                   <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.72rem', fontWeight: 600, color: step >= s.num ? '#fff' : 'var(--grey)' }}>{s.label}</div>
                 </div>
@@ -201,7 +199,7 @@ export default function BasvuruFormuPage() {
                 animate={{ opacity: 1, scale: 1 }}
                 style={{ background: 'var(--white)', borderRadius: '20px', padding: '4rem', textAlign: 'center', boxShadow: '0 4px 24px rgba(35,46,92,0.1)' }}
               >
-                <div style={{ fontSize: '4rem', marginBottom: '1.5rem' }}>✅</div>
+                
                 <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1rem' }}>Başvurunuz Alındı</h2>
                 <p style={{ fontFamily: 'var(--font-sans)', fontSize: '1rem', color: 'var(--text-mid)', lineHeight: 1.85, maxWidth: '500px', margin: '0 auto' }}>
                   Başvurunuz başarıyla iletilmiştir. En kısa sürede kayıt ofisimiz sizinle iletişime geçecektir. Soru ve talepleriniz için{' '}
@@ -376,7 +374,7 @@ export default function BasvuruFormuPage() {
                           transition: 'all 0.2s',
                         }}
                       >
-                        Başvuruyu Gönder ✓
+                        Başvuruyu Gönder 
                       </button>
                     )}
                   </div>

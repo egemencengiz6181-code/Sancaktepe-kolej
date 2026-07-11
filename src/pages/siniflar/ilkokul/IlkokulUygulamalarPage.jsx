@@ -16,27 +16,22 @@ const VALUES = ['Sevgi', 'Dürüstlük', 'Duyarlılık', 'Güven', 'Hoşgörü',
 
 const APPS = [
   {
-    icon: '📱',
     tag: 'Seesaw e-Portfolyo',
     body: 'Portfolyo çalışmalarımızı velilerimizle etkin olarak dijital ortamda paylaştığımız platformumuzdur. Öğrencilerimiz çalışmalarını bireysel ya da grup olarak tamamlayarak portfolyolarına eklerler.',
   },
   {
-    icon: '🏛️',
     tag: 'Nutuk',
     body: 'Atatürk ilke ve inkılapları doğrultusunda sürdürdüğümüz eğitim ve öğretim sürecimizde "Güne Nutuk ile Başlayalım" çalışmamız ile ilköğretim sürecimizi tamamlamaktayız.',
   },
   {
-    icon: '🔭',
     tag: 'Keşif Atölyesi',
     body: '1. ve 2. sınıflarda Hayat Bilgisi kazanımları, 3. ve 4. sınıflarda ise Fen Bilimleri kazanımları ile uyumlu deney etkinlikleri gerçekleştirmekteyiz.',
   },
   {
-    icon: '📚',
     tag: 'Çocuk Edebiyatı ve Yazar Buluşmaları',
     body: 'Her yıl seçtiğimiz güdümlü kitaplarımızı yıl boyunca okuyup etkinliklerini gerçekleştirmekle birlikte yazarlarıyla öğrencilerimizi buluşturarak paylaşım fırsatları sunmaktayız.',
   },
   {
-    icon: '💭',
     tag: 'P4C — Çocuklar için Felsefe',
     body: 'Akıl yürütme ve hayal gücüne hitap eden, öğrencilerimizin merak etmelerini, fikirlerini tartışıp savunmalarını ve birbirlerini anlamalarını sağlayan bir tekniktir. Bilginin alınıp saklanması yerine soruların sorulduğu, argümanların tartışıldığı ve alternatiflerin keşfedildiği bir öğrenme ortamı sağlar.',
   },
@@ -69,7 +64,7 @@ export default function IlkokulUygulamalarPage() {
             {APPS.map((app, i) => (
               <motion.div key={i} {...fadeUp(i * 0.06)}>
                 <div style={{ background: 'var(--white)', borderRadius: '12px', padding: '2rem', border: '1px solid var(--grey-light)', marginBottom: '1.25rem', boxShadow: '0 2px 12px rgba(35,46,92,0.05)', display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
-                  <span style={{ fontSize: '2rem', flexShrink: 0 }}>{app.icon}</span>
+                  
                   <div>
                     <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 900, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.5rem' }}>{app.tag}</p>
                     <P>{app.body}</P>

@@ -73,7 +73,7 @@ export default function IletisimPage() {
             <motion.div {...fadeUp(0)}>
               {/* Telefon */}
               <div className="glass-card-light" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)', borderRadius: '12px', padding: '2rem', marginBottom: '1.5rem', borderTop: '4px solid var(--red)', boxShadow: '0 4px 30px rgba(35,46,92,0.07)', border: '1px solid rgba(255,255,255,0.6)', borderTopWidth: '4px', borderTopColor: 'var(--red)' }}>
-                <div style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>📞</div>
+                
                 <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--red)', marginBottom: '1rem' }}>Telefon</p>
                 <a href="tel:02166060833" style={{ display: 'block', fontFamily: 'var(--font-serif)', fontSize: '1.75rem', fontWeight: 700, color: 'var(--primary)', textDecoration: 'none', letterSpacing: '0.04em', marginBottom: '0.5rem', transition: 'color 0.3s' }}
                   onMouseEnter={(e) => (e.target.style.color = 'var(--red)')}
@@ -87,7 +87,7 @@ export default function IletisimPage() {
 
               {/* Adres */}
               <div className="glass-card-light" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)', borderRadius: '12px', padding: '2rem', marginBottom: '1.5rem', border: '1px solid rgba(255,255,255,0.6)', borderTopWidth: '4px', borderTopColor: 'var(--primary)', borderTopStyle: 'solid', boxShadow: '0 4px 30px rgba(35,46,92,0.07)' }}>
-                <div style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>📍</div>
+                
                 <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '1rem' }}>Adres</p>
                 <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.98rem', lineHeight: 1.85, color: 'var(--text-mid)' }}>
                   EYÜP SULTAN MAH. ZULAL SK.<br />
@@ -125,7 +125,7 @@ export default function IletisimPage() {
                       animate={{ opacity: 1, scale: 1 }}
                       style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '300px', gap: '1.5rem', textAlign: 'center' }}
                     >
-                      <div style={{ width: '72px', height: '72px', borderRadius: '50%', background: 'rgba(5,150,105,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem' }}>✅</div>
+                      
                       <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '2rem', fontWeight: 700, color: 'var(--primary)' }}>Mesajınız İletildi!</h3>
                       <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.8, maxWidth: '360px' }}>
                         En kısa sürede sizinle iletişime geçeceğiz.<br />
@@ -258,12 +258,7 @@ export default function IletisimPage() {
           background: 'linear-gradient(90deg, rgba(18,27,62,0.99), rgba(35,46,92,0.99))',
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
-            <div style={{
-              width: '42px', height: '42px', borderRadius: '50%', flexShrink: 0,
-              background: 'linear-gradient(135deg, var(--red), var(--red-light))',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontSize: '1.1rem', boxShadow: '0 4px 16px rgba(230,25,54,0.35)',
-            }}>📍</div>
+            
             <div>
               <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.58rem', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)', marginBottom: '0.2rem' }}>
                 Konumumuz
@@ -284,7 +279,7 @@ export default function IletisimPage() {
               onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.14)'; e.currentTarget.style.color = '#fff'; }}
               onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; e.currentTarget.style.color = 'rgba(255,255,255,0.7)'; }}
             >
-              📞 (0216) 606 08 33
+               (0216) 606 08 33
             </a>
             <a
               href="https://maps.google.com/?q=41.003,29.232"
@@ -302,7 +297,7 @@ export default function IletisimPage() {
               onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 22px rgba(230,25,54,0.45)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 14px rgba(230,25,54,0.35)'; }}
             >
-              🗺 Yol Tarifi Al
+               Yol Tarifi Al
             </a>
           </div>
         </div>

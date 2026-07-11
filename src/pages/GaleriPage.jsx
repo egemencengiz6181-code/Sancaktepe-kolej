@@ -356,7 +356,7 @@ export default function GaleriPage() {
 
           {filtered.length === 0 && (
             <div style={{ textAlign: 'center', padding: '5rem 0', color: 'var(--grey)' }}>
-              <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🖼</div>
+              
               <p style={{ fontFamily: 'var(--font-sans)' }}>Bu kategori için henüz fotoğraf eklenmedi.</p>
             </div>
           )}

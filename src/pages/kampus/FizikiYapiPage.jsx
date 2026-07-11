@@ -9,28 +9,24 @@ const fadeUp = (delay = 0) => ({
 
 const AREAS = [
   {
-    icon: '🏫',
     label: 'Ana Bina',
     title: 'Modern Eğitim Yapısı',
     desc: 'Kolej Sancaktepe ana binası, çağdaş mimari anlayışıyla tasarlanmış; geniş koridorları, ergonomik sınıfları ve ortak çalışma alanlarıyla öğrencilere ilham veren bir ortam sunar.',
     img: 'https://images.unsplash.com/photo-1562774053-701939374585?w=800&q=80&auto=format',
   },
   {
-    icon: '🌿',
     label: 'Yeşil Alanlar',
     title: 'Geniş Kampüs Bahçesi',
     desc: 'Doğayla iç içe büyük yeşil alanlar, öğrencilerin ders aralarında sosyalleştiği, dinlendiği ve açık hava etkinliklerine katıldığı bir yaşam merkezi oluşturur.',
     img: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80&auto=format',
   },
   {
-    icon: '🎭',
     label: 'Konferans & Tiyatro',
     title: 'Çok Amaçlı Salon',
     desc: 'Binlerce kişi kapasiteli konferans ve tiyatro salonumuz; mezuniyet törenlerinden öğrenci tiyatro oyunlarına, konferanslardan müzik resitallerine kadar pek çok etkinliğe ev sahipliği yapar.',
     img: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80&auto=format',
   },
   {
-    icon: '🍽️',
     label: 'Yemekhane',
     title: 'Ferah Yemek Alanları',
     desc: 'Tüm öğrencilerin aynı anda kullanabileceği geniş yemekhanelerimiz, hijyen standartlarına uygun modern mutfak altyapısıyla donatılmıştır.',
@@ -102,7 +98,7 @@ export default function FizikiYapiPage() {
                 />
               </motion.div>
               <motion.div {...fadeUp(0.1)} style={{ direction: 'ltr' }}>
-                <div style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', marginBottom: '0.75rem' }}>{area.icon}</div>
+                
                 <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--red)', marginBottom: '0.6rem' }}>{area.label}</p>
                 <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.6rem,3vw,2.2rem)', fontWeight: 700, color: 'var(--primary)', lineHeight: 1.2, marginBottom: '1.25rem' }}>{area.title}</h2>
                 <p style={{ fontFamily: 'var(--font-sans)', fontSize: '1rem', color: 'var(--text-mid)', lineHeight: 1.9 }}>{area.desc}</p>

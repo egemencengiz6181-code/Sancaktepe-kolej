@@ -129,7 +129,7 @@ export default function ContactModal() {
               }}
               onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(230,25,54,0.3)'; e.currentTarget.style.color = '#fff'; }}
               onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.07)'; e.currentTarget.style.color = 'rgba(255,255,255,0.7)'; }}
-            >✕</button>
+            ></button>
 
             <div style={{ padding: '2.5rem 2.5rem 2.5rem' }}>
               {/* Header */}
@@ -151,7 +151,7 @@ export default function ContactModal() {
                   animate={{ opacity: 1, scale: 1 }}
                   style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '1.25rem', padding: '2rem 0', textAlign: 'center' }}
                 >
-                  <div style={{ width: '72px', height: '72px', borderRadius: '50%', background: 'rgba(5,150,105,0.15)', border: '2px solid rgba(5,150,105,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem' }}>✅</div>
+                  
                   <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', fontWeight: 700, color: '#fff' }}>Mesajınız İletildi!</h3>
                   <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, maxWidth: '320px' }}>
                     En kısa sürede sizinle iletişime geçeceğiz. Kolej Sancaktepe ailesi olarak sizi bekliyoruz.

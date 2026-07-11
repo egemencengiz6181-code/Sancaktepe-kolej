@@ -15,7 +15,6 @@ const P = ({ children }) => (
 const PROGRAMS = [
   {
     id: 'ap',
-    icon: '🎓',
     tag: 'AP',
     title: 'Advanced Placement (AP)',
     subtitle: 'Lise düzeyinde üniversite dersleri',
@@ -27,27 +26,13 @@ const PROGRAMS = [
     ],
   },
   {
-    id: 'genclik-odulu',
-    icon: '🏅',
-    tag: 'Uluslararası Ödül',
-    title: 'Uluslararası Gençlik Ödülü — Türkiye',
-    subtitle: 'Edinburgh Dükü Uluslararası Ödül Programı',
-    img: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&q=80&auto=format',
-    content: [
-      'Kolej Sancaktepe, DOIAP (Edinburgh Dükü Uluslararası Ödül Programı) kapsamına dahil olmakla gurur duyar. Program, 14 yaş ve üstü öğrencilere açıktır.',
-      'Programın amacı öğrencilerin kişisel sınırlarını aşmalarına destek olmak, yeni beceriler kazanarak özgeçmişlerini güçlendirmek ve üniversite başvurularında başarılı olmalarını sağlamaktır.',
-      'Öğrenciler topluma hizmet projelerine, keşif gezilerine ve beceri odaklı programlara katılabilirler.',
-    ],
-  },
-  {
     id: 'kulturel',
-    icon: '✈️',
     tag: 'Kültür Programı',
     title: 'Uluslararası Akademik ve Kültür Programları',
     subtitle: 'Londra, ABD ve Avrupa programları',
     img: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=700&q=80&auto=format',
     content: [
-      'Kültür programımızın odak noktası; 7, 8. sınıf ve lise öğrencilerinin öğretmenleri ve arkadaşlarıyla birlikte canlı şehirleri tecrübe etmelerini sağlamaktır. Programlar Londra, ABD ve çeşitli Avrupa şehirlerinde düzenlenmektedir.',
+      'Kültür programımızın odak noktası; ortaokul ve lise öğrencilerinin öğretmenleri ve arkadaşlarıyla birlikte canlı şehirleri tecrübe etmelerini sağlamaktır. Programlar Londra, ABD ve çeşitli Avrupa şehirlerinde düzenlenmektedir.',
       'Programların akademik bir bileşeni (sabah erken saatlerde gerçekleştirilen dil dersleri) olsa da asıl odak noktası kültürdür: müzeler, sanat galerileri, restoranlar, alışveriş, müzikaller, tema parkları vb.',
     ],
     steps: [
@@ -114,7 +99,6 @@ export default function UluslararasiProgramlarPage() {
               </motion.div>
               <motion.div {...fadeUp(0.1)} style={{ direction: 'ltr' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
-                  <span style={{ fontSize: '1.75rem' }}>{prog.icon}</span>
                   <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--red)', background: 'rgba(230,25,54,0.08)', padding: '0.25rem 0.7rem', borderRadius: '4px', border: '1px solid rgba(230,25,54,0.2)' }}>{prog.tag}</span>
                 </div>
                 <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: '0.5rem' }}>{prog.subtitle}</p>

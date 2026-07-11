@@ -133,7 +133,7 @@ function GalleryItem({ img, index, onClick }) {
             alignItems: 'center',
             justifyContent: 'center',
             fontSize: '1.3rem',
-          }}>🖼</div>
+          }}</div>
           <span style={{
             fontFamily: 'var(--font-display)',
             fontSize: '0.6rem',

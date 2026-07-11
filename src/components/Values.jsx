@@ -3,38 +3,31 @@ import { motion, useInView } from 'framer-motion';
 
 const values = [
   {
-    icon: '🇹🇷',
-    title: 'Milli ve Kültürel Değerlere Bağlılık',
+      title: 'Milli ve Kültürel Değerlere Bağlılık',
     desc: 'Türkiye Cumhuriyeti\'nin temel değerlerini, kültürel mirasını, Atatürk ilke ve inkılaplarını ve toplumsal sorumluluk bilincini eğitim anlayışının ayrılmaz bir parçası olarak görürüz.',
   },
   {
-    icon: '🌍',
-    title: 'Dünya Vatandaşlığı',
+      title: 'Dünya Vatandaşlığı',
     desc: 'Öğrencilerimizin farklı kültürlere saygılı, küresel sorunlara duyarlı ve uluslararası işbirliğine açık bireyler olarak yetişmesini önemseriz.',
   },
   {
-    icon: '⚖️',
-    title: 'Etik ve Ahlaki Sorumluluk',
+      title: 'Etik ve Ahlaki Sorumluluk',
     desc: 'Eğitim süreçlerimizin merkezinde; dürüstlük, adalet, saygı ve sorumluluk gibi evrensel etik değerler yer alır.',
   },
   {
-    icon: '🧠',
-    title: 'Anlamaya Dayalı Derin Öğrenme',
+      title: 'Anlamaya Dayalı Derin Öğrenme',
     desc: 'Ezberden uzak, anlamaya ve transfer etmeye dayalı öğrenmeyi esas alır; öğrencilerin bilgiyi farklı bağlamlarda kullanabilmesini destekleriz.',
   },
   {
-    icon: '📚',
-    title: 'Yaşam Boyu Öğrenme',
+      title: 'Yaşam Boyu Öğrenme',
     desc: 'Öğrenmeyi okul yıllarıyla sınırlamayan; merak eden, araştıran ve kendini sürekli geliştiren bireyler yetiştiririz.',
   },
   {
-    icon: '🌱',
-    title: 'Bütüncül Gelişim',
+      title: 'Bütüncül Gelişim',
     desc: 'Akademik başarının; sosyal, duygusal, sanatsal ve fiziksel gelişimle birlikte anlam kazandığına inanırız.',
   },
   {
-    icon: '♻️',
-    title: 'Sürdürülebilirlik ve Toplumsal Katkı',
+      title: 'Sürdürülebilirlik ve Toplumsal Katkı',
     desc: 'Doğaya, topluma ve geleceğe karşı sorumluluk bilinciyle hareket eden; sürdürülebilir yaşam kültürünü benimseyen bireyler yetiştiririz.',
   },
 ];
@@ -130,7 +123,7 @@ export default function Values() {
               <div style={{
                 fontSize: '2rem',
                 marginBottom: '1rem',
-              }}>{val.icon}</div>
+              }}></div>
 
               <h3 style={{
                 fontFamily: 'var(--font-serif)',

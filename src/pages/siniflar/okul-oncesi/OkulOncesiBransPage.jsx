@@ -29,7 +29,6 @@ const BulletList = ({ items }) => (
 const SUBJECTS = [
   {
     id: 'ingilizce',
-    icon: '🗣️',
     tag: 'Yabancı Dil',
     title: 'Okul Öncesi İngilizce Eğitimi',
     subtitle: 'Okul Öncesi (4 yaş) – İlkokul 4. Sınıf',
@@ -63,7 +62,6 @@ const SUBJECTS = [
   },
   {
     id: 'gorsel-sanatlar',
-    icon: '🎨',
     tag: 'Sanat',
     title: 'Görsel Sanatlar',
     subtitle: null,
@@ -88,7 +86,6 @@ const SUBJECTS = [
   },
   {
     id: 'beden-egitimi',
-    icon: '⚽',
     tag: 'Beden Eğitimi',
     title: 'Beden Eğitimi',
     subtitle: null,
@@ -114,7 +111,6 @@ const SUBJECTS = [
   },
   {
     id: 'bilisim',
-    icon: '💻',
     tag: 'Bilişim',
     title: 'Bilişim Teknolojileri',
     subtitle: null,
@@ -143,7 +139,6 @@ const SUBJECTS = [
   },
   {
     id: 'muzik',
-    icon: '🎵',
     tag: 'Müzik',
     title: 'Müzik Eğitimi',
     subtitle: null,
@@ -188,7 +183,7 @@ export default function OkulOncesiBransPage() {
                 onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.13)'; e.currentTarget.style.color = '#fff'; }}
                 onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.07)'; e.currentTarget.style.color = 'rgba(255,255,255,0.55)'; }}
               >
-                <span>{s.icon}</span>{s.title}
+                {s.title}
               </a>
             ))}
           </motion.div>
@@ -203,7 +198,7 @@ export default function OkulOncesiBransPage() {
           <div className="section-container">
             <div style={{ maxWidth: '860px', margin: '0 auto' }}>
               <motion.div {...fadeUp(0)} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-                <span style={{ fontSize: '2rem' }}>{subj.icon}</span>
+                
                 <div>
                   <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.15em', textTransform: 'uppercase', color: subj.color, background: `${subj.color}12`, border: `1px solid ${subj.color}25`, padding: '0.2rem 0.55rem', borderRadius: '4px' }}>{subj.tag}</span>
                   {subj.subtitle && <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 700, color: 'var(--grey)', letterSpacing: '0.06em', marginTop: '0.4rem' }}>{subj.subtitle}</p>}

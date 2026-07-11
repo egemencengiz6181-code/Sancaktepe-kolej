@@ -58,7 +58,7 @@ export default function ProgramlarPage() {
                 <div style={{ height: '4px', background: `linear-gradient(90deg, ${prog.color}, ${prog.accent})` }} />
                 <div style={{ padding: '2rem' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.2rem' }}>
-                    <div style={{ width: '50px', height: '50px', borderRadius: '8px', background: `${prog.color}18`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.6rem' }}>{prog.icon}</div>
+                    
                     <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 900, letterSpacing: '0.15em', color: prog.color, background: `${prog.color}12`, border: `1px solid ${prog.color}30`, padding: '0.3rem 0.7rem', borderRadius: '3px' }}>{prog.tag}</span>
                   </div>
                   <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.25rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.4rem', lineHeight: 1.3 }}>{prog.title}</h3>
@@ -96,13 +96,13 @@ export default function ProgramlarPage() {
                           <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.63rem', fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--grey)', margin: '1.2rem 0 0.75rem' }}>Amaç</p>
                           {prog.goals.map((g, j) => (
                             <div key={j} style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.4rem' }}>
-                              <span style={{ color: prog.color }}>✓</span>
+                              <span style={{ color: prog.color }}></span>
                               <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.83rem', color: 'var(--text-mid)', lineHeight: 1.6 }}>{g}</span>
                             </div>
                           ))}
 
                           <div style={{ marginTop: '1.2rem', padding: '1rem', background: `${prog.color}08`, borderRadius: '4px', borderLeft: `3px solid ${prog.color}` }}>
-                            <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.8rem', lineHeight: 1.75, color: 'var(--text-mid)', fontStyle: 'italic' }}>📌 {prog.apply}</p>
+                            <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.8rem', lineHeight: 1.75, color: 'var(--text-mid)', fontStyle: 'italic' }}> {prog.apply}</p>
                           </div>
                         </div>
                       </motion.div>

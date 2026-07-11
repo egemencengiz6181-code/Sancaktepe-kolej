@@ -13,14 +13,14 @@ const P = ({ children }) => (
 );
 
 const SERVICES = [
-  { icon: '🎯', title: 'Akademik ve Kişisel Hedef Belirleme', body: 'Öğrencilerin akademik ve kişisel hedeflerini belirlemelerine destek olunur.' },
-  { icon: '🌍', title: 'Eğitim Sistemleri Hakkında Bilgi', body: 'Farklı ülkelerin eğitim sistemleri hakkında detaylı bilgi sunulur.' },
-  { icon: '🗺️', title: 'Ülke ve Üniversite Yönlendirmesi', body: 'İlgi alanları ve hedeflere uygun ülke ve üniversite yönlendirmeleri yapılır.' },
-  { icon: '📋', title: 'Başvuru Koşulları Bilgilendirmesi', body: 'Üniversite başvuru koşulları hakkında kapsamlı bilgilendirme sağlanır.' },
-  { icon: '⭐', title: 'Akademik ve Ders Dışı Aktiviteler', body: 'Başvuruları destekleyici akademik ve ders dışı etkinlik önerilerinde bulunulur.' },
-  { icon: '👤', title: 'Bireysel Profil Geliştirme', body: 'Öğrenci profilini geliştirmeye yönelik bireysel tavsiyeler sunulur.' },
-  { icon: '☀️', title: 'Yurt Dışı Yaz Okulu Programları', body: 'Yurt dışı yaz okulu programları hakkında bilgilendirme yapılır.' },
-  { icon: '📝', title: 'Başvuru Süreci Rehberliği', body: 'Başvuru sürecinin tüm adımlarında birebir rehberlik edilir.' },
+  { title: 'Akademik ve Kişisel Hedef Belirleme', body: 'Öğrencilerin akademik ve kişisel hedeflerini belirlemelerine destek olunur.' },
+  { title: 'Eğitim Sistemleri Hakkında Bilgi', body: 'Farklı ülkelerin eğitim sistemleri hakkında detaylı bilgi sunulur.' },
+  { title: 'Ülke ve Üniversite Yönlendirmesi', body: 'İlgi alanları ve hedeflere uygun ülke ve üniversite yönlendirmeleri yapılır.' },
+  { title: 'Başvuru Koşulları Bilgilendirmesi', body: 'Üniversite başvuru koşulları hakkında kapsamlı bilgilendirme sağlanır.' },
+  { title: 'Akademik ve Ders Dışı Aktiviteler', body: 'Başvuruları destekleyici akademik ve ders dışı etkinlik önerilerinde bulunulur.' },
+  { title: 'Bireysel Profil Geliştirme', body: 'Öğrenci profilini geliştirmeye yönelik bireysel tavsiyeler sunulur.' },
+  { title: 'Yurt Dışı Yaz Okulu Programları', body: 'Yurt dışı yaz okulu programları hakkında bilgilendirme yapılır.' },
+  { title: 'Başvuru Süreci Rehberliği', body: 'Başvuru sürecinin tüm adımlarında birebir rehberlik edilir.' },
 ];
 
 export default function LiseYurtDisiPage() {
@@ -65,7 +65,7 @@ export default function LiseYurtDisiPage() {
                     onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(35,46,92,0.08)'; }}
                     onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}
                   >
-                    <span style={{ fontSize: '1.4rem', flexShrink: 0 }}>{s.icon}</span>
+                    
                     <div>
                       <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.3rem' }}>{s.title}</p>
                       <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.82rem', color: 'var(--text-mid)', lineHeight: 1.75, margin: 0 }}>{s.body}</p>

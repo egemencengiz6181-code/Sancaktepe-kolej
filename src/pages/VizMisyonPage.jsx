@@ -17,43 +17,35 @@ const missionItems = [
 ];
 
 const values = [
-  {
-    emoji: '🇹🇷',
+  {,
     title: "Atatürk'ün İzindeyiz",
     text: "Atatürk'ün ilke ve inkılaplarını rehber alarak Cumhuriyet'in değerlerini korumayı ve geliştirmeyi bir sorumluluk olarak görürüm. Çağdaş, demokratik ve sosyal bir düzenin önemine inanır; milli birlik ve beraberliği güçlendiren çağdaş bir milliyetçilik anlayışını benimserim. Öğrenmenin, üretmenin ve topluma katkı sağlamanın güçlü bir gelecek için temel olduğunun bilinciyle hem kendimi geliştirmeye hem de topluma değer katmaya çalışırım.",
   },
-  {
-    emoji: '🏆',
+  {,
     title: "Gerçek Başarının Peşindeyiz",
     text: "Potansiyelimi ortaya çıkarmak, gelişimimi destekleyen hedefler belirlemek ve hem başarıya hem de mutluluğa ulaşmak için çalışırım. Kendine güvenen ve ilkeli bir birey olmayı; seçtiğim kariyer yolunda ürettiğim değerlerin karşılık bulduğu bir gelişim sürecinde ilerlemeyi hedeflerim. Ulaşılabilir hedefler belirlemeye ve güçlü akademik standartları sürdürmeye kararlıyım.",
   },
-  {
-    emoji: '⚖️',
+  {,
     title: "Sorumluluk Sahibiyiz",
     text: "Eylemlerimin ve yarattığı etkinin sorumluluğuyla hareket ederim. Verdiğim sözleri dürüstlük ve güvenilirlikle yerine getiririm. Sürdürülebilir seçimler yaparak çevreyi korumak ve gezegenimizin geleceğini desteklemek için çalışırım. Yerel ve uluslararası kültürlere saygı duyar, çeşitliliği bir güç ve zenginlik kaynağı olarak görürüm.",
   },
-  {
-    emoji: '💛',
+  {,
     title: "Özen Kültürünü Benimseriz",
     text: "Her koşulda şefkat, empati, nezaket ve saygıyla hareket ederim. Çevremdekileri dinler ve onlara destek olurum. Herkesin değer gördüğü, nazik, saygılı bir ortam oluşturmayı ve bu anlayışı yaşatmayı bir sorumluluk olarak görürüm. Küçük iyiliklerin hem kendi hayatımda hem de başkalarının hayatında kalıcı ve anlamlı etkiler yarattığına inanırım.",
   },
-  {
-    emoji: '🌐',
+  {,
     title: "Çok Yönlüyüz",
     text: "Bilimsel, sanatsal ve sportif becerilerimi geliştirirken yaratıcı, üretken ve vizyoner bir bakış açısı geliştiririm. Sosyal ve akademik ortamlarda kendine güvenen ve vicdanlı; uluslararası platformlarda ise etkili bir temsil gücüne sahip olmayı hedefleyen ve bu doğrultuda çok dilliliği benimseyen bir birey olma yolunda ilerlerim. Zorluklara ve yeni durumlara hızla uyum sağlayarak esnek ve çok yönlü bir öğrenen olurum.",
   },
-  {
-    emoji: '⚖️',
+  {,
     title: "Dengeliyiz",
     text: "Zamanımı bilinçli bir şekilde yönetirim, zorlayıcı anlarda sakinliğimi koruyarak içsel dengemi gözetirim. Hem dinlemeye özen gösterir hem de başkalarına saygıyla yaklaşarak harekete geçmeden önce düşünmeyi benimserim. Yaratıcılığımı ve mantığımı birlikte kullanırım; dijital iyi oluş ilkesini önemser ve teknolojiyi bilinçli kullanırım. Çalışmayı dinlenmeyle dengeleyerek hatalarımdan ders çıkarırım, gerçekçi hedefler belirler ve istikrarlı bir gelişime odaklanırım.",
   },
-  {
-    emoji: '🔍',
+  {,
     title: "Sorgulayan Bireyleriz",
     text: "Bir konuyu yalnızca öğrenmekle yetinmem; onun \"neden\" ve \"nasıl\" olduğunu anlamak için merakla sorular sorarım. Bana sunulan bilgileri hemen kabul etmek yerine farklı bakış açılarını araştırır, olayların ardındaki gerçekleri anlamaya çalışırım. Akademik dürüstlük ilkelerini benimser; öğrenme sürecimde doğruluğu, sorumluluğu, özgünlüğü ve adil olmayı önemserim.",
   },
-  {
-    emoji: '🦁',
+  {,
     title: "Cesaretliyiz",
     text: "Sınırlarımın dışına çıkmaktan ve yeni fikirler denemekten heyecan duyarım. Hata yapmaktan korkmak yerine, karşılaştığım sorunları çözmek için farklı ve yaratıcı yollar keşfederim. Yaşadığım her deneyimi bir ders gibi görür, aldığım geri bildirimlerle kendimi geliştirmeye odaklanırım. Benim için risk, kaçılması gereken bir engel değil, büyümemi ve öğrenmemi sağlayan en büyük fırsattır.",
   },
@@ -109,7 +101,7 @@ export default function VizMisyonPage() {
               padding: '2.5rem 3rem',
             }}>
               <p style={{ fontFamily: 'var(--font-serif)', fontSize: '1.08rem', color: 'rgba(255,255,255,0.88)', lineHeight: 2, fontStyle: 'italic' }}>
-                TED Rönesans Koleji olarak sürdürülebilir bir dünyaya hizmet etmeyi ilke edinmiş, evrensel değerleri özümsemiş, çoklu becerileriyle yaşamın her alanında fark edilen, bedensel ve ruhsal iyi oluş haliyle toplum için değer üreten, geleceğe dönüşümle uyumlanan bireyler yetiştirmek.
+                Kolej Sancaktepe olarak sürdürülebilir bir dünyaya hizmet etmeyi ilke edinmiş, evrensel değerleri özümsemiş, çoklu becerileriyle yaşamın her alanında fark edilen, bedensel ve ruhsal iyi oluş haliyle toplum için değer üreten, geleceğe dönüşümle uyumlanan bireyler yetiştirmek.
               </p>
             </div>
           </motion.div>

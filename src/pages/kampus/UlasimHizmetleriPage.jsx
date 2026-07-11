@@ -12,10 +12,10 @@ const P = ({ children }) => (
 );
 
 const FEATURES = [
-  { icon: '🚌', title: 'Profesyonel Araç Filosu', desc: 'Servis hizmetimiz, düzenli bakımı yapılan ve standartlara uygun araçlarla sağlanmaktadır. Tüm araçlar zorunlu trafik sigortası ve okul taşıtı belgelerine sahiptir.' },
-  { icon: '🧭', title: 'Deneyimli Rehber Kadrosu', desc: 'Her araçta görev yapan deneyimli rehber personelimiz, öğrencilerin araç içi güvenliğini ve düzenini sağlar; güzergah boyunca öğrencileri takip eder.' },
-  { icon: '📍', title: 'Güzergah Takip Sistemi', desc: 'Araçlarımız anlık konum takip sistemiyle donatılmıştır. Velilerimiz, çocuklarının servis konumunu uygulama aracılığıyla anlık olarak takip edebilir.' },
-  { icon: '🛡️', title: 'Güvenlik Önceliği', desc: 'Tüm sürücülerimiz mesleki yeterlilik belgesi ve psikoteknik değerlendirme süreçlerinden geçmiştir. Öğrenci güvenliği her kararın merkezindedir.' },
+  { title: 'Profesyonel Araç Filosu', desc: 'Servis hizmetimiz, düzenli bakımı yapılan ve standartlara uygun araçlarla sağlanmaktadır. Tüm araçlar zorunlu trafik sigortası ve okul taşıtı belgelerine sahiptir.' },
+  { title: 'Deneyimli Rehber Kadrosu', desc: 'Her araçta görev yapan deneyimli rehber personelimiz, öğrencilerin araç içi güvenliğini ve düzenini sağlar; güzergah boyunca öğrencileri takip eder.' },
+  { title: 'Güzergah Takip Sistemi', desc: 'Araçlarımız anlık konum takip sistemiyle donatılmıştır. Velilerimiz, çocuklarının servis konumunu uygulama aracılığıyla anlık olarak takip edebilir.' },
+  { title: 'Güvenlik Önceliği', desc: 'Tüm sürücülerimiz mesleki yeterlilik belgesi ve psikoteknik değerlendirme süreçlerinden geçmiştir. Öğrenci güvenliği her kararın merkezindedir.' },
 ];
 
 export default function UlasimHizmetleriPage() {
@@ -97,7 +97,7 @@ export default function UlasimHizmetleriPage() {
                   boxShadow: '0 2px 12px rgba(35,46,92,0.04)',
                   display: 'flex', gap: '1.25rem',
                 }}>
-                  <div style={{ fontSize: '2rem', flexShrink: 0 }}>{f.icon}</div>
+                  
                   <div>
                     <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.5rem' }}>{f.title}</h3>
                     <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.88rem', color: 'var(--text-mid)', lineHeight: 1.8 }}>{f.desc}</p>

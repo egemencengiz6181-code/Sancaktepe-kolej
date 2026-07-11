@@ -4,7 +4,6 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 const areas = [
   {
     id: 'drone',
-    icon: '🚁',
     label: 'Drone Çekimi',
     title: 'Kampüsü Kuşbakışı Keşfet',
     desc: 'Kolej Sancaktepe kampüsünün muhteşem manzarasını havadan keşfediyoruz. Geniş yeşil alanlar, modern bina yapısı ve okul bahçesini kuş bakışı görüntülüyoruz.',
@@ -14,7 +13,6 @@ const areas = [
   },
   {
     id: 'lab',
-    icon: '🔬',
     label: 'Laboratuvarlar',
     title: 'Bilim Tam Burada Başlıyor',
     desc: 'Fizik, kimya, biyoloji ve bilgisayar laboratuvarlarımız modern ekipmanlarla donatılmış, öğrencilere deneysel öğrenme imkânı sunan alanlardır.',
@@ -24,7 +22,6 @@ const areas = [
   },
   {
     id: 'spor',
-    icon: '⚽',
     label: 'Spor Alanları',
     title: 'Hareket, Disiplin ve Takım Ruhu',
     desc: 'Spor salonları, açık saha, basketbol ve voleybol kortu ile öğrencilerimizin fiziksel gelişimini destekleyen kapsamlı spor tesislerimiz bulunmaktadır.',
@@ -34,7 +31,6 @@ const areas = [
   },
   {
     id: 'kutuphane',
-    icon: '📚',
     label: 'Kütüphane',
     title: 'Bilginin Kalbi',
     desc: 'Binlerce basılı kitap, dijital arşiv ve sessiz çalışma alanlarıyla öğrencilerin araştırma, okuma ve öğrenme süreçlerini destekleyen modern kütüphanemiz.',
@@ -218,7 +214,7 @@ export default function KampusPage() {
                     background: `color-mix(in srgb, ${area.bg} 12%, transparent)`,
                     border: `1px solid color-mix(in srgb, ${area.bg} 20%, transparent)`,
                   }}>
-                    <span style={{ fontSize: '0.95rem' }}>{area.icon}</span>
+                    
                     <span style={{
                       fontFamily: 'var(--font-display)',
                       fontSize: '0.62rem',

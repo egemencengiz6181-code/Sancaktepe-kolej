@@ -22,7 +22,6 @@ export const programs = [
     subtitle: 'K12 — Tüm kademeler',
     color: '#232e5c',
     accent: '#e61936',
-    icon: '🌐',
     desc: 'Akademik dersleri destekleyen ve öğrencinin çok yönlü gelişimini hedefleyen bütüncül programlar çerçevesi.',
     heroDesc: 'BÖGEP, öğrencinin yalnızca akademik değil; sosyal, duygusal, kültürel ve etik boyutlarda da gelişimini destekleyen kapsamlı bir çerçeve programdır. K12 boyunca okul içi ve dışı deneyimleri bir araya getirir.',
     subPrograms: ['tematik-ogrenme', 'ssp', 'mp', 'ode', 'lll'],
@@ -57,7 +56,6 @@ export const programs = [
     subtitle: 'Ortaokul ve Lise',
     color: '#059669',
     accent: '#10b981',
-    icon: '🌍',
     desc: 'Öğrencilerin akademik bilgiyi yaşamla ilişkilendirmesini, dünyayı bütüncül bir bakış açısıyla okuyabilmesini amaçlayan derslerdir.',
     heroDesc: 'KVYOD, öğrencilere küresel ölçekte düşünme ve yerel ölçekte hareket etme becerisi kazandırır. Eleştirel düşünme, küresel kültür farkındalığı ve yaşam becerilerini disiplinlerarası bir çerçevede ele alır.',
     subPrograms: ['dusunme-anlamlandirma', 'dunya-toplum-kultur', 'yasam-becerileri'],
@@ -88,7 +86,6 @@ export const programs = [
     subtitle: 'Ortaokul ve Lise',
     color: '#1e40af',
     accent: '#3b82f6',
-    icon: '🗣️',
     desc: 'Türkçe ve İngilizce ortamda akademik içerik öğrenimi; dil becerisini dersin aracına dönüştüren entegre model.',
     heroDesc: 'Çift Dilli Eğitim Programı, öğrencilerin iki dilde de akademik yetkinlik kazanmasını sağlar. İçerik tabanlı dil öğretimi (CLIL) modeliyle yürütülen dersler, dili iletişim aracı olarak kullanmayı önceliklendirir.',
     items: [
@@ -120,7 +117,6 @@ export const programs = [
     subtitle: 'Lise Kademesi',
     color: '#7c2d12',
     accent: '#ea580c',
-    icon: '🎓',
     desc: 'College Board onaylı ileri düzey dersler; üniversite kredi transferine olanak tanıyan uluslararası akademik program.',
     heroDesc: 'AP (Advanced Placement) Programı, lise öğrencilerinin üniversite düzeyinde dersler almasına ve başarılı olduğu takdirde üniversite kredisi kazanmasına imkân tanır. Kolej Sancaktepe AP müfredatı ile öğrenciler hem ulusal hem uluslararası üniversite kapılarını aralamaktadır.',
     items: [
@@ -154,7 +150,6 @@ export const programs = [
     subtitle: 'K12 — Tüm kademeler',
     color: '#312e81',
     accent: '#818cf8',
-    icon: '📖',
     desc: 'Dil, medya, veri ve dijital okuryazarlık becerileri; PISA ve TIMSS ölçütleriyle uyumlu modüler içerik.',
     heroDesc: 'Okuryazarlık Programları, bilgi yükleyen değil; bilgiyi okuyan, yorumlayan ve dönüştüren bireyler yetiştirmeyi hedefler. PISA ve TIMSS ölçütlerini temel alarak beceri odaklı bir öğretim anlayışı sunar.',
     items: [
@@ -187,7 +182,6 @@ export const programs = [
     subtitle: 'K-12 — Tüm Kademeler (Sanat, Spor ve Yaşam Odaklı)',
     color: '#134e4a',
     accent: '#14b8a6',
-    icon: '⚗️',
     desc: 'Öğrencilerin çok yönlü gelişimini destekleyen; müzik, görsel sanatlar ve spor branşlaşma modelini kapsayan uygulamalı eğitim çerçevesi.',
     heroDesc: 'Uygulamalı Derslerin temel amacı; çocukların çok yönlü gelişimini desteklemek, yaratıcılıklarını ortaya çıkarmak, öğrenmeyi keyifli hale getirmek ve özgüven ile ifade becerilerini geliştirmektir. Bu program sayesinde öğrenciler yalnızca akademik bilgi edinmez; aynı zamanda keşfeden, düşünen ve üreten bireyler olarak gelişir.',
     items: [
@@ -223,7 +217,6 @@ export const programs = [
     subtitle: 'BÖGEP — K12',
     color: '#232e5c',
     accent: '#f9cf19',
-    icon: '🔭',
     desc: 'Farklı disiplinleri ortak bir tema etrafında birleştirerek derin ve kalıcı öğrenme deneyimleri sunar.',
     heroDesc: 'Tematik Öğrenme Programı, ayrı ayrı öğrenilen ders konularını ortak temalar etrafında bir araya getirir. Öğrenciler; Fen, Matematik, Tarih ve Edebiyatı bütüncül bir bakışla birbirine bağlayan projeler üretir.',
     items: [
@@ -256,7 +249,6 @@ export const programs = [
     subtitle: 'BÖGEP — K12',
     color: '#232e5c',
     accent: '#e61936',
-    icon: '🤝',
     desc: 'Öğrencilerin topluma katkıda bulunma bilincini ve empati becerilerini geliştiren proje ve etkinlikleri kapsar.',
     heroDesc: 'Sosyal Sorumluluk Programı, öğrencileri pasif birer izleyici olmaktan çıkarıp toplumsal dönüşümün aktif bir parçası hâline getirir. Proje tasarımından hayata geçirmeye uzanan süreçte öğrenciler gerçek bir toplumsal etki yaratır.',
     items: [
@@ -289,7 +281,6 @@ export const programs = [
     subtitle: 'BÖGEP — K12',
     color: '#232e5c',
     accent: '#60a5fa',
-    icon: '🎯',
     desc: 'Her öğrenciye atanan mentor rehberliğinde kariyer, akademik ve kişisel gelişim yolculuğu.',
     heroDesc: 'Mentorluk Programı, her öğrencinin kendine özgü güçlü yanlarını keşfetmesine ve potansiyelini en iyi şekilde kullanmasına rehberlik eder. Öğrenci-mentor ilişkisi güven, dürüstlük ve hedef odaklılık üzerine inşa edilir.',
     items: [
@@ -322,7 +313,6 @@ export const programs = [
     subtitle: 'BÖGEP — K12',
     color: '#232e5c',
     accent: '#4ade80',
-    icon: '🌿',
     desc: 'Müze, doğa, şehir ve üretim alanlarını kapsayan sahaya inme deneyimleri.',
     heroDesc: 'Okul Dışı Etkinlikler Programı, öğrenmeyi sınıfın dört duvarıyla sınırlamaz. Müze ziyaretleri, doğa kampları, fabrika gezileri ve kent keşifleriyle öğrenciler bilginin hayatın içinde nasıl var olduğunu bizzat deneyimler.',
     items: [
@@ -355,7 +345,6 @@ export const programs = [
     subtitle: 'BÖGEP — K12',
     color: '#232e5c',
     accent: '#a78bfa',
-    icon: '♾️',
     desc: 'Merak, öz-yönetim ve bağımsız öğrenme alışkanlıklarını pekiştiren modüller içerir.',
     heroDesc: 'Yaşam Boyu Öğrenme Programı, öğrencileri yalnızca sınav için değil, tüm yaşamı boyunca öğrenmeye hazırlayan bir zihinsel altyapı inşa eder. Öz-düzenleme, merak ve araştırma becerileri bu programın temel sütunlarıdır.',
     items: [
@@ -392,7 +381,6 @@ export const programs = [
     subtitle: 'KVYOD — Ortaokul ve Lise',
     color: '#059669',
     accent: '#34d399',
-    icon: '🧠',
     desc: 'Eleştirel ve analitik düşünme, felsefi sorgulama ve kanıta dayalı argüman geliştirme modülleri.',
     heroDesc: 'Düşünme ve Anlamlandırma Dersleri, öğrencilerin bilgiyi sorgulamadan kabul etmek yerine analiz etmesini, değerlendirmesini ve yeniden yorumlamasını sağlar. Felsefi düşünme ve kanıt tabanlı argüman kurma bu derslerin özünde yer alır.',
     items: [
@@ -425,7 +413,6 @@ export const programs = [
     subtitle: 'KVYOD — Ortaokul ve Lise',
     color: '#059669',
     accent: '#6ee7b7',
-    icon: '🌐',
     desc: 'Küresel vatandaşlık, sürdürülebilir kalkınma hedefleri ve kültürlerarası yetkinlik dersleri.',
     heroDesc: 'Dünya, Toplum ve Kültür dersleri; öğrencileri dar bir yerel perspektiften çıkararak dünyayı bir sistem olarak anlamalarını sağlar. BM Sürdürülebilir Kalkınma Hedefleri, kültürel çeşitlilik ve toplumsal adalet bu derslerin merkezindedir.',
     items: [
@@ -458,7 +445,6 @@ export const programs = [
     subtitle: 'KVYOD — Ortaokul ve Lise',
     color: '#059669',
     accent: '#10b981',
-    icon: '🌱',
     desc: 'Öz-farkındalık, stres yönetimi, karar verme ve kişisel güçlü yanları keşfetmeye yönelik seminerler.',
     heroDesc: 'Yaşam Becerileri ve Kendini Tanıma dersleri, öğrencilere sadece akademik değil; duygusal ve sosyal zekâlarını geliştirecek araçlar sunar. Kendi güçlü yanlarını bilen, duygularını yöneten ve sağlıklı ilişkiler kuran bireyler yetiştirmek temel hedefidir.',
     items: [

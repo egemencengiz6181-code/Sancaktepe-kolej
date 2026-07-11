@@ -16,6 +16,7 @@ const leftLinks = [
 const kurumsalLinks = [
   { label: 'Hakkımızda', href: '/hakkimizda' },
   { label: 'Türk Eğitim Derneği', href: '/ted' },
+  { label: 'Akreditasyon & Danışmanlık', href: '/kurumsal/akreditasyon-danismanlik' },
   { label: 'Akademik Kadro', href: '/akademik-kadro' },
   { label: 'Vizyon, Misyon ve Değerlerimiz', href: '/vizyon-misyon' },
 ];
@@ -24,10 +25,6 @@ const kayitLinks = [
   { label: 'Kayıt Koşulları', href: '/kayit/kosullar' },
   { label: 'Burslar', href: '/kayit/burslar' },
   { label: 'Kayıt Ücretleri', href: '/kayit/ucretler' },
-  { label: 'Yurt Dışından Aday Kayıt', href: '/kayit/yurt-disindan' },
-  { label: 'Lise Kayıt', href: '/kayit/lise' },
-  { label: 'Ortaokul Kayıt', href: '/kayit/ortaokul' },
-  { label: 'Okul Öncesi ve İlkokul Kayıt', href: '/kayit/okul-oncesi-ilkokul' },
   { label: 'Başvuru Formu', href: '/kayit/basvuru-formu' },
 ];
 
@@ -212,7 +209,6 @@ function MegaMenu({ type, onClose }) {
                 }}
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.6rem' }}>
-                  <span style={{ fontSize: '1.4rem' }}>{item.icon}</span>
                   <span style={{
                     fontFamily: 'var(--font-display)', fontSize: '0.55rem', fontWeight: 900,
                     letterSpacing: '0.15em', textTransform: 'uppercase',
@@ -248,17 +244,16 @@ function MegaMenu({ type, onClose }) {
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                 {[
-                  { to: '/siniflar/okul-oncesi/genel-bilgiler', icon: '📋', label: 'Genel Bilgiler' },
-                  { to: '/siniflar/okul-oncesi/brans-dersleri', icon: '📚', label: 'Branş Dersleri' },
-                  { to: '/siniflar/okul-oncesi/pdr', icon: '💚', label: "PDR'den Bakış" },
-                  { to: '/siniflar/okul-oncesi/haftalik-cizelge', icon: '🗓️', label: 'Haftalık Çizelge' },
+                  { to: '/siniflar/okul-oncesi/genel-bilgiler', label: 'Genel Bilgiler' },
+                  { to: '/siniflar/okul-oncesi/brans-dersleri', label: 'Branş Dersleri' },
+                  { to: '/siniflar/okul-oncesi/pdr', label: "PDR'den Bakış" },
+                  { to: '/siniflar/okul-oncesi/haftalik-cizelge', label: 'Haftalık Çizelge' },
                 ].map((link) => (
                   <Link key={link.to} to={link.to} onClick={onClose} style={{ textDecoration: 'none' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', padding: '0.5rem 0.7rem', borderRadius: '6px', background: 'rgba(245,158,11,0.05)', border: '1px solid rgba(245,158,11,0.15)', transition: 'all 0.2s' }}
                       onMouseEnter={e => { e.currentTarget.style.background = 'rgba(245,158,11,0.12)'; e.currentTarget.style.borderColor = 'rgba(245,158,11,0.3)'; }}
                       onMouseLeave={e => { e.currentTarget.style.background = 'rgba(245,158,11,0.05)'; e.currentTarget.style.borderColor = 'rgba(245,158,11,0.15)'; }}
                     >
-                      <span style={{ fontSize: '0.85rem', flexShrink: 0 }}>{link.icon}</span>
                       <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 800, color: '#a16207', letterSpacing: '0.02em' }}>{link.label}</span>
                     </div>
                   </Link>
@@ -273,19 +268,18 @@ function MegaMenu({ type, onClose }) {
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                 {[
-                  { to: '/siniflar/ilkokul/genel-bilgiler', icon: '📋', label: 'Genel Bilgiler' },
-                  { to: '/siniflar/ilkokul/brans-dersleri', icon: '📚', label: 'Branş Dersleri' },
-                  { to: '/siniflar/ilkokul/uygulamalar-projeler', icon: '🔭', label: 'Uygulamalar ve Projeler' },
-                  { to: '/siniflar/ilkokul/pdr', icon: '💬', label: "PDR'den Bakış" },
-                  { to: '/siniflar/ilkokul/degerler-egitimi', icon: '⭐', label: 'Değerler Eğitimi' },
-                  { to: '/siniflar/ilkokul/haftalik-cizelge', icon: '🗓️', label: 'Haftalık Çizelge' },
+                  { to: '/siniflar/ilkokul/genel-bilgiler', label: 'Genel Bilgiler' },
+                  { to: '/siniflar/ilkokul/brans-dersleri', label: 'Branş Dersleri' },
+                  { to: '/siniflar/ilkokul/uygulamalar-projeler', label: 'Uygulamalar ve Projeler' },
+                  { to: '/siniflar/ilkokul/pdr', label: "PDR'den Bakış" },
+                  { to: '/siniflar/ilkokul/degerler-egitimi', label: 'Değerler Eğitimi' },
+                  { to: '/siniflar/ilkokul/haftalik-cizelge', label: 'Haftalık Çizelge' },
                 ].map((link) => (
                   <Link key={link.to} to={link.to} onClick={onClose} style={{ textDecoration: 'none' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', padding: '0.5rem 0.7rem', borderRadius: '6px', background: 'rgba(35,46,92,0.04)', border: '1px solid rgba(35,46,92,0.1)', transition: 'all 0.2s' }}
                       onMouseEnter={e => { e.currentTarget.style.background = 'rgba(35,46,92,0.1)'; e.currentTarget.style.borderColor = 'rgba(35,46,92,0.25)'; }}
                       onMouseLeave={e => { e.currentTarget.style.background = 'rgba(35,46,92,0.04)'; e.currentTarget.style.borderColor = 'rgba(35,46,92,0.1)'; }}
                     >
-                      <span style={{ fontSize: '0.85rem', flexShrink: 0 }}>{link.icon}</span>
                       <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 800, color: 'var(--primary)', letterSpacing: '0.02em' }}>{link.label}</span>
                     </div>
                   </Link>
@@ -300,18 +294,17 @@ function MegaMenu({ type, onClose }) {
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                 {[
-                  { to: '/siniflar/ortaokul/genel-bilgiler', icon: '📋', label: 'Genel Bilgiler' },
-                  { to: '/siniflar/ortaokul/brans-dersleri', icon: '📚', label: 'Branş Dersleri' },
-                  { to: '/siniflar/ortaokul/uygulamalar-projeler', icon: '♻️', label: 'Uygulamalar ve Projeler' },
-                  { to: '/siniflar/ortaokul/pdr', icon: '💬', label: "PDR'den Bakış" },
-                  { to: '/siniflar/ortaokul/haftalik-cizelge', icon: '🗓️', label: 'Haftalık Çizelge' },
+                  { to: '/siniflar/ortaokul/genel-bilgiler', label: 'Genel Bilgiler' },
+                  { to: '/siniflar/ortaokul/brans-dersleri', label: 'Branş Dersleri' },
+                  { to: '/siniflar/ortaokul/uygulamalar-projeler', label: 'Uygulamalar ve Projeler' },
+                  { to: '/siniflar/ortaokul/pdr', label: "PDR'den Bakış" },
+                  { to: '/siniflar/ortaokul/haftalik-cizelge', label: 'Haftalık Çizelge' },
                 ].map((link) => (
                   <Link key={link.to} to={link.to} onClick={onClose} style={{ textDecoration: 'none' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', padding: '0.5rem 0.7rem', borderRadius: '6px', background: 'rgba(230,25,54,0.04)', border: '1px solid rgba(230,25,54,0.12)', transition: 'all 0.2s' }}
                       onMouseEnter={e => { e.currentTarget.style.background = 'rgba(230,25,54,0.1)'; e.currentTarget.style.borderColor = 'rgba(230,25,54,0.28)'; }}
                       onMouseLeave={e => { e.currentTarget.style.background = 'rgba(230,25,54,0.04)'; e.currentTarget.style.borderColor = 'rgba(230,25,54,0.12)'; }}
                     >
-                      <span style={{ fontSize: '0.85rem', flexShrink: 0 }}>{link.icon}</span>
                       <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 800, color: '#b01528', letterSpacing: '0.02em' }}>{link.label}</span>
                     </div>
                   </Link>
@@ -326,20 +319,19 @@ function MegaMenu({ type, onClose }) {
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                 {[
-                  { to: '/siniflar/lise/genel-bilgiler', icon: '📋', label: 'Genel Bilgiler' },
-                  { to: '/siniflar/lise/uluslararasi-programlar', icon: '🌍', label: 'Uluslararası Programlar' },
-                  { to: '/siniflar/lise/akademik-bolumler', icon: '📚', label: 'Akademik Bölümler' },
-                  { to: '/siniflar/lise/rehberlik-kariyer', icon: '💼', label: 'Rehberlik ve Kariyer' },
-                  { to: '/siniflar/lise/yurt-ici-universite', icon: '🎓', label: 'Yurt İçi Üniversite' },
-                  { to: '/siniflar/lise/yurt-disi-universite', icon: '✈️', label: 'Yurt Dışı Üniversite' },
-                  { to: '/siniflar/lise/haftalik-cizelge', icon: '🗓️', label: 'Haftalık Çizelge' },
+                  { to: '/siniflar/lise/genel-bilgiler', label: 'Genel Bilgiler' },
+                  { to: '/siniflar/lise/uluslararasi-programlar', label: 'Uluslararası Programlar' },
+                  { to: '/siniflar/lise/akademik-bolumler', label: 'Akademik Bölümler' },
+                  { to: '/siniflar/lise/rehberlik-kariyer', label: 'Rehberlik ve Kariyer' },
+                  { to: '/siniflar/lise/yurt-ici-universite', label: 'Yurt İçi Üniversite' },
+                  { to: '/siniflar/lise/yurt-disi-universite', label: 'Yurt Dışı Üniversite' },
+                  { to: '/siniflar/lise/haftalik-cizelge', label: 'Haftalık Çizelge' },
                 ].map((link) => (
                   <Link key={link.to} to={link.to} onClick={onClose} style={{ textDecoration: 'none' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', padding: '0.5rem 0.7rem', borderRadius: '6px', background: 'rgba(35,46,92,0.04)', border: '1px solid rgba(35,46,92,0.1)', transition: 'all 0.2s' }}
                       onMouseEnter={e => { e.currentTarget.style.background = 'rgba(35,46,92,0.1)'; e.currentTarget.style.borderColor = 'rgba(35,46,92,0.25)'; }}
                       onMouseLeave={e => { e.currentTarget.style.background = 'rgba(35,46,92,0.04)'; e.currentTarget.style.borderColor = 'rgba(35,46,92,0.1)'; }}
                     >
-                      <span style={{ fontSize: '0.85rem', flexShrink: 0 }}>{link.icon}</span>
                       <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 800, color: 'var(--primary)', letterSpacing: '0.02em' }}>{link.label}</span>
                     </div>
                   </Link>
@@ -362,7 +354,6 @@ function MegaMenu({ type, onClose }) {
                 onMouseLeave={e => { e.currentTarget.style.background = 'rgba(35,46,92,0.04)'; e.currentTarget.style.borderColor = 'rgba(35,46,92,0.08)'; }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-                  <span style={{ fontSize: '1rem' }}>🌍</span>
                   <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.72rem', fontWeight: 800, color: 'var(--primary)', letterSpacing: '0.02em' }}>Uluslararası Programlar</span>
                 </div>
                 <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 800, color: 'var(--red)' }}>→</span>
@@ -374,7 +365,6 @@ function MegaMenu({ type, onClose }) {
                 onMouseLeave={e => { e.currentTarget.style.background = 'rgba(230,25,54,0.04)'; e.currentTarget.style.borderColor = 'rgba(230,25,54,0.12)'; }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-                  <span style={{ fontSize: '1rem' }}>🎓</span>
                   <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.72rem', fontWeight: 800, color: 'var(--red)', letterSpacing: '0.02em' }}>AP Sınav Merkezi</span>
                 </div>
                 <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 800, color: 'var(--red)' }}>→</span>
@@ -512,23 +502,20 @@ export default function Navbar() {
             {leftLinks.map(renderLink)}
           </ul>
 
-          {/* Center logo — clipped to show only the emblem (top 58% of image = figure, bottom 42% = text) */}
+          {/* Center logo — horizontal */}
           <Link
             to="/"
             style={{
               display: 'block',
               textDecoration: 'none',
               flexShrink: 0,
-              width: '82px',
-              height: '48px',    /* 82 × 0.585 ≈ 48px = just the red figure */
-              overflow: 'hidden',
               filter: 'drop-shadow(0 3px 8px rgba(0,0,0,0.30))',
             }}
           >
             <img
-              src="/logo/kolej%20sancaktepe%20logo%20-%20kare.png"
+              src="/logo/kolej%20sancaktepe%20logo%20-%20yatay.png"
               alt="Kolej Sancaktepe"
-              style={{ width: '82px', height: '82px', display: 'block', objectFit: 'fill' }}
+              style={{ height: '48px', width: 'auto', display: 'block', objectFit: 'contain' }}
             />
           </Link>
 
@@ -554,7 +541,7 @@ export default function Navbar() {
                 onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.22)'; }}
                 onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.12)'; }}
               >
-                {dark ? '☀️' : '🌙'}
+                {dark ? '☀' : '☽'}
               </button>
             </li>
           </ul>
@@ -569,8 +556,8 @@ export default function Navbar() {
         alignItems: 'center', justifyContent: 'space-between', padding: '0 1.25rem',
       }}>
         <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-          <img src="/logo/kolej%20sancaktepe%20logo%20-%20kare.png" alt="Kolej Sancaktepe"
-            style={{ height: '42px', width: '42px', objectFit: 'contain' }} />
+          <img src="/logo/kolej%20sancaktepe%20logo%20-%20yatay.png" alt="Kolej Sancaktepe"
+            style={{ height: '36px', width: 'auto', objectFit: 'contain' }} />
         </Link>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
           <button
@@ -582,7 +569,7 @@ export default function Navbar() {
               display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.9rem',
             }}
           >
-            {dark ? '☀️' : '🌙'}
+            {dark ? '☀' : '☽'}
           </button>
           <button onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menü"
             style={{ background: 'none', border: 'none', display: 'flex', flexDirection: 'column', gap: '5px', padding: '4px', cursor: 'pointer' }}>

@@ -36,7 +36,7 @@ export default function OkulOncesiCizelgePage() {
       <section style={{ padding: '6rem 0', background: 'var(--off-white)' }}>
         <div className="section-container">
           <motion.div {...fadeUp(0)} style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
-            <div style={{ fontSize: '4rem', marginBottom: '1.5rem' }}>🗓️</div>
+            
             <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1rem' }}>
               Ders Programı Hazırlanıyor
             </h2>

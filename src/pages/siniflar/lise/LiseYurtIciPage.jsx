@@ -66,21 +66,21 @@ export default function LiseYurtIciPage() {
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }} className="yurt-ici-grid">
               {[
-                { icon: '👤', title: 'Bireysel Gözlem ve Görüşmeler', body: 'Öğrencilerle bire bir görüşmeler ve sistematik gözlem çalışmaları.' },
-                { icon: '🔍', title: 'Kendini Tanıma ve Farkındalık', body: 'İlgi, yetenek, değer ve beceri alanlarında farkındalık artırıcı çalışmalar.' },
-                { icon: '🏛️', title: 'Üniversite ve Meslek Tanıtımları', body: 'Farklı bölümler ve meslek alanlarına yönelik bilgilendirme etkinlikleri.' },
-                { icon: '🎯', title: 'Kariyer Günü', body: 'Her yıl Mayıs ayında üç farklı mesleği uzmanlarından tanıma ve paylaşım fırsatı.' },
-                { icon: '🏫', title: 'Üniversite Tanıtım Gezileri', body: 'Öğrencilerin üniversite kampüslerini yerinde görmeleri için düzenlenen geziler.' },
-                { icon: '🧑‍💼', title: 'Mesleki Gölge Programı', body: '10. sınıftan itibaren merak edilen meslekleri yerinde gözlemleme (en az bir günlük).' },
-                { icon: '📋', title: 'Ders Seçim Süreçlerine Destek', body: 'Hedef mesleğe ve üniversiteye göre ders seçimi planlamasında rehberlik.' },
-                { icon: '🧠', title: 'Sınav Kaygısı ve Motivasyon', body: 'Sınav kaygısı, motivasyon, ilgi, beceri, yetenek ve değer çalışmaları.' },
+                { title: 'Bireysel Gözlem ve Görüşmeler', body: 'Öğrencilerle bire bir görüşmeler ve sistematik gözlem çalışmaları.' },
+                { title: 'Kendini Tanıma ve Farkındalık', body: 'İlgi, yetenek, değer ve beceri alanlarında farkındalık artırıcı çalışmalar.' },
+                { title: 'Üniversite ve Meslek Tanıtımları', body: 'Farklı bölümler ve meslek alanlarına yönelik bilgilendirme etkinlikleri.' },
+                { title: 'Kariyer Günü', body: 'Her yıl Mayıs ayında üç farklı mesleği uzmanlarından tanıma ve paylaşım fırsatı.' },
+                { title: 'Üniversite Tanıtım Gezileri', body: 'Öğrencilerin üniversite kampüslerini yerinde görmeleri için düzenlenen geziler.' },
+                { title: 'Mesleki Gölge Programı', body: '10. sınıftan itibaren merak edilen meslekleri yerinde gözlemleme (en az bir günlük).' },
+                { title: 'Ders Seçim Süreçlerine Destek', body: 'Hedef mesleğe ve üniversiteye göre ders seçimi planlamasında rehberlik.' },
+                { title: 'Sınav Kaygısı ve Motivasyon', body: 'Sınav kaygısı, motivasyon, ilgi, beceri, yetenek ve değer çalışmaları.' },
               ].map((c, i) => (
                 <motion.div key={i} {...fadeUp(0.12 + i * 0.04)}>
                   <div style={{ background: 'var(--white)', borderRadius: '10px', padding: '1.25rem 1.5rem', border: '1px solid var(--grey-light)', display: 'flex', gap: '0.85rem', transition: 'transform 0.2s, box-shadow 0.2s' }}
                     onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(35,46,92,0.08)'; }}
                     onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}
                   >
-                    <span style={{ fontSize: '1.4rem', flexShrink: 0 }}>{c.icon}</span>
+                    
                     <div>
                       <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.3rem' }}>{c.title}</p>
                       <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.82rem', color: 'var(--text-mid)', lineHeight: 1.75, margin: 0 }}>{c.body}</p>

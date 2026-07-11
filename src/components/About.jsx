@@ -147,10 +147,10 @@ export default function About() {
             {/* Info grid */}
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
               {[
-                { icon: '🏛', label: 'Türkiye\'de', value: 'TED Okulları' },
-                { icon: '🌍', label: 'K.K.T.C. Dahil', value: 'Uluslararası' },
-                { icon: '📋', label: 'Süreç', value: '2-3 Yıl' },
-                { icon: '✅', label: 'Standart', value: 'TED Akredite' },
+                { label: 'Türkiye\'de', value: 'TED Okulları' },
+                { label: 'K.K.T.C. Dahil', value: 'Uluslararası' },
+                { label: 'Süreç', value: '2-3 Yıl' },
+                { label: 'Standart', value: 'TED Akredite' },
               ].map((item) => (
                 <div key={item.label} style={{
                   background: 'rgba(255,255,255,0.03)',
@@ -162,7 +162,7 @@ export default function About() {
                   onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'rgba(201,168,76,0.3)')}
                   onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)')}
                 >
-                  <div style={{ fontSize: '1.4rem', marginBottom: '0.5rem' }}>{item.icon}</div>
+                  <div style={{ fontSize: '1.4rem', marginBottom: '0.5rem' }}></div>
                   <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)', marginBottom: '0.3rem' }}>{item.label}</div>
                   <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', fontWeight: 600, color: 'var(--white)' }}>{item.value}</div>
                 </div>

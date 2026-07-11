@@ -136,7 +136,7 @@ export default function Footer() {
                 transition: 'background 0.3s',
               }}>
                 <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)' }}>
-                  📍 Yol Tarifi →
+                  Yol Tarifi →
                 </span>
               </div>
             </a>

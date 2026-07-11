@@ -35,16 +35,16 @@ const SubHeading = ({ children }) => (
 );
 
 const SUBJECTS = [
-  { id: 'turkce', icon: '📖', tag: 'Türkçe', color: '#2563eb' },
-  { id: 'matematik', icon: '🔢', tag: 'Matematik', color: '#7c3aed' },
-  { id: 'sosyal', icon: '🌍', tag: 'Sosyal Bilgiler / T.C. İnkılap', color: '#059669' },
-  { id: 'fen', icon: '🔬', tag: 'Fen Bilimleri', color: '#0891b2' },
-  { id: 'bilisim', icon: '💻', tag: 'Bilişim Teknolojileri', color: '#7c3aed' },
-  { id: 'ingilizce', icon: '🗣️', tag: 'İngilizce', color: '#f59e0b' },
-  { id: 'ikinci-yabanci', icon: '🌐', tag: 'İkinci Yabancı Diller', color: '#db2777' },
-  { id: 'beden', icon: '⚽', tag: 'Beden Eğitimi', color: '#16a34a' },
-  { id: 'muzik', icon: '🎵', tag: 'Müzik', color: '#db2777' },
-  { id: 'din', icon: '📿', tag: 'Din Kültürü ve Ahlak Bilgisi', color: '#92400e' },
+  { id: 'turkce', tag: 'Türkçe', color: '#2563eb' },
+  { id: 'matematik', tag: 'Matematik', color: '#7c3aed' },
+  { id: 'sosyal', tag: 'Sosyal Bilgiler / T.C. İnkılap', color: '#059669' },
+  { id: 'fen', tag: 'Fen Bilimleri', color: '#0891b2' },
+  { id: 'bilisim', tag: 'Bilişim Teknolojileri', color: '#7c3aed' },
+  { id: 'ingilizce', tag: 'İngilizce', color: '#f59e0b' },
+  { id: 'ikinci-yabanci', tag: 'İkinci Yabancı Diller', color: '#db2777' },
+  { id: 'beden', tag: 'Beden Eğitimi', color: '#16a34a' },
+  { id: 'muzik', tag: 'Müzik', color: '#db2777' },
+  { id: 'din', tag: 'Din Kültürü ve Ahlak Bilgisi', color: '#92400e' },
 ];
 
 export default function OrtaokulBransPage() {
@@ -79,7 +79,7 @@ export default function OrtaokulBransPage() {
       <section id="turkce" style={{ padding: '5rem 0', background: 'var(--off-white)', scrollMarginTop: '80px' }}>
         <div className="section-container"><div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <motion.div {...fadeUp(0)} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-            <span style={{ fontSize: '2rem' }}>📖</span>
+            
             <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#2563eb', background: '#2563eb12', border: '1px solid #2563eb25', padding: '0.2rem 0.55rem', borderRadius: '4px' }}>Türkçe</span>
           </motion.div>
           <motion.h2 {...fadeUp(0.04)} style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.5rem,2.8vw,2rem)', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>Türkçe</motion.h2>
@@ -105,7 +105,7 @@ export default function OrtaokulBransPage() {
       <section id="matematik" style={{ padding: '5rem 0', background: 'var(--white)', scrollMarginTop: '80px' }}>
         <div className="section-container"><div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <motion.div {...fadeUp(0)} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-            <span style={{ fontSize: '2rem' }}>🔢</span>
+            
             <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#7c3aed', background: '#7c3aed12', border: '1px solid #7c3aed25', padding: '0.2rem 0.55rem', borderRadius: '4px' }}>Matematik</span>
           </motion.div>
           <motion.h2 {...fadeUp(0.04)} style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.5rem,2.8vw,2rem)', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>Matematik</motion.h2>
@@ -127,7 +127,7 @@ export default function OrtaokulBransPage() {
       <section id="sosyal" style={{ padding: '5rem 0', background: 'var(--off-white)', scrollMarginTop: '80px' }}>
         <div className="section-container"><div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <motion.div {...fadeUp(0)} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-            <span style={{ fontSize: '2rem' }}>🌍</span>
+            
             <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#059669', background: '#05966912', border: '1px solid #05966925', padding: '0.2rem 0.55rem', borderRadius: '4px' }}>Sosyal Bilgiler / T.C. İnkılap Tarihi</span>
           </motion.div>
           <motion.h2 {...fadeUp(0.04)} style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.5rem,2.8vw,2rem)', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>Sosyal Bilgiler ve T.C. İnkılap Tarihi</motion.h2>
@@ -150,7 +150,7 @@ export default function OrtaokulBransPage() {
       <section id="fen" style={{ padding: '5rem 0', background: 'var(--white)', scrollMarginTop: '80px' }}>
         <div className="section-container"><div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <motion.div {...fadeUp(0)} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-            <span style={{ fontSize: '2rem' }}>🔬</span>
+            
             <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#0891b2', background: '#0891b212', border: '1px solid #0891b225', padding: '0.2rem 0.55rem', borderRadius: '4px' }}>Fen Bilimleri</span>
           </motion.div>
           <motion.h2 {...fadeUp(0.04)} style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.5rem,2.8vw,2rem)', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>Fen Bilimleri</motion.h2>
@@ -172,7 +172,7 @@ export default function OrtaokulBransPage() {
       <section id="bilisim" style={{ padding: '5rem 0', background: 'var(--off-white)', scrollMarginTop: '80px' }}>
         <div className="section-container"><div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <motion.div {...fadeUp(0)} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-            <span style={{ fontSize: '2rem' }}>💻</span>
+            
             <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#7c3aed', background: '#7c3aed12', border: '1px solid #7c3aed25', padding: '0.2rem 0.55rem', borderRadius: '4px' }}>Bilişim Teknolojileri</span>
           </motion.div>
           <motion.h2 {...fadeUp(0.04)} style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.5rem,2.8vw,2rem)', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>Bilişim Teknolojileri</motion.h2>
@@ -194,7 +194,7 @@ export default function OrtaokulBransPage() {
       <section id="ingilizce" style={{ padding: '5rem 0', background: 'var(--white)', scrollMarginTop: '80px' }}>
         <div className="section-container"><div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <motion.div {...fadeUp(0)} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-            <span style={{ fontSize: '2rem' }}>🗣️</span>
+            
             <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#f59e0b', background: '#f59e0b12', border: '1px solid #f59e0b25', padding: '0.2rem 0.55rem', borderRadius: '4px' }}>İngilizce</span>
           </motion.div>
           <motion.h2 {...fadeUp(0.04)} style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.5rem,2.8vw,2rem)', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>İngilizce</motion.h2>
@@ -221,7 +221,7 @@ export default function OrtaokulBransPage() {
       <section id="ikinci-yabanci" style={{ padding: '5rem 0', background: 'var(--off-white)', scrollMarginTop: '80px' }}>
         <div className="section-container"><div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <motion.div {...fadeUp(0)} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-            <span style={{ fontSize: '2rem' }}>🌐</span>
+            
             <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#db2777', background: '#db277712', border: '1px solid #db277725', padding: '0.2rem 0.55rem', borderRadius: '4px' }}>İkinci Yabancı Diller</span>
           </motion.div>
           <motion.h2 {...fadeUp(0.04)} style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.5rem,2.8vw,2rem)', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>İkinci Yabancı Diller</motion.h2>
@@ -265,7 +265,7 @@ export default function OrtaokulBransPage() {
       <section id="muzik" style={{ padding: '5rem 0', background: 'var(--off-white)', scrollMarginTop: '80px' }}>
         <div className="section-container"><div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <motion.div {...fadeUp(0)} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-            <span style={{ fontSize: '2rem' }}>🎵</span>
+            
             <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#db2777', background: '#db277712', border: '1px solid #db277725', padding: '0.2rem 0.55rem', borderRadius: '4px' }}>Müzik</span>
           </motion.div>
           <motion.h2 {...fadeUp(0.04)} style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.5rem,2.8vw,2rem)', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>Müzik</motion.h2>
@@ -287,7 +287,7 @@ export default function OrtaokulBransPage() {
       <section id="din" style={{ padding: '5rem 0', background: 'var(--white)', scrollMarginTop: '80px' }}>
         <div className="section-container"><div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <motion.div {...fadeUp(0)} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-            <span style={{ fontSize: '2rem' }}>📿</span>
+            
             <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#92400e', background: '#92400e12', border: '1px solid #92400e25', padding: '0.2rem 0.55rem', borderRadius: '4px' }}>Din Kültürü ve Ahlak Bilgisi</span>
           </motion.div>
           <motion.h2 {...fadeUp(0.04)} style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.5rem,2.8vw,2rem)', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>Din Kültürü ve Ahlak Bilgisi</motion.h2>

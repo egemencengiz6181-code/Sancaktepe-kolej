@@ -131,9 +131,9 @@ export default function TEDPage() {
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }} className="ted-why-grid">
               {[
-                { icon: '🇹🇷', title: 'Ülke Kalkınması', desc: "Türkiye'nin eğitim yoluyla gelişmesine katkıda bulunmak." },
-                { icon: '📈', title: 'Bölgesel Gelişim', desc: "Okullarının bulunduğu bölgelerin eğitim seviyesini yükseltmek." },
-                { icon: '🏅', title: 'Burs & Fırsat Eşitliği', desc: "Maddi olanakları sınırlı, başarılı çocuklara okullarında eğitim vermek." },
+                { title: 'Ülke Kalkınması', desc: "Türkiye'nin eğitim yoluyla gelişmesine katkıda bulunmak." },
+                { title: 'Bölgesel Gelişim', desc: "Okullarının bulunduğu bölgelerin eğitim seviyesini yükseltmek." },
+                { title: 'Burs & Fırsat Eşitliği', desc: "Maddi olanakları sınırlı, başarılı çocuklara okullarında eğitim vermek." },
               ].map((item, i) => (
                 <motion.div key={item.title} {...fadeUp(i * 0.1)}>
                   <div style={{
@@ -145,7 +145,7 @@ export default function TEDPage() {
                     onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 12px 32px rgba(35,46,92,0.1)'; e.currentTarget.style.borderColor = 'var(--primary)'; }}
                     onMouseLeave={e => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = '0 2px 16px rgba(35,46,92,0.05)'; e.currentTarget.style.borderColor = 'var(--grey-light)'; }}
                   >
-                    <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>{item.icon}</div>
+                    
                     <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.65rem' }}>{item.title}</h3>
                     <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.88rem', color: 'var(--text-mid)', lineHeight: 1.75 }}>{item.desc}</p>
                   </div>

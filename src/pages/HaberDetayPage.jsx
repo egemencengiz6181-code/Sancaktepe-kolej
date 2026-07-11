@@ -219,7 +219,7 @@ export default function HaberDetayPage() {
                   background: `${tagColor}18`,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   fontSize: '1rem',
-                }}>✍️</div>
+                }}></div>
                 <div>
                   <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-dark)' }}>{article.author}</div>
                   <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 700, color: 'var(--grey)', letterSpacing: '0.06em' }}>{article.date}</div>

@@ -56,12 +56,12 @@ export default function SKSPage() {
             <motion.div {...fadeUp(0.12)} style={{ marginTop: '2rem' }}>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }} className="sks-cards">
                 {[
-                  { icon: '⚽', label: 'Sportif Etkinlikler', desc: 'Turnuvalar, spor ligleri ve bireysel-takım sporları.' },
-                  { icon: '🎭', label: 'Kültürel Etkinlikler', desc: 'Tiyatro, müzik, edebiyat ve sanat kulüpleri.' },
-                  { icon: '🌍', label: 'Sosyal Sorumluluk', desc: 'Topluma katkı projeleri ve çevre etkinlikleri.' },
+                  { label: 'Sportif Etkinlikler', desc: 'Turnuvalar, spor ligleri ve bireysel-takım sporları.' },
+                  { label: 'Kültürel Etkinlikler', desc: 'Tiyatro, müzik, edebiyat ve sanat kulüpleri.' },
+                  { label: 'Sosyal Sorumluluk', desc: 'Topluma katkı projeleri ve çevre etkinlikleri.' },
                 ].map((card, i) => (
                   <div key={i} style={{ background: 'var(--white)', borderRadius: '12px', padding: '1.5rem', border: '1px solid var(--grey-light)', textAlign: 'center' }}>
-                    <div style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>{card.icon}</div>
+                    
                     <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.4rem' }}>{card.label}</div>
                     <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.83rem', color: 'var(--text-mid)', lineHeight: 1.7, margin: 0 }}>{card.desc}</p>
                   </div>

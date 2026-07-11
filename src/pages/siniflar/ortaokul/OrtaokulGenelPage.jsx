@@ -11,21 +11,21 @@ const fadeUp = (delay = 0) => ({
 const COLOR = '#e61936';
 
 const SUB_LINKS = [
-  { to: '/siniflar/ortaokul/brans-dersleri', label: 'Branş Dersleri', icon: '📚' },
-  { to: '/siniflar/ortaokul/uygulamalar-projeler', label: 'Uygulamalar ve Projeler', icon: '🔭' },
-  { to: '/siniflar/ortaokul/pdr', label: "PDR'den Bakış", icon: '💬' },
-  { to: '/siniflar/ortaokul/haftalik-cizelge', label: 'Haftalık Çizelge', icon: '🗓️' },
+  { to: '/siniflar/ortaokul/brans-dersleri', label: 'Branş Dersleri' },
+  { to: '/siniflar/ortaokul/uygulamalar-projeler', label: 'Uygulamalar ve Projeler' },
+  { to: '/siniflar/ortaokul/pdr', label: "PDR'den Bakış" },
+  { to: '/siniflar/ortaokul/haftalik-cizelge', label: 'Haftalık Çizelge' },
 ];
 
 const SKILLS = [
-  { icon: '🏆', title: 'Yarışma ve Olimpiyatlara Katılım', desc: 'Ulusal ve uluslararası akademik yarışmalarda temsil' },
-  { icon: '🔬', title: 'Laboratuvar Uygulamaları', desc: 'Fen Bilimleri, Kimya ve Biyoloji laboratuvarlarında deneyler' },
-  { icon: '💡', title: 'Disiplinler Arası Proje Çalışmaları', desc: 'Farklı dersler arasında bütünleşik proje yaklaşımı' },
-  { icon: '🌍', title: 'Uluslararası Programlar', desc: 'Oxford AQA, Eko-Okul ve uluslararası ağlarla bağlantı' },
-  { icon: '🎭', title: 'Sanat ve Kültür Etkinlikleri', desc: 'Müzik, tiyatro, görsel sanatlar ve kültür gezileri' },
-  { icon: '🤖', title: 'STEM ve Teknoloji', desc: 'FLL, robotik, kodlama ve mühendislik tasarım döngüsü' },
-  { icon: '📣', title: 'İletişim ve Liderlik', desc: 'Münazara, sunum ve kulüp liderliği deneyimleri' },
-  { icon: '♻️', title: 'Çevre Bilinci', desc: 'Eko-Okul projesi ve sürdürülebilirlik uygulamaları' },
+  { title: 'Yarışma ve Olimpiyatlara Katılım', desc: 'Ulusal ve uluslararası akademik yarışmalarda temsil' },
+  { title: 'Laboratuvar Uygulamaları', desc: 'Fen Bilimleri, Kimya ve Biyoloji laboratuvarlarında deneyler' },
+  { title: 'Disiplinler Arası Proje Çalışmaları', desc: 'Farklı dersler arasında bütünleşik proje yaklaşımı' },
+  { title: 'Uluslararası Programlar', desc: 'Oxford AQA, Eko-Okul ve uluslararası ağlarla bağlantı' },
+  { title: 'Sanat ve Kültür Etkinlikleri', desc: 'Müzik, tiyatro, görsel sanatlar ve kültür gezileri' },
+  { title: 'STEM ve Teknoloji', desc: 'FLL, robotik, kodlama ve mühendislik tasarım döngüsü' },
+  { title: 'İletişim ve Liderlik', desc: 'Münazara, sunum ve kulüp liderliği deneyimleri' },
+  { title: 'Çevre Bilinci', desc: 'Eko-Okul projesi ve sürdürülebilirlik uygulamaları' },
 ];
 
 export default function OrtaokulGenelPage() {
@@ -83,7 +83,7 @@ export default function OrtaokulGenelPage() {
                       onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(35,46,92,0.08)'; }}
                       onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}
                     >
-                      <span style={{ fontSize: '1.4rem', display: 'block', marginBottom: '0.6rem' }}>{s.icon}</span>
+                      
                       <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.3rem' }}>{s.title}</p>
                       <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.82rem', color: 'var(--text-mid)', lineHeight: 1.75, margin: 0 }}>{s.desc}</p>
                     </div>
@@ -103,7 +103,7 @@ export default function OrtaokulGenelPage() {
                         onMouseEnter={e => e.currentTarget.style.background = `${COLOR}15`}
                         onMouseLeave={e => e.currentTarget.style.background = 'var(--off-white)'}
                       >
-                        <span>{l.icon}</span> {l.label}
+                         {l.label}
                       </Link>
                     ))}
                   </div>

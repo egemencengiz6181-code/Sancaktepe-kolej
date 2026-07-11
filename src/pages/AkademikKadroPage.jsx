@@ -9,23 +9,19 @@ const fadeUp = (delay = 0) => ({
 
 const pillars = [
   {
-    icon: '✍️',
-    title: 'Profesyonel Seçim Süreci',
+      title: 'Profesyonel Seçim Süreci',
     desc: 'Öğretmen ve yönetici istihdamı Türk Eğitim Derneği Genel Merkezi\'nin Ankara\'da yürüttüğü yazılı ve mülakat süreçleriyle sağlanmaktadır.',
   },
   {
-    icon: '📚',
-    title: 'Hizmet İçi Eğitimler',
+      title: 'Hizmet İçi Eğitimler',
     desc: 'Düzenli aralıklarla tekrarlanan hizmet içi eğitimlerle öğretmenlerimizin mesleki gelişimleri en üst seviyede tutulmaktadır.',
   },
   {
-    icon: '🤝',
-    title: 'Temel Paydaş Anlayışı',
+      title: 'Temel Paydaş Anlayışı',
     desc: 'TED, öğretmenleri eğitim kurumlarının hedeflerini gerçekleştirmede en önemli paydaşlar olarak kabul etmektedir.',
   },
   {
-    icon: '🎯',
-    title: 'Alan ve Meslek Yetkinliği',
+      title: 'Alan ve Meslek Yetkinliği',
     desc: 'Alanında uzman, öğretmenlik mesleğinde yetkin kadro seçimi okulumuzun temel önceliklerinden biridir.',
   },
 ];
@@ -70,7 +66,7 @@ export default function AkademikKadroPage() {
                 background: 'linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%)',
                 borderRadius: '16px', padding: '2.5rem 2rem', color: '#fff',
               }}>
-                <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>👩‍🏫</div>
+                
                 <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.3rem', fontWeight: 700, marginBottom: '0.75rem', lineHeight: 1.3 }}>
                   Öğretmen,<br />En Önemli Paydaş
                 </h3>
@@ -119,7 +115,7 @@ export default function AkademikKadroPage() {
                   onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 12px 32px rgba(35,46,92,0.1)'; e.currentTarget.style.borderColor = 'var(--primary)'; }}
                   onMouseLeave={e => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = '0 2px 16px rgba(35,46,92,0.05)'; e.currentTarget.style.borderColor = 'var(--grey-light)'; }}
                 >
-                  <div style={{ fontSize: '2rem', flexShrink: 0, marginTop: '0.2rem' }}>{item.icon}</div>
+                  <div style={{ fontSize: '2rem', flexShrink: 0, marginTop: '0.2rem' }}></div>
                   <div>
                     <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.5rem' }}>{item.title}</h3>
                     <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.88rem', color: 'var(--text-mid)', lineHeight: 1.8 }}>{item.desc}</p>

@@ -68,6 +68,7 @@ const LiseRehberlikPage = lazy(() => import('./pages/siniflar/lise/LiseRehberlik
 const LiseYurtIciPage = lazy(() => import('./pages/siniflar/lise/LiseYurtIciPage'));
 const LiseYurtDisiPage = lazy(() => import('./pages/siniflar/lise/LiseYurtDisiPage'));
 const LiseCizelgePage = lazy(() => import('./pages/siniflar/lise/LiseCizelgePage'));
+const AkreditasyonDanismanlikPage = lazy(() => import('./pages/kurumsal/AkreditasyonDanismanlikPage'));
 
 class ErrorBoundary extends Component {
   constructor(props) { super(props); this.state = { hasError: false }; }
@@ -124,10 +125,6 @@ export default function App() {
               <Route path="/kayit/kosullar" element={<KayitKosullariPage />} />
               <Route path="/kayit/burslar" element={<BurslarPage />} />
               <Route path="/kayit/ucretler" element={<KayitUcretleriPage />} />
-              <Route path="/kayit/yurt-disindan" element={<YurtDisindanKayitPage />} />
-              <Route path="/kayit/lise" element={<LiseKayitPage />} />
-              <Route path="/kayit/ortaokul" element={<OrtaokulKayitPage />} />
-              <Route path="/kayit/okul-oncesi-ilkokul" element={<OkulOncesiIlkokulKayitPage />} />
               <Route path="/kayit/basvuru-formu" element={<BasvuruFormuPage />} />
               <Route path="/kampus/fiziki-yapi" element={<FizikiYapiPage />} />
               <Route path="/kampus/spor-tesisleri" element={<SporTesisleriPage />} />
@@ -145,6 +142,7 @@ export default function App() {
               <Route path="/birimler/sks" element={<SKSPage />} />
               <Route path="/birimler/yabanci-dil" element={<YabanciDilPage />} />
               <Route path="/birimler/fark-yaratan-programlar" element={<FarkYaratanProgramlarPage />} />
+              <Route path="/kurumsal/akreditasyon-danismanlik" element={<AkreditasyonDanismanlikPage />} />
               <Route path="/siniflar/okul-oncesi/genel-bilgiler" element={<OkulOncesiGenelPage />} />
               <Route path="/siniflar/okul-oncesi/brans-dersleri" element={<OkulOncesiBransPage />} />
               <Route path="/siniflar/okul-oncesi/pdr" element={<OkulOncesiPDRPage />} />

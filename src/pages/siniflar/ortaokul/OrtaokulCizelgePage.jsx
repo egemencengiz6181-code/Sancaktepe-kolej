@@ -23,7 +23,7 @@ export default function OrtaokulCizelgePage() {
       <section style={{ padding: '6rem 0', background: 'var(--off-white)' }}>
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.65 }} style={{ maxWidth: '580px', margin: '0 auto', textAlign: 'center' }}>
-            <div style={{ fontSize: '4rem', marginBottom: '1.5rem' }}>🗓️</div>
+            
             <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1rem' }}>Ders Programı Hazırlanıyor</h2>
             <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.9, marginBottom: '2rem' }}>
               Ortaokul haftalık zaman çizelgesi yeni dönem başlamadan önce bu sayfada yayımlanacaktır. Detaylı bilgi için kayıt ofisimizle iletişime geçebilirsiniz.

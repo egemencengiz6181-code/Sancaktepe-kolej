@@ -54,15 +54,15 @@ export default function HakkimizdaPage() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.25rem' }} className="neden-grid">
             {[
-              { icon: '🎓', title: 'BÖGEP', sub: 'Bütüncül Öğrenme ve Gelişim Programları', desc: 'Akademik, sosyal, duygusal ve fiziksel gelişimi tek çatı altında birleştiren kapsamlı program.' },
-              { icon: '🌍', title: 'KVYOD', sub: 'Küresel Vizyon ve Yaşam Odaklı Dersler', desc: 'Öğrencileri dünyaya hazırlayan, yaşam becerileri ve küresel bakış açısı kazandıran dersler.' },
-              { icon: '📖', title: 'OYP', sub: 'Okuryazar Temelli Eğitim', desc: 'Okuduğunu anlayan, eleştirel düşünen ve iletişim kurabilen bireyler yetiştirme odaklı program.' },
-              { icon: '🔬', title: 'UD', sub: 'Uygulamalı Dersler ve Branşlaşma Modeli', desc: 'Teorik bilgiyi pratiğe dönüştüren, öğrencinin güçlü olduğu alanda derinleşmesini sağlayan model.' },
-              { icon: '💭', title: 'P4C', sub: 'Anaokulu — Çocuklarla Felsefe', desc: 'Küçük yaştan itibaren sorgulama, merak ve felsefi düşünmeyi teşvik eden özel program.' },
-              { icon: '🗣️', title: 'Çift Dilli Eğitim', sub: 'Anaokulu\'ndan 6. Sınıfa', desc: 'Fen ve Matematik derslerinin 1 saatinin İngilizce işlenmesiyle erken çift dil temeli.' },
-              { icon: '🇩🇪', title: 'Almanca', sub: 'İkinci Yabancı Dil', desc: 'Tüm kademelerde Almanca ikinci yabancı dil olarak sunulur; Avrupa bağlantısı güçlenir.' },
-              { icon: '🏆', title: 'AP Programı', sub: '11–12. Sınıf', desc: 'Advanced Placement dersleriyle uluslararası üniversitelere başvuruda güçlü bir avantaj.' },
-              { icon: '🌐', title: 'Dünya Vatandaşlığı', sub: 'Evrensel Perspektif', desc: 'Kültürel farklılıklara saygılı, küresel sorunlara duyarlı ve dünya ile bağlantılı bireyler.' },
+              { title: 'BÖGEP', sub: 'Bütüncül Öğrenme ve Gelişim Programları', desc: 'Akademik, sosyal, duygusal ve fiziksel gelişimi tek çatı altında birleştiren kapsamlı program.' },
+              { title: 'KVYOD', sub: 'Küresel Vizyon ve Yaşam Odaklı Dersler', desc: 'Öğrencileri dünyaya hazırlayan, yaşam becerileri ve küresel bakış açısı kazandıran dersler.' },
+              { title: 'OYP', sub: 'Okuryazar Temelli Eğitim', desc: 'Okuduğunu anlayan, eleştirel düşünen ve iletişim kurabilen bireyler yetiştirme odaklı program.' },
+              { title: 'UD', sub: 'Uygulamalı Dersler ve Branşlaşma Modeli', desc: 'Teorik bilgiyi pratiğe dönüştüren, öğrencinin güçlü olduğu alanda derinleşmesini sağlayan model.' },
+              { title: 'P4C', sub: 'Anaokulu — Çocuklarla Felsefe', desc: 'Küçük yaştan itibaren sorgulama, merak ve felsefi düşünmeyi teşvik eden özel program.' },
+              { title: 'Çift Dilli Eğitim', sub: 'Anaokulu\'ndan 6. Sınıfa', desc: 'Fen ve Matematik derslerinin 1 saatinin İngilizce işlenmesiyle erken çift dil temeli.' },
+              { title: 'Almanca', sub: 'İkinci Yabancı Dil', desc: 'Tüm kademelerde Almanca ikinci yabancı dil olarak sunulur; Avrupa bağlantısı güçlenir.' },
+              { title: 'AP Programı', sub: '11–12. Sınıf', desc: 'Advanced Placement dersleriyle uluslararası üniversitelere başvuruda güçlü bir avantaj.' },
+              { title: 'Dünya Vatandaşlığı', sub: 'Evrensel Perspektif', desc: 'Kültürel farklılıklara saygılı, küresel sorunlara duyarlı ve dünya ile bağlantılı bireyler.' },
             ].map((item, i) => (
               <motion.div key={item.title} {...fadeUp(i * 0.06)}>
                 <div style={{
@@ -76,7 +76,7 @@ export default function HakkimizdaPage() {
                   onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 12px 36px rgba(35,46,92,0.1)'; e.currentTarget.style.borderColor = 'var(--red)'; }}
                   onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 2px 16px rgba(35,46,92,0.05)'; e.currentTarget.style.borderColor = 'var(--grey-light)'; }}
                 >
-                  <div style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>{item.icon}</div>
+                  
                   <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.72rem', fontWeight: 900, letterSpacing: '0.08em', color: 'var(--red)', marginBottom: '0.3rem' }}>{item.title}</div>
                   <p style={{ fontFamily: 'var(--font-serif)', fontSize: '0.88rem', fontWeight: 600, color: 'var(--primary)', marginBottom: '0.6rem', lineHeight: 1.4 }}>{item.sub}</p>
                   <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.8rem', color: 'var(--text-mid)', lineHeight: 1.75 }}>{item.desc}</p>
@@ -145,10 +145,10 @@ export default function HakkimizdaPage() {
               {/* Info cards */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                 {[
-                  { icon: '🏛', title: 'TED Okulları', sub: 'Türkiye & KKTC' },
-                  { icon: '📋', title: '2-3 Yıl', sub: 'Geçiş Süreci' },
-                  { icon: '✅', title: 'TED-AD', sub: 'Akreditasyon' },
-                  { icon: '🌐', title: 'K-12', sub: 'Tam Kademe' },
+                  { title: 'TED Okulları', sub: 'Türkiye & KKTC' },
+                  { title: '2-3 Yıl', sub: 'Geçiş Süreci' },
+                  { title: 'TED-AD', sub: 'Akreditasyon' },
+                  { title: 'K-12', sub: 'Tam Kademe' },
                 ].map((item) => (
                   <div key={item.title} style={{
                     background: 'var(--grey-light)', borderRadius: '6px', padding: '1.2rem',
@@ -158,7 +158,7 @@ export default function HakkimizdaPage() {
                     onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--red)'; e.currentTarget.style.background = 'rgba(230,25,54,0.05)'; }}
                     onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; e.currentTarget.style.background = 'var(--grey-light)'; }}
                   >
-                    <div style={{ fontSize: '1.4rem', marginBottom: '0.4rem' }}>{item.icon}</div>
+                    
                     <div style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '0.9rem', color: 'var(--primary)' }}>{item.title}</div>
                     <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--grey)' }}>{item.sub}</div>
                   </div>
@@ -208,7 +208,7 @@ export default function HakkimizdaPage() {
             >
               <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'linear-gradient(90deg, var(--red), var(--red-light), transparent)' }} />
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem' }}>
-                <div style={{ width: '44px', height: '44px', borderRadius: '10px', background: 'rgba(230,25,54,0.15)', border: '1px solid rgba(230,25,54,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem', flexShrink: 0 }}>👁</div>
+                
                 <div>
                   <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--red)' }}>Vizyonumuz</span>
                 </div>
@@ -247,7 +247,7 @@ export default function HakkimizdaPage() {
             >
               <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'linear-gradient(90deg, var(--primary-light), rgba(46,61,122,0.3), transparent)' }} />
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem' }}>
-                <div style={{ width: '44px', height: '44px', borderRadius: '10px', background: 'rgba(35,46,92,0.4)', border: '1px solid rgba(255,255,255,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem', flexShrink: 0 }}>🎯</div>
+                
                 <div>
                   <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(180,196,230,0.9)' }}>Misyonumuz</span>
                 </div>
@@ -286,12 +286,12 @@ export default function HakkimizdaPage() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(310px, 1fr))', gap: '1.5rem' }}>
             {[
-              { icon: '🇹🇷', title: 'Milli ve Kültürel Değerlere Bağlılık', color: 'var(--red)', desc: 'Türkiye Cumhuriyeti\'nin temel değerlerini, kültürel mirasını, Atatürk ilke ve inkılaplarını ve toplumsal sorumluluk bilincini eğitim anlayışının ayrılmaz bir parçası olarak görürüz.' },
-              { icon: '🌍', title: 'Dünya Vatandaşlığı', color: 'var(--primary)', desc: 'Öğrencilerimizin farklı kültürlere saygılı, küresel sorunlara duyarlı ve uluslararası işbirliğine açık bireyler olarak yetişmesini önemseriz.' },
-              { icon: '⚖️', title: 'Etik ve Ahlaki Sorumluluk', color: 'var(--red)', desc: 'Eğitim süreçlerimizin merkezinde; dürüstlük, adalet, saygı ve sorumluluk gibi evrensel etik değerler yer alır.' },
-              { icon: '🧠', title: 'Anlamaya Dayalı Derin Öğrenme', color: 'var(--primary)', desc: 'Ezberden uzak, anlamaya ve transfer etmeye dayalı öğrenmeyi esas alır; öğrencilerin bilgiyi farklı bağlamlarda kullanabilmesini destekleriz.' },
-              { icon: '📚', title: 'Yaşam Boyu Öğrenme', color: 'var(--red)', desc: 'Öğrenmeyi okul yıllarıyla sınırlamayan; merak eden, araştıran ve kendini sürekli geliştiren bireyler yetiştiririz.' },
-              { icon: '🌱', title: 'Bütüncül Gelişim', color: 'var(--primary)', desc: 'Akademik başarının; sosyal, duygusal, sanatsal ve fiziksel gelişimle birlikte anlam kazandığına inanırız.' },
+              { title: 'Milli ve Kültürel Değerlere Bağlılık', color: 'var(--red)', desc: 'Türkiye Cumhuriyeti\'nin temel değerlerini, kültürel mirasını, Atatürk ilke ve inkılaplarını ve toplumsal sorumluluk bilincini eğitim anlayışının ayrılmaz bir parçası olarak görürüz.' },
+              { title: 'Dünya Vatandaşlığı', color: 'var(--primary)', desc: 'Öğrencilerimizin farklı kültürlere saygılı, küresel sorunlara duyarlı ve uluslararası işbirliğine açık bireyler olarak yetişmesini önemseriz.' },
+              { title: 'Etik ve Ahlaki Sorumluluk', color: 'var(--red)', desc: 'Eğitim süreçlerimizin merkezinde; dürüstlük, adalet, saygı ve sorumluluk gibi evrensel etik değerler yer alır.' },
+              { title: 'Anlamaya Dayalı Derin Öğrenme', color: 'var(--primary)', desc: 'Ezberden uzak, anlamaya ve transfer etmeye dayalı öğrenmeyi esas alır; öğrencilerin bilgiyi farklı bağlamlarda kullanabilmesini destekleriz.' },
+              { title: 'Yaşam Boyu Öğrenme', color: 'var(--red)', desc: 'Öğrenmeyi okul yıllarıyla sınırlamayan; merak eden, araştıran ve kendini sürekli geliştiren bireyler yetiştiririz.' },
+              { title: 'Bütüncül Gelişim', color: 'var(--primary)', desc: 'Akademik başarının; sosyal, duygusal, sanatsal ve fiziksel gelişimle birlikte anlam kazandığına inanırız.' },
             ].map((v, i) => (
               <motion.div key={v.title} {...fadeUp(i * 0.07)} className="deger-card" style={{
                 padding: '2rem', position: 'relative', overflow: 'hidden',
@@ -311,7 +311,7 @@ export default function HakkimizdaPage() {
                 }}
               >
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: v.color }} />
-                <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>{v.icon}</div>
+                
                 <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.15rem', fontWeight: 700, color: 'var(--text-dark)', marginBottom: '0.75rem', lineHeight: 1.3 }}>{v.title}</h3>
                 <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.87rem', lineHeight: 1.78, color: 'var(--text-mid)' }}>{v.desc}</p>
               </motion.div>

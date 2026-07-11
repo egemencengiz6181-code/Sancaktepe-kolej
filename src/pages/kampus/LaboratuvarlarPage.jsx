@@ -13,49 +13,42 @@ const P = ({ children }) => (
 
 const LABS = [
   {
-    icon: '💻',
     title: 'Windows Laboratuvarı — Ortaokul',
     img: 'https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?w=700&q=80&auto=format',
     specs: ['24 Bilgisayar', 'Windows İşletim Sistemi', 'Dokunmatik Ekranlar'],
     desc: 'Bilişim Teknolojileri, Dijital Oyun Geliştirme Kulübü ve Maker & Robotik Kulübü derslerinin yanı sıra İngilizce bölümünün bazı derslerine ev sahipliği yapmaktadır. Öğle teneffüslerinde genel kullanıma açıktır.',
   },
   {
-    icon: '🖥️',
     title: 'Windows Laboratuvarı — Lise',
     img: 'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=700&q=80&auto=format',
     specs: ['24 Bilgisayar', 'Etkileşimli Akıllı Tahta', 'Uzaktan Kontrol Yazılımı'],
     desc: 'Bilgisayar Bilimi, BTEC IT, BTEC Web Design, Maker ve Robotik Kulübü derslerinin işlendiği ileri teknoloji laboratuvarı. Uzaktan kontrol yazılımı ile öğretmen ekranda bireysel yönlendirme yapabilmektedir.',
   },
   {
-    icon: '🍎',
     title: 'Apple (iMac) Laboratuvarı',
     img: 'https://images.unsplash.com/photo-1556761175-4b46a572b786?w=700&q=80&auto=format',
     specs: ['24 iMac', 'Tüm Kademeler'],
     desc: '24 iMac bilgisayar kapasiteli laboratuvardan tüm öğrenciler yararlanabilmektedir. Dijital tasarım, medya üretimi ve yazılım projeleri için ideal bir çalışma ortamı sunmaktadır.',
   },
   {
-    icon: '🔬',
     title: 'Fen Laboratuvarları — Ortaokul',
     img: 'https://images.unsplash.com/photo-1532094349884-543559059399?w=700&q=80&auto=format',
     specs: ['2 Laboratuvar', '24 Öğrenci Kapasiteli', '3D Modeller'],
     desc: 'Kuvvet ve hareket, maddenin özellikleri, ısı ve sıcaklık, hücre ve özellikleri gibi pek çok alanda deneyler yapılmaktadır. Geliştirilen deney föyleriyle çalışmaların takibi sağlanmaktadır.',
   },
   {
-    icon: '⚗️',
     title: 'Kimya Laboratuvarı — Lise',
     img: 'https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?w=700&q=80&auto=format',
     specs: ['24 Öğrenci Kapasiteli', 'Tam Donanımlı'],
     desc: 'Madde ve atom konulu deneylerin yanı sıra kimyasal tepkime deneylerinin uygulandığı laboratuvarda gerekli tüm kimyasal malzemeler eksiksiz olarak bulunmaktadır.',
   },
   {
-    icon: '🔭',
     title: 'Fizik Laboratuvarı — Lise',
     img: 'https://images.unsplash.com/photo-1581093458791-9f3c3250a8b0?w=700&q=80&auto=format',
     specs: ['24 Öğrenci Kapasiteli', 'Gösteri Odası'],
     desc: 'Madde ve özellikleri, kuvvet ve hareket, ısı ve sıcaklık ile elektrostatik konularında gösteri ve öğrenci deneyleri gerçekleştirilmektedir. Gerektiğinde diğer fen laboratuvarlarından da destek alınmaktadır.',
   },
   {
-    icon: '🧬',
     title: 'Biyoloji Laboratuvarı — Lise',
     img: 'https://images.unsplash.com/photo-1576671081837-49000212a370?w=700&q=80&auto=format',
     specs: ['24 Öğrenci Kapasiteli', 'Mikroskoplar', 'Anatomik Modeller'],
@@ -125,7 +118,7 @@ export default function LaboratuvarlarPage() {
                   <img src={lab.img} alt={lab.title} style={{ width: '100%', height: '170px', objectFit: 'cover' }} loading="lazy" />
                   <div style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.6rem' }}>
-                      <span style={{ fontSize: '1.4rem' }}>{lab.icon}</span>
+                      
                       <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '0.95rem', fontWeight: 700, color: 'var(--primary)', lineHeight: 1.3 }}>{lab.title}</h3>
                     </div>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', marginBottom: '0.75rem' }}>

@@ -9,37 +9,31 @@ const fadeUp = (delay = 0) => ({
 
 const BRANCHES = [
   {
-    icon: '🏀',
     label: 'Basketbol',
     desc: 'Okul içi ve bölgelerarası liglere katılan basketbol takımımız, yıl boyunca profesyonel bir antrenör eşliğinde antrenman yapar. Hem erkek hem kız öğrencilere açık olan takımımız, rekabetçi ortamda büyüme ve takım ruhunu keşfetme fırsatı sunar.',
     img: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=700&q=80&auto=format',
   },
   {
-    icon: '🏐',
     label: 'Voleybol',
     desc: 'Hem indoor hem açık sahada voleybol oynayan öğrencilerimiz, teknik becerilerini ve kondisyonlarını geliştirirken takım dayanışmasını da güçlendirir. Turnuvalarda okulumuzun renklerini başarıyla temsil etmektedirler.',
     img: 'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=700&q=80&auto=format',
   },
   {
-    icon: '🎾',
     label: 'Tenis',
     desc: 'Kampüsümüzdeki tenis kortlarında başlayan tenis macerasında öğrenciler, temel teknikten rekabetçi oyuna kadar geniş bir öğrenim sürecinden geçer. Bireysel odaklanma, özgüven ve sportif disiplin tenniste kazanılan başlıca değerlerdir.',
     img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80&auto=format',
   },
   {
-    icon: '🏓',
     label: 'Masa Tenisi',
     desc: 'Refleks, konsantrasyon ve hız gerektiren masa tenisi, her yaş grubundan öğrencinin keyifle katılabildiği bir branştır. Okulumuzda düzenlenen turnuvalar, bireysel yeteneklerin sergilenmesine ve rekabetçi ruhun gelişmesine katkı sağlar.',
     img: 'https://images.unsplash.com/photo-1611251126112-a5d1c049985d?w=700&q=80&auto=format',
   },
   {
-    icon: '🤸',
     label: 'Jimnastik',
     desc: 'Esneklik, denge, güç ve koordinasyonu aynı anda geliştiren jimnastik, öğrencilerimizin beden ve zihin uyumunu artırır. Kulüp çalışmaları düzenli antrenmanlar ve gösterilerle zenginleştirilmektedir.',
     img: 'https://images.unsplash.com/photo-1566241440091-ec10de8db2e1?w=700&q=80&auto=format',
   },
   {
-    icon: '♟️',
     label: 'Satranç',
     desc: 'Stratejik düşünce, dikkat ve sabır gerektiren satranç, öğrencilerimizin analitik zekâlarını güçlendiren köklü bir spor dalıdır. Okul satranç takımımız bölgesel ve ulusal turnuvalarda temsil görevini başarıyla sürdürmektedir.',
     img: 'https://images.unsplash.com/photo-1529699211952-734e80c4d42b?w=700&q=80&auto=format',
@@ -131,7 +125,7 @@ export default function SporTesisleriPage() {
                   />
                   <div style={{ padding: '1.5rem' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.6rem' }}>
-                      <span style={{ fontSize: '1.4rem' }}>{b.icon}</span>
+                      
                       <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1rem', fontWeight: 700, color: 'var(--primary)' }}>{b.label}</h3>
                     </div>
                     <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', color: 'var(--text-mid)', lineHeight: 1.75 }}>{b.desc}</p>

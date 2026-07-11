@@ -60,12 +60,12 @@ export default function SaglikHizmetleriPage() {
         <div className="section-container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem', textAlign: 'center' }} className="info-grid">
             {[
-              { icon: '🏥', val: '2', label: 'Aktif Revir' },
-              { icon: '👨‍⚕️', val: '1', label: 'Uzman Hekim' },
-              { icon: '👩‍⚕️', val: '2', label: 'Okul Hemşiresi' },
+              { val: '2', label: 'Aktif Revir' },
+              { val: '1', label: 'Uzman Hekim' },
+              { val: '2', label: 'Okul Hemşiresi' },
             ].map((i) => (
               <div key={i.label}>
-                <div style={{ fontSize: '2rem', marginBottom: '0.3rem' }}>{i.icon}</div>
+                
                 <div style={{ fontFamily: 'var(--font-serif)', fontSize: '2rem', fontWeight: 700, color: '#fff', lineHeight: 1 }}>{i.val}</div>
                 <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.8rem', color: 'rgba(255,255,255,0.55)', marginTop: '0.3rem' }}>{i.label}</div>
               </div>

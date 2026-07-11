@@ -24,9 +24,9 @@ const ACTIVITIES = [
 ];
 
 const SUB_LINKS = [
-  { to: '/siniflar/okul-oncesi/brans-dersleri', icon: '📚', label: 'Branş Dersleri' },
-  { to: '/siniflar/okul-oncesi/pdr', icon: '💚', label: "PDR'den Bakış" },
-  { to: '/siniflar/okul-oncesi/haftalik-cizelge', icon: '🗓️', label: 'Haftalık Zaman Çizelgesi' },
+  { to: '/siniflar/okul-oncesi/brans-dersleri', label: 'Branş Dersleri' },
+  { to: '/siniflar/okul-oncesi/pdr', label: "PDR'den Bakış" },
+  { to: '/siniflar/okul-oncesi/haftalik-cizelge', label: 'Haftalık Zaman Çizelgesi' },
 ];
 
 export default function OkulOncesiGenelPage() {
@@ -59,7 +59,7 @@ export default function OkulOncesiGenelPage() {
                 onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.13)'; e.currentTarget.style.color = '#fff'; }}
                 onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.07)'; e.currentTarget.style.color = 'rgba(255,255,255,0.6)'; }}
               >
-                <span>{l.icon}</span>{l.label}
+                {l.label}
               </Link>
             ))}
           </motion.div>
@@ -117,13 +117,13 @@ export default function OkulOncesiGenelPage() {
 
               <motion.div {...fadeUp(0.15)} style={{ background: 'var(--white)', borderRadius: '12px', padding: '1.75rem', border: '1px solid var(--grey-light)', boxShadow: '0 4px 20px rgba(35,46,92,0.06)' }}>
                 <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: '1rem' }}>Bu Bölümdeki Sayfalar</p>
-                {[{ to: '/siniflar/okul-oncesi', icon: '🌟', label: 'Kademeye Genel Bakış' }, ...SUB_LINKS].map((l) => (
+                {[{ to: '/siniflar/okul-oncesi', label: 'Kademeye Genel Bakış' }, ...SUB_LINKS].map((l) => (
                   <Link key={l.to} to={l.to} style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', textDecoration: 'none', padding: '0.6rem 0', borderBottom: '1px solid var(--grey-light)' }}
                     onMouseEnter={e => { e.currentTarget.style.paddingLeft = '0.4rem'; }}
                     onMouseLeave={e => { e.currentTarget.style.paddingLeft = '0'; }}
                     style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', textDecoration: 'none', padding: '0.6rem 0', borderBottom: '1px solid var(--grey-light)', transition: 'padding 0.2s' }}
                   >
-                    <span style={{ fontSize: '1.1rem', flexShrink: 0 }}>{l.icon}</span>
+                    
                     <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', color: 'var(--primary)', fontWeight: 600 }}>{l.label}</span>
                     <span style={{ marginLeft: 'auto', color: 'var(--red)', fontSize: '0.7rem' }}>→</span>
                   </Link>

@@ -4,34 +4,34 @@ import { classes } from '../data/classes';
 
 const CLASS_SUB_PAGES = {
   'okul-oncesi': [
-    { to: '/siniflar/okul-oncesi/genel-bilgiler', icon: '📋', label: 'Genel Bilgiler', desc: 'Program ve eğitim anlayışı' },
-    { to: '/siniflar/okul-oncesi/brans-dersleri', icon: '📚', label: 'Branş Dersleri', desc: 'İngilizce, sanat, müzik ve daha fazlası' },
-    { to: '/siniflar/okul-oncesi/pdr', icon: '💚', label: "PDR'den Bakış", desc: 'Rehberlik ve psikolojik destek' },
-    { to: '/siniflar/okul-oncesi/haftalik-cizelge', icon: '🗓️', label: 'Haftalık Zaman Çizelgesi', desc: 'Dönemlik ders programı' },
+    { to: '/siniflar/okul-oncesi/genel-bilgiler', label: 'Genel Bilgiler', desc: 'Program ve eğitim anlayışı' },
+    { to: '/siniflar/okul-oncesi/brans-dersleri', label: 'Branş Dersleri', desc: 'İngilizce, sanat, müzik ve daha fazlası' },
+    { to: '/siniflar/okul-oncesi/pdr', label: "PDR'den Bakış", desc: 'Rehberlik ve psikolojik destek' },
+    { to: '/siniflar/okul-oncesi/haftalik-cizelge', label: 'Haftalık Zaman Çizelgesi', desc: 'Dönemlik ders programı' },
   ],
   'ilkokul': [
-    { to: '/siniflar/ilkokul/genel-bilgiler', icon: '📋', label: 'Genel Bilgiler', desc: 'Program ve eğitim anlayışı' },
-    { to: '/siniflar/ilkokul/brans-dersleri', icon: '📚', label: 'Branş Dersleri', desc: 'Türkçe, Matematik, Fen ve daha fazlası' },
-    { to: '/siniflar/ilkokul/uygulamalar-projeler', icon: '🔭', label: 'Uygulamalar ve Projeler', desc: 'Seesaw, P4C, Keşif Atölyesi' },
-    { to: '/siniflar/ilkokul/pdr', icon: '💬', label: "PDR'den Bakış", desc: 'Rehberlik ve psikolojik destek' },
-    { to: '/siniflar/ilkokul/degerler-egitimi', icon: '⭐', label: 'Değerler Eğitimi', desc: '14 temel değer müfredata entegre' },
-    { to: '/siniflar/ilkokul/haftalik-cizelge', icon: '🗓️', label: 'Haftalık Zaman Çizelgesi', desc: 'Dönemlik ders programı' },
+    { to: '/siniflar/ilkokul/genel-bilgiler', label: 'Genel Bilgiler', desc: 'Program ve eğitim anlayışı' },
+    { to: '/siniflar/ilkokul/brans-dersleri', label: 'Branş Dersleri', desc: 'Türkçe, Matematik, Fen ve daha fazlası' },
+    { to: '/siniflar/ilkokul/uygulamalar-projeler', label: 'Uygulamalar ve Projeler', desc: 'Seesaw, P4C, Keşif Atölyesi' },
+    { to: '/siniflar/ilkokul/pdr', label: "PDR'den Bakış", desc: 'Rehberlik ve psikolojik destek' },
+    { to: '/siniflar/ilkokul/degerler-egitimi', label: 'Değerler Eğitimi', desc: '14 temel değer müfredata entegre' },
+    { to: '/siniflar/ilkokul/haftalik-cizelge', label: 'Haftalık Zaman Çizelgesi', desc: 'Dönemlik ders programı' },
   ],
   'ortaokul': [
-    { to: '/siniflar/ortaokul/genel-bilgiler', icon: '📋', label: 'Genel Bilgiler', desc: 'Program ve eğitim anlayışı' },
-    { to: '/siniflar/ortaokul/brans-dersleri', icon: '📚', label: 'Branş Dersleri', desc: 'Tüm branş dersleri içerikleri' },
-    { to: '/siniflar/ortaokul/uygulamalar-projeler', icon: '♻️', label: 'Uygulamalar ve Projeler', desc: 'Eko-Okul Projesi ve diğerleri' },
-    { to: '/siniflar/ortaokul/pdr', icon: '💬', label: "PDR'den Bakış", desc: 'Rehberlik ve psikolojik destek' },
-    { to: '/siniflar/ortaokul/haftalik-cizelge', icon: '🗓️', label: 'Haftalık Zaman Çizelgesi', desc: 'Dönemlik ders programı' },
+    { to: '/siniflar/ortaokul/genel-bilgiler', label: 'Genel Bilgiler', desc: 'Program ve eğitim anlayışı' },
+    { to: '/siniflar/ortaokul/brans-dersleri', label: 'Branş Dersleri', desc: 'Tüm branş dersleri içerikleri' },
+    { to: '/siniflar/ortaokul/uygulamalar-projeler', label: 'Uygulamalar ve Projeler', desc: 'Eko-Okul Projesi ve diğerleri' },
+    { to: '/siniflar/ortaokul/pdr', label: "PDR'den Bakış", desc: 'Rehberlik ve psikolojik destek' },
+    { to: '/siniflar/ortaokul/haftalik-cizelge', label: 'Haftalık Zaman Çizelgesi', desc: 'Dönemlik ders programı' },
   ],
   'lise': [
-    { to: '/siniflar/lise/genel-bilgiler', icon: '📋', label: 'Genel Bilgiler', desc: 'Program ve eğitim anlayışı' },
-    { to: '/siniflar/lise/uluslararasi-programlar', icon: '🌍', label: 'Uluslararası Programlar', desc: 'AP, Kanada Değişim, Edinburgh Ödülü' },
-    { to: '/siniflar/lise/akademik-bolumler', icon: '📚', label: 'Akademik Bölümler', desc: 'Tüm branş dersleri içerikleri' },
-    { to: '/siniflar/lise/rehberlik-kariyer', icon: '💼', label: 'Rehberlik ve Kariyer', desc: 'PDR ve kariyer danışmanlığı' },
-    { to: '/siniflar/lise/yurt-ici-universite', icon: '🎓', label: 'Yurt İçi Üniversite', desc: 'YKS hazırlık ve kariyer danışmanlığı' },
-    { to: '/siniflar/lise/yurt-disi-universite', icon: '✈️', label: 'Yurt Dışı Üniversite', desc: 'Uluslararası başvuru danışmanlığı' },
-    { to: '/siniflar/lise/haftalik-cizelge', icon: '🗓️', label: 'Haftalık Zaman Çizelgesi', desc: 'Dönemlik ders programı' },
+    { to: '/siniflar/lise/genel-bilgiler', label: 'Genel Bilgiler', desc: 'Program ve eğitim anlayışı' },
+    { to: '/siniflar/lise/uluslararasi-programlar', label: 'Uluslararası Programlar', desc: 'AP, Kanada Değişim, Edinburgh Ödülü' },
+    { to: '/siniflar/lise/akademik-bolumler', label: 'Akademik Bölümler', desc: 'Tüm branş dersleri içerikleri' },
+    { to: '/siniflar/lise/rehberlik-kariyer', label: 'Rehberlik ve Kariyer', desc: 'PDR ve kariyer danışmanlığı' },
+    { to: '/siniflar/lise/yurt-ici-universite', label: 'Yurt İçi Üniversite', desc: 'YKS hazırlık ve kariyer danışmanlığı' },
+    { to: '/siniflar/lise/yurt-disi-universite', label: 'Yurt Dışı Üniversite', desc: 'Uluslararası başvuru danışmanlığı' },
+    { to: '/siniflar/lise/haftalik-cizelge', label: 'Haftalık Zaman Çizelgesi', desc: 'Dönemlik ders programı' },
   ],
 };
 
@@ -145,19 +145,6 @@ export default function SinifDetayPage() {
               </motion.p>
             </div>
 
-            {/* Icon bubble */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.7 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.3, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              style={{
-                width: '160px', height: '160px', borderRadius: '50%',
-                background: 'rgba(255,255,255,0.05)',
-                border: '2px solid rgba(255,255,255,0.1)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: '4.5rem', flexShrink: 0,
-              }}
-            >
-              {cls.icon}
-            </motion.div>
           </div>
 
           {/* Highlight chips */}
@@ -185,30 +172,30 @@ export default function SinifDetayPage() {
       {(() => {
         const featuresMap = {
           'okul-oncesi': [
-            { icon: '💭', label: 'P4C', desc: 'Çocuklarla Felsefe' },
-            { icon: '🗂️', label: 'Tematik Yapı', desc: 'Konular arası bütünleşik öğrenme' },
-            { icon: '🗣️', label: 'Yoğun İngilizce', desc: 'Native destekli dil ortamı' },
-            { icon: '🎨', label: 'Sanat & Müzik', desc: 'Yaratıcı gelişim atölyeleri' },
+            { label: 'P4C', desc: 'Çocuklarla Felsefe' },
+            { label: 'Tematik Yapı', desc: 'Konular arası bütünleşik öğrenme' },
+            { label: 'Yoğun İngilizce', desc: 'Native destekli dil ortamı' },
+            { label: 'Sanat & Müzik', desc: 'Yaratıcı gelişim atölyeleri' },
           ],
           'ilkokul': [
-            { icon: '🗂️', label: 'Tematik Yapı', desc: 'Disiplinlerarası öğrenme' },
-            { icon: '🗣️', label: 'Çift Dil', desc: 'İngilizce + Almanca' },
-            { icon: '📐', label: 'UbD Temeli', desc: 'Anlam merkezli tasarım' },
-            { icon: '🧑‍🏫', label: 'Bireysel Takip', desc: 'Her öğrenciye özel mentor' },
+            { label: 'Tematik Yapı', desc: 'Disiplinlerarası öğrenme' },
+            { label: 'Çift Dil', desc: 'İngilizce + Almanca' },
+            { label: 'UbD Temeli', desc: 'Anlam merkezli tasarım' },
+            { label: 'Bireysel Takip', desc: 'Her öğrenciye özel mentor' },
           ],
           'ortaokul': [
-            { icon: '📐', label: 'UbD', desc: 'Understanding by Design yaklaşımı' },
-            { icon: '🗂️', label: 'Tematik Yapı', desc: 'Disiplinlerarası projeler' },
-            { icon: '🏆', label: 'LGS Hazırlığı', desc: 'Ulusal sınav başarı odaklı' },
-            { icon: '🧑‍🏫', label: 'Mentorluk', desc: 'Güçlü rehberlik sistemi' },
+            { label: 'UbD', desc: 'Understanding by Design yaklaşımı' },
+            { label: 'Tematik Yapı', desc: 'Disiplinlerarası projeler' },
+            { label: 'LGS Hazırlığı', desc: 'Ulusal sınav başarı odaklı' },
+            { label: 'Mentorluk', desc: 'Güçlü rehberlik sistemi' },
           ],
           'lise': [
-            { icon: '📘', label: '9–10 Temel Program', desc: 'Güçlü akademik altyapı' },
-            { icon: '🔭', label: '11–12 Uzmanlaşma', desc: 'Alan derinleşmesi & seçmeli dersler' },
-            { icon: '🏅', label: 'AP Programı', desc: 'Uluslararası üniversite avantajı' },
-            { icon: '🎯', label: 'Üniversite Hazırlık', desc: 'YKS + yurtdışı danışmanlığı' },
-            { icon: '🗺️', label: 'Kariyer Planlama', desc: 'Bireysel kariyer haritası' },
-            { icon: '🧑‍🏫', label: 'Mentorluk', desc: 'Kişisel akademik danışman' },
+            { label: '9–10 Temel Program', desc: 'Güçlü akademik altyapı' },
+            { label: '11–12 Uzmanlaşma', desc: 'Alan derinleşmesi & seçmeli dersler' },
+            { label: 'AP Programı', desc: 'Uluslararası üniversite avantajı' },
+            { label: 'Üniversite Hazırlık', desc: 'YKS + yurtdışı danışmanlığı' },
+            { label: 'Kariyer Planlama', desc: 'Bireysel kariyer haritası' },
+            { label: 'Mentorluk', desc: 'Kişisel akademik danışman' },
           ],
         };
         const features = featuresMap[cls.id] || [];
@@ -231,7 +218,6 @@ export default function SinifDetayPage() {
                       onMouseEnter={(e) => { e.currentTarget.style.background = `${accentColor}14`; e.currentTarget.style.borderColor = `${accentColor}45`; e.currentTarget.style.transform = 'translateY(-3px)'; }}
                       onMouseLeave={(e) => { e.currentTarget.style.background = `${accentColor}08`; e.currentTarget.style.borderColor = `${accentColor}20`; e.currentTarget.style.transform = 'translateY(0)'; }}
                     >
-                      <span style={{ fontSize: '1.6rem', flexShrink: 0 }}>{f.icon}</span>
                       <div>
                         <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 900, letterSpacing: '0.08em', textTransform: 'uppercase', color: accentColor, marginBottom: '0.25rem' }}>{f.label}</div>
                         <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.8rem', color: 'var(--text-mid)', lineHeight: 1.6 }}>{f.desc}</div>
@@ -279,7 +265,7 @@ export default function SinifDetayPage() {
                 borderLeft: '4px solid var(--primary)',
                 padding: '1.75rem', marginBottom: '1.5rem',
               }}>
-                <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.75rem' }}>🎯 Hedefimiz</p>
+                <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.75rem' }}>Hedefimiz</p>
                 <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.87rem', lineHeight: 1.8, color: 'var(--text-mid)', fontStyle: 'italic' }}>{cls.goal}</p>
               </motion.div>
 
@@ -324,7 +310,6 @@ export default function SinifDetayPage() {
                       }}
                       whileHover={{ x: 4 }}
                     >
-                      <span style={{ fontSize: '1.2rem', flexShrink: 0 }}>{item.icon}</span>
                       <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', color: 'var(--text-mid)', lineHeight: 1.5 }}>{item.label}</span>
                     </motion.div>
                   ))}
@@ -373,7 +358,6 @@ export default function SinifDetayPage() {
                           onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#f59e0b'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(245,158,11,0.15)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
                           onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--grey-light)'; e.currentTarget.style.boxShadow = '0 2px 8px rgba(35,46,92,0.05)'; e.currentTarget.style.transform = 'translateY(0)'; }}
                         >
-                          <span style={{ fontSize: '1.6rem', flexShrink: 0 }}>{sp.icon}</span>
                           <div style={{ flex: 1 }}>
                             <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 900, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.2rem' }}>{sp.label}</div>
                             <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.8rem', color: 'var(--grey)' }}>{sp.desc}</div>
@@ -429,55 +413,6 @@ export default function SinifDetayPage() {
           </div>
         </section>
       )}
-
-      {/* OTHER CLASSES */}
-      <section style={{ padding: '5rem 0', background: 'var(--white)', borderTop: '1px solid var(--grey-light)' }}>
-        <div className="section-container">
-          <motion.div {...fadeUp(0)} style={{ marginBottom: '2.5rem' }}>
-            <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: '0.5rem' }}>Diğer Kademeler</p>
-            <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)' }}>Tüm Eğitim Kademeleri</h2>
-          </motion.div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '1.25rem' }}>
-            {others.map((c, i) => (
-              <motion.div key={c.id} {...fadeUp(i * 0.08)}>
-                <Link to={`/siniflar/${c.id}`} style={{ textDecoration: 'none', display: 'block' }}>
-                  <div style={{
-                    background: 'var(--off-white)', borderRadius: '8px',
-                    padding: '1.75rem', border: '2px solid transparent',
-                    transition: 'all 0.3s',
-                  }}
-                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; e.currentTarget.style.background = 'var(--white)'; e.currentTarget.style.boxShadow = '0 8px 30px rgba(35,46,92,0.1)'; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'transparent'; e.currentTarget.style.background = 'var(--off-white)'; e.currentTarget.style.boxShadow = 'none'; }}
-                  >
-                    <div style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>{c.icon}</div>
-                    <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--grey)' }}>{c.ages.split('·')[0].trim()}</span>
-                    <p style={{ fontFamily: 'var(--font-serif)', fontSize: '1.05rem', fontWeight: 700, color: 'var(--primary)', marginTop: '0.35rem', lineHeight: 1.35 }}>{c.level}</p>
-                    <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 700, color: 'var(--red)', marginTop: '0.75rem', letterSpacing: '0.06em' }}>Keşfet →</p>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-            <motion.div {...fadeUp(others.length * 0.08)}>
-              <Link to="/siniflar" style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
-                <div style={{
-                  background: 'linear-gradient(135deg, var(--primary), var(--primary-light))',
-                  borderRadius: '8px', padding: '1.75rem',
-                  height: '100%', minHeight: '160px',
-                  display: 'flex', flexDirection: 'column', justifyContent: 'center',
-                  cursor: 'pointer', transition: 'transform 0.3s',
-                }}
-                  onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-4px)'; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; }}
-                >
-                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', marginBottom: '0.5rem' }}>Tümüne Bak</p>
-                  <p style={{ fontFamily: 'var(--font-serif)', fontSize: '1.1rem', fontWeight: 700, color: '#fff', lineHeight: 1.35, marginBottom: '1rem' }}>Tüm Kademeler</p>
-                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, color: 'rgba(255,255,255,0.6)', letterSpacing: '0.08em' }}>Genel Bakış →</span>
-                </div>
-              </Link>
-            </motion.div>
-          </div>
-        </div>
-      </section>
 
       <style>{`
         @media (max-width: 900px) {

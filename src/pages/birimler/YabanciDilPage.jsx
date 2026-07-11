@@ -14,17 +14,14 @@ const P = ({ children }) => (
 const PARTNERSHIPS = [
   {
     name: 'Cambridge English',
-    logo: '🎓',
     desc: 'Uluslararası tanınan sertifikasyon sınavları ve müfredat desteği. Cambridge Yeterlilik sınavlarına (KET, PET, FCE, CAE vb.) hazırlık programı.',
   },
   {
     name: 'International House (IH)',
-    logo: '🌍',
     desc: 'Dünyanın en büyük İngilizce dil okulları ağlarından biri. Öğretmen gelişimi ve müfredat kalitesi konusunda uluslararası standartlar.',
   },
   {
     name: 'Oxford University Press',
-    logo: '📚',
     desc: 'Güncel ve kapsamlı İngilizce öğretim materyalleri; hem basılı hem dijital kaynaklar.',
   },
 ];
@@ -90,13 +87,13 @@ export default function YabanciDilPage() {
                 <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.15rem', fontWeight: 700, color: '#fff', marginBottom: '1rem' }}>21. Yüzyıl Dil Becerileri</h3>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }} className="skills-grid">
                   {[
-                    { icon: '💡', label: 'Eleştirel Düşünme', desc: 'Dili analitik bir araç olarak kullanma' },
-                    { icon: '🤝', label: 'İş Birliği', desc: 'Çok kültürlü ortamlarda takım çalışması' },
-                    { icon: '📢', label: 'İletişim', desc: 'Akademik ve günlük bağlamlarda etkili iletişim' },
-                    { icon: '🌟', label: 'Yaratıcılık', desc: 'Özgün üretim ve yazılı-sözlü ifade' },
+                    { label: 'Eleştirel Düşünme', desc: 'Dili analitik bir araç olarak kullanma' },
+                    { label: 'İş Birliği', desc: 'Çok kültürlü ortamlarda takım çalışması' },
+                    { label: 'İletişim', desc: 'Akademik ve günlük bağlamlarda etkili iletişim' },
+                    { label: 'Yaratıcılık', desc: 'Özgün üretim ve yazılı-sözlü ifade' },
                   ].map((skill, i) => (
                     <div key={i} style={{ background: 'rgba(255,255,255,0.08)', borderRadius: '10px', padding: '1.25rem', border: '1px solid rgba(255,255,255,0.1)' }}>
-                      <div style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>{skill.icon}</div>
+                      
                       <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', marginBottom: '0.25rem' }}>{skill.label}</div>
                       <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.83rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.65, margin: 0 }}>{skill.desc}</p>
                     </div>

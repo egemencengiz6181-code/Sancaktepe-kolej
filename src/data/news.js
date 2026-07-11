@@ -88,9 +88,9 @@ export const news = [
       {
         type: 'list',
         items: [
-          '🏆 Enerji Kategorisi — "Güneş Enerjisiyle Çalışan Akıllı Sulama Sistemi" (8. Sınıf, Proje Ekibi: Yusuf A., Selin K.)',
-          '🏆 Biyoloji Kategorisi — "Mikro Plastiklerin Bitki Köklerine Etkisi" (10. Sınıf, Proje Ekibi: Defne T., Emirhan Y.)',
-          '🏆 Matematik Kategorisi — "Trafik Optimizasyonu için Graf Teorisi Uygulaması" (11. Sınıf, Proje Ekibi: Nilüfer B.)',
+          ' Enerji Kategorisi — "Güneş Enerjisiyle Çalışan Akıllı Sulama Sistemi" (8. Sınıf, Proje Ekibi: Yusuf A., Selin K.)',
+          ' Biyoloji Kategorisi — "Mikro Plastiklerin Bitki Köklerine Etkisi" (10. Sınıf, Proje Ekibi: Defne T., Emirhan Y.)',
+          ' Matematik Kategorisi — "Trafik Optimizasyonu için Graf Teorisi Uygulaması" (11. Sınıf, Proje Ekibi: Nilüfer B.)',
         ],
       },
       {
@@ -145,11 +145,11 @@ export const news = [
       {
         type: 'list',
         items: [
-          '🖋️ Hat Sanatı — Osmanlı kaligrafi geleneğinden beslenilen, çini mürekkep ve kamış kalemle uygulamalı dersler',
-          '🌊 Ebru — Kâğıt mermer sanatının incelikleri; renk ve su üzerinde kompozisyon',
-          '🎵 Türk Müziği (Bağlama) — Halk türküleri ve makam teorisi üzerine haftalık grup dersleri',
-          '🏺 Çini Boyama — Geleneksel İznik motifleriyle seramik boyama (yeni eklendi)',
-          '🧵 Tezhip — İslam sanatı geleneğinde altın varak ve boyama teknikleri (yeni eklendi)',
+          '️ Hat Sanatı — Osmanlı kaligrafi geleneğinden beslenilen, çini mürekkep ve kamış kalemle uygulamalı dersler',
+          ' Ebru — Kâğıt mermer sanatının incelikleri; renk ve su üzerinde kompozisyon',
+          ' Türk Müziği (Bağlama) — Halk türküleri ve makam teorisi üzerine haftalık grup dersleri',
+          ' Çini Boyama — Geleneksel İznik motifleriyle seramik boyama (yeni eklendi)',
+          ' Tezhip — İslam sanatı geleneğinde altın varak ve boyama teknikleri (yeni eklendi)',
         ],
       },
       {
@@ -266,11 +266,11 @@ export const news = [
       {
         type: 'list',
         items: [
-          '✅ Öğretim Kalitesi ve Program Tutarlılığı — Tam Puan',
-          '✅ Fiziksel ve Teknolojik Altyapı — Tam Puan',
-          '✅ Öğrenci Refahı ve Rehberlik Hizmetleri — Tam Puan',
-          '✅ Yönetim, Şeffaflık ve Sürekli Gelişim — Tam Puan',
-          '✅ Veli İletişimi ve Toplum Katılımı — Tam Puan',
+          ' Öğretim Kalitesi ve Program Tutarlılığı — Tam Puan',
+          ' Fiziksel ve Teknolojik Altyapı — Tam Puan',
+          ' Öğrenci Refahı ve Rehberlik Hizmetleri — Tam Puan',
+          ' Yönetim, Şeffaflık ve Sürekli Gelişim — Tam Puan',
+          ' Veli İletişimi ve Toplum Katılımı — Tam Puan',
         ],
       },
       {
@@ -321,12 +321,12 @@ export const news = [
       {
         type: 'list',
         items: [
-          '📊 12 öğrenci Türkiye genelinde ilk 1.000 dereceye girdi',
-          '📊 Mezun öğrencilerin %91\'i tercih ettiği üniversiteye yerleşti',
-          '📊 Tıp fakültesi: 4 öğrenci (devlet üniversiteleri)',
-          '📊 Hukuk fakültesi: 3 öğrenci (devlet üniversiteleri)',
-          '📊 Bilgisayar Mühendisliği: 5 öğrenci (ilk 5 üniversite)',
-          '📊 Yurt dışı üniversite kabul: 6 öğrenci (Avrupa ve Kuzey Amerika)',
+          ' 12 öğrenci Türkiye genelinde ilk 1.000 dereceye girdi',
+          ' Mezun öğrencilerin %91\'i tercih ettiği üniversiteye yerleşti',
+          ' Tıp fakültesi: 4 öğrenci (devlet üniversiteleri)',
+          ' Hukuk fakültesi: 3 öğrenci (devlet üniversiteleri)',
+          ' Bilgisayar Mühendisliği: 5 öğrenci (ilk 5 üniversite)',
+          ' Yurt dışı üniversite kabul: 6 öğrenci (Avrupa ve Kuzey Amerika)',
         ],
       },
       {

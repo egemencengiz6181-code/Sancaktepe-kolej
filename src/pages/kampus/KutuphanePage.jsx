@@ -14,21 +14,18 @@ const P = ({ children }) => (
 const LIBRARIES = [
   {
     level: 'Okul Öncesi',
-    icon: '🌈',
     area: '57 m²',
     img: 'https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?w=700&q=80&auto=format',
     desc: 'Okul öncesi kütüphanemiz, anasınıfı bölümünde 57 m²\'lik bir alanda, minik öğrencilerimizin kendilerini rahat hissedecekleri ve kitaplara ilgi duyacakları şekilde tasarlanmış keyifli bir ortamdır. Yaş gruplarına uygun özenle seçilmiş koleksiyonumuz, çocukların kitaplarla erken yaşta tanışmasını sağlar.',
   },
   {
     level: 'İlköğretim',
-    icon: '📖',
     area: '~200 m² / 12.000 Kitap',
     img: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=700&q=80&auto=format',
     desc: 'İki katlı yapısıyla yaklaşık 200 m²\'lik alanda 12.000 kitaplık zengin koleksiyonuyla öğrencilerimizin farklı ihtiyaçlarına cevap veren kütüphanemizde, tüm seviyelere düzenli kütüphane dersleri planlanmaktadır. Yazar söyleşileri, tematik günler ve kitap haftası etkinlikleriyle kütüphane bağı güçlendirilmektedir.',
   },
   {
     level: 'Lise',
-    icon: '🎓',
     area: '200 m² / 2 Kat',
     img: 'https://images.unsplash.com/photo-1568667256549-094345857637?w=700&q=80&auto=format',
     desc: '200 m²\'lik iki katlı ferah mimarisiyle hem bireysel hem grup çalışmalarına uygun esnek alanlar sunan lise kütüphanemiz; zengin basılı koleksiyonu ve dijital kaynaklarla akademik desteğin yanı sıra araştırma ve keşif odaklı öğrenme kültürünü teşvik eder.',
@@ -108,7 +105,7 @@ export default function KutuphhanePage() {
                   <img src={lib.img} alt={lib.level} style={{ width: '100%', height: '180px', objectFit: 'cover' }} loading="lazy" />
                   <div style={{ padding: '1.75rem' }}>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
-                      <span style={{ fontSize: '1.5rem' }}>{lib.icon}</span>
+                      
                       <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 800, letterSpacing: '0.1em', color: 'var(--grey)', background: 'var(--off-white)', padding: '0.25rem 0.6rem', borderRadius: '4px' }}>{lib.area}</span>
                     </div>
                     <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.05rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.75rem' }}>{lib.level} Kütüphanesi</h3>

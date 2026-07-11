@@ -32,7 +32,7 @@ export default function KayitUcretleriPage() {
         <div className="section-container">
           <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
             <motion.div {...fadeUp(0)}>
-              <div style={{ fontSize: '4rem', marginBottom: '1.5rem' }}>💰</div>
+              
               <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '2rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>
                 Ücret Bilgileri Güncelleniyor
               </h2>
@@ -44,16 +44,16 @@ export default function KayitUcretleriPage() {
             <motion.div {...fadeUp(0.1)}>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.25rem', marginTop: '3rem' }} className="ucret-grid">
                 {[
-                  { icon: '🏫', title: 'Okul Öncesi', sub: 'Anaokulu ücret bilgisi' },
-                  { icon: '📚', title: 'İlkokul & Ortaokul', sub: 'Temel kademe ücret bilgisi' },
-                  { icon: '🎓', title: 'Lise', sub: 'Anadolu Lisesi ücret bilgisi' },
+                  { title: 'Okul Öncesi', sub: 'Anaokulu ücret bilgisi' },
+                  { title: 'İlkokul & Ortaokul', sub: 'Temel kademe ücret bilgisi' },
+                  { title: 'Lise', sub: 'Anadolu Lisesi ücret bilgisi' },
                 ].map((item) => (
                   <div key={item.title} style={{
                     background: 'var(--white)', borderRadius: '14px', padding: '2rem 1.5rem',
                     border: '1px solid var(--grey-light)', textAlign: 'center',
                     boxShadow: '0 2px 12px rgba(35,46,92,0.05)',
                   }}>
-                    <div style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>{item.icon}</div>
+                    
                     <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.4rem' }}>{item.title}</h3>
                     <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.82rem', color: 'var(--grey)', lineHeight: 1.6 }}>{item.sub}</p>
                     <div style={{ marginTop: '1rem', padding: '0.6rem 1rem', background: 'var(--off-white)', borderRadius: '6px', fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.1em', color: 'var(--grey)', textTransform: 'uppercase' }}>

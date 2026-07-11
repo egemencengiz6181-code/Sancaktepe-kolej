@@ -43,16 +43,16 @@ const Chip = ({ label, color, bg, border }) => (
 );
 
 const SUBJECTS = [
-  { id: 'turk-dili', icon: '📖', tag: 'Türk Dili ve Edebiyatı', color: '#2563eb' },
-  { id: 'matematik', icon: '🔢', tag: 'Matematik', color: '#7c3aed' },
-  { id: 'fen-bilimleri', icon: '🔬', tag: 'Fen Bilimleri', color: '#0891b2' },
-  { id: 'sosyal-bilimler', icon: '🌍', tag: 'Sosyal Bilimler', color: '#059669' },
-  { id: 'bilisim', icon: '💻', tag: 'Bilişim Teknolojileri', color: '#7c3aed' },
-  { id: 'yabanci-dil', icon: '🗣️', tag: 'Yabancı Dil', color: '#f59e0b' },
-  { id: 'ikinci-yabanci', icon: '🌐', tag: 'İkinci Yabancı Diller', color: '#db2777' },
-  { id: 'gorsel-sanatlar', icon: '🎨', tag: 'Görsel Sanatlar', color: '#e61936' },
-  { id: 'beden', icon: '⚽', tag: 'Beden Eğitimi', color: '#16a34a' },
-  { id: 'muzik', icon: '🎵', tag: 'Müzik Eğitimi', color: '#db2777' },
+  { id: 'turk-dili', tag: 'Türk Dili ve Edebiyatı', color: '#2563eb' },
+  { id: 'matematik', tag: 'Matematik', color: '#7c3aed' },
+  { id: 'fen-bilimleri', tag: 'Fen Bilimleri', color: '#0891b2' },
+  { id: 'sosyal-bilimler', tag: 'Sosyal Bilimler', color: '#059669' },
+  { id: 'bilisim', tag: 'Bilişim Teknolojileri', color: '#7c3aed' },
+  { id: 'yabanci-dil', tag: 'Yabancı Dil', color: '#f59e0b' },
+  { id: 'ikinci-yabanci', tag: 'İkinci Yabancı Diller', color: '#db2777' },
+  { id: 'gorsel-sanatlar', tag: 'Görsel Sanatlar', color: '#e61936' },
+  { id: 'beden', tag: 'Beden Eğitimi', color: '#16a34a' },
+  { id: 'muzik', tag: 'Müzik Eğitimi', color: '#db2777' },
 ];
 
 export default function LiseAkademikBolumlerPage() {
@@ -87,7 +87,7 @@ export default function LiseAkademikBolumlerPage() {
       <section id="turk-dili" style={{ padding: '5rem 0', background: 'var(--off-white)', scrollMarginTop: '80px' }}>
         <div className="section-container"><div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <motion.div {...fadeUp(0)} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-            <span style={{ fontSize: '2rem' }}>📖</span>
+            
             <Tag label="Türk Dili ve Edebiyatı" color="#2563eb" bg="#2563eb12" border="#2563eb25" />
           </motion.div>
           <motion.h2 {...fadeUp(0.04)} style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.5rem,2.8vw,2rem)', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>Türk Dili ve Edebiyatı</motion.h2>
@@ -130,7 +130,7 @@ export default function LiseAkademikBolumlerPage() {
       <section id="matematik" style={{ padding: '5rem 0', background: 'var(--white)', scrollMarginTop: '80px' }}>
         <div className="section-container"><div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <motion.div {...fadeUp(0)} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-            <span style={{ fontSize: '2rem' }}>🔢</span>
+            
             <Tag label="Matematik" color="#7c3aed" bg="#7c3aed12" border="#7c3aed25" />
           </motion.div>
           <motion.h2 {...fadeUp(0.04)} style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.5rem,2.8vw,2rem)', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>Matematik</motion.h2>
@@ -189,7 +189,7 @@ export default function LiseAkademikBolumlerPage() {
       <section id="fen-bilimleri" style={{ padding: '5rem 0', background: 'var(--off-white)', scrollMarginTop: '80px' }}>
         <div className="section-container"><div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <motion.div {...fadeUp(0)} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-            <span style={{ fontSize: '2rem' }}>🔬</span>
+            
             <Tag label="Fen Bilimleri" color="#0891b2" bg="#0891b212" border="#0891b225" />
           </motion.div>
           <motion.h2 {...fadeUp(0.04)} style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.5rem,2.8vw,2rem)', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>Fen Bilimleri</motion.h2>
@@ -218,7 +218,7 @@ export default function LiseAkademikBolumlerPage() {
       <section id="sosyal-bilimler" style={{ padding: '5rem 0', background: 'var(--white)', scrollMarginTop: '80px' }}>
         <div className="section-container"><div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <motion.div {...fadeUp(0)} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-            <span style={{ fontSize: '2rem' }}>🌍</span>
+            
             <Tag label="Sosyal Bilimler" color="#059669" bg="#05966912" border="#05966925" />
           </motion.div>
           <motion.h2 {...fadeUp(0.04)} style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.5rem,2.8vw,2rem)', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>Sosyal Bilimler</motion.h2>
@@ -249,7 +249,7 @@ export default function LiseAkademikBolumlerPage() {
       <section id="bilisim" style={{ padding: '5rem 0', background: 'var(--off-white)', scrollMarginTop: '80px' }}>
         <div className="section-container"><div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <motion.div {...fadeUp(0)} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-            <span style={{ fontSize: '2rem' }}>💻</span>
+            
             <Tag label="Bilişim Teknolojileri" color="#7c3aed" bg="#7c3aed12" border="#7c3aed25" />
           </motion.div>
           <motion.h2 {...fadeUp(0.04)} style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.5rem,2.8vw,2rem)', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>Bilişim Teknolojileri</motion.h2>
@@ -291,7 +291,7 @@ export default function LiseAkademikBolumlerPage() {
       <section id="yabanci-dil" style={{ padding: '5rem 0', background: 'var(--white)', scrollMarginTop: '80px' }}>
         <div className="section-container"><div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <motion.div {...fadeUp(0)} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-            <span style={{ fontSize: '2rem' }}>🗣️</span>
+            
             <Tag label="Yabancı Dil" color="#f59e0b" bg="#f59e0b12" border="#f59e0b25" />
           </motion.div>
           <motion.h2 {...fadeUp(0.04)} style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.5rem,2.8vw,2rem)', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.5rem' }}>Yabancı Dil (İngilizce)</motion.h2>
@@ -325,7 +325,7 @@ export default function LiseAkademikBolumlerPage() {
       <section id="ikinci-yabanci" style={{ padding: '5rem 0', background: 'var(--off-white)', scrollMarginTop: '80px' }}>
         <div className="section-container"><div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <motion.div {...fadeUp(0)} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-            <span style={{ fontSize: '2rem' }}>🌐</span>
+            
             <Tag label="İkinci Yabancı Diller" color="#db2777" bg="#db277712" border="#db277725" />
           </motion.div>
           <motion.h2 {...fadeUp(0.04)} style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.5rem,2.8vw,2rem)', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>İkinci Yabancı Diller</motion.h2>
@@ -355,7 +355,7 @@ export default function LiseAkademikBolumlerPage() {
       <section id="gorsel-sanatlar" style={{ padding: '5rem 0', background: 'var(--white)', scrollMarginTop: '80px' }}>
         <div className="section-container"><div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <motion.div {...fadeUp(0)} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-            <span style={{ fontSize: '2rem' }}>🎨</span>
+            
             <Tag label="Görsel Sanatlar" color="#e61936" bg="#e6193612" border="#e6193625" />
           </motion.div>
           <motion.h2 {...fadeUp(0.04)} style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.5rem,2.8vw,2rem)', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>Görsel Sanatlar</motion.h2>
@@ -408,7 +408,7 @@ export default function LiseAkademikBolumlerPage() {
       <section id="muzik" style={{ padding: '5rem 0', background: 'var(--white)', scrollMarginTop: '80px' }}>
         <div className="section-container"><div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <motion.div {...fadeUp(0)} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-            <span style={{ fontSize: '2rem' }}>🎵</span>
+            
             <Tag label="Müzik Eğitimi" color="#db2777" bg="#db277712" border="#db277725" />
           </motion.div>
           <motion.h2 {...fadeUp(0.04)} style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.5rem,2.8vw,2rem)', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>Müzik Eğitimi</motion.h2>
