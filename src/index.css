@@ -26,16 +26,6 @@
   --font-display: 'Montserrat', system-ui, sans-serif;
 }
 
-[data-theme="dark"] {
-  --white: #1e2438;
-  --off-white: #151a2d;
-  --grey-light: #252e4a;
-  --grey: #7a85a0;
-  --text-dark: #e2e8f4;
-  --text-mid: #a0adc8;
-  color-scheme: dark;
-}
-
 html {
   scroll-behavior: smooth;
   font-size: 16px;
@@ -116,40 +106,6 @@ body {
   overflow: hidden;
 }
 
-/* Dark mode glassmorphism card adapt */
-[data-theme="dark"] .glass-card-light {
-  background: rgba(255,255,255,0.05) !important;
-  border-color: rgba(255,255,255,0.08) !important;
-}
-
-/* Dark mode: keep page-hero dark regardless of --primary change */
-[data-theme="dark"] .page-hero:not([style*="background-image"]) {
-  background: linear-gradient(135deg, #0d1525 0%, #162040 55%, #1d2b5a 100%) !important;
-}
-/* Dark mode: any inline color:var(--primary) text becomes readable */
-[data-theme="dark"] [style*="color: var(--primary)"] {
-  color: var(--text-dark) !important;
-}
-/* Dark mode: section headings use light color */
-[data-theme="dark"] .section-title {
-  color: var(--text-dark);
-}
-[data-theme="dark"] .section-title span {
-  color: var(--red);
-}
-
-[data-theme="dark"] .section-bg-white {
-  background: var(--white) !important;
-}
-
-[data-theme="dark"] input,
-[data-theme="dark"] textarea,
-[data-theme="dark"] select {
-  background: rgba(255,255,255,0.04) !important;
-  border-color: rgba(255,255,255,0.12) !important;
-  color: var(--text-dark) !important;
-}
-
 .page-hero::before {
   content: '';
   position: absolute;
@@ -183,16 +139,6 @@ body {
   box-shadow: 0 12px 40px rgba(35,46,92,0.1);
   transform: translateY(-4px);
   border-color: rgba(230,25,54,0.2);
-}
-
-[data-theme="dark"] .card {
-  background: var(--white);
-  border-color: var(--grey-light);
-}
-
-[data-theme="dark"] .card:hover {
-  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
-  border-color: rgba(230,25,54,0.35);
 }
 
 button, a {

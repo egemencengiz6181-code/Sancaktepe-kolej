@@ -1,8 +1,7 @@
-import { lazy, Suspense, Component } from 'react';
+import { lazy, Suspense, Component, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
 import { ModalProvider } from './context/ModalContext';
-import { ThemeProvider } from './context/ModalContext';
 import ContactModal from './components/ContactModal';
 import FloatingContact from './components/FloatingContact';
 import Navbar from './components/Navbar';
@@ -101,8 +100,15 @@ function Layout({ children }) {
 }
 
 export default function App() {
+  // Force light mode on all devices
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', 'light');
+    try { 
+      localStorage.removeItem('ks-theme');
+    } catch {}
+  }, []);
+
   return (
-    <ThemeProvider>
     <ModalProvider>
       <BrowserRouter>
         <Layout>
@@ -173,6 +179,5 @@ export default function App() {
         </Layout>
       </BrowserRouter>
     </ModalProvider>
-    </ThemeProvider>
   );
 }

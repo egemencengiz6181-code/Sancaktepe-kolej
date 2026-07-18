@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { programs } from '../data/programs';
 import { classes } from '../data/classes';
 import { useModal } from '../context/ModalContext';
-import { useTheme } from '../context/ModalContext';
 
 const leftLinks = [
   { label: 'Ana Sayfa', href: '/' },
@@ -385,7 +384,6 @@ export default function Navbar() {
   const location = useLocation();
   const megaTimer = useRef(null);
   const { setOpen: openModal } = useModal();
-  const { dark, setDark } = useTheme();
 
   useEffect(() => {
     setMobileOpen(false);
