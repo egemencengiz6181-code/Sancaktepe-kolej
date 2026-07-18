@@ -112,7 +112,7 @@ export default function Footer() {
           <div>
             <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)', marginBottom: '1.5rem' }}>Konum</h4>
             <a
-              href="https://maps.google.com/?q=41.003,29.232"
+              href="https://maps.google.com/?q=40.98249787796874,29.210358806835465"
               target="_blank"
               rel="noopener noreferrer"
               style={{ display: 'block', textDecoration: 'none', position: 'relative', borderRadius: '8px', overflow: 'hidden', aspectRatio: '1/1' }}

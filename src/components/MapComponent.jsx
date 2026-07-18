@@ -14,8 +14,8 @@ export default function MapComponent({ style, interactive = true }) {
   const mapRef = useRef(null);
   const mapInstanceRef = useRef(null);
 
-  // Kolej Sancaktepe coordinates
-  const position = [41.003, 29.232];
+  // Kolej Sancaktepe coordinates - exact location from Google Maps
+  const position = [40.98249787796874, 29.210358806835465];
 
   useEffect(() => {
     if (!mapRef.current || mapInstanceRef.current) return;
@@ -23,7 +23,7 @@ export default function MapComponent({ style, interactive = true }) {
     // Initialize map
     const map = L.map(mapRef.current, {
       center: position,
-      zoom: 15,
+      zoom: 16,
       scrollWheelZoom: interactive,
       dragging: interactive,
       zoomControl: interactive,
