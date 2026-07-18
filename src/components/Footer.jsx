@@ -120,9 +120,11 @@ export default function Footer() {
                 title="Footer Harita"
                 width="100%"
                 height="100%"
-                style={{ border: 0, display: 'block', pointerEvents: 'none', filter: 'saturate(0.5) brightness(0.75) hue-rotate(195deg)' }}
+                style={{ border: 0, display: 'block', pointerEvents: 'none', filter: 'saturate(0.65) contrast(1.1) brightness(0.88) hue-rotate(200deg)' }}
                 loading="lazy"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=29.222%2C40.998%2C29.242%2C41.008&layer=mapnik&marker=41.003%2C29.232"
+                allowFullScreen
+                referrerPolicy="strict-origin-when-cross-origin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11923.199156739287!2d29.210358806835465!3d40.98249787796874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cacf7926d7cdd5%3A0xd947e7d0b4da7b23!2s%C3%96zel%20Kolej%20Sancaktepe%20%7C%20TED%20-%20AD%20Okullar%C4%B1!5e0!3m2!1str!2str!4v1784301573741!5m2!1str!2str"
               />
               {/* Hover overlay */}
               <div style={{

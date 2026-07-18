@@ -240,6 +240,64 @@ export default function HomePage() {
                     Bizi Tanıyın
                   </Link>
                 </motion.div>
+
+                {/* Bağlantılarımız */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.0, duration: 0.7 }}
+                  style={{ marginTop: '3.5rem' }}
+                >
+                  <div style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.65rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.18em',
+                    textTransform: 'uppercase',
+                    color: 'var(--grey)',
+                    marginBottom: '1.5rem',
+                  }}>Bağlantılarımız</div>
+                  <div style={{
+                    display: 'flex',
+                    gap: '2rem',
+                    alignItems: 'center',
+                    flexWrap: 'wrap',
+                  }}>
+                    <img 
+                      src="/logo/TED_png.png" 
+                      alt="TED" 
+                      style={{ height: '35px', width: 'auto', objectFit: 'contain', opacity: 0.7, transition: 'opacity 0.3s' }}
+                      onMouseEnter={(e) => e.target.style.opacity = '1'}
+                      onMouseLeave={(e) => e.target.style.opacity = '0.7'}
+                    />
+                    <img 
+                      src="/logo/tedmem.png" 
+                      alt="TEDMEM" 
+                      style={{ height: '35px', width: 'auto', objectFit: 'contain', opacity: 0.7, transition: 'opacity 0.3s' }}
+                      onMouseEnter={(e) => e.target.style.opacity = '1'}
+                      onMouseLeave={(e) => e.target.style.opacity = '0.7'}
+                    />
+                    <img 
+                      src="/logo/ted%20%C3%BCni%20logo.png" 
+                      alt="TED Üniversitesi" 
+                      style={{ height: '35px', width: 'auto', objectFit: 'contain', opacity: 0.7, transition: 'opacity 0.3s' }}
+                      onMouseEnter={(e) => e.target.style.opacity = '1'}
+                      onMouseLeave={(e) => e.target.style.opacity = '0.7'}
+                    />
+                    <img 
+                      src="/logo/ap%20logo.png" 
+                      alt="AP" 
+                      style={{ height: '35px', width: 'auto', objectFit: 'contain', opacity: 0.7, transition: 'opacity 0.3s' }}
+                      onMouseEnter={(e) => e.target.style.opacity = '1'}
+                      onMouseLeave={(e) => e.target.style.opacity = '0.7'}
+                    />
+                    <img 
+                      src="/logo/Global-Schools-Program.png" 
+                      alt="Global Schools Program" 
+                      style={{ height: '35px', width: 'auto', objectFit: 'contain', opacity: 0.7, transition: 'opacity 0.3s' }}
+                      onMouseEnter={(e) => e.target.style.opacity = '1'}
+                      onMouseLeave={(e) => e.target.style.opacity = '0.7'}
+                    />
+                  </div>
+                </motion.div>
               </div>
 
               {/* Right — photo collage (desktop only) */}
