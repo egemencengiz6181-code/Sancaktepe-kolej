@@ -104,19 +104,34 @@ export default function ProgramDetayPage() {
               </motion.p>
             </div>
 
-            {/* Icon bubble */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.7 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.3, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              style={{
-                width: '140px', height: '140px', borderRadius: '50%',
-                background: `${prog.color}22`,
-                border: `2px solid ${prog.color}44`,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: '4rem', flexShrink: 0,
-              }}
-            >
-              {prog.icon}
-            </motion.div>
+            {/* Icon/Logo bubble */}
+            {prog.logo ? (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.7 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.3, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                style={{
+                  width: '180px', height: '180px', borderRadius: '12px',
+                  background: `${prog.color}15`,
+                  border: `2px solid ${prog.color}30`,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  padding: '1.5rem', flexShrink: 0,
+                }}
+              >
+                <img src={prog.logo} alt={prog.title} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+              </motion.div>
+            ) : prog.icon ? (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.7 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.3, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                style={{
+                  width: '140px', height: '140px', borderRadius: '50%',
+                  background: `${prog.color}22`,
+                  border: `2px solid ${prog.color}44`,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontSize: '4rem', flexShrink: 0,
+                }}
+              >
+                {prog.icon}
+              </motion.div>
+            ) : null}
           </div>
         </div>
       </section>
