@@ -68,7 +68,7 @@ export default function Footer() {
               {[
                 { href: '/birimler/olcme-degerlendirme', label: 'Ölçme Değerlendirme' },
                 { href: '/birimler/pdr', label: 'Psikolojik Danışmanlık ve Rehberlik' },
-                { href: '/birimler/sks', label: 'SKS Koordinatörlüğü' },
+                { href: '/birimler/sks', label: 'ODE Koordinatörlüğü' },
                 { href: '/birimler/yabanci-dil', label: 'Yabancı Dil' },
                 { href: '/birimler/fark-yaratan-programlar', label: 'Fark Yaratan Programlar' },
               ].map((link) => (
@@ -91,14 +91,10 @@ export default function Footer() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
               <div>
                 <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: '0.4rem' }}>Telefon</div>
-                <a href="tel:02166060833" style={{ display: 'block', textDecoration: 'none', fontFamily: 'var(--font-sans)', fontSize: '0.88rem', color: 'rgba(255,255,255,0.7)', marginBottom: '0.25rem', transition: 'color 0.3s' }}
+                <a href="tel:02166060833" style={{ display: 'block', textDecoration: 'none', fontFamily: 'var(--font-sans)', fontSize: '0.88rem', color: 'rgba(255,255,255,0.7)', transition: 'color 0.3s' }}
                   onMouseEnter={(e) => (e.target.style.color = '#fff')}
                   onMouseLeave={(e) => (e.target.style.color = 'rgba(255,255,255,0.7)')}
                 >0216 606 0 833</a>
-                <a href="tel:05016223135" style={{ display: 'block', textDecoration: 'none', fontFamily: 'var(--font-sans)', fontSize: '0.88rem', color: 'rgba(255,255,255,0.7)', transition: 'color 0.3s' }}
-                  onMouseEnter={(e) => (e.target.style.color = '#fff')}
-                  onMouseLeave={(e) => (e.target.style.color = 'rgba(255,255,255,0.7)')}
-                >0501 622 31 35</a>
               </div>
               <div>
                 <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: '0.4rem' }}>Adres</div>

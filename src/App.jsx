@@ -69,6 +69,7 @@ const LiseYurtIciPage = lazy(() => import('./pages/siniflar/lise/LiseYurtIciPage
 const LiseYurtDisiPage = lazy(() => import('./pages/siniflar/lise/LiseYurtDisiPage'));
 const LiseCizelgePage = lazy(() => import('./pages/siniflar/lise/LiseCizelgePage'));
 const AkreditasyonDanismanlikPage = lazy(() => import('./pages/kurumsal/AkreditasyonDanismanlikPage'));
+const KVKKPage = lazy(() => import('./pages/KVKKPage'));
 
 class ErrorBoundary extends Component {
   constructor(props) { super(props); this.state = { hasError: false }; }
@@ -165,6 +166,7 @@ export default function App() {
               <Route path="/siniflar/lise/yurt-ici-universite" element={<LiseYurtIciPage />} />
               <Route path="/siniflar/lise/yurt-disi-universite" element={<LiseYurtDisiPage />} />
               <Route path="/siniflar/lise/haftalik-cizelge" element={<LiseCizelgePage />} />
+              <Route path="/kvkk" element={<KVKKPage />} />
             </Routes>
           </Suspense>
           </ErrorBoundary>

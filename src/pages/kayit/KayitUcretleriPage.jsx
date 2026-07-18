@@ -75,9 +75,6 @@ export default function KayitUcretleriPage() {
                   <a href="tel:02166060833" style={{ fontFamily: 'var(--font-display)', fontSize: '0.88rem', fontWeight: 800, color: 'var(--primary)', textDecoration: 'none', letterSpacing: '0.03em', display: 'block' }}>
                     0216 606 0 833
                   </a>
-                  <a href="tel:05016223135" style={{ fontFamily: 'var(--font-display)', fontSize: '0.88rem', fontWeight: 800, color: 'var(--primary)', textDecoration: 'none', letterSpacing: '0.03em', display: 'block' }}>
-                    0501 622 31 35
-                  </a>
                 </div>
                 <div style={{ width: '1px', height: '40px', background: 'var(--grey-light)' }} />
                 <div style={{ textAlign: 'center' }}>

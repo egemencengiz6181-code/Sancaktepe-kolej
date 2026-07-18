@@ -84,6 +84,33 @@ export default function Hero() {
         <FloatingParticle key={i} style={p} />
       ))}
 
+      {/* TED Logo - Large Watermark Background */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '50%',
+          right: '8%',
+          transform: 'translateY(-50%)',
+          width: '500px',
+          height: '500px',
+          opacity: 1,
+          pointerEvents: 'none',
+          zIndex: 9999,
+          border: '5px solid lime',
+          backgroundColor: 'rgba(255,0,0,0.5)',
+        }}
+      >
+        <img
+          src="/logo/kolej%20sancaktepe%20logo%20-%20yatay.png"
+          alt="TEST LOGO"
+          style={{
+            width: '100%',
+            height: 'auto',
+            objectFit: 'contain',
+          }}
+        />
+      </div>
+
       {/* Diagonal accent lines */}
       <div style={{
         position: 'absolute',

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useModal } from '../context/ModalContext';
 
-const WHATSAPP_NUMBER = '905016223135';
+const WHATSAPP_NUMBER = '902166060833';
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=Merhaba%2C%20Kolej%20Sancaktepe%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.`;
 
 export default function FloatingContact() {

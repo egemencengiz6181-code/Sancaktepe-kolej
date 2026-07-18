@@ -18,7 +18,6 @@ const kurumsalLinks = [
   { label: 'Türk Eğitim Derneği', href: '/ted' },
   { label: 'Akreditasyon & Danışmanlık', href: '/kurumsal/akreditasyon-danismanlik' },
   { label: 'Akademik Kadro', href: '/akademik-kadro' },
-  { label: 'Vizyon, Misyon ve Değerlerimiz', href: '/vizyon-misyon' },
 ];
 
 const kayitLinks = [
@@ -158,30 +157,31 @@ function MegaMenu({ type, onClose }) {
         borderRadius: '2px 0 0 0', rotate: '45deg',
       }} />
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1.1fr repeat(4, 1fr)', gap: '0.75rem' }}>
-        <Link to={basePath} onClick={onClose} style={{ textDecoration: 'none' }}>
-
-          <div style={{
-            background: 'linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%)',
-            borderRadius: '8px', padding: '1.5rem',
-            height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
-            transition: 'transform 0.25s',
-          }}
-            onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-3px)'; }}
-            onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; }}
-          >
-            <div>
-              <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 800, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)', marginBottom: '0.5rem' }}>
-                {type === 'programlar' ? 'Programlar' : 'Kademeler'}
+      <div style={{ display: 'grid', gridTemplateColumns: type === 'programlar' ? '1.1fr repeat(4, 1fr)' : 'repeat(4, 1fr)', gap: '0.75rem' }}>
+        {type === 'programlar' && (
+          <Link to={basePath} onClick={onClose} style={{ textDecoration: 'none' }}>
+            <div style={{
+              background: 'linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%)',
+              borderRadius: '8px', padding: '1.5rem',
+              height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
+              transition: 'transform 0.25s',
+            }}
+              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-3px)'; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; }}
+            >
+              <div>
+                <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 800, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)', marginBottom: '0.5rem' }}>
+                  Programlar
+                </div>
+                <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.15rem', fontWeight: 700, color: '#fff', lineHeight: 1.3, marginBottom: '0.6rem' }}>{overviewLabel}</h3>
+                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.78rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.65 }}>{overviewDesc}</p>
               </div>
-              <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.15rem', fontWeight: 700, color: '#fff', lineHeight: 1.3, marginBottom: '0.6rem' }}>{overviewLabel}</h3>
-              <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.78rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.65 }}>{overviewDesc}</p>
+              <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, color: 'rgba(255,255,255,0.5)', letterSpacing: '0.08em', marginTop: '1.5rem' }}>
+                Genel Bakış →
+              </div>
             </div>
-            <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, color: 'rgba(255,255,255,0.5)', letterSpacing: '0.08em', marginTop: '1.5rem' }}>
-              Genel Bakış →
-            </div>
-          </div>
-        </Link>
+          </Link>
+        )}
 
         {items.map((item) => {
           const colorVal = item.color === 'var(--primary)' ? '#232e5c'
@@ -515,35 +515,17 @@ export default function Navbar() {
             <img
               src="/logo/kolej%20sancaktepe%20logo%20-%20yatay.png"
               alt="Kolej Sancaktepe"
-              style={{ height: '48px', width: 'auto', display: 'block', objectFit: 'contain' }}
+              style={{ height: '72px', width: 'auto', display: 'block', objectFit: 'contain' }}
             />
           </Link>
 
-          {/* Right links + dark toggle */}
+          {/* Right links */}
           <ul style={{
             flex: 1, display: 'flex', alignItems: 'center',
             justifyContent: 'flex-start', gap: '1.75rem',
             listStyle: 'none', margin: 0, padding: 0,
           }}>
             {rightLinks.map(renderLink)}
-            <li>
-              <button
-                onClick={() => setDark(!dark)}
-                aria-label={dark ? 'Açık Mod' : 'Koyu Mod'}
-                style={{
-                  background: 'rgba(255,255,255,0.12)',
-                  border: '1px solid rgba(255,255,255,0.22)',
-                  borderRadius: '8px', width: '34px', height: '34px',
-                  cursor: 'pointer', display: 'flex', alignItems: 'center',
-                  justifyContent: 'center', fontSize: '0.95rem',
-                  transition: 'background 0.25s',
-                }}
-                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.22)'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.12)'; }}
-              >
-                {dark ? '☀' : '☽'}
-              </button>
-            </li>
           </ul>
         </div>
       </motion.nav>
@@ -557,22 +539,10 @@ export default function Navbar() {
       }}>
         <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
           <img src="/logo/kolej%20sancaktepe%20logo%20-%20yatay.png" alt="Kolej Sancaktepe"
-            style={{ height: '36px', width: 'auto', objectFit: 'contain' }} />
+            style={{ height: '54px', width: 'auto', objectFit: 'contain' }} />
         </Link>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <button
-            onClick={() => setDark(!dark)}
-            aria-label={dark ? 'Açık Mod' : 'Koyu Mod'}
-            style={{
-              background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.22)',
-              borderRadius: '7px', width: '32px', height: '32px', cursor: 'pointer',
-              display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.9rem',
-            }}
-          >
-            {dark ? '☀' : '☽'}
-          </button>
-          <button onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menü"
-            style={{ background: 'none', border: 'none', display: 'flex', flexDirection: 'column', gap: '5px', padding: '4px', cursor: 'pointer' }}>
+        <button onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menü"
+          style={{ background: 'none', border: 'none', display: 'flex', flexDirection: 'column', gap: '5px', padding: '4px', cursor: 'pointer' }}>
             {[0, 1, 2].map((i) => (
               <motion.span key={i}
                 animate={mobileOpen
@@ -582,7 +552,6 @@ export default function Navbar() {
               />
             ))}
           </button>
-        </div>
       </div>
 
       {/* ── Mobile menu ── */}

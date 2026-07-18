@@ -29,6 +29,7 @@ const labelStyle = {
 export default function ContactModal() {
   const { open, setOpen } = useModal();
   const [form, setForm] = useState({ studentName: '', school: '', grade: '', parentName: '', phone: '', message: '' });
+  const [kvkkAccepted, setKvkkAccepted] = useState(false);
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -59,7 +60,7 @@ export default function ContactModal() {
 
   const handleClose = () => {
     setOpen(false);
-    setTimeout(() => { setSent(false); setForm({ studentName: '', school: '', grade: '', parentName: '', phone: '', message: '' }); }, 400);
+    setTimeout(() => { setSent(false); setForm({ studentName: '', school: '', grade: '', parentName: '', phone: '', message: '' }); setKvkkAccepted(false); }, 400);
   };
 
   return (
@@ -227,18 +228,53 @@ export default function ContactModal() {
                     />
                   </div>
 
-                  <button type="submit" disabled={loading} style={{
+                  <div style={{ marginBottom: '1.75rem', display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                    <input
+                      type="checkbox"
+                      id="kvkk-modal"
+                      checked={kvkkAccepted}
+                      onChange={(e) => setKvkkAccepted(e.target.checked)}
+                      style={{
+                        width: '18px',
+                        height: '18px',
+                        cursor: 'pointer',
+                        accentColor: 'var(--red)',
+                        marginTop: '2px',
+                      }}
+                    />
+                    <label htmlFor="kvkk-modal" style={{
+                      fontFamily: 'var(--font-sans)',
+                      fontSize: '0.8rem',
+                      color: 'rgba(255,255,255,0.7)',
+                      lineHeight: 1.6,
+                      cursor: 'pointer',
+                    }}>
+                      <a href="/kvkk" target="_blank" rel="noopener noreferrer" style={{
+                        color: 'var(--red)',
+                        textDecoration: 'underline',
+                        transition: 'opacity 0.2s',
+                      }}
+                        onMouseEnter={(e) => e.target.style.opacity = '0.8'}
+                        onMouseLeave={(e) => e.target.style.opacity = '1'}
+                      >
+                        KVKK Aydınlatma Metni
+                      </a>'ni okudum, kişisel verilerimin işlenmesini kabul ediyorum. *
+                    </label>
+                  </div>
+
+                  <button type="submit" disabled={loading || !kvkkAccepted} style={{
                     width: '100%',
                     fontFamily: 'var(--font-display)', fontSize: '0.78rem', fontWeight: 800,
                     letterSpacing: '0.15em', textTransform: 'uppercase',
                     color: '#fff',
-                    background: loading ? 'rgba(230,25,54,0.5)' : 'linear-gradient(135deg, var(--red), var(--red-light))',
+                    background: (loading || !kvkkAccepted) ? 'rgba(230,25,54,0.5)' : 'linear-gradient(135deg, var(--red), var(--red-light))',
                     border: 'none', padding: '1.1rem', borderRadius: '8px',
-                    cursor: loading ? 'wait' : 'pointer',
+                    cursor: (loading || !kvkkAccepted) ? 'not-allowed' : 'pointer',
                     boxShadow: '0 6px 24px rgba(230,25,54,0.35)',
                     transition: 'all 0.3s',
+                    opacity: !kvkkAccepted ? 0.6 : 1,
                   }}
-                    onMouseEnter={(e) => { if (!loading) { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 12px 32px rgba(230,25,54,0.45)'; } }}
+                    onMouseEnter={(e) => { if (!loading && kvkkAccepted) { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 12px 32px rgba(230,25,54,0.45)'; } }}
                     onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 6px 24px rgba(230,25,54,0.35)'; }}
                   >
                     {loading ? '⟳ Gönderiliyor...' : 'Bilgi Talep Et →'}

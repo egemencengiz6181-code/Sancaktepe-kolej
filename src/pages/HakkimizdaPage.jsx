@@ -29,142 +29,100 @@ export default function HakkimizdaPage() {
             <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 700, color: '#fff', lineHeight: 1.1, marginBottom: '1rem' }}>
               Hakkımızda
             </h1>
-            <p style={{ fontFamily: 'var(--font-sans)', fontSize: '1.05rem', color: 'rgba(255,255,255,0.65)', maxWidth: '580px', lineHeight: 1.85 }}>
-              Türk Eğitim Derneği akreditasyonuyla güçlenen Kolej Sancaktepe, kaliteli ve bütüncül eğitimin adresi.
-            </p>
           </motion.div>
         </div>
       </div>
 
-      {/* NEDEN KOLEJ SANCAKTEPE */}
-      <section style={{ padding: '7rem 0', background: 'var(--off-white)', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, var(--red), var(--primary), transparent)' }} />
-        <div className="section-container">
-          <motion.div {...fadeUp(0)} style={{ textAlign: 'center', marginBottom: '4rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', justifyContent: 'center', marginBottom: '0.75rem' }}>
-              <div className="red-line" />
-              <span className="section-tag">Fark Yaratan Unsurlar</span>
-              <div className="red-line" />
-            </div>
-            <h2 className="section-title" style={{ textAlign: 'center' }}>Neden Kolej <span>Sancaktepe?</span></h2>
-            <p style={{ fontFamily: 'var(--font-sans)', fontSize: '1rem', color: 'var(--text-mid)', maxWidth: '560px', margin: '1rem auto 0', lineHeight: 1.85 }}>
-              Standart eğitimin ötesine geçen, bütüncül ve uluslararası bir yaklaşım.
-            </p>
-          </motion.div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.25rem' }} className="neden-grid">
-            {[
-              { title: 'BÖGEP', sub: 'Bütüncül Öğrenme ve Gelişim Programları', desc: 'Akademik, sosyal, duygusal ve fiziksel gelişimi tek çatı altında birleştiren kapsamlı program.' },
-              { title: 'KVYOD', sub: 'Küresel Vizyon ve Yaşam Odaklı Dersler', desc: 'Öğrencileri dünyaya hazırlayan, yaşam becerileri ve küresel bakış açısı kazandıran dersler.' },
-              { title: 'OYP', sub: 'Okuryazar Temelli Eğitim', desc: 'Okuduğunu anlayan, eleştirel düşünen ve iletişim kurabilen bireyler yetiştirme odaklı program.' },
-              { title: 'UD', sub: 'Uygulamalı Dersler ve Branşlaşma Modeli', desc: 'Teorik bilgiyi pratiğe dönüştüren, öğrencinin güçlü olduğu alanda derinleşmesini sağlayan model.' },
-              { title: 'P4C', sub: 'Anaokulu — Çocuklarla Felsefe', desc: 'Küçük yaştan itibaren sorgulama, merak ve felsefi düşünmeyi teşvik eden özel program.' },
-              { title: 'Çift Dilli Eğitim', sub: 'Anaokulu\'ndan 6. Sınıfa', desc: 'Fen ve Matematik derslerinin 1 saatinin İngilizce işlenmesiyle erken çift dil temeli.' },
-              { title: 'Almanca', sub: 'İkinci Yabancı Dil', desc: 'Tüm kademelerde Almanca ikinci yabancı dil olarak sunulur; Avrupa bağlantısı güçlenir.' },
-              { title: 'AP Programı', sub: '11–12. Sınıf', desc: 'Advanced Placement dersleriyle uluslararası üniversitelere başvuruda güçlü bir avantaj.' },
-              { title: 'Dünya Vatandaşlığı', sub: 'Evrensel Perspektif', desc: 'Kültürel farklılıklara saygılı, küresel sorunlara duyarlı ve dünya ile bağlantılı bireyler.' },
-            ].map((item, i) => (
-              <motion.div key={item.title} {...fadeUp(i * 0.06)}>
-                <div style={{
-                  background: 'var(--white)', borderRadius: '14px',
-                  border: '1px solid var(--grey-light)',
-                  padding: '1.75rem 1.5rem',
-                  boxShadow: '0 2px 16px rgba(35,46,92,0.05)',
-                  transition: 'transform 0.25s, box-shadow 0.25s, border-color 0.25s',
-                  height: '100%',
-                }}
-                  onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 12px 36px rgba(35,46,92,0.1)'; e.currentTarget.style.borderColor = 'var(--red)'; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 2px 16px rgba(35,46,92,0.05)'; e.currentTarget.style.borderColor = 'var(--grey-light)'; }}
-                >
-                  
-                  <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.72rem', fontWeight: 900, letterSpacing: '0.08em', color: 'var(--red)', marginBottom: '0.3rem' }}>{item.title}</div>
-                  <p style={{ fontFamily: 'var(--font-serif)', fontSize: '0.88rem', fontWeight: 600, color: 'var(--primary)', marginBottom: '0.6rem', lineHeight: 1.4 }}>{item.sub}</p>
-                  <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.8rem', color: 'var(--text-mid)', lineHeight: 1.75 }}>{item.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-        <style>{`
-          @media (max-width: 900px) { .neden-grid { grid-template-columns: repeat(2,1fr) !important; } }
-          @media (max-width: 540px) { .neden-grid { grid-template-columns: 1fr !important; } }
-        `}</style>
-      </section>
-
       {/* TED-AD Tanıtım */}
       <section style={{ padding: '7rem 0', background: 'var(--white)' }}>
         <div className="section-container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6rem', alignItems: 'center' }} className="about-grid">
-            {/* Sol */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: '4rem', alignItems: 'start' }} className="about-grid">
+            {/* Sol - Logo */}
+            <motion.div {...fadeUp(0)} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2rem' }}>
+              <img 
+                src="/logo/tedad-2.png" 
+                alt="TED-AD Logo" 
+                style={{ 
+                  width: '100%', 
+                  maxWidth: '320px',
+                  height: 'auto',
+                  objectFit: 'contain',
+                  filter: 'drop-shadow(0 4px 20px rgba(35,46,92,0.08))'
+                }} 
+              />
+              <div style={{ 
+                textAlign: 'center', 
+                padding: '2rem', 
+                background: 'linear-gradient(135deg, rgba(35,46,92,0.04) 0%, rgba(230,25,54,0.04) 100%)',
+                borderRadius: '12px',
+                border: '1px solid var(--grey-light)'
+              }}>
+                <p style={{ 
+                  fontFamily: 'var(--font-serif)', 
+                  fontSize: '0.95rem', 
+                  fontStyle: 'italic', 
+                  color: 'var(--text-dark)', 
+                  lineHeight: 1.7 
+                }}>
+                  Türk Eğitim Derneği Danışmanlığı kapsamında eğitim kurumlarına ve bireylere kurumsal danışmanlık hizmetleri sunulmaktadır.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Sağ - İçerik */}
             <div>
               <motion.div {...fadeUp(0)} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.2rem' }}>
                 <div className="red-line" />
-                <span className="section-tag">TED Akreditasyonu</span>
+                <span className="section-tag">TED Danışmanlık</span>
               </motion.div>
               <motion.h2 {...fadeUp(0.1)} className="section-title" style={{ marginBottom: '1.5rem' }}>
-                Türk Eğitim Derneği <span>Akreditasyonu</span>
+                Türk Eğitim Derneği <span>Danışmanlığı</span>
               </motion.h2>
               <motion.div {...fadeUp(0.2)} style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
-                {[
-                  'Türk eğitim sistemine çok yönlü katkılar sağlamayı amaçlayan Türk Eğitim Derneği, kurumsal değerlerinin ülke genelinde yaygınlaşmasını artırmak ve özel okul sektörünün nitelikli gelişimine katkı sağlamak amacıyla TED Akreditasyonu programını ve kurumsal eğitim danışmanlığı hizmetlerini önermektedir.',
-                  'TED Akreditasyonu, gerekli yetkinliklere sahip özel okulların en az iki eğitim-öğretim yılı sürecek bir geçiş döneminden sonra TED Okulu olabilmelerini sağlamaktadır.',
-                  'Ayrıca halen faaliyetlerine devam eden özel okullara ek olarak eğitim sektörüne yatırım yapmak isteyen kişi ve kuruluşlar, TED\'in sunduğu farklı kurumsal danışmanlık hizmetlerinden faydalanabilmektedir.',
-                  'TED Akreditasyon ve Danışmanlık (TED AD) hizmetleri kapsamında önerilen programlar hakkında ayrıntılı bilgiler ve program kılavuzları aşağıda verilmektedir.',
-                ].map((p, i) => (
-                  <p key={i} className="section-subtitle" style={{ maxWidth: '100%' }}>{p}</p>
-                ))}
+                <p className="section-subtitle" style={{ maxWidth: '100%' }}>
+                  Türk eğitim sistemine çok yönlü katkılar sağlamayı amaçlayan Türk Eğitim Derneği, kurumsal değerlerinin ülke genelinde yaygınlaşmasını artırmak ve özel okul sektörünün nitelikli gelişimine katkı sağlamak amacıyla TED Akreditasyon ve Danışmanlık (TED AD) hizmetleri kapsamında eğitim kurumlarına ve bireylere kurumsal danışmanlık hizmetleri önermektedir.
+                </p>
+                <p className="section-subtitle" style={{ maxWidth: '100%' }}>
+                  TED Akreditasyonu programı belirtilen şartları taşıyan ve halen faaliyette olan okulların kurumsal dönüşüm sürecine girmelerine ve beklenen yetkinlikleri geliştirdikleri takdirde TED Okulu olmalarına imkân tanımaktadır. Ayrıca TED AD kapsamında okulların her türlü eğitim gereksinimlerine yönelik danışmanlık paketleri sunulmakta, okul öncesi eğitim kurumlarına ve özel okul açmak isteyen yatırımcılara yönelik özelleştirilmiş hizmetler önerilmektedir.
+                </p>
+                <p className="section-subtitle" style={{ maxWidth: '100%' }}>
+                  TED AD kapsamında sunulan tüm programlar için öncelikle başvuru sahibinin olası gelişim alanlarını saptamaya yönelik bir "Mevcut Durumun Değerlendirilmesi" çalışması yapılmaktadır. Bu çalışma sonrasında oluşturulan rapor, TED AD kapsamında alınacak kurumsal hizmetin başvuru sahibinin kendisine özgü gereksinimlerine uygun olarak verilmesine olanak tanımaktadır.
+                </p>
+                <p className="section-subtitle" style={{ maxWidth: '100%' }}>
+                  TED AD hizmetlerinin başarısı başvuru sahiplerinin yeniliğe ve ortak çalışma kültürüne açık, ayrıca TED'in kurumsal değerlerine uygun bir yaklaşım içerisinde olmalarına bağlıdır. Yapılan başvuruların kabul edilme oranı, TED AD'nin başlangıç tarihi olan 2020'den günümüze yaklaşık %35'tir. TED AD hizmetlerinden faydalanan okulların listesi "TED AD Okullarımız" başlığında verilmektedir.
+                </p>
+                <p className="section-subtitle" style={{ maxWidth: '100%' }}>
+                  Birlikte çalışma imkânı bulabildiğimiz okulların öğrencilerinin, öğretmenlerinin ve yöneticilerinin başarısını artırmak için geliştirdiğimiz strateji ve çözümlerin yanı sıra, TED AD kapsamında iş birliği yaptığımız okullara çok yönlü katkılar sunuyoruz. İş birliği yaptığımız okulların;
+                </p>
+                
+                <div style={{ 
+                  background: 'var(--off-white)', 
+                  borderRadius: '10px', 
+                  padding: '1.75rem',
+                  border: '1px solid var(--grey-light)',
+                  marginTop: '1rem'
+                }}>
+                  <ul style={{ 
+                    fontFamily: 'var(--font-sans)', 
+                    fontSize: '0.9rem', 
+                    color: 'var(--text-mid)', 
+                    lineHeight: 1.85,
+                    paddingLeft: '1.25rem',
+                    margin: 0,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '0.85rem'
+                  }}>
+                    <li>Ülke genelinde etkinlik gösteren okulları, TED Üniversitesi, düşünce kuruluşu TEDMEM, mezun dernekleri, gönüllü çalışma komiteleri, spor kulüpleri, senfoni orkestrası ve eşsiz burs sistemi ile Türkiye'nin en köklü sivil toplum kuruluşu olan Türk Eğitim Derneğinin ayrıcalıklı ekosistemine dâhil olmalarını sağlıyoruz.</li>
+                    <li>Sürecin başında uyguladığımız Mevcut Durumun Değerlendirilmesi çalışması ile akademik, yönetsel, finansal ve fiziksel açılardan derinlemesine inceleyerek okulun güçlü ve gelişime açık yanlarını tespit ediyoruz.</li>
+                    <li>Mevcut Durumun Değerlendirilmesi çalışmasından elde edilen veriyle okula özgü bir gelişim planı oluşturarak çalışmalarımızı yürütüyoruz.</li>
+                    <li>Süreç boyunca sunduğumuz hizmetlerin etkisini ölçmek ve geribildirim almak için Genel Merkezimiz tarafından geliştirilen Değer Ölçütleri sistemini uyguluyoruz. Bu kapsamda okulları; TED Akreditasyonunda her yıl 4 ana ölçüt ve 70 alt ölçütte, Eğitim Danışmanlıklarında her yıl 3 ana ölçüt ve 61 alt ölçütte değerlendirerek gelişimlerini gerçek zamanlı olarak takip ediyoruz. Değerlendirme sonuçlarını eğitim öğretim yılı içerisinde iki kez raporluyoruz.</li>
+                    <li>TED'e özgü yayınlar, akademik programlar ve yazılımlardan faydalanmalarını sağlıyoruz.</li>
+                    <li>TED Okullarında kullanılan mobilya, eğitim araç-gereçleri ve okul giysilerini kullanabilmelerine imkân sağlıyoruz.</li>
+                  </ul>
+                </div>
               </motion.div>
             </div>
-
-            {/* Sağ – Akreditasyon Süreci */}
-            <motion.div {...fadeUp(0.2)}>
-              <div style={{
-                background: 'linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%)',
-                borderRadius: '8px',
-                padding: '2.5rem',
-                marginBottom: '1.5rem',
-                position: 'relative',
-                overflow: 'hidden',
-              }}>
-                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(90deg, var(--red), rgba(255,255,255,0.3))' }} />
-                <div style={{ position: 'absolute', bottom: '-40px', right: '-40px', width: '200px', height: '200px', borderRadius: '50%', background: 'rgba(230,25,54,0.08)' }} />
-                <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.5rem', fontWeight: 700, color: '#fff', marginBottom: '1.2rem' }}>
-                  Akreditasyon Süreci
-                </h3>
-                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.85, color: 'rgba(255,255,255,0.75)' }}>
-                  Akreditasyon Süreci ile farklı bir isimle faaliyet gösteren özel bir okul, gerekli şartları taşıması ve geçiş dönemini başarıyla tamamlaması halinde TED Okuluna dönüşmesi sağlanmaktadır.
-                  Akreditasyon sürecine kabul edilen okullar, en az iki, en çok üç yıl sürebilecek Geçiş Dönemini başarıyla tamamladıkları takdirde TED Okulu adını alırlar.
-                </p>
-                <div style={{ marginTop: '1.5rem', padding: '1rem', background: 'rgba(255,255,255,0.06)', borderRadius: '4px', borderLeft: '3px solid rgba(255,255,255,0.25)' }}>
-                  <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.83rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.7 }}>
-                    Türkiye genelinde ve Kuzey Kıbrıs Türk Cumhuriyeti'nde faaliyet gösteren mevcut TED Okullarının etki alanı içerisine giren okullar, Akreditasyon Sürecine kabul edilmemektedir.
-                  </p>
-                </div>
-              </div>
-
-              {/* Info cards */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-                {[
-                  { title: 'TED Okulları', sub: 'Türkiye & KKTC' },
-                  { title: '2-3 Yıl', sub: 'Geçiş Süreci' },
-                  { title: 'TED-AD', sub: 'Akreditasyon' },
-                  { title: 'K-12', sub: 'Tam Kademe' },
-                ].map((item) => (
-                  <div key={item.title} style={{
-                    background: 'var(--grey-light)', borderRadius: '6px', padding: '1.2rem',
-                    borderLeft: '3px solid var(--primary)',
-                    transition: 'border-color 0.3s, background 0.3s',
-                  }}
-                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--red)'; e.currentTarget.style.background = 'rgba(230,25,54,0.05)'; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; e.currentTarget.style.background = 'var(--grey-light)'; }}
-                  >
-                    
-                    <div style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '0.9rem', color: 'var(--primary)' }}>{item.title}</div>
-                    <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--grey)' }}>{item.sub}</div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
           </div>
         </div>
       </section>
@@ -289,6 +247,7 @@ export default function HakkimizdaPage() {
               { title: 'Milli ve Kültürel Değerlere Bağlılık', color: 'var(--red)', desc: 'Türkiye Cumhuriyeti\'nin temel değerlerini, kültürel mirasını, Atatürk ilke ve inkılaplarını ve toplumsal sorumluluk bilincini eğitim anlayışının ayrılmaz bir parçası olarak görürüz.' },
               { title: 'Dünya Vatandaşlığı', color: 'var(--primary)', desc: 'Öğrencilerimizin farklı kültürlere saygılı, küresel sorunlara duyarlı ve uluslararası işbirliğine açık bireyler olarak yetişmesini önemseriz.' },
               { title: 'Etik ve Ahlaki Sorumluluk', color: 'var(--red)', desc: 'Eğitim süreçlerimizin merkezinde; dürüstlük, adalet, saygı ve sorumluluk gibi evrensel etik değerler yer alır.' },
+              { title: 'Sürdürülebilirlik ve Toplumsal Katkı', color: 'var(--primary)', desc: 'Doğaya, topluma ve geleceğe karşı sorumluluk bilinciyle hareket eden; sürdürülebilir yaşam kültürünü benimseyen bireyler yetiştiririz.' },
               { title: 'Anlamaya Dayalı Derin Öğrenme', color: 'var(--primary)', desc: 'Ezberden uzak, anlamaya ve transfer etmeye dayalı öğrenmeyi esas alır; öğrencilerin bilgiyi farklı bağlamlarda kullanabilmesini destekleriz.' },
               { title: 'Yaşam Boyu Öğrenme', color: 'var(--red)', desc: 'Öğrenmeyi okul yıllarıyla sınırlamayan; merak eden, araştıran ve kendini sürekli geliştiren bireyler yetiştiririz.' },
               { title: 'Bütüncül Gelişim', color: 'var(--primary)', desc: 'Akademik başarının; sosyal, duygusal, sanatsal ve fiziksel gelişimle birlikte anlam kazandığına inanırız.' },

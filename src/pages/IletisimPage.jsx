@@ -10,6 +10,7 @@ const fadeUp = (delay = 0) => ({
 
 export default function IletisimPage() {
   const [form, setForm] = useState({ studentName: '', school: '', grade: '', parentName: '', phone: '', message: '' });
+  const [kvkkAccepted, setKvkkAccepted] = useState(false);
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -79,10 +80,6 @@ export default function IletisimPage() {
                   onMouseEnter={(e) => (e.target.style.color = 'var(--red)')}
                   onMouseLeave={(e) => (e.target.style.color = 'var(--primary)')}
                 >0216 606 0 833</a>
-                <a href="tel:05016223135" style={{ display: 'block', fontFamily: 'var(--font-serif)', fontSize: '1.75rem', fontWeight: 700, color: 'var(--text-mid)', textDecoration: 'none', letterSpacing: '0.04em', transition: 'color 0.3s' }}
-                  onMouseEnter={(e) => (e.target.style.color = 'var(--red)')}
-                  onMouseLeave={(e) => (e.target.style.color = 'var(--text-mid)')}
-                >0501 622 31 35</a>
               </div>
 
               {/* Adres */}
@@ -96,12 +93,33 @@ export default function IletisimPage() {
                 </p>
               </div>
 
-              {/* TED Badge */}
-              <div style={{ background: 'linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%)', borderRadius: '8px', padding: '1.75rem', display: 'flex', alignItems: 'center', gap: '1.2rem' }}>
-                <div style={{ width: '54px', height: '54px', borderRadius: '50%', background: 'var(--red)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 900, color: '#fff', flexShrink: 0 }}>TED</div>
-                <div>
-                  <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.85)', marginBottom: '0.2rem' }}>TED-AD Akredite Okul</div>
-                  <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.82rem', color: 'rgba(255,255,255,0.6)' }}>Türk Eğitim Derneği Akreditasyonu</div>
+              {/* TED-AD Logo */}
+              <div style={{ 
+                background: 'rgba(255,255,255,0.8)', 
+                borderRadius: '12px', 
+                padding: '2rem', 
+                display: 'flex', 
+                flexDirection: 'column', 
+                alignItems: 'center', 
+                gap: '1rem',
+                border: '1px solid var(--grey-light)',
+                boxShadow: '0 4px 20px rgba(35,46,92,0.08)'
+              }}>
+                <img 
+                  src="/logo/tedad-2.png" 
+                  alt="TED-AD" 
+                  style={{ 
+                    width: '100%', 
+                    maxWidth: '240px',
+                    height: 'auto',
+                    objectFit: 'contain',
+                    filter: 'drop-shadow(0 2px 8px rgba(35,46,92,0.06))'
+                  }} 
+                />
+                <div style={{ textAlign: 'center' }}>
+                  <div style={{ fontFamily: 'var(--font-serif)', fontSize: '0.9rem', fontStyle: 'italic', color: 'var(--text-mid)', lineHeight: 1.6 }}>
+                    Türk Eğitim Derneği<br />Danışmanlık Programı
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -132,7 +150,7 @@ export default function IletisimPage() {
                         Kolej Sancaktepe TED-AD ailesi olarak sizi bekliyoruz.
                       </p>
                       <button
-                        onClick={() => { setSent(false); setForm({ studentName: '', school: '', grade: '', parentName: '', phone: '', message: '' }); }}
+                        onClick={() => { setSent(false); setForm({ studentName: '', school: '', grade: '', parentName: '', phone: '', message: '' }); setKvkkAccepted(false); }}
                         style={{ fontFamily: 'var(--font-display)', fontSize: '0.72rem', fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#fff', background: 'var(--red)', border: 'none', padding: '0.85rem 2.2rem', borderRadius: '4px', cursor: 'pointer' }}
                       >
                         Yeni Form Doldur
@@ -195,7 +213,7 @@ export default function IletisimPage() {
                         </div>
                       </div>
 
-                      <div style={{ marginBottom: '2rem' }}>
+                      <div style={{ marginBottom: '1.5rem' }}>
                         <label style={labelStyle}>Mesaj</label>
                         <textarea name="message" value={form.message} onChange={handleChange} rows={4} placeholder="Merak ettiklerinizi yazabilirsiniz..."
                           style={{ ...inputStyle, resize: 'vertical', minHeight: '110px' }}
@@ -204,19 +222,54 @@ export default function IletisimPage() {
                         />
                       </div>
 
-                      <button type="submit" disabled={loading} style={{
+                      <div style={{ marginBottom: '2rem', display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                        <input
+                          type="checkbox"
+                          id="kvkk-iletisim"
+                          checked={kvkkAccepted}
+                          onChange={(e) => setKvkkAccepted(e.target.checked)}
+                          style={{
+                            width: '18px',
+                            height: '18px',
+                            cursor: 'pointer',
+                            accentColor: 'var(--red)',
+                            marginTop: '2px',
+                          }}
+                        />
+                        <label htmlFor="kvkk-iletisim" style={{
+                          fontFamily: 'var(--font-sans)',
+                          fontSize: '0.85rem',
+                          color: 'var(--grey-dark)',
+                          lineHeight: 1.6,
+                          cursor: 'pointer',
+                        }}>
+                          <a href="/kvkk" target="_blank" rel="noopener noreferrer" style={{
+                            color: 'var(--red)',
+                            textDecoration: 'underline',
+                            transition: 'opacity 0.2s',
+                          }}
+                            onMouseEnter={(e) => e.target.style.opacity = '0.8'}
+                            onMouseLeave={(e) => e.target.style.opacity = '1'}
+                          >
+                            KVKK Aydınlatma Metni
+                          </a>'ni okudum, kişisel verilerimin işlenmesini kabul ediyorum. *
+                        </label>
+                      </div>
+
+                      <button type="submit" disabled={loading || !kvkkAccepted} style={{
                         width: '100%',
                         fontFamily: 'var(--font-display)', fontSize: '0.78rem', fontWeight: 800,
                         letterSpacing: '0.15em', textTransform: 'uppercase',
                         color: '#fff',
-                        background: loading ? 'rgba(230,25,54,0.6)' : 'linear-gradient(135deg, var(--red), var(--red-light))',
+                        background: (loading || !kvkkAccepted) ? 'rgba(230,25,54,0.6)' : 'linear-gradient(135deg, var(--red), var(--red-light))',
                         border: 'none', padding: '1.1rem', borderRadius: '4px',
-                        cursor: loading ? 'wait' : 'pointer',
+                        cursor: (loading || !kvkkAccepted) ? 'not-allowed' : 'pointer',
                         boxShadow: '0 6px 24px rgba(230,25,54,0.25)',
                         display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
                         transition: 'all 0.3s',
+                        opacity: !kvkkAccepted ? 0.6 : 1,
                       }}
-                        onMouseEnter={(e) => { if (!loading) { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 10px 32px rgba(230,25,54,0.35)'; } }}
+                        onMouseEnter={(e) => { if (!loading && kvkkAccepted) { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 10px 32px rgba(230,25,54,0.35)'; } }}
                         onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 6px 24px rgba(230,25,54,0.25)'; }}
                       >
                         {loading ? (

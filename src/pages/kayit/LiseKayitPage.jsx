@@ -179,7 +179,7 @@ export default function LiseKayitPage() {
                 <div>
                   <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: '0.4rem' }}>Telefon</p>
                   <a href="tel:02166060833" style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', color: 'var(--red)', fontWeight: 600 }}>
-                    0216 606 0 833 / 0501 622 31 35
+                    0216 606 0 833
                   </a>
                 </div>
               </div>

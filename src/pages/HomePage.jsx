@@ -107,7 +107,7 @@ export default function HomePage() {
         ref={heroRef}
         style={{
           minHeight: '100vh',
-          background: 'linear-gradient(135deg, #1a2347 0%, #232e5c 50%, #2e3d7a 100%)',
+          background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f5f5f5 100%)',
           position: 'relative',
           display: 'flex',
           alignItems: 'center',
@@ -117,56 +117,52 @@ export default function HomePage() {
         {/* Grid overlay */}
         <div style={{
           position: 'absolute', inset: 0,
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(rgba(35,46,92,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(35,46,92,0.03) 1px, transparent 1px)`,
           backgroundSize: '70px 70px',
         }} />
         {/* Red accent arc */}
         <div style={{
           position: 'absolute', bottom: '-120px', right: '-80px',
           width: '600px', height: '600px', borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(230,25,54,0.12) 0%, transparent 65%)',
+          background: 'radial-gradient(circle, rgba(230,25,54,0.08) 0%, transparent 65%)',
           pointerEvents: 'none',
         }} />
         <div style={{
           position: 'absolute', top: '15%', right: '8%',
           width: '400px', height: '400px', borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(230,25,54,0.08) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(230,25,54,0.05) 0%, transparent 70%)',
           pointerEvents: 'none',
         }} />
         {/* Floating dots */}
         {[
-          { width: 8, height: 8, top: '18%', left: '8%', background: 'rgba(255,255,255,0.6)', opacity: 0.3, dur: 7, delay: 0 },
-          { width: 5, height: 5, top: '70%', left: '12%', background: 'var(--red)', opacity: 0.3, dur: 9, delay: 1 },
-          { width: 6, height: 6, top: '75%', right: '20%', background: 'var(--red-light)', opacity: 0.35, dur: 8, delay: 0.5 },
-          { width: 4, height: 4, top: '45%', left: '22%', background: '#fff', opacity: 0.15, dur: 10, delay: 3 },
+          { width: 8, height: 8, top: '18%', left: '8%', background: 'transparent', opacity: 0.5, dur: 7, delay: 0 },
+          { width: 5, height: 5, top: '70%', left: '12%', background: 'transparent', opacity: 0.2, dur: 9, delay: 1 },
+          { width: 6, height: 6, top: '75%', right: '20%', background: 'transparent', opacity: 0.25, dur: 8, delay: 0.5 },
+          { width: 4, height: 4, top: '45%', left: '22%', background: 'transparent', opacity: 0.15, dur: 10, delay: 3 },
         ].map((p, i) => <FloatingDot key={i} style={p} />)}
 
-        {/* Watermark text — full width, bottom-aligned */}
+        {/* TED Logo Watermark - Large Background */}
         <div style={{
           position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0,
+          top: '50%',
+          right: '5%',
+          transform: 'translateY(-50%)',
+          width: 'min(1050px, 68vw)',
+          height: 'auto',
+          opacity: 0.06,
           pointerEvents: 'none',
-          zIndex: 0,
-          overflow: 'hidden',
-          lineHeight: 1,
+          zIndex: 1,
         }}>
-          <span style={{
-            display: 'block',
-            fontFamily: 'var(--font-serif)',
-            fontWeight: 700,
-            fontStyle: 'italic',
-            fontSize: 'clamp(4rem, 14vw, 14rem)',
-            whiteSpace: 'nowrap',
-            color: 'transparent',
-            WebkitTextStroke: '1px rgba(255,255,255,0.07)',
-            letterSpacing: '-0.01em',
-            userSelect: 'none',
-            paddingLeft: '1vw',
-          }}>
-            Bir okuldan fazlası
-          </span>
+          <img
+            src="/logo/TED_png.png"
+            alt=""
+            style={{
+              width: '100%',
+              height: 'auto',
+              objectFit: 'contain',
+              filter: 'brightness(0.95) saturate(0.5)',
+            }}
+          />
         </div>
 
         <motion.div style={{ y, opacity, width: '100%', position: 'relative', zIndex: 1, paddingTop: 'clamp(80px, 14vh, 120px)', paddingBottom: 'clamp(40px, 8vh, 80px)' }}>
@@ -179,94 +175,70 @@ export default function HomePage() {
                   initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.7 }}
                   style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}
                 >
-                  <div style={{ width: '40px', height: '3px', background: 'rgba(255,255,255,0.35)', borderRadius: '2px' }} />
-                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)' }}>
+                  <div style={{ width: '40px', height: '3px', background: 'var(--red)', borderRadius: '2px' }} />
+                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--grey)' }}>
                     TED Akreditasyon &amp; Danışmanlık
                   </span>
                 </motion.div>
 
                 <motion.h1
                   initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.45, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-                  style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(3.2rem, 7vw, 6.5rem)', fontWeight: 700, lineHeight: 1.0, color: '#fff', marginBottom: '0.5rem' }}
+                  style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(3.2rem, 7vw, 6.5rem)', fontWeight: 700, lineHeight: 1.0, color: 'var(--primary)', marginBottom: '0.5rem' }}
                 >
-                  Kolej
+                  Bir Okuldan
                 </motion.h1>
                 <motion.h1
                   initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.55, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-                  style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(3.2rem, 7vw, 6.5rem)', fontWeight: 700, lineHeight: 1.0, color: 'var(--yellow)', fontStyle: 'italic', marginBottom: '1rem' }}
+                  style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(3.2rem, 7vw, 6.5rem)', fontWeight: 700, lineHeight: 1.0, color: 'var(--red)', fontStyle: 'italic', marginBottom: '1rem' }}
                 >
-                  Sancaktepe
+                  Daha Fazlası
                 </motion.h1>
 
                 <motion.div
                   initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ delay: 0.8, duration: 0.7 }}
                   style={{ width: '140px', height: '3px', background: 'linear-gradient(90deg, var(--red), transparent)', marginBottom: '2rem', transformOrigin: 'left' }}
                 />
-
                 <motion.p
                   initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 0.7 }}
-                  style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.4rem, 2.8vw, 1.9rem)', fontWeight: 600, fontStyle: 'italic', color: 'rgba(255,255,255,0.95)', marginBottom: '0.6rem', lineHeight: 1.3 }}
-                >
-                  Bir okuldan fazlası
-                </motion.p>
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.78, duration: 0.7 }}
-                  style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1rem, 1.8vw, 1.2rem)', fontWeight: 300, fontStyle: 'italic', color: 'rgba(255,255,255,0.65)', marginBottom: '1.5rem', lineHeight: 1.6 }}
+                  style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.15rem, 2vw, 1.4rem)', fontWeight: 400, fontStyle: 'italic', color: 'var(--text-dark)', marginBottom: '1.5rem', lineHeight: 1.6 }}
                 >
                   Düşünen, üreten ve dünyaya değer katan bireyler yetiştiriyoruz.
                 </motion.p>
 
                 <motion.p
-                  initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.85, duration: 0.7 }}
-                  style={{ fontFamily: 'var(--font-sans)', fontSize: '1rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.85, maxWidth: '560px', marginBottom: '3rem' }}
+                  initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.78, duration: 0.7 }}
+                  style={{ fontFamily: 'var(--font-sans)', fontSize: '1rem', color: 'var(--grey-dark)', lineHeight: 1.85, maxWidth: '560px', marginBottom: '3rem' }}
                 >
                   Kolej Sancaktepe TED-AD okulları, kaliteli eğitim anlayışı ve uzman kadrosuyla öğrencilere bireysel gelişimlerini destekleyerek gelecekte başarılı bireyler olmaları için önemli bir adım atıyor.
                 </motion.p>
 
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 0.7 }}
+                  initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9, duration: 0.7 }}
                   style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}
                 >
                   <button onClick={() => openModal(true)} style={{
                     fontFamily: 'var(--font-display)', fontSize: '0.78rem', fontWeight: 800,
                     letterSpacing: '0.12em', textTransform: 'uppercase', color: '#fff',
                     background: 'linear-gradient(135deg, var(--red), var(--red-light))',
-                    padding: '1rem 2.5rem', borderRadius: '3px', boxShadow: '0 8px 28px rgba(230,25,54,0.35)',
+                    padding: '1rem 2.5rem', borderRadius: '4px', boxShadow: '0 8px 28px rgba(230,25,54,0.3)',
                     transition: 'transform 0.3s, box-shadow 0.3s', border: 'none', cursor: 'pointer',
                   }}
-                    onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 14px 36px rgba(230,25,54,0.45)'; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 8px 28px rgba(230,25,54,0.35)'; }}
+                    onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 14px 36px rgba(230,25,54,0.4)'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 8px 28px rgba(230,25,54,0.3)'; }}
                   >
                     Kayıt &amp; İletişim
                   </button>
                   <Link to="/hakkimizda" style={{
                     textDecoration: 'none', fontFamily: 'var(--font-display)', fontSize: '0.78rem', fontWeight: 800,
-                    letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.85)',
-                    background: 'transparent', border: '2px solid rgba(255,255,255,0.35)',
-                    padding: '1rem 2.5rem', borderRadius: '3px', transition: 'all 0.3s', display: 'inline-block',
+                    letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--primary)',
+                    background: 'transparent', border: '2px solid var(--primary)',
+                    padding: '1rem 2.5rem', borderRadius: '4px', transition: 'all 0.3s', display: 'inline-block',
                   }}
-                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#fff'; e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.35)'; e.currentTarget.style.background = 'transparent'; }}
+                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; e.currentTarget.style.background = 'rgba(35,46,92,0.06)'; e.currentTarget.style.color = 'var(--primary)'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--primary)'; }}
                   >
                     Bizi Tanıyın
                   </Link>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2, duration: 0.7 }}
-                  style={{ display: 'flex', gap: '3.5rem', marginTop: '4.5rem', paddingTop: '2.5rem', borderTop: '1px solid rgba(255,255,255,0.1)', flexWrap: 'wrap' }}
-                >
-                  {[
-                    { val: 'TED-AD', sub: 'Akredite Okul' },
-                    { val: 'K-12', sub: 'Tam Kademe' },
-                    { val: 'UbD', sub: 'Eğitim Modeli' },
-                    { val: 'IB/AP', sub: 'Uluslararası' },
-                  ].map((s) => (
-                    <div key={s.val}>
-                      <div style={{ fontFamily: 'var(--font-serif)', fontSize: '2.2rem', fontWeight: 700, color: '#fff', lineHeight: 1 }}>{s.val}</div>
-                      <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.64rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)', marginTop: '0.3rem' }}>{s.sub}</div>
-                    </div>
-                  ))}
                 </motion.div>
               </div>
 
@@ -409,7 +381,7 @@ export default function HomePage() {
         `}</style>
       </section>
 
-            {/* NEDEN KOLEJ SANCAKTEPE — Home */}
+            {/* FARK YARATAN PROGRAMLAR */}
       <section style={{ padding: '6rem 0', background: 'linear-gradient(180deg, #f8f9fb 0%, #fff 100%)' }}>
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
@@ -418,7 +390,6 @@ export default function HomePage() {
               <span className="section-tag">Fark Yaratan Programlar</span>
               <div className="red-line" />
             </div>
-            <h2 className="section-title" style={{ textAlign: 'center' }}>Neden Kolej <span>Sancaktepe?</span></h2>
           </motion.div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }} className="neden-home-grid">
             {[
@@ -427,10 +398,10 @@ export default function HomePage() {
               { title: 'OYP', sub: 'Okuryazar Temelli Eğitim', desc: 'Okuduğunu anlayan, eleştirel düşünen, iletişim kurabilen bireyler.' },
               { title: 'UD', sub: 'Uygulamalı Dersler ve Branşlaşma', desc: 'Teoriden pratiğe, güçlü olduğun alanda derinleşme imkânı.' },
               { title: 'P4C', sub: 'Çocuklarla Felsefe', desc: 'Küçük yaştan sorgulama ve merak — erken felsefi düşünme.' },
-              { title: 'Çift Dilli Eğitim', sub: 'İngilizce + Almanca', desc: 'Anaokulu\'ndan 6. Sınıfa kadar iki dilli akademik ortam.' },
-              { title: 'AP Programı', sub: '11–12. Sınıf', desc: 'Uluslararası üniversite başvurularında güçlü avantaj.' },
-              { title: 'Dünya Vatandaşlığı', sub: 'Evrensel Perspektif', desc: 'Küresel sorunlara duyarlı, farklılıklara saygılı bireyler.' },
-              { title: 'Bireysel Mentörlük', sub: 'Kişisel Gelişim', desc: 'Her öğrencinin yanında, hedefine ulaşmasını sağlayan mentor.' },
+              { title: 'CLIL & Co-Teaching', sub: 'İngilizce + Fen + Matematik', desc: 'Fen Bilimleri ve Matematik dersleri, alan öğretmeni ile İngilizce öğretmeninin birlikte yürüttüğü CLIL temelli çift öğretmen modeliyle işlenir. Böylece öğrenciler hem akademik kavramları hem de akademik İngilizceyi eş zamanlı geliştirir.' },
+              { title: 'AP (Advanced Placement)', sub: '11–12. Sınıf', desc: 'Uluslararası üniversite başvurularında güçlü avantaj.' },
+              { title: 'UbD (Understanding by Design)', sub: 'Anlamaya Dayalı Tasarım', desc: 'UbD, öğrenmeyi akademik bilgilerle sınırlandırmayıp düşünme ve sorgulamayı merkeze alır.' },
+              { title: 'Mentörlük Programı', sub: 'Ortaokul ve lisede gelişim, kariyer rehberliği', desc: 'Her öğrencinin yanında, hedefine ulaşmasını sağlayan mentor.' },
             ].map((item, i) => (
               <motion.div key={item.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.05 }}>
                 <div style={{
@@ -473,7 +444,7 @@ export default function HomePage() {
               <div className="red-line" />
             </div>
             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
-              <h2 className="section-title">Okul <span>Haberlerimiz</span></h2>
+              <h2 className="section-title"><span>Portal</span></h2>
               <Link to="/haberler" style={{
                 textDecoration: 'none', fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800,
                 letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--red)',

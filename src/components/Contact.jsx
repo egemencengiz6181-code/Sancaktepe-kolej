@@ -12,6 +12,7 @@ export default function Contact() {
     phone: '',
     message: '',
   });
+  const [kvkkAccepted, setKvkkAccepted] = useState(false);
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -152,21 +153,6 @@ export default function Contact() {
               >
                 0216 606 0 833
               </a>
-              <a href="tel:05016223135" style={{
-                display: 'block',
-                fontFamily: 'var(--font-serif)',
-                fontSize: '1.6rem',
-                fontWeight: 500,
-                color: 'rgba(255,255,255,0.7)',
-                textDecoration: 'none',
-                letterSpacing: '0.05em',
-                transition: 'color 0.3s',
-              }}
-                onMouseEnter={(e) => (e.target.style.color = 'var(--gold-light)')}
-                onMouseLeave={(e) => (e.target.style.color = 'rgba(255,255,255,0.7)')}
-              >
-                0501 622 31 35
-              </a>
             </div>
 
             {/* Address */}
@@ -284,7 +270,7 @@ export default function Contact() {
                   Kolej Sancaktepe TED-AD ailesi olarak sizi bekliyoruz.
                 </p>
                 <button
-                  onClick={() => { setSent(false); setForm({ studentName: '', school: '', grade: '', parentName: '', phone: '', message: '' }); }}
+                  onClick={() => { setSent(false); setForm({ studentName: '', school: '', grade: '', parentName: '', phone: '', message: '' }); setKvkkAccepted(false); }}
                   style={{
                     fontFamily: 'var(--font-display)',
                     fontSize: '0.72rem',
@@ -392,7 +378,7 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div style={{ marginBottom: '2rem' }}>
+                <div style={{ marginBottom: '1.5rem' }}>
                   <label style={labelStyle}>Mesaj</label>
                   <textarea
                     name="message"
@@ -410,9 +396,43 @@ export default function Contact() {
                   />
                 </div>
 
+                <div style={{ marginBottom: '2rem', display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                  <input
+                    type="checkbox"
+                    id="kvkk-contact"
+                    checked={kvkkAccepted}
+                    onChange={(e) => setKvkkAccepted(e.target.checked)}
+                    style={{
+                      width: '18px',
+                      height: '18px',
+                      cursor: 'pointer',
+                      accentColor: 'var(--gold)',
+                      marginTop: '2px',
+                    }}
+                  />
+                  <label htmlFor="kvkk-contact" style={{
+                    fontFamily: 'var(--font-sans)',
+                    fontSize: '0.85rem',
+                    color: 'rgba(255,255,255,0.7)',
+                    lineHeight: 1.6,
+                    cursor: 'pointer',
+                  }}>
+                    <a href="/kvkk" target="_blank" rel="noopener noreferrer" style={{
+                      color: 'var(--gold-light)',
+                      textDecoration: 'underline',
+                      transition: 'opacity 0.2s',
+                    }}
+                      onMouseEnter={(e) => e.target.style.opacity = '0.8'}
+                      onMouseLeave={(e) => e.target.style.opacity = '1'}
+                    >
+                      KVKK Aydınlatma Metni
+                    </a>'ni okudum, kişisel verilerimin işlenmesini kabul ediyorum. *
+                  </label>
+                </div>
+
                 <button
                   type="submit"
-                  disabled={loading}
+                  disabled={loading || !kvkkAccepted}
                   style={{
                     width: '100%',
                     fontFamily: 'var(--font-display)',
@@ -421,19 +441,20 @@ export default function Contact() {
                     letterSpacing: '0.15em',
                     textTransform: 'uppercase',
                     color: 'var(--navy)',
-                    background: loading
+                    background: (loading || !kvkkAccepted)
                       ? 'rgba(201,168,76,0.6)'
                       : 'linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%)',
                     border: 'none',
                     padding: '1.1rem',
                     borderRadius: '2px',
-                    cursor: loading ? 'wait' : 'pointer',
+                    cursor: (loading || !kvkkAccepted) ? 'not-allowed' : 'pointer',
                     transition: 'all 0.3s',
                     boxShadow: '0 8px 32px rgba(201,168,76,0.2)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     gap: '0.5rem',
+                    opacity: !kvkkAccepted ? 0.6 : 1,
                   }}
                 >
                   {loading ? (

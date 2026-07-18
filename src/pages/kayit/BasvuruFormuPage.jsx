@@ -109,6 +109,8 @@ export default function BasvuruFormuPage() {
     elektronikIletisim: '',
   });
 
+  const [finalKvkkOnay, setFinalKvkkOnay] = useState(false);
+
   const goNext = () => setStep(s => Math.min(s + 1, 4));
   const goBack = () => setStep(s => Math.max(s - 1, 1));
 
@@ -324,6 +326,45 @@ export default function BasvuruFormuPage() {
                             </div>
                           </div>
                         ))}
+
+                        <div style={{ marginTop: '2rem', padding: '1.5rem', background: 'rgba(230,25,54,0.04)', borderRadius: '10px', border: '1px solid rgba(230,25,54,0.15)' }}>
+                          <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                            <input
+                              type="checkbox"
+                              id="kvkk-final"
+                              checked={finalKvkkOnay}
+                              onChange={(e) => setFinalKvkkOnay(e.target.checked)}
+                              style={{
+                                width: '18px',
+                                height: '18px',
+                                cursor: 'pointer',
+                                accentColor: 'var(--red)',
+                                marginTop: '2px',
+                                flexShrink: 0,
+                              }}
+                            />
+                            <label htmlFor="kvkk-final" style={{
+                              fontFamily: 'var(--font-sans)',
+                              fontSize: '0.88rem',
+                              color: 'var(--text-dark)',
+                              lineHeight: 1.7,
+                              cursor: 'pointer',
+                            }}>
+                              Yukarıdaki tüm bilgileri okudum, anlandım ve
+                              {' '}<a href="/kvkk" target="_blank" rel="noopener noreferrer" style={{
+                                color: 'var(--red)',
+                                textDecoration: 'underline',
+                                fontWeight: 600,
+                                transition: 'opacity 0.2s',
+                              }}
+                                onMouseEnter={(e) => e.target.style.opacity = '0.8'}
+                                onMouseLeave={(e) => e.target.style.opacity = '1'}
+                              >
+                                KVKK Aydınlatma Metni
+                              </a>'ni kabul ediyorum. *
+                            </label>
+                          </div>
+                        </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -366,12 +407,17 @@ export default function BasvuruFormuPage() {
                     ) : (
                       <button
                         type="submit"
+                        disabled={!finalKvkkOnay || onaylar.kvkkAcikRiza !== 'İZİN VERİYORUM'}
                         style={{
                           fontFamily: 'var(--font-display)', fontSize: '0.72rem', fontWeight: 800,
                           letterSpacing: '0.1em', textTransform: 'uppercase', padding: '0.85rem 2.5rem',
-                          borderRadius: '6px', border: 'none', background: 'var(--red)', color: '#fff',
-                          cursor: 'pointer', boxShadow: '0 4px 16px rgba(230,25,54,0.3)',
+                          borderRadius: '6px', border: 'none',
+                          background: (!finalKvkkOnay || onaylar.kvkkAcikRiza !== 'İZİN VERİYORUM') ? 'rgba(230,25,54,0.5)' : 'var(--red)',
+                          color: '#fff',
+                          cursor: (!finalKvkkOnay || onaylar.kvkkAcikRiza !== 'İZİN VERİYORUM') ? 'not-allowed' : 'pointer',
+                          boxShadow: (!finalKvkkOnay || onaylar.kvkkAcikRiza !== 'İZİN VERİYORUM') ? 'none' : '0 4px 16px rgba(230,25,54,0.3)',
                           transition: 'all 0.2s',
+                          opacity: (!finalKvkkOnay || onaylar.kvkkAcikRiza !== 'İZİN VERİYORUM') ? 0.6 : 1,
                         }}
                       >
                         Başvuruyu Gönder 

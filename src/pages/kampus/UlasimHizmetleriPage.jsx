@@ -53,7 +53,6 @@ export default function UlasimHizmetleriPage() {
                 <div>
                   <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: '0.3rem' }}>Telefon</p>
                   <a href="tel:02166060833" style={{ fontFamily: 'var(--font-sans)', fontSize: '0.88rem', color: 'var(--red)', fontWeight: 600, display: 'block' }}>0216 606 0 833</a>
-                  <a href="tel:05016223135" style={{ fontFamily: 'var(--font-sans)', fontSize: '0.88rem', color: 'var(--red)', fontWeight: 600, display: 'block' }}>0501 622 31 35</a>
                 </div>
                 <div>
                   <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: '0.3rem' }}>E-Posta</p>
