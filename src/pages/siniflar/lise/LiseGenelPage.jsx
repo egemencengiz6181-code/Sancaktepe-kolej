@@ -71,21 +71,37 @@ export default function LiseGenelPage() {
             {/* MAIN */}
             <div>
               <motion.div {...fadeUp(0)} style={{ background: 'var(--white)', borderRadius: '14px', padding: '2.5rem', border: '1px solid var(--grey-light)', borderLeft: '5px solid var(--primary)', marginBottom: '2.5rem', boxShadow: '0 4px 20px rgba(35,46,92,0.06)' }}>
-                <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '1rem' }}>Hakkımızda</p>
+                <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.55rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>Geleceği Okuyan, Yönünü Belirleyen Gençler</h3>
                 <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: '0.85rem' }}>
-                  Kolej Sancaktepe Lisesi; 1 yıl hazırlık ve 4 yıl lise olmak üzere "Hazırlık Sınıfı Bulunan Özel Anadolu Lisesi" statüsüne sahiptir. Lise, 2016–2017 Akademik Yılında hazırlık sınıfı ile eğitim ve öğretime başlamıştır.
+                  Kolej Sancaktepe TED AD Lisesi, öğrencileri yalnızca üniversiteye değil, hayata ve dünyaya hazırlayan çok yönlü bir eğitim anlayışı sunar.
                 </p>
                 <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: '0.85rem' }}>
-                  Eğitim ve öğretim programlarımızın yanı sıra öğrencilerimize kendilerini ifade edecekleri ulusal ve uluslararası platformlar; bilim, kültür, sanat ve spor ortamları sunarız. Böylece onların ilgi ve yetenek alanlarını keşfetmelerini sağlarız. Yüksek bir bilinç düzeyiyle teknolojiyi etkin ve olumlu anlamda kullanmalarını hedefleriz.
+                  Lise programımız; YKS ve AP perspektifleriyle uyumlu, akademik derinliği yüksek ve öğrencinin bireysel yolunu destekleyen bir yapıya sahiptir.
                 </p>
-                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: '0.85rem' }}>
-                  Her ders için özel öğrenme alanları bulunan lise binamızda kütüphane, müzik ve görsel sanatlar atölyeleri, spor salonları, kulüp alanları, bilgisayar, fizik, kimya, biyoloji laboratuvarlarımızda üst düzey akademik programımızı sosyal ve kültürel programlarımıza paralel olarak sunarız.
-                </p>
-                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: '0.85rem' }}>
-                  Yürüttüğümüz disiplinler arası çalışmalarda amacımız öğrencilerimizin öğrendikleri bilgileri kullanabilecekleri farklı ortamlarda yeni deneyimlerle zenginleşmelerine olanak sağlamaktır. Öğrencilerimizin ulusal ve evrensel değerlerin farkında entelektüel bireyler olarak yetişmeleri adına düzenlediğimiz toplum hizmeti çalışmaları değerler eğitimine önemli ölçüde katkı sağlamaktadır.
-                </p>
+
+                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.85rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginTop: '2rem', marginBottom: '1rem' }}>Eğitim Yaklaşımımız</h4>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                  {['Akademik derinleşme ve disiplinlerarası öğrenme', 'Uluslararası bakış açısı', 'Mentörlük ve kariyer rehberliği', 'Proje, araştırma ve üretim odaklı çalışmalar'].map((item, i) => (
+                    <li key={i} style={{ display: 'flex', gap: '0.75rem', marginBottom: '0.65rem' }}>
+                      <span style={{ color: 'var(--red)', flexShrink: 0 }}>•</span>
+                      <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.93rem', color: 'var(--text-mid)', lineHeight: 1.8 }}>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.85rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginTop: '2rem', marginBottom: '1rem' }}>Program İçeriği</h4>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                  {['Alan dersleri (sayısal, sözel, eşit ağırlık)', 'Yoğun İngilizce ve akademik dil becerileri', '2.yabancı dil (Almanca)', 'AP / hazırlık modülleri', 'Sosyal sorumluluk ve liderlik projeleri', 'Okul dışı etkinlikler ve üniversite bağlantıları', 'Rehberlik ve bireysel mentörlük'].map((item, i) => (
+                    <li key={i} style={{ display: 'flex', gap: '0.75rem', marginBottom: '0.65rem' }}>
+                      <span style={{ color: 'var(--red)', flexShrink: 0 }}>•</span>
+                      <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.93rem', color: 'var(--text-mid)', lineHeight: 1.8 }}>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.85rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginTop: '2rem', marginBottom: '1rem' }}>Hedefimiz</h4>
                 <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.95, margin: 0 }}>
-                  Tüm çalışmalarımızı şekillendiren ana düşüncemiz; öğrencilerimizi, 21. yüzyıl becerilerine sahip, entelektüel beğenileri gelişmiş, yaratıcı ve özgür düşünen, ülkesine karşı sorumluluklarının farkında, geleceğe umutla bakan bir dünya insanı olarak donanımlı hale getirmektir.
+                  Kendi yolunu çizebilen, dünyayı anlayan, sorumluluk alan ve geleceğe hazır bireyler
                 </p>
               </motion.div>
 

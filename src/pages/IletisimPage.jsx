@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import MapComponent from '../components/MapComponent';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
@@ -363,7 +362,16 @@ export default function IletisimPage() {
             position: 'absolute', top: 0, left: 0, right: 0, height: '4px', zIndex: 2,
             background: 'linear-gradient(90deg, var(--primary), var(--red), rgba(230,25,54,0.15))',
           }} />
-          <MapComponent interactive={true} />
+          <iframe
+            title="Kolej Sancaktepe Konum"
+            width="100%"
+            height="100%"
+            style={{ border: 0, display: 'block', filter: 'saturate(0.65) contrast(1.1) brightness(0.88) hue-rotate(200deg)' }}
+            loading="lazy"
+            allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11923.199156739287!2d29.210358806835465!3d40.98249787796874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cacf7926d7cdd5%3A0xd947e7d0b4da7b23!2s%C3%96zel%20Kolej%20Sancaktepe%20%7C%20TED%20-%20AD%20Okullar%C4%B1!5e0!3m2!1str!2str!4v1784301573741!5m2!1str!2str"
+          />
           {/* Bottom fade */}
           <div style={{
             position: 'absolute', bottom: 0, left: 0, right: 0, height: '80px',

@@ -68,28 +68,46 @@ export default function OrtaokulGenelPage() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 380px', gap: '3.5rem', alignItems: 'start' }} className="ortaokul-grid">
             {/* MAIN */}
             <div>
-              <motion.div {...fadeUp(0)} style={{ marginBottom: '3rem' }}>
-                <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.15em', textTransform: 'uppercase', color: COLOR, marginBottom: '0.75rem' }}>Vizyon</p>
-                <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.5rem,2.8vw,2rem)', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>Eleştirel Düşünen, Araştıran ve Üretici Bireyler</h2>
-                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.9 }}>
-                  Kolej Sancaktepe Ortaokul kademesinde öğrencilerimiz; ulusal ve uluslararası platformlarda temsil edilir, donanımlı sınıf ortamları ve laboratuvarlarda çalışır, disiplinler arası projelerle düşünme becerilerini geliştirir. Her öğrencimizin güçlü bir akademik temel üzerinde merak etme, sorgulama ve yaratma becerilerini kazanmasını amaçlıyoruz.
+              <motion.div {...fadeUp(0)} style={{ background: 'var(--white)', borderRadius: '14px', padding: '2.5rem', border: '1px solid var(--grey-light)', borderLeft: `5px solid ${COLOR}`, marginBottom: '2.5rem', boxShadow: '0 4px 20px rgba(35,46,92,0.06)' }}>
+                <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.55rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>Düşünen, Sorgulayan, Dünyayı Okuyan Öğrenciler</h2>
+                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: '0.85rem' }}>
+                  Kolej Sancaktepe TED AD Ortaokulu, öğrencilerin akademik gelişimlerinin yanında eleştirel düşünme, problem çözme ve küresel farkındalık kazandıkları bir öğrenme süreci sunar.
+                </p>
+                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: '0.85rem' }}>
+                  Kolej Sancaktepe TED AD Ortaokulu'nda öğretim süreci, UbD – Understanding by Design (Anlamaya Dayalı Tasarım) yaklaşımı esas alınarak yapılandırılır.
+                </p>
+                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: '0.85rem' }}>
+                  Bu yaklaşımda amaç, öğrencilerin yalnızca konuları öğrenmesi değil; bilgiyi anlamlandırması, transfer edebilmesi ve gerçek yaşamda kullanabilmesidir.
+                </p>
+                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: '2rem' }}>
+                  Programımız, LGS uyumlu olmakla birlikte; PISA ve TIMSS gibi uluslararası ölçütleri esas alan beceri temelli bir yapıya sahiptir.
+                </p>
+
+                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.85rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '1rem' }}>Eğitim Yaklaşımımız</h4>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, marginBottom: '1.5rem' }}>
+                  {['Okuryazarlık temelli öğretim', 'Disiplinlerarası öğrenme', 'Beceri odaklı ölçme ve değerlendirme', 'Güçlü rehberlik ve mentörlük sistemi'].map((item, i) => (
+                    <li key={i} style={{ display: 'flex', gap: '0.75rem', marginBottom: '0.65rem' }}>
+                      <span style={{ color: COLOR, flexShrink: 0 }}>•</span>
+                      <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.93rem', color: 'var(--text-mid)', lineHeight: 1.8 }}>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.85rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '1rem' }}>Program İçeriği</h4>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, marginBottom: '1.5rem' }}>
+                  {['Türkçe, Matematik, Fen Bilimleri', 'Sosyal Bilgiler, İnkılap Tarihi', 'İngilizce (yoğun + native destekli)', '2.yabancı dil', 'Küresel vizyon ve yaşam dersleri', 'Sosyal sorumluluk projeleri', 'Okul dışı öğrenme etkinlikleri', 'Kulüp ve etüt çalışmaları'].map((item, i) => (
+                    <li key={i} style={{ display: 'flex', gap: '0.75rem', marginBottom: '0.65rem' }}>
+                      <span style={{ color: COLOR, flexShrink: 0 }}>•</span>
+                      <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.93rem', color: 'var(--text-mid)', lineHeight: 1.8 }}>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.85rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '1rem' }}>Hedefimiz</h4>
+                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.95, margin: 0 }}>
+                  Akademik başarıyı, düşünme becerileri ve yaşam farkındalığıyla birlikte geliştiren öğrenciler yetiştirmek.
                 </p>
               </motion.div>
-
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }} className="skills-grid">
-                {SKILLS.map((s, i) => (
-                  <motion.div key={i} {...fadeUp(0.06 + i * 0.04)}>
-                    <div style={{ background: 'var(--white)', borderRadius: '10px', padding: '1.25rem 1.5rem', border: '1px solid var(--grey-light)', transition: 'transform 0.2s, box-shadow 0.2s' }}
-                      onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(35,46,92,0.08)'; }}
-                      onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}
-                    >
-                      
-                      <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.3rem' }}>{s.title}</p>
-                      <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.82rem', color: 'var(--text-mid)', lineHeight: 1.75, margin: 0 }}>{s.desc}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
             </div>
 
             {/* SIDEBAR */}

@@ -66,22 +66,34 @@ export default function IlkokulGenelPage() {
           <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '4rem', alignItems: 'start' }} className="il-main-grid">
             <div>
               <motion.div {...fadeUp(0)} style={{ marginBottom: '2.5rem' }}>
-                <P>Hızla değişen ve gelişim içinde olan çağın bireylerini ihtiyaçlar doğrultusunda hazırlayabilmek için bilgiyi üreten, ürettiğini gerçek hayatta kullanabilen ve problem çözebilen bireyler amaçlayan bir program yürütmekteyiz.</P>
-                <P>Bu becerileri öğrencilerimize kazandırmaya çalışırken bireysel farklılıkları dikkate alan, değer ve becerileri de kazandırma hedefli ilerlemekteyiz.</P>
+                <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.55rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>Sağlam Temeller, Güçlü Beceriler</h3>
+                <P>Kolej Sancaktepe TED AD İlkokulu, öğrencilerin temel akademik becerilerini kazandığı, aynı zamanda düşünme, iletişim ve okuryazarlık alanlarında güçlendiği bir öğrenme ortamı sunar.</P>
+                <P>Bu dönemde öğrenciler yalnızca bilgi edinmez; okumayı, yazmayı, problem çözmeyi ve öğrenmeyi öğrenir.</P>
               </motion.div>
 
-              <motion.div {...fadeUp(0.05)}>
-                <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.2rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>Programımızın Hedeflediği Bireyler</h3>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.65rem' }} className="skills-grid-2">
-                  {SKILLS.map((s, i) => (
-                    <motion.div key={i} {...fadeUp(0.04 + i * 0.02)}>
-                      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', background: 'var(--white)', borderRadius: '8px', padding: '0.9rem 1rem', border: '1px solid var(--grey-light)', boxShadow: '0 2px 8px rgba(35,46,92,0.04)' }}>
-                        <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--primary)', marginTop: '0.35rem', flexShrink: 0 }} />
-                        <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.86rem', color: 'var(--text-mid)', lineHeight: 1.6 }}>{s}</span>
-                      </div>
-                    </motion.div>
+              <motion.div {...fadeUp(0.05)} style={{ background: 'var(--white)', borderRadius: '12px', padding: '2rem', border: '1px solid var(--grey-light)', marginBottom: '2rem' }}>
+                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.85rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '1rem' }}>Eğitim Yaklaşımımız</h4>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, marginBottom: '1.5rem' }}>
+                  {['Öğrenci merkezli ve aktif öğrenme', 'Proje ve disiplinlerarası çalışmalar', 'Güçlü dil eğitimi'].map((item, i) => (
+                    <li key={i} style={{ display: 'flex', gap: '0.75rem', marginBottom: '0.65rem' }}>
+                      <span style={{ color: 'var(--red)', flexShrink: 0 }}>•</span>
+                      <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.93rem', color: 'var(--text-mid)', lineHeight: 1.8 }}>{item}</span>
+                    </li>
                   ))}
-                </div>
+                </ul>
+
+                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.85rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '1rem' }}>Program İçeriği</h4>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, marginBottom: '1.5rem' }}>
+                  {['Türkçe, Matematik, Hayat Bilgisi', 'Fen Bilimleri ve Sosyal Bilgiler', 'İngilizce (native destekli)', '2.Yabancı Dil ( Almanca)', 'Yaşam ve düşünme dersleri', 'Proje ve tematik çalışmalar', 'Görsel sanatlar ve müzik', 'Beden eğitimi ve spor', 'Bilişim teknolojileri ve kulüpler'].map((item, i) => (
+                    <li key={i} style={{ display: 'flex', gap: '0.75rem', marginBottom: '0.65rem' }}>
+                      <span style={{ color: 'var(--red)', flexShrink: 0 }}>•</span>
+                      <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.93rem', color: 'var(--text-mid)', lineHeight: 1.8 }}>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.85rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '1rem' }}>Hedefimiz</h4>
+                <P style={{ margin: 0 }}>Okuduğunu anlayan, düşünebilen, iletişim kurabilen ve öğrenmeye istekli bireyler yetiştirmek.</P>
               </motion.div>
             </div>
 

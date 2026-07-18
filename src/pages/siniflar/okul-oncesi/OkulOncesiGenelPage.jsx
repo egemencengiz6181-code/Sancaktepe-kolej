@@ -74,33 +74,34 @@ export default function OkulOncesiGenelPage() {
           <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '4rem', alignItems: 'start' }} className="oo-main-grid">
             <div>
               <motion.div {...fadeUp(0)} style={{ marginBottom: '2.5rem' }}>
-                <P>Tüm yaş gruplarında farklılaştırılmış eğitim olanaklarının sağlandığı çok yönlü bir eğitim programını, güvenli bir öğrenme çevresi yaratarak uygulamayı hedefleyen okulumuz; 4 ve 5 yaş grubu çocukları için tasarlanmış farklı öğrenme alanlarına sahiptir.</P>
-                <P>Okul öncesi öğrencilerine özel giriş noktası, bahçe alanı (tarım ve ekoloji, açık sınıf, keşif köşeleri ve oyun alanı) derslikler, STEAM &amp; Teknoloji atölyesi, yemekhane, kütüphane, fen ve doğa atölyesi, jimnastik salonu ve görsel sanatlar atölyeleriyle planlanmıştır.</P>
-                <P>Sınıflarımızda iki sınıf öğretmeni ve bir sorumlu İngilizce öğretmeni (Native) bulunmaktadır.</P>
+                <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.55rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>Oyunla Keşfeden, Merakla Öğrenen Çocuklar</h3>
+                <P>Kolej Sancaktepe TED AD Anaokulu, çocukların erken yaşta merak duygusunu, dil becerilerini ve düşünme alışkanlıklarını geliştirmeyi amaçlayan bütüncül bir eğitim yaklaşımı sunar.</P>
+                <P>Programımızda öğrenme, oyun, keşif ve deneyim üzerinden yapılandırılır. Çocuklar; güvenli, destekleyici ve zenginleştirilmiş bir öğrenme ortamında kendilerini ifade etmeyi, soru sormayı ve birlikte üretmeyi öğrenirler.</P>
               </motion.div>
 
               <motion.div {...fadeUp(0.05)} style={{ background: 'var(--white)', borderRadius: '12px', padding: '2rem', border: '1px solid var(--grey-light)', marginBottom: '2rem' }}>
-                <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.15rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1rem' }}>Eğitim Programı Temelleri</h3>
-                <P>Türk Eğitim Derneği tarafından oluşturulan bir komisyon tarafından geliştirilen programımız, MEB Okul Öncesi Eğitim Genel Müdürlüğü'nün belirlediği esasları temel almaktadır.</P>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.75rem', marginTop: '1.25rem' }}>
-                  {[
-                    { tag: 'UbD', label: 'Understanding by Design', desc: 'Anlamlı Ders Tasarımı' },
-                    { tag: 'Second Step', label: 'İkinci Adım Programı', desc: 'Sosyal ve Duygusal Beceriler' },
-                    { tag: 'P4C', label: 'Çocuklar için Felsefe', desc: 'Felsefi düşünme temeli' },
-                    { tag: 'Farklılaştırılmış', label: 'Bireysel Yaklaşım', desc: 'Kişisel ilgi ve ihtiyaçlara göre' },
-                  ].map((item, i) => (
-                    <div key={i} style={{ background: 'rgba(35,46,92,0.04)', borderRadius: '8px', padding: '0.85rem 1rem', border: '1px solid rgba(35,46,92,0.08)' }}>
-                      <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 900, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#f59e0b', display: 'block', marginBottom: '0.2rem' }}>{item.tag}</span>
-                      <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.82rem', fontWeight: 600, color: 'var(--primary)', display: 'block' }}>{item.label}</span>
-                      <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.78rem', color: 'var(--grey)', display: 'block' }}>{item.desc}</span>
-                    </div>
+                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.85rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '1rem' }}>Eğitim Yaklaşımımız</h4>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, marginBottom: '1.5rem' }}>
+                  {['Oyun temelli öğrenme', 'Dil gelişimini destekleyen yoğun İngilizce ortam', 'Sosyal-duygusal gelişimi önceleyen yapı', 'Sorgulama ve keşif odaklı etkinlikler'].map((item, i) => (
+                    <li key={i} style={{ display: 'flex', gap: '0.75rem', marginBottom: '0.65rem' }}>
+                      <span style={{ color: '#f59e0b', flexShrink: 0 }}>•</span>
+                      <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.93rem', color: 'var(--text-mid)', lineHeight: 1.8 }}>{item}</span>
+                    </li>
                   ))}
-                </div>
-              </motion.div>
+                </ul>
 
-              <motion.div {...fadeUp(0.08)}>
-                <P>Eğitim ve öğretimi zenginleştirmek amacıyla bilişsel, fiziksel, sosyal-duygusal, dil ve öz bakım gelişim alanlarını gelişimsel ihtiyaçlar çerçevesinde destekleyecek farklı yöntem, teknik ve uygulamalardan da yararlanılmaktadır. Okulumuzda yapılan tüm etkinlikler, disiplinler arası yatay ve dikey ilişkiler kurularak planlanır ve uygulanır.</P>
-                <P>Kolej Sancaktepe'deki ilk yıllarında Ulu Önderimiz Mustafa Kemal Atatürk'ün ilke, inkılap ve değerlerini benimseyen öğrencilerimiz; yüksek aidiyet duygusuyla çok yönlü becerileriyle kendi keşif yolculuklarına çıkarlar. Yoğun İngilizce programıyla tanışarak ilkokul yıllarına güvenle adım atarlar.</P>
+                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.85rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '1rem' }}>Program İçeriği</h4>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, marginBottom: '1.5rem' }}>
+                  {['Türkçe dil etkinlikleri', 'Matematik ve fen farkındalığı', 'İngilizce (native destekli)', 'Görsel sanatlar, müzik ve ritim', 'Drama, dans ve hareket', 'Bilişim, kodlama ve satranç', 'Rehberlik ve yaşam becerileri', '5–6 yaş grubunda felsefi düşünmeye hazırlık çalışmaları'].map((item, i) => (
+                    <li key={i} style={{ display: 'flex', gap: '0.75rem', marginBottom: '0.65rem' }}>
+                      <span style={{ color: '#f59e0b', flexShrink: 0 }}>•</span>
+                      <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.93rem', color: 'var(--text-mid)', lineHeight: 1.8 }}>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.85rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '1rem' }}>Hedefimiz</h4>
+                <P style={{ margin: 0 }}>Kendini ifade edebilen, merak eden, öğrenmekten keyif alan ve sosyal açıdan güçlü çocuklar yetiştirmek.</P>
               </motion.div>
             </div>
 
