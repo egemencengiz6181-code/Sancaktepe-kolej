@@ -84,33 +84,6 @@ export default function Hero() {
         <FloatingParticle key={i} style={p} />
       ))}
 
-      {/* TED Logo - Large Watermark Background */}
-      <div
-        style={{
-          position: 'absolute',
-          top: '50%',
-          right: '8%',
-          transform: 'translateY(-50%)',
-          width: '500px',
-          height: '500px',
-          opacity: 1,
-          pointerEvents: 'none',
-          zIndex: 9999,
-          border: '5px solid lime',
-          backgroundColor: 'rgba(255,0,0,0.5)',
-        }}
-      >
-        <img
-          src="/logo/kolej%20sancaktepe%20logo%20-%20yatay.png"
-          alt="TEST LOGO"
-          style={{
-            width: '100%',
-            height: 'auto',
-            objectFit: 'contain',
-          }}
-        />
-      </div>
-
       {/* Diagonal accent lines */}
       <div style={{
         position: 'absolute',
@@ -271,6 +244,68 @@ export default function Hero() {
             >
               Keşfet
             </button>
+          </motion.div>
+
+          {/* Bağlantılarımız */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2, duration: 0.8 }}
+            style={{
+              marginTop: '3.5rem',
+            }}
+          >
+            <div style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.65rem',
+              fontWeight: 700,
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              color: 'rgba(201,168,76,0.7)',
+              marginBottom: '1.5rem',
+            }}>Bağlantılarımız</div>
+            <div style={{
+              display: 'flex',
+              gap: '2rem',
+              alignItems: 'center',
+              flexWrap: 'wrap',
+            }}>
+              <img 
+                src="/logo/TED_png.png" 
+                alt="TED" 
+                style={{ height: '35px', width: 'auto', objectFit: 'contain', opacity: 0.8, transition: 'opacity 0.3s' }}
+                onMouseEnter={(e) => e.target.style.opacity = '1'}
+                onMouseLeave={(e) => e.target.style.opacity = '0.8'}
+              />
+              <img 
+                src="/logo/tedmem.png" 
+                alt="TEDMEM" 
+                style={{ height: '35px', width: 'auto', objectFit: 'contain', opacity: 0.8, transition: 'opacity 0.3s' }}
+                onMouseEnter={(e) => e.target.style.opacity = '1'}
+                onMouseLeave={(e) => e.target.style.opacity = '0.8'}
+              />
+              <img 
+                src="/logo/ted%20üni%20logo.png" 
+                alt="TED Üniversitesi" 
+                style={{ height: '35px', width: 'auto', objectFit: 'contain', opacity: 0.8, transition: 'opacity 0.3s' }}
+                onMouseEnter={(e) => e.target.style.opacity = '1'}
+                onMouseLeave={(e) => e.target.style.opacity = '0.8'}
+              />
+              <img 
+                src="/logo/ap%20logo.png" 
+                alt="AP" 
+                style={{ height: '35px', width: 'auto', objectFit: 'contain', opacity: 0.8, transition: 'opacity 0.3s' }}
+                onMouseEnter={(e) => e.target.style.opacity = '1'}
+                onMouseLeave={(e) => e.target.style.opacity = '0.8'}
+              />
+              <img 
+                src="/logo/Global-Schools-Program.png" 
+                alt="Global Schools Program" 
+                style={{ height: '35px', width: 'auto', objectFit: 'contain', opacity: 0.8, transition: 'opacity 0.3s' }}
+                onMouseEnter={(e) => e.target.style.opacity = '1'}
+                onMouseLeave={(e) => e.target.style.opacity = '0.8'}
+              />
+            </div>
           </motion.div>
 
           {/* Stats */}
