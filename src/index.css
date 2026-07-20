@@ -37,6 +37,8 @@ body {
   color: var(--text-dark);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 ::selection {
@@ -53,6 +55,10 @@ body {
 ::-webkit-scrollbar-thumb {
   background: var(--primary);
   border-radius: 3px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
 .section-container {

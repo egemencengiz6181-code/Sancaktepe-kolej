@@ -388,7 +388,7 @@ export default function HomePage() {
                   onMouseLeave={(e) => { e.currentTarget.closest('.covers-track-wrap').style.setProperty('--paused', 'running'); }}
                 >
                   <div style={{ position: 'relative', width: '100%', height: '100%', borderRadius: '10px', overflow: 'hidden' }}>
-                    <img src={item.img} alt={item.label} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.4s ease' }} className="cover-img" />
+                    <img src={item.img} alt={item.label} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.4s ease' }} className="cover-img" />
                     <div className="cover-overlay">
                       <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.72rem', fontWeight: 900, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#fff', marginBottom: '0.2rem' }}>{item.label}</div>
                       <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.72rem', color: 'rgba(255,255,255,0.7)', lineHeight: 1.4 }}>{item.sub}</div>

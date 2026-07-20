@@ -1,5 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import viteCompression from 'vite-plugin-compression'
+import { visualizer } from 'rollup-plugin-visualizer'
 import fs from 'fs'
 import path from 'path'
 
@@ -52,7 +54,30 @@ function copyGalleryPlugin() {
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), copyGalleryPlugin()],
+  plugins: [
+    react(),
+    copyGalleryPlugin(),
+    viteCompression({
+      verbose: true,
+      disable: false,
+      threshold: 10240,
+      algorithm: 'gzip',
+      ext: '.gz',
+    }),
+    viteCompression({
+      verbose: true,
+      disable: false,
+      threshold: 10240,
+      algorithm: 'brotliCompress',
+      ext: '.br',
+    }),
+    visualizer({
+      filename: 'dist/stats.html',
+      open: false,
+      gzipSize: true,
+      brotliSize: true,
+    }),
+  ],
   server: {
     historyApiFallback: true,
   },
@@ -60,13 +85,36 @@ export default defineConfig({
     historyApiFallback: true,
   },
   build: {
+    target: 'es2015',
+    cssMinify: true,
     rollupOptions: {
       output: {
         manualChunks(id) {
-          if (id.includes('framer-motion')) return 'framer-motion';
-          if (id.includes('react-dom') || id.includes('react-router-dom')) return 'react-vendor';
+          if (id.includes('node_modules')) {
+            if (id.includes('framer-motion')) return 'framer-motion';
+            if (id.includes('react-dom')) return 'react-dom';
+            if (id.includes('react-router-dom')) return 'react-router';
+            if (id.includes('leaflet') || id.includes('react-leaflet')) return 'maps';
+            if (id.includes('react-pdf') || id.includes('pdfjs-dist')) return 'pdf';
+            if (id.includes('lucide-react')) return 'icons';
+            return 'vendor';
+          }
+          if (id.includes('/src/pages/siniflar/')) return 'pages-siniflar';
+          if (id.includes('/src/pages/kampus/')) return 'pages-kampus';
+          if (id.includes('/src/pages/kayit/')) return 'pages-kayit';
+          if (id.includes('/src/pages/birimler/')) return 'pages-birimler';
+          if (id.includes('/src/pages/programlar/')) return 'pages-programlar';
         },
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash].[ext]',
       },
     },
+    chunkSizeWarningLimit: 1000,
+    assetsInlineLimit: 4096,
+    reportCompressedSize: false,
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'react-router-dom', 'framer-motion'],
   },
 })

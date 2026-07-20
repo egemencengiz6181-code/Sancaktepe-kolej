@@ -116,7 +116,7 @@ export default function ProgramDetayPage() {
                   padding: '1.5rem', flexShrink: 0,
                 }}
               >
-                <img src={prog.logo} alt={prog.title} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                <img src={prog.logo} alt={prog.title} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
               </motion.div>
             ) : prog.icon ? (
               <motion.div

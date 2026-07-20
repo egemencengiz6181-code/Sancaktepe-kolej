@@ -54,18 +54,12 @@ export default function YabanciDilPage() {
             <motion.div {...fadeUp(0)} style={{ marginBottom: '2.5rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.75rem' }}>
                 <div className="red-line" />
-                <span className="section-tag">İçerik Hazırlanıyor</span>
+                <span className="section-tag">Yabancı Dil Eğitimi</span>
               </div>
-              <h2 className="section-title" style={{ marginBottom: '1.5rem' }}>Bu Sayfa Yakında Güncellenecektir</h2>
-              <P>Yabancı Dil birimi içeriği yakında yüklenecektir.</P>
+              <h2 className="section-title" style={{ marginBottom: '1.5rem' }}>21. Yüzyıl Becerilerini Geliştiren Yabancı Dil Eğitimi</h2>
+              <P>Kolej Sancaktepe Yabancı Dil Birimi, öğrencilere uluslararası standartlarda dil eğitimi sunarak küresel vatandaşlık becerilerini geliştirir.</P>
             </motion.div>
 
-          </div>
-        </div>
-      </section>
-                </div>
-              </div>
-            </motion.div>
           </div>
         </div>
       </section>

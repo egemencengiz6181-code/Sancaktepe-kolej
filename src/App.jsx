@@ -108,12 +108,31 @@ export default function App() {
     } catch {}
   }, []);
 
+  const LoadingFallback = () => (
+    <div style={{ 
+      minHeight: '60vh', 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      background: 'var(--off-white)'
+    }}>
+      <div style={{
+        width: '40px',
+        height: '40px',
+        border: '3px solid rgba(35,46,92,0.1)',
+        borderTopColor: 'var(--primary)',
+        borderRadius: '50%',
+        animation: 'spin 0.8s linear infinite',
+      }} />
+    </div>
+  );
+
   return (
     <ModalProvider>
       <BrowserRouter>
         <Layout>
           <ErrorBoundary>
-          <Suspense fallback={<div style={{ minHeight: '60vh' }} />}>
+          <Suspense fallback={<LoadingFallback />}>
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/hakkimizda" element={<HakkimizdaPage />} />
