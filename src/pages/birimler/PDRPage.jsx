@@ -161,12 +161,10 @@ export default function PDRPage() {
         <div className="section-container">
           <div style={{ maxWidth: '900px', margin: '0 auto' }}>
             <motion.div {...fadeUp(0)} style={{ marginBottom: '3rem' }}>
-              <P>Kolej Sancaktepe'de psikolojik danışmanlık ve rehberlik birimi; öğrencilerin akademik, kişisel-sosyal ve kariyer gelişimini bütüncül bir yaklaşımla destekler. Her kademedeki öğrencimiz için kapsamlı, bütünleşik ve gelişimsel bir rehberlik programı uygulanmaktadır.</P>
+              <SubSection title="İçerik Hazırlanıyor" delay={0}>
+                <P>Bu sayfanın içeriği yakında yüklenecektir.</P>
+              </SubSection>
             </motion.div>
-
-            {PDR_DATA.map((section, i) => (
-              <LevelSection key={section.level} level={section.level} groups={section.groups} />
-            ))}
           </div>
         </div>
       </section>

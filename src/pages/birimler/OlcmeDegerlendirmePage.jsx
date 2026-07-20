@@ -47,7 +47,13 @@ export default function OlcmeDegerlendirmePage() {
         <div className="section-container">
           <div style={{ maxWidth: '900px', margin: '0 auto' }}>
 
-            <SubSection title="Bölüm Hakkında" delay={0}>
+            <SubSection title="İçerik Hazırlanıyor" delay={0}>
+              <P>Bu sayfanın içeriği yakında yüklenecektir.</P>
+            </SubSection>
+
+          </div>
+        </div>
+      </section>
               <P>Ölçme ve Değerlendirme Birimi, Kolej Sancaktepe'nin eğitime bakış açısı ve ilkeleri doğrultusunda, eğitim-öğretim programlarını planlama, geliştirme ve eğitim sürecinin çeşitli aşamalarında alınacak kararlara temel olacak verileri toplama ve değerlendirme amacıyla çalışmalarını yürütür.</P>
               <P>Öğrenme sürecinin farklı aşamalarında öğrencilerin ne bildiklerini, ne anladıklarını ve neler yapabileceklerini belirleyerek farklılaştırılmış eğitim felsefesiyle öğretmen ve öğrencinin yeni hedefler belirlemesine yardımcı olur.</P>
             </SubSection>

@@ -439,56 +439,6 @@ export default function HomePage() {
         `}</style>
       </section>
 
-            {/* FARK YARATAN PROGRAMLAR */}
-      <section style={{ padding: '6rem 0', background: 'linear-gradient(180deg, #f8f9fb 0%, #fff 100%)' }}>
-        <div className="section-container">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', justifyContent: 'center', marginBottom: '0.75rem' }}>
-              <div className="red-line" />
-              <span className="section-tag">Fark Yaratan Programlar</span>
-              <div className="red-line" />
-            </div>
-          </motion.div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }} className="neden-home-grid">
-            {[
-              { title: 'BÖGEP', sub: 'Bütüncül Öğrenme ve Gelişim Programları', desc: 'Akademik, sosyal, duygusal ve fiziksel gelişimi tek çatı altında birleştiriyor.' },
-              { title: 'KVYOD', sub: 'Küresel Vizyon ve Yaşam Odaklı Dersler', desc: 'Öğrencileri dünyaya hazırlayan yaşam becerileri ve küresel bakış açısı.' },
-              { title: 'OYP', sub: 'Okuryazar Temelli Eğitim', desc: 'Okuduğunu anlayan, eleştirel düşünen, iletişim kurabilen bireyler.' },
-              { title: 'UD', sub: 'Uygulamalı Dersler ve Branşlaşma', desc: 'Teoriden pratiğe, güçlü olduğun alanda derinleşme imkânı.' },
-              { title: 'P4C', sub: 'Çocuklarla Felsefe', desc: 'Küçük yaştan sorgulama ve merak — erken felsefi düşünme.' },
-              { title: 'CLIL & Co-Teaching', sub: 'İngilizce + Fen + Matematik', desc: 'Fen Bilimleri ve Matematik dersleri, alan öğretmeni ile İngilizce öğretmeninin birlikte yürüttüğü CLIL temelli çift öğretmen modeliyle işlenir. Böylece öğrenciler hem akademik kavramları hem de akademik İngilizceyi eş zamanlı geliştirir.' },
-              { title: 'AP (Advanced Placement)', sub: '11–12. Sınıf', desc: 'Uluslararası üniversite başvurularında güçlü avantaj.' },
-              { title: 'UbD (Understanding by Design)', sub: 'Anlamaya Dayalı Tasarım', desc: 'UbD, öğrenmeyi akademik bilgilerle sınırlandırmayıp düşünme ve sorgulamayı merkeze alır.' },
-              { title: 'Mentörlük Programı', sub: 'Ortaokul ve lisede gelişim, kariyer rehberliği', desc: 'Her öğrencinin yanında, hedefine ulaşmasını sağlayan mentor.' },
-            ].map((item, i) => (
-              <motion.div key={item.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.05 }}>
-                <div style={{
-                  background: 'var(--white)', borderRadius: '12px',
-                  border: '1px solid var(--grey-light)',
-                  padding: '1.5rem 1.25rem',
-                  boxShadow: '0 2px 12px rgba(35,46,92,0.04)',
-                  display: 'flex', gap: '1rem', alignItems: 'flex-start',
-                  transition: 'transform 0.2s, border-color 0.2s, box-shadow 0.2s',
-                }}
-                  onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.borderColor = 'var(--red)'; e.currentTarget.style.boxShadow = '0 8px 28px rgba(35,46,92,0.09)'; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = 'var(--grey-light)'; e.currentTarget.style.boxShadow = '0 2px 12px rgba(35,46,92,0.04)'; }}
-                >
-                  <div>
-                    <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 900, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--red)', marginBottom: '0.2rem' }}>{item.title}</div>
-                    <p style={{ fontFamily: 'var(--font-serif)', fontSize: '0.85rem', fontWeight: 600, color: 'var(--primary)', marginBottom: '0.35rem', lineHeight: 1.35 }}>{item.sub}</p>
-                    <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.78rem', color: 'var(--text-mid)', lineHeight: 1.7 }}>{item.desc}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-        <style>{`
-          @media (max-width: 900px) { .neden-home-grid { grid-template-columns: repeat(2,1fr) !important; } }
-          @media (max-width: 540px) { .neden-home-grid { grid-template-columns: 1fr !important; } }
-        `}</style>
-      </section>
-
       {/* HABERLER */}
       <section style={{ padding: '6rem 0', background: 'var(--off-white)', overflow: 'hidden' }}>
         <div className="section-container">
@@ -602,7 +552,7 @@ export default function HomePage() {
         <div className="section-container" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <div style={{ display: 'inline-block', background: 'var(--red)', color: '#fff', fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.2em', textTransform: 'uppercase', padding: '0.4rem 1rem', borderRadius: '2px', marginBottom: '1.5rem' }}>
-              2025-2026 Kayıt Dönemi
+              2026-2027 Kayıt Dönemi
             </div>
             <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, color: '#fff', marginBottom: '1rem' }}>
               Çocuğunuzun Geleceğini <em style={{ color: 'rgba(255,255,255,0.75)', fontStyle: 'italic' }}>Birlikte</em> İnşa Edelim

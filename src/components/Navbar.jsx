@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { programs } from '../data/programs';
+import { getTopLevelPrograms } from '../data/programs';
 import { classes } from '../data/classes';
 import { useModal } from '../context/ModalContext';
 
@@ -115,7 +115,7 @@ function DropdownMenu({ links, triggerRef, onClose }) {
 
 // ─── Mega Menu ────────────────────────────────────────────────────────────────
 function MegaMenu({ type, onClose }) {
-  const items = type === 'programlar' ? programs : classes;
+  const items = type === 'programlar' ? getTopLevelPrograms() : classes;
   const basePath = type === 'programlar' ? '/programlar' : '/siniflar';
   const overviewLabel = type === 'programlar' ? 'Tüm Programlar' : 'Tüm Kademeler';
   const overviewDesc = type === 'programlar'
@@ -182,7 +182,7 @@ function MegaMenu({ type, onClose }) {
           </Link>
         )}
 
-        {items.map((item) => {
+        {type === 'programlar' && items.map((item) => {
           const colorVal = item.color === 'var(--primary)' ? '#232e5c'
             : item.color === 'var(--red)' ? '#e61936'
             : item.color;
@@ -511,7 +511,7 @@ export default function Navbar() {
             }}
           >
             <img
-              src="/logo/kolej%20sancaktepe%20logo%20-%20yatay.png"
+              src="/logo/kolej%20sancaktepe%20logo%20-%20yatay.png?v=2"
               alt="Kolej Sancaktepe"
               style={{ height: '72px', width: 'auto', display: 'block', objectFit: 'contain' }}
             />
@@ -536,7 +536,7 @@ export default function Navbar() {
         alignItems: 'center', justifyContent: 'space-between', padding: '0 1.25rem',
       }}>
         <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-          <img src="/logo/kolej%20sancaktepe%20logo%20-%20yatay.png" alt="Kolej Sancaktepe"
+          <img src="/logo/kolej%20sancaktepe%20logo%20-%20yatay.png?v=2" alt="Kolej Sancaktepe"
             style={{ height: '54px', width: 'auto', objectFit: 'contain' }} />
         </Link>
         <button onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menü"

@@ -54,50 +54,15 @@ export default function YabanciDilPage() {
             <motion.div {...fadeUp(0)} style={{ marginBottom: '2.5rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.75rem' }}>
                 <div className="red-line" />
-                <span className="section-tag">Misyon ve Vizyon</span>
+                <span className="section-tag">İçerik Hazırlanıyor</span>
               </div>
-              <h2 className="section-title" style={{ marginBottom: '1.5rem' }}>Yabancı Dil Eğitim Felsefemiz</h2>
-              <P>Kolej Sancaktepe'nin misyonu; öğrencilerin İngilizce'yi etkin biçimde kullanabilmelerini ve kendilerine özgü dil becerilerini geliştirmelerini sağlamaktır. Eğitimcilerin görevi, öğrencilerin gerçek iletişim bağlamlarında dili anlamlı şekilde kullanabilmeleri için onlara rehberlik etmektir.</P>
-              <P>Kolej Sancaktepe'de yabancı dil öğretiminde 21. yüzyıl becerileri merkezde tutulur: eleştirel düşünme, iş birliği, iletişim ve yaratıcılık. Öğrenciler dili yalnızca akademik bir araç olarak değil, küresel iletişimin bir parçası olarak benimser.</P>
+              <h2 className="section-title" style={{ marginBottom: '1.5rem' }}>Bu Sayfa Yakında Güncellenecektir</h2>
+              <P>Yabancı Dil birimi içeriği yakında yüklenecektir.</P>
             </motion.div>
 
-            <motion.div {...fadeUp(0.05)} style={{ marginBottom: '2.5rem' }}>
-              <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.15rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1rem', paddingBottom: '0.5rem', borderBottom: '2px solid var(--grey-light)' }}>K-12 İngilizce Müfredatı</h3>
-              <P>Kolej Sancaktepe'de K-12 İngilizce dersi kapsamlı ve sarmal bir yapıda kurgulanmıştır. Öğrenciler, okul öncesinden lise son sınıfa kadar süregelen bir dil gelişim yolculuğu izlerler.</P>
-              <P>Dinleme, konuşma, okuma ve yazma becerilerinin bütünleşik olarak geliştirilmesi hedeflenir. Müfredat, öğrencilerin uluslararası sertifika sınavlarına (Cambridge, IELTS, TOEFL vb.) hazırlanabilmelerini de destekler.</P>
-            </motion.div>
-
-            <motion.div {...fadeUp(0.08)} style={{ marginBottom: '2.5rem' }}>
-              <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.15rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem', paddingBottom: '0.5rem', borderBottom: '2px solid var(--grey-light)' }}>Uluslararası Ortaklıklar</h3>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }} className="partner-cards">
-                {PARTNERSHIPS.map((p, i) => (
-                  <motion.div key={i} {...fadeUp(0.1 + i * 0.05)}>
-                    <div style={{ background: 'var(--white)', borderRadius: '12px', padding: '1.5rem', border: '1px solid var(--grey-light)', height: '100%' }}>
-                      <div style={{ fontSize: '1.75rem', marginBottom: '0.75rem' }}>{p.logo}</div>
-                      <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.72rem', fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.6rem' }}>{p.name}</h4>
-                      <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', color: 'var(--text-mid)', lineHeight: 1.75, margin: 0 }}>{p.desc}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div {...fadeUp(0.1)}>
-              <div style={{ background: 'var(--primary)', borderRadius: '16px', padding: '2.5rem', color: '#fff' }}>
-                <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.15rem', fontWeight: 700, color: '#fff', marginBottom: '1rem' }}>21. Yüzyıl Dil Becerileri</h3>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }} className="skills-grid">
-                  {[
-                    { label: 'Eleştirel Düşünme', desc: 'Dili analitik bir araç olarak kullanma' },
-                    { label: 'İş Birliği', desc: 'Çok kültürlü ortamlarda takım çalışması' },
-                    { label: 'İletişim', desc: 'Akademik ve günlük bağlamlarda etkili iletişim' },
-                    { label: 'Yaratıcılık', desc: 'Özgün üretim ve yazılı-sözlü ifade' },
-                  ].map((skill, i) => (
-                    <div key={i} style={{ background: 'rgba(255,255,255,0.08)', borderRadius: '10px', padding: '1.25rem', border: '1px solid rgba(255,255,255,0.1)' }}>
-                      
-                      <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', marginBottom: '0.25rem' }}>{skill.label}</div>
-                      <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.83rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.65, margin: 0 }}>{skill.desc}</p>
-                    </div>
-                  ))}
+          </div>
+        </div>
+      </section>
                 </div>
               </div>
             </motion.div>

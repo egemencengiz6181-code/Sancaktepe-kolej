@@ -4,6 +4,7 @@ import { motion, useInView, AnimatePresence } from 'framer-motion';
 const enc = (p) => p.replace(/ /g, '%20');
 
 const galleryImages = [
+  // İdari (10 görseller)
   { src: enc('/gallery/idari/IMG_0828.jpeg'), alt: 'Kolej Sancaktepe' },
   { src: enc('/gallery/idari/IMG_0830.jpeg'), alt: 'Kolej Sancaktepe' },
   { src: enc('/gallery/idari/IMG_0831.jpeg'), alt: 'Kolej Sancaktepe' },
@@ -14,19 +15,51 @@ const galleryImages = [
   { src: enc('/gallery/idari/IMG_0836.jpeg'), alt: 'Kolej Sancaktepe' },
   { src: enc('/gallery/idari/IMG_0837.jpeg'), alt: 'Kolej Sancaktepe' },
   { src: enc('/gallery/idari/IMG_0838.jpeg'), alt: 'Kolej Sancaktepe' },
-  { src: enc('/gallery/ilkokul/WhatsApp Image 2026-06-22 at 12.23.33.jpeg'), alt: 'Kolej Sancaktepe' },
-  { src: enc('/gallery/ilkokul/WhatsApp Image 2026-06-22 at 12.23.35 (1).jpeg'), alt: 'Kolej Sancaktepe' },
-  { src: enc('/gallery/ilkokul/WhatsApp Image 2026-06-22 at 12.23.36.jpeg'), alt: 'Kolej Sancaktepe' },
-  { src: enc('/gallery/ortaokul/WhatsApp Image 2026-06-22 at 12.23.34 (3).jpeg'), alt: 'Kolej Sancaktepe' },
-  { src: enc('/gallery/ortaokul/WhatsApp Image 2026-06-22 at 12.23.34 (4).jpeg'), alt: 'Kolej Sancaktepe' },
-  { src: enc('/gallery/anadolu lisesi/WhatsApp Image 2026-06-22 at 12.23.33 (6).jpeg'), alt: 'Kolej Sancaktepe' },
-  { src: enc('/gallery/anadolu lisesi/WhatsApp Image 2026-06-22 at 12.23.36 (4).jpeg'), alt: 'Kolej Sancaktepe' },
-  { src: enc('/gallery/kütüphane/WhatsApp Image 2026-06-22 at 12.23.33 (2).jpeg'), alt: 'Kolej Sancaktepe' },
-  { src: enc('/gallery/kütüphane/WhatsApp Image 2026-06-22 at 12.23.34 (1).jpeg'), alt: 'Kolej Sancaktepe' },
-  { src: enc('/gallery/sosyal bahçe/WhatsApp Image 2026-06-22 at 12.23.33 (5).jpeg'), alt: 'Kolej Sancaktepe' },
-  { src: enc('/gallery/sosyal bahçe/WhatsApp Image 2026-06-22 at 12.23.34.jpeg'), alt: 'Kolej Sancaktepe' },
-  { src: enc('/gallery/okul öncesi/WhatsApp Image 2026-06-22 at 12.35.56.jpeg'), alt: 'Kolej Sancaktepe' },
-  { src: enc('/gallery/okul öncesi/WhatsApp Image 2026-06-22 at 12.35.56 (1).jpeg'), alt: 'Kolej Sancaktepe' },
+  
+  // İlkokul (7 görseller)
+  { src: enc('/gallery/ilkokul/19.png'), alt: 'Kolej Sancaktepe İlkokul' },
+  { src: enc('/gallery/ilkokul/20.png'), alt: 'Kolej Sancaktepe İlkokul' },
+  { src: enc('/gallery/ilkokul/21.png'), alt: 'Kolej Sancaktepe İlkokul' },
+  { src: enc('/gallery/ilkokul/22.png'), alt: 'Kolej Sancaktepe İlkokul' },
+  { src: enc('/gallery/ilkokul/23.png'), alt: 'Kolej Sancaktepe İlkokul' },
+  { src: enc('/gallery/ilkokul/24.png'), alt: 'Kolej Sancaktepe İlkokul' },
+  { src: enc('/gallery/ilkokul/25.png'), alt: 'Kolej Sancaktepe İlkokul' },
+  
+  // Ortaokul (7 görseller)
+  { src: enc('/gallery/ortaokul/32.png'), alt: 'Kolej Sancaktepe Ortaokul' },
+  { src: enc('/gallery/ortaokul/33.png'), alt: 'Kolej Sancaktepe Ortaokul' },
+  { src: enc('/gallery/ortaokul/34.png'), alt: 'Kolej Sancaktepe Ortaokul' },
+  { src: enc('/gallery/ortaokul/35.png'), alt: 'Kolej Sancaktepe Ortaokul' },
+  { src: enc('/gallery/ortaokul/36.png'), alt: 'Kolej Sancaktepe Ortaokul' },
+  { src: enc('/gallery/ortaokul/37.png'), alt: 'Kolej Sancaktepe Ortaokul' },
+  { src: enc('/gallery/ortaokul/38.png'), alt: 'Kolej Sancaktepe Ortaokul' },
+  
+  // Anadolu Lisesi (5 görseller)
+  { src: enc('/gallery/anadolu lisesi/13.png'), alt: 'Kolej Sancaktepe Anadolu Lisesi' },
+  { src: enc('/gallery/anadolu lisesi/14.png'), alt: 'Kolej Sancaktepe Anadolu Lisesi' },
+  { src: enc('/gallery/anadolu lisesi/15.png'), alt: 'Kolej Sancaktepe Anadolu Lisesi' },
+  { src: enc('/gallery/anadolu lisesi/16.png'), alt: 'Kolej Sancaktepe Anadolu Lisesi' },
+  { src: enc('/gallery/anadolu lisesi/17.png'), alt: 'Kolej Sancaktepe Anadolu Lisesi' },
+  
+  // Kütüphane (7 görseller)
+  { src: enc('/gallery/kütüphane/1.png'), alt: 'Kolej Sancaktepe Kütüphane' },
+  { src: enc('/gallery/kütüphane/2.png'), alt: 'Kolej Sancaktepe Kütüphane' },
+  { src: enc('/gallery/kütüphane/3.png'), alt: 'Kolej Sancaktepe Kütüphane' },
+  { src: enc('/gallery/kütüphane/4.png'), alt: 'Kolej Sancaktepe Kütüphane' },
+  { src: enc('/gallery/kütüphane/5.png'), alt: 'Kolej Sancaktepe Kütüphane' },
+  { src: enc('/gallery/kütüphane/6.png'), alt: 'Kolej Sancaktepe Kütüphane' },
+  { src: enc('/gallery/kütüphane/7.png'), alt: 'Kolej Sancaktepe Kütüphane' },
+  
+  // Sosyal Bahçe (3 görseller)
+  { src: enc('/gallery/sosyal bahçe/9.png'), alt: 'Kolej Sancaktepe Sosyal Bahçe' },
+  { src: enc('/gallery/sosyal bahçe/10.png'), alt: 'Kolej Sancaktepe Sosyal Bahçe' },
+  { src: enc('/gallery/sosyal bahçe/11.png'), alt: 'Kolej Sancaktepe Sosyal Bahçe' },
+  
+  // Okul Öncesi (4 görseller)
+  { src: enc('/gallery/okul öncesi/27.png'), alt: 'Kolej Sancaktepe Okul Öncesi' },
+  { src: enc('/gallery/okul öncesi/28.png'), alt: 'Kolej Sancaktepe Okul Öncesi' },
+  { src: enc('/gallery/okul öncesi/29.png'), alt: 'Kolej Sancaktepe Okul Öncesi' },
+  { src: enc('/gallery/okul öncesi/30.png'), alt: 'Kolej Sancaktepe Okul Öncesi' },
 ];
 
 function GalleryItem({ img, index, onClick }) {

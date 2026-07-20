@@ -36,36 +36,14 @@ export default function SKSPage() {
                 <div className="red-line" />
                 <span className="section-tag">ODE Koordinatörlüğü</span>
               </div>
-              <h2 className="section-title" style={{ marginBottom: '1.5rem' }}>Etkinlik ve Kulüp Yaşamı</h2>
+              <h2 className="section-title" style={{ marginBottom: '1.5rem' }}>İçerik Hazırlanıyor</h2>
             </motion.div>
 
             <motion.div {...fadeUp(0.08)}>
               <div style={{ background: 'var(--white)', borderRadius: '16px', padding: '2.5rem', border: '1px solid var(--grey-light)', boxShadow: '0 4px 20px rgba(35,46,92,0.06)' }}>
                 <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.97rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: '1.25rem' }}>
-                  Kolej Sancaktepe'de her öğrencinin, akademik yaşamının yanında aktif bir kulüp ve etkinlik hayatı sürdürmesi beklenmektedir. ODE Koordinatörlüğü bu çerçevede sosyal, kültürel ve sportif alanlarda öğrencilerin yeteneklerini keşfetmelerine ve geliştirmelerine olanak tanıyan programlar düzenler.
+                  Bu sayfanın içeriği yakında yüklenecektir.
                 </p>
-                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.97rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: '1.25rem' }}>
-                  SKS politikasının temel amacı, öğrencilerin akademik başarının ötesinde dengeli ve bütünlüklü bireyler olarak yetişmelerini sağlamaktır. Kulüp etkinlikleri; liderlik, takım çalışması, sorumluluk alma ve sosyal farkındalık gibi yaşam becerilerini pekiştirir.
-                </p>
-                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.97rem', color: 'var(--text-mid)', lineHeight: 1.95 }}>
-                  Koordinatörlüğümüz, okul genelinde düzenlenen tüm ulusal ve uluslararası yarışmalar, festival ve sosyal sorumluluk projeleri ile öğrenci kulüplerinin faaliyetlerini koordineli biçimde yürütür.
-                </p>
-              </div>
-            </motion.div>
-
-            <motion.div {...fadeUp(0.12)} style={{ marginTop: '2rem' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }} className="sks-cards">
-                {[
-                  { label: 'Sportif Etkinlikler', desc: 'Turnuvalar, spor ligleri ve bireysel-takım sporları.' },
-                  { label: 'Kültürel Etkinlikler', desc: 'Tiyatro, müzik, edebiyat ve sanat kulüpleri.' },
-                  { label: 'Sosyal Sorumluluk', desc: 'Topluma katkı projeleri ve çevre etkinlikleri.' },
-                ].map((card, i) => (
-                  <div key={i} style={{ background: 'var(--white)', borderRadius: '12px', padding: '1.5rem', border: '1px solid var(--grey-light)', textAlign: 'center' }}>
-                    
-                    <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.4rem' }}>{card.label}</div>
-                    <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.83rem', color: 'var(--text-mid)', lineHeight: 1.7, margin: 0 }}>{card.desc}</p>
-                  </div>
-                ))}
               </div>
             </motion.div>
           </div>

@@ -164,21 +164,23 @@ export default function ProgramDetayPage() {
               </motion.div>
 
               {/* Goals card */}
-              <motion.div {...fadeUp(0.1)} style={{
-                background: `linear-gradient(135deg, ${prog.color}0d, ${prog.color}05)`,
-                borderRadius: '10px',
-                border: `1px solid ${prog.color}25`,
-                padding: '1.75rem',
-                marginBottom: '1.5rem',
-              }}>
-                <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: prog.color, marginBottom: '1rem' }}>Program Amaçları</p>
-                {prog.goals.map((g, i) => (
-                  <div key={i} style={{ display: 'flex', gap: '0.6rem', marginBottom: '0.6rem', alignItems: 'flex-start' }}>
-                    
-                    <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.83rem', color: 'var(--text-mid)', lineHeight: 1.65 }}>{g}</span>
-                  </div>
-                ))}
-              </motion.div>
+              {prog.goals && prog.goals.length > 0 && (
+                <motion.div {...fadeUp(0.1)} style={{
+                  background: `linear-gradient(135deg, ${prog.color}0d, ${prog.color}05)`,
+                  borderRadius: '10px',
+                  border: `1px solid ${prog.color}25`,
+                  padding: '1.75rem',
+                  marginBottom: '1.5rem',
+                }}>
+                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: prog.color, marginBottom: '1rem' }}>Program Amaçları</p>
+                  {prog.goals.map((g, i) => (
+                    <div key={i} style={{ display: 'flex', gap: '0.6rem', marginBottom: '0.6rem', alignItems: 'flex-start' }}>
+                      
+                      <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.83rem', color: 'var(--text-mid)', lineHeight: 1.65 }}>{g}</span>
+                    </div>
+                  ))}
+                </motion.div>
+              )}
 
               {/* CTA */}
               <motion.div {...fadeUp(0.2)}>
@@ -203,34 +205,36 @@ export default function ProgramDetayPage() {
             <div>
 
               {/* Detay bölümleri */}
-              <motion.div {...fadeUp(0.1)} style={{ marginBottom: '3.5rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
-                  <div style={{ width: '4px', height: '32px', background: `linear-gradient(180deg, ${prog.color}, ${prog.accent})`, borderRadius: '2px' }} />
-                  <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)' }}>Program</h2>
-                </div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.25rem' }} className="details-grid">
-                  {prog.details.map((d, i) => (
-                    <motion.div
-                      key={i} {...fadeUp(i * 0.08)}
-                      style={{
-                        background: 'var(--white)', borderRadius: '10px',
-                        padding: '1.75rem',
-                        border: '1px solid var(--grey-light)',
-                        boxShadow: '0 2px 20px rgba(35,46,92,0.06)',
-                        position: 'relative', overflow: 'hidden',
-                      }}
-                    >
-                      <div style={{
-                        position: 'absolute', top: 0, left: 0, right: 0, height: '3px',
-                        background: `linear-gradient(90deg, ${prog.color}, ${prog.accent})`,
-                      }} />
-                      <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.15em', textTransform: 'uppercase', color: prog.color, marginBottom: '0.6rem' }}>0{i + 1}</div>
-                      <h4 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.05rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.6rem', lineHeight: 1.35 }}>{d.title}</h4>
-                      <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', color: 'var(--text-mid)', lineHeight: 1.75 }}>{d.desc}</p>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
+              {prog.details && prog.details.length > 0 && (
+                <motion.div {...fadeUp(0.1)} style={{ marginBottom: '3.5rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
+                    <div style={{ width: '4px', height: '32px', background: `linear-gradient(180deg, ${prog.color}, ${prog.accent})`, borderRadius: '2px' }} />
+                    <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)' }}>Program</h2>
+                  </div>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.25rem' }} className="details-grid">
+                    {prog.details.map((d, i) => (
+                      <motion.div
+                        key={i} {...fadeUp(i * 0.08)}
+                        style={{
+                          background: 'var(--white)', borderRadius: '10px',
+                          padding: '1.75rem',
+                          border: '1px solid var(--grey-light)',
+                          boxShadow: '0 2px 20px rgba(35,46,92,0.06)',
+                          position: 'relative', overflow: 'hidden',
+                        }}
+                      >
+                        <div style={{
+                          position: 'absolute', top: 0, left: 0, right: 0, height: '3px',
+                          background: `linear-gradient(90deg, ${prog.color}, ${prog.accent})`,
+                        }} />
+                        <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.15em', textTransform: 'uppercase', color: prog.color, marginBottom: '0.6rem' }}>0{i + 1}</div>
+                        <h4 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.05rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.6rem', lineHeight: 1.35 }}>{d.title}</h4>
+                        <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', color: 'var(--text-mid)', lineHeight: 1.75 }}>{d.desc}</p>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
 
               {/* Alt programlar (BÖGEP, KVYOD gibi) */}
               {prog.subPrograms && prog.subPrograms.length > 0 && (
@@ -273,16 +277,18 @@ export default function ProgramDetayPage() {
               )}
 
               {/* Uygulama notu */}
-              <motion.div {...fadeUp(0.2)} style={{
-                background: `linear-gradient(135deg, ${prog.color}10, ${prog.accent}08)`,
-                borderRadius: '10px',
-                border: `1px solid ${prog.color}25`,
-                padding: '2rem',
-                borderLeft: `5px solid ${prog.color}`,
-              }}>
-                <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: prog.color, marginBottom: '0.75rem' }}> Nasıl Uygulanır?</p>
-                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.85, color: 'var(--text-mid)', fontStyle: 'italic' }}>{prog.apply}</p>
-              </motion.div>
+              {prog.apply && (
+                <motion.div {...fadeUp(0.2)} style={{
+                  background: `linear-gradient(135deg, ${prog.color}10, ${prog.accent}08)`,
+                  borderRadius: '10px',
+                  border: `1px solid ${prog.color}25`,
+                  padding: '2rem',
+                  borderLeft: `5px solid ${prog.color}`,
+                }}>
+                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: prog.color, marginBottom: '0.75rem' }}> Nasıl Uygulanır?</p>
+                  <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.85, color: 'var(--text-mid)', fontStyle: 'italic' }}>{prog.apply}</p>
+                </motion.div>
+              )}
             </div>
           </div>
         </div>

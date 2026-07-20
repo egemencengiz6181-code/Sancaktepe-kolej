@@ -84,12 +84,12 @@ export default function AkreditasyonDanismanlikPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2.5rem' }}
+            style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '2.5rem' }}
           >
             <img
-              src="/logo/kolej%20sancaktepe%20logo%20-%20kare.png"
-              alt="Kolej Sancaktepe"
-              style={{ width: '72px', height: '72px', objectFit: 'contain', filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.4))' }}
+              src="/logo/tedad-2.png"
+              alt="TED AD"
+              style={{ width: '180px', height: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.4))' }}
             />
           </motion.div>
 
@@ -162,22 +162,11 @@ export default function AkreditasyonDanismanlikPage() {
                 marginBottom: '3rem',
                 boxShadow: '0 2px 20px rgba(35,46,92,0.05)',
               }}>
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                   {bullets.map((b, i) => (
-                    <li key={i} style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                      <span style={{
-                        flexShrink: 0, width: '24px', height: '24px', borderRadius: '50%',
-                        background: 'var(--red)', color: '#fff',
-                        fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 900,
-                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        marginTop: '0.15rem',
-                      }}>
-                        {i + 1}
-                      </span>
-                      <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.93rem', color: 'var(--text-mid)', lineHeight: 1.85 }}>{b}</span>
-                    </li>
+                    <p key={i} style={{ fontFamily: 'var(--font-sans)', fontSize: '0.93rem', color: 'var(--text-mid)', lineHeight: 1.85, margin: 0 }}>{b}</p>
                   ))}
-                </ul>
+                </div>
               </motion.div>
 
               <motion.div {...fadeUp(0.1)} style={{ marginBottom: '1rem' }}>
@@ -189,57 +178,6 @@ export default function AkreditasyonDanismanlikPage() {
         <style>{`
           @media (max-width: 900px) { .akred-grid { grid-template-columns: 1fr !important; } }
         `}</style>
-      </section>
-
-      {/* KURUCULARIMIZIN GÖRÜŞLERİ */}
-      <section style={{ padding: '6rem 0', background: 'var(--white)' }}>
-        <div className="section-container">
-          <motion.div {...fadeUp(0)} style={{ textAlign: 'center', marginBottom: '4rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', justifyContent: 'center', marginBottom: '0.75rem' }}>
-              <div className="red-line" />
-              <span className="section-tag">Deneyimler</span>
-              <div className="red-line" />
-            </div>
-            <h2 className="section-title" style={{ textAlign: 'center' }}>
-              Kurucularımızın <span>Görüşleri</span>
-            </h2>
-          </motion.div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.5rem' }}>
-            {quotes.map((q, i) => (
-              <motion.div key={i} {...fadeUp(i * 0.08)}
-                style={{
-                  background: 'var(--off-white)',
-                  borderRadius: '12px',
-                  padding: '2rem',
-                  border: '1px solid var(--grey-light)',
-                  position: 'relative',
-                  boxShadow: '0 2px 16px rgba(35,46,92,0.05)',
-                }}
-              >
-                <div style={{
-                  position: 'absolute', top: 0, left: 0, right: 0, height: '3px',
-                  background: 'linear-gradient(90deg, var(--red), var(--primary))',
-                  borderRadius: '12px 12px 0 0',
-                }} />
-                <div style={{
-                  fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 900,
-                  letterSpacing: '0.15em', textTransform: 'uppercase',
-                  color: 'var(--red)', marginBottom: '1rem',
-                }}>
-                  {q.section}
-                </div>
-                <div style={{
-                  fontFamily: 'var(--font-sans)', fontSize: '0.9rem',
-                  color: 'var(--text-mid)', lineHeight: 1.85,
-                  fontStyle: 'italic',
-                }}>
-                  "{q.text}"
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
       </section>
     </>
   );

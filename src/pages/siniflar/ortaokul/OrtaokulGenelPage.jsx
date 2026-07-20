@@ -17,17 +17,6 @@ const SUB_LINKS = [
   { to: '/siniflar/ortaokul/haftalik-cizelge', label: 'Haftalık Çizelge' },
 ];
 
-const SKILLS = [
-  { title: 'Yarışma ve Olimpiyatlara Katılım', desc: 'Ulusal ve uluslararası akademik yarışmalarda temsil' },
-  { title: 'Laboratuvar Uygulamaları', desc: 'Fen Bilimleri, Kimya ve Biyoloji laboratuvarlarında deneyler' },
-  { title: 'Disiplinler Arası Proje Çalışmaları', desc: 'Farklı dersler arasında bütünleşik proje yaklaşımı' },
-  { title: 'Uluslararası Programlar', desc: 'Oxford AQA, Eko-Okul ve uluslararası ağlarla bağlantı' },
-  { title: 'Sanat ve Kültür Etkinlikleri', desc: 'Müzik, tiyatro, görsel sanatlar ve kültür gezileri' },
-  { title: 'STEM ve Teknoloji', desc: 'FLL, robotik, kodlama ve mühendislik tasarım döngüsü' },
-  { title: 'İletişim ve Liderlik', desc: 'Münazara, sunum ve kulüp liderliği deneyimleri' },
-  { title: 'Çevre Bilinci', desc: 'Eko-Okul projesi ve sürdürülebilirlik uygulamaları' },
-];
-
 export default function OrtaokulGenelPage() {
   return (
     <>
@@ -65,85 +54,73 @@ export default function OrtaokulGenelPage() {
 
       <section style={{ padding: '5.5rem 0', background: 'var(--off-white)' }}>
         <div className="section-container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 380px', gap: '3.5rem', alignItems: 'start' }} className="ortaokul-grid">
-            {/* MAIN */}
-            <div>
-              <motion.div {...fadeUp(0)} style={{ background: 'var(--white)', borderRadius: '14px', padding: '2.5rem', border: '1px solid var(--grey-light)', borderLeft: `5px solid ${COLOR}`, marginBottom: '2.5rem', boxShadow: '0 4px 20px rgba(35,46,92,0.06)' }}>
-                <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.55rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>Düşünen, Sorgulayan, Dünyayı Okuyan Öğrenciler</h2>
-                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: '0.85rem' }}>
-                  Kolej Sancaktepe TED AD Ortaokulu, öğrencilerin akademik gelişimlerinin yanında eleştirel düşünme, problem çözme ve küresel farkındalık kazandıkları bir öğrenme süreci sunar.
-                </p>
-                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: '0.85rem' }}>
-                  Kolej Sancaktepe TED AD Ortaokulu'nda öğretim süreci, UbD – Understanding by Design (Anlamaya Dayalı Tasarım) yaklaşımı esas alınarak yapılandırılır.
-                </p>
-                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: '0.85rem' }}>
-                  Bu yaklaşımda amaç, öğrencilerin yalnızca konuları öğrenmesi değil; bilgiyi anlamlandırması, transfer edebilmesi ve gerçek yaşamda kullanabilmesidir.
-                </p>
-                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: '2rem' }}>
-                  Programımız, LGS uyumlu olmakla birlikte; PISA ve TIMSS gibi uluslararası ölçütleri esas alan beceri temelli bir yapıya sahiptir.
-                </p>
+          <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+            <motion.div {...fadeUp(0)} style={{ background: 'var(--white)', borderRadius: '14px', padding: '3rem', border: '1px solid var(--grey-light)', borderLeft: `5px solid ${COLOR}`, boxShadow: '0 4px 20px rgba(35,46,92,0.06)' }}>
+              <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '2rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.5rem', textAlign: 'center' }}>
+                Kolej Sancaktepe TED AD ORTAOKULU
+              </h2>
+              <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.35rem', fontWeight: 600, color: COLOR, fontStyle: 'italic', marginBottom: '2rem', textAlign: 'center' }}>
+                Düşünen, Sorgulayan, Dünyayı Okuyan Öğrenciler
+              </h3>
 
-                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.85rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '1rem' }}>Eğitim Yaklaşımımız</h4>
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0, marginBottom: '1.5rem' }}>
-                  {['Okuryazarlık temelli öğretim', 'Disiplinlerarası öğrenme', 'Beceri odaklı ölçme ve değerlendirme', 'Güçlü rehberlik ve mentörlük sistemi'].map((item, i) => (
-                    <li key={i} style={{ display: 'flex', gap: '0.75rem', marginBottom: '0.65rem' }}>
-                      <span style={{ color: COLOR, flexShrink: 0 }}>•</span>
-                      <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.93rem', color: 'var(--text-mid)', lineHeight: 1.8 }}>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+              <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: '1rem' }}>
+                Kolej Sancaktepe TED AD Ortaokulu, öğrencilerin akademik gelişimlerinin yanında <strong>eleştirel düşünme, problem çözme ve küresel farkındalık</strong> kazandıkları bir öğrenme süreci sunar.
+              </p>
 
-                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.85rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '1rem' }}>Program İçeriği</h4>
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0, marginBottom: '1.5rem' }}>
-                  {['Türkçe, Matematik, Fen Bilimleri', 'Sosyal Bilgiler, İnkılap Tarihi', 'İngilizce (yoğun + native destekli)', '2.yabancı dil', 'Küresel vizyon ve yaşam dersleri', 'Sosyal sorumluluk projeleri', 'Okul dışı öğrenme etkinlikleri', 'Kulüp ve etüt çalışmaları'].map((item, i) => (
-                    <li key={i} style={{ display: 'flex', gap: '0.75rem', marginBottom: '0.65rem' }}>
-                      <span style={{ color: COLOR, flexShrink: 0 }}>•</span>
-                      <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.93rem', color: 'var(--text-mid)', lineHeight: 1.8 }}>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+              <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: '1rem' }}>
+                Kolej Sancaktepe TED AD Ortaokulu'nda öğretim süreci, UbD – Understanding by Design (Anlamaya Dayalı Tasarım) yaklaşımı esas alınarak yapılandırılır.
+              </p>
 
-                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.85rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '1rem' }}>Hedefimiz</h4>
-                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.95, margin: 0 }}>
-                  Akademik başarıyı, düşünme becerileri ve yaşam farkındalığıyla birlikte geliştiren öğrenciler yetiştirmek.
-                </p>
-              </motion.div>
-            </div>
+              <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: '1rem' }}>
+                Bu yaklaşımda amaç, öğrencilerin yalnızca konuları öğrenmesi değil; bilgiyi anlamlandırması, transfer edebilmesi ve gerçek yaşamda kullanabilmesidir.
+              </p>
 
-            {/* SIDEBAR */}
-            <div style={{ position: 'sticky', top: '100px' }}>
-              <motion.div {...fadeUp(0.1)}>
-                <div style={{ background: 'var(--white)', borderRadius: '12px', padding: '1.75rem', border: '1px solid var(--grey-light)', marginBottom: '1.25rem', boxShadow: '0 4px 20px rgba(35,46,92,0.06)' }}>
-                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: '1rem' }}>Bu Bölümdeki Sayfalar</p>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                    {SUB_LINKS.map((l) => (
-                      <Link key={l.to} to={l.to} style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', padding: '0.6rem 0.85rem', borderRadius: '7px', background: 'var(--off-white)', fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.05em', color: 'var(--primary)', textDecoration: 'none', transition: 'background 0.2s' }}
-                        onMouseEnter={e => e.currentTarget.style.background = `${COLOR}15`}
-                        onMouseLeave={e => e.currentTarget.style.background = 'var(--off-white)'}
-                      >
-                         {l.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-              <motion.div {...fadeUp(0.15)}>
-                <div style={{ background: COLOR, borderRadius: '12px', padding: '1.75rem', boxShadow: '0 8px 30px rgba(230,25,54,0.25)' }}>
-                  <p style={{ fontFamily: 'var(--font-serif)', fontSize: '1.05rem', fontWeight: 700, color: '#fff', marginBottom: '0.5rem' }}>Kayıt ve Bilgi</p>
-                  <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.82rem', color: 'rgba(255,255,255,0.75)', lineHeight: 1.7, marginBottom: '1.25rem' }}>Ortaokul kademesi hakkında daha fazla bilgi almak için kayıt ofisimizle iletişime geçin.</p>
-                  <a href="tel:02166060833" style={{ display: 'block', fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 800, letterSpacing: '0.06em', color: COLOR, background: '#fff', borderRadius: '6px', padding: '0.65rem 1rem', textAlign: 'center', textDecoration: 'none', marginBottom: '0.5rem' }}>0216 606 0 833</a>
-                  <a href="mailto:info@kolejsancaktepe.com" style={{ display: 'block', fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.05em', color: 'rgba(255,255,255,0.7)', textAlign: 'center', textDecoration: 'none' }}>info@kolejsancaktepe.com</a>
-                </div>
-              </motion.div>
-            </div>
+              <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: '2.5rem' }}>
+                Programımız, <strong>LGS uyumlu</strong> olmakla birlikte; <strong>PISA ve TIMSS gibi uluslararası ölçütleri</strong> esas alan beceri temelli bir yapıya sahiptir.
+              </p>
+
+              <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.9rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '1.25rem', marginTop: '2.5rem' }}>Eğitim Yaklaşımımız</h4>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, marginBottom: '2.5rem' }}>
+                {[
+                  'Okuryazarlık temelli öğretim',
+                  'Disiplinlerarası öğrenme',
+                  'Beceri odaklı ölçme ve değerlendirme',
+                  'Güçlü rehberlik ve mentörlük sistemi'
+                ].map((item, i) => (
+                  <li key={i} style={{ display: 'flex', gap: '0.85rem', marginBottom: '0.75rem', alignItems: 'flex-start' }}>
+                    <span style={{ color: COLOR, flexShrink: 0, fontSize: '1.2rem', lineHeight: 1 }}>●</span>
+                    <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.8 }}>{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.9rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '1.25rem', marginTop: '2.5rem' }}>Program İçeriği</h4>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, marginBottom: '2.5rem' }}>
+                {[
+                  'Türkçe, Matematik, Fen Bilimleri',
+                  'Sosyal Bilgiler, İnkılap Tarihi',
+                  'İngilizce (yoğun + native destekli)',
+                  '2.yabancı dil',
+                  'Küresel vizyon ve yaşam dersleri',
+                  'Sosyal sorumluluk projeleri',
+                  'Okul dışı öğrenme etkinlikleri',
+                  'Kulüp ve etüt çalışmaları'
+                ].map((item, i) => (
+                  <li key={i} style={{ display: 'flex', gap: '0.85rem', marginBottom: '0.75rem', alignItems: 'flex-start' }}>
+                    <span style={{ color: COLOR, flexShrink: 0, fontSize: '1.2rem', lineHeight: 1 }}>●</span>
+                    <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.8 }}>{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.9rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '1.25rem', marginTop: '2.5rem' }}>Hedefimiz</h4>
+              <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.95, margin: 0 }}>
+                Akademik başarıyı, düşünme becerileri ve yaşam farkındalığıyla birlikte geliştiren öğrenciler yetiştirmek.
+              </p>
+            </motion.div>
           </div>
         </div>
       </section>
-
-      <style>{`
-        @media (max-width: 900px) { .ortaokul-grid { grid-template-columns: 1fr !important; } }
-        @media (max-width: 640px) { .skills-grid { grid-template-columns: 1fr !important; } }
-      `}</style>
     </>
   );
 }

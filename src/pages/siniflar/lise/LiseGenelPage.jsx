@@ -19,17 +19,6 @@ const SUB_LINKS = [
   { to: '/siniflar/lise/haftalik-cizelge', label: 'Haftalık Çizelge' },
 ];
 
-const SKILLS = [
-  { title: 'Ulusal & Uluslararası Platformlar', desc: 'Bilim, kültür, sanat ve spor yarışmalarında temsil' },
-  { title: 'Tam Donanımlı Laboratuvarlar', desc: 'Fizik, kimya, biyoloji laboratuvarları ve bilgisayar sınıfları' },
-  { title: 'Disiplinler Arası Çalışmalar', desc: 'Farklı alanları birleştiren proje ve araştırmalar' },
-  { title: 'AP Programı', desc: 'College Board onaylı ileri seviye üniversite dersleri' },
-  { title: 'Yoğun Yabancı Dil Eğitimi', desc: '9–10. sınıflarda İngilizce matematik ve fen dersleri' },
-  { title: 'Kültür & Sanat Ortamları', desc: 'Müzik atölyeleri, görsel sanatlar, tiyatro ve konserler' },
-  { title: 'Toplum Hizmeti', desc: 'Değerler eğitimine katkı sağlayan sosyal sorumluluk projeleri' },
-  { title: 'Kariyer Danışmanlığı', desc: 'Yurt içi ve yurt dışı üniversite hazırlık süreci desteği' },
-];
-
 export default function LiseGenelPage() {
   return (
     <>
@@ -66,96 +55,64 @@ export default function LiseGenelPage() {
 
       <section style={{ padding: '5.5rem 0', background: 'var(--off-white)' }}>
         <div className="section-container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 380px', gap: '3.5rem', alignItems: 'start' }} className="lise-grid">
+          <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+            <motion.div {...fadeUp(0)} style={{ background: 'var(--white)', borderRadius: '14px', padding: '3rem', border: '1px solid var(--grey-light)', borderLeft: '5px solid var(--primary)', boxShadow: '0 4px 20px rgba(35,46,92,0.06)' }}>
+              <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '2rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.5rem', textAlign: 'center' }}>
+                Kolej Sancaktepe TED AD LİSESİ
+              </h2>
+              <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.35rem', fontWeight: 600, color: 'var(--red)', fontStyle: 'italic', marginBottom: '2rem', textAlign: 'center' }}>
+                Geleceği Okuyan, Yönünü Belirleyen Gençler
+              </h3>
 
-            {/* MAIN */}
-            <div>
-              <motion.div {...fadeUp(0)} style={{ background: 'var(--white)', borderRadius: '14px', padding: '2.5rem', border: '1px solid var(--grey-light)', borderLeft: '5px solid var(--primary)', marginBottom: '2.5rem', boxShadow: '0 4px 20px rgba(35,46,92,0.06)' }}>
-                <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.55rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>Geleceği Okuyan, Yönünü Belirleyen Gençler</h3>
-                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: '0.85rem' }}>
-                  Kolej Sancaktepe TED AD Lisesi, öğrencileri yalnızca üniversiteye değil, hayata ve dünyaya hazırlayan çok yönlü bir eğitim anlayışı sunar.
-                </p>
-                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: '0.85rem' }}>
-                  Lise programımız; YKS ve AP perspektifleriyle uyumlu, akademik derinliği yüksek ve öğrencinin bireysel yolunu destekleyen bir yapıya sahiptir.
-                </p>
+              <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: '1rem' }}>
+                Kolej Sancaktepe TED AD Lisesi, öğrencileri yalnızca üniversiteye değil, <strong>hayata ve dünyaya</strong> hazırlayan çok yönlü bir eğitim anlayışı sunar.
+              </p>
 
-                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.85rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginTop: '2rem', marginBottom: '1rem' }}>Eğitim Yaklaşımımız</h4>
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                  {['Akademik derinleşme ve disiplinlerarası öğrenme', 'Uluslararası bakış açısı', 'Mentörlük ve kariyer rehberliği', 'Proje, araştırma ve üretim odaklı çalışmalar'].map((item, i) => (
-                    <li key={i} style={{ display: 'flex', gap: '0.75rem', marginBottom: '0.65rem' }}>
-                      <span style={{ color: 'var(--red)', flexShrink: 0 }}>•</span>
-                      <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.93rem', color: 'var(--text-mid)', lineHeight: 1.8 }}>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+              <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: '2.5rem' }}>
+                Lise programımız; <strong>YKS ve AP perspektifleriyle uyumlu</strong>, akademik derinliği yüksek ve öğrencinin bireysel yolunu destekleyen bir yapıya sahiptir.
+              </p>
 
-                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.85rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginTop: '2rem', marginBottom: '1rem' }}>Program İçeriği</h4>
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                  {['Alan dersleri (sayısal, sözel, eşit ağırlık)', 'Yoğun İngilizce ve akademik dil becerileri', '2.yabancı dil (Almanca)', 'AP / hazırlık modülleri', 'Sosyal sorumluluk ve liderlik projeleri', 'Okul dışı etkinlikler ve üniversite bağlantıları', 'Rehberlik ve bireysel mentörlük'].map((item, i) => (
-                    <li key={i} style={{ display: 'flex', gap: '0.75rem', marginBottom: '0.65rem' }}>
-                      <span style={{ color: 'var(--red)', flexShrink: 0 }}>•</span>
-                      <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.93rem', color: 'var(--text-mid)', lineHeight: 1.8 }}>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.85rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginTop: '2rem', marginBottom: '1rem' }}>Hedefimiz</h4>
-                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.95, margin: 0 }}>
-                  Kendi yolunu çizebilen, dünyayı anlayan, sorumluluk alan ve geleceğe hazır bireyler
-                </p>
-              </motion.div>
-
-              <motion.h2 {...fadeUp(0.05)} style={{ fontFamily: 'var(--font-serif)', fontSize: '1.5rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.5rem' }}>Öne Çıkan Özellikler</motion.h2>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }} className="skills-grid">
-                {SKILLS.map((s, i) => (
-                  <motion.div key={i} {...fadeUp(0.07 + i * 0.04)}>
-                    <div style={{ background: 'var(--white)', borderRadius: '10px', padding: '1.25rem 1.5rem', border: '1px solid var(--grey-light)', transition: 'transform 0.2s, box-shadow 0.2s' }}
-                      onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(35,46,92,0.08)'; }}
-                      onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}
-                    >
-                      
-                      <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.3rem' }}>{s.title}</p>
-                      <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.82rem', color: 'var(--text-mid)', lineHeight: 1.75, margin: 0 }}>{s.desc}</p>
-                    </div>
-                  </motion.div>
+              <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.9rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '1.25rem', marginTop: '2.5rem' }}>Eğitim Yaklaşımımız</h4>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, marginBottom: '2.5rem' }}>
+                {[
+                  'Akademik derinleşme ve disiplinlerarası öğrenme',
+                  'Uluslararası bakış açısı',
+                  'Mentörlük ve kariyer rehberliği',
+                  'Proje, araştırma ve üretim odaklı çalışmalar'
+                ].map((item, i) => (
+                  <li key={i} style={{ display: 'flex', gap: '0.85rem', marginBottom: '0.75rem', alignItems: 'flex-start' }}>
+                    <span style={{ color: 'var(--red)', flexShrink: 0, fontSize: '1.2rem', lineHeight: 1 }}>●</span>
+                    <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.8 }}>{item}</span>
+                  </li>
                 ))}
-              </div>
-            </div>
+              </ul>
 
-            {/* SIDEBAR */}
-            <div style={{ position: 'sticky', top: '100px' }}>
-              <motion.div {...fadeUp(0.1)}>
-                <div style={{ background: 'var(--white)', borderRadius: '12px', padding: '1.75rem', border: '1px solid var(--grey-light)', marginBottom: '1.25rem', boxShadow: '0 4px 20px rgba(35,46,92,0.06)' }}>
-                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: '1rem' }}>Bu Bölümdeki Sayfalar</p>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                    {SUB_LINKS.map((l) => (
-                      <Link key={l.to} to={l.to} style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', padding: '0.6rem 0.85rem', borderRadius: '7px', background: 'var(--off-white)', fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.05em', color: 'var(--primary)', textDecoration: 'none', transition: 'background 0.2s' }}
-                        onMouseEnter={e => e.currentTarget.style.background = 'rgba(35,46,92,0.08)'}
-                        onMouseLeave={e => e.currentTarget.style.background = 'var(--off-white)'}
-                      >
-                         {l.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-              <motion.div {...fadeUp(0.15)}>
-                <div style={{ background: 'var(--primary)', borderRadius: '12px', padding: '1.75rem', boxShadow: '0 8px 30px rgba(35,46,92,0.25)' }}>
-                  <p style={{ fontFamily: 'var(--font-serif)', fontSize: '1.05rem', fontWeight: 700, color: '#fff', marginBottom: '0.5rem' }}>Kayıt ve Bilgi</p>
-                  <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.82rem', color: 'rgba(255,255,255,0.75)', lineHeight: 1.7, marginBottom: '1.25rem' }}>Lise kademesi hakkında daha fazla bilgi almak için kayıt ofisimizle iletişime geçin.</p>
-                  <a href="tel:02166060833" style={{ display: 'block', fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 800, letterSpacing: '0.06em', color: 'var(--primary)', background: '#fff', borderRadius: '6px', padding: '0.65rem 1rem', textAlign: 'center', textDecoration: 'none', marginBottom: '0.5rem' }}>0216 606 0 833</a>
-                  <a href="mailto:info@kolejsancaktepe.com" style={{ display: 'block', fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.05em', color: 'rgba(255,255,255,0.7)', textAlign: 'center', textDecoration: 'none' }}>info@kolejsancaktepe.com</a>
-                </div>
-              </motion.div>
-            </div>
+              <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.9rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '1.25rem', marginTop: '2.5rem' }}>Program İçeriği</h4>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, marginBottom: '2.5rem' }}>
+                {[
+                  'Alan dersleri (sayısal, sözel, eşit ağırlık)',
+                  'Yoğun İngilizce ve akademik dil becerileri',
+                  '2.yabancı dil (Almanca)',
+                  'AP / hazırlık modülleri',
+                  'Sosyal sorumluluk ve liderlik projeleri',
+                  'Okul dışı etkinlikler ve üniversite bağlantıları',
+                  'Rehberlik ve bireysel mentörlük'
+                ].map((item, i) => (
+                  <li key={i} style={{ display: 'flex', gap: '0.85rem', marginBottom: '0.75rem', alignItems: 'flex-start' }}>
+                    <span style={{ color: 'var(--red)', flexShrink: 0, fontSize: '1.2rem', lineHeight: 1 }}>●</span>
+                    <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.8 }}>{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.9rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '1.25rem', marginTop: '2.5rem' }}>Hedefimiz</h4>
+              <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.95, margin: 0 }}>
+                Kendi yolunu çizebilen, dünyayı anlayan, sorumluluk alan ve geleceğe hazır bireyler.
+              </p>
+            </motion.div>
           </div>
         </div>
       </section>
-
-      <style>{`
-        @media (max-width: 900px) { .lise-grid { grid-template-columns: 1fr !important; } }
-        @media (max-width: 640px) { .skills-grid { grid-template-columns: 1fr !important; } }
-      `}</style>
     </>
   );
 }

@@ -32,9 +32,9 @@ export default function Footer() {
           <div>
             <div style={{ marginBottom: '1.5rem' }}>
               <img
-                src="/logo/kolej%20sancaktepe%20logo%20-%20yatay.png"
+                src="/logo/kolej%20sancaktepe%20logo%20-%20yatay.png?v=2"
                 alt="Kolej Sancaktepe"
-                style={{ height: '120px', objectFit: 'contain', filter: 'brightness(0) invert(1)' }}
+                style={{ height: '120px', objectFit: 'contain' }}
                 onError={(e) => { e.target.style.display = 'none'; }}
               />
             </div>
@@ -70,7 +70,6 @@ export default function Footer() {
                 { href: '/birimler/pdr', label: 'Psikolojik Danışmanlık ve Rehberlik' },
                 { href: '/birimler/sks', label: 'ODE Koordinatörlüğü' },
                 { href: '/birimler/yabanci-dil', label: 'Yabancı Dil' },
-                { href: '/birimler/fark-yaratan-programlar', label: 'Fark Yaratan Programlar' },
               ].map((link) => (
                 <li key={link.href}>
                   <Link to={link.href} style={{ textDecoration: 'none', fontFamily: 'var(--font-sans)', fontSize: '0.88rem', color: 'rgba(255,255,255,0.55)', transition: 'color 0.3s', display: 'flex', alignItems: 'center', gap: '0.5rem' }}
