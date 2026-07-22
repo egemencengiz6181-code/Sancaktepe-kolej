@@ -17,7 +17,7 @@ export const programs = [
   {
     id: 'bogep',
     tag: 'BÖGEP',
-    pdf: '/pdf%20ler/b%C3%B6gep%20web.pdf',
+    pdf: '/pdf ler/bogep-web.pdf',
     title: 'TED AD – Bütüncül Öğrenme ve Gelişim Programları (BÖGEP)',
     subtitle: 'Bütüncül Öğrenme ve Gelişim Programları',
     color: '#232e5c',
@@ -65,7 +65,7 @@ export const programs = [
   {
     id: 'kvyod',
     tag: 'Küresel Vizyon ve Yaşam Odaklı Dersler',
-    pdf: '/pdf%20ler/k%C3%BCresel%20vizyon%20web.pdf',
+    pdf: '/pdf ler/kuresel-vizyon-web.pdf',
     title: 'Küresel Vizyon ve Yaşam Odaklı Dersler',
     subtitle: 'Ortaokul ve Lise',
     color: '#059669',
@@ -85,7 +85,7 @@ export const programs = [
   {
     id: 'okuryazarlik',
     tag: 'OKURYAZARLIK PROGRAMI',
-    pdf: '/pdf%20ler/okuryazarl%C4%B1k%20web.pdf',
+    pdf: '/pdf ler/okuryazarlik-web.pdf',
     title: 'Okuryazarlık Temelli Ortaokul ve Lise Eğitim Modeli',
     subtitle: 'Okuryazarlık Temelli Program',
     color: '#312e81',
@@ -214,7 +214,7 @@ export const programs = [
   {
     id: 'uygulamali-dersler',
     tag: 'UDP - Uygulamalı Dersler Programı',
-    pdf: '/pdf%20ler/uygulamal%C4%B1%20dersler%20web.pdf',
+    pdf: '/pdf ler/uygulamali-dersler-web.pdf',
     title: 'Uygulamalı Dersler ve Branşlaşma Modeli',
     subtitle: '(Sanat, Spor ve Yaşam Odaklı Eğitim)',
     color: '#134e4a',
