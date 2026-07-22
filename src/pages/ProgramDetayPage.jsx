@@ -360,7 +360,7 @@ export default function ProgramDetayPage() {
                   {/* 3. SDGs */}
                   <div>
                     <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.5rem' }}>
-                      3️⃣ BM Sürdürülebilir Kalkınma Amaçları (SDGs)
+                      BM Sürdürülebilir Kalkınma Amaçları (SDGs)
                     </h2>
                     <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', fontStyle: 'italic', marginBottom: '1.5rem' }}>
                       Sustainable Goals ile Entegrasyon
