@@ -123,7 +123,7 @@ export const programs = [
 
   {
     id: 'yabanci-dil',
-    tag: 'YDP',
+    tag: '',
     title: 'Yabancı Dil Programı',
     subtitle: 'Yabancı Dil Programı',
     color: '#1e40af',
@@ -143,8 +143,62 @@ export const programs = [
     ],
     apply: 'Yabancı dil dersleri yalnızca dil öğretimi üzerine değil; içerik temelli öğrenme üzerine kuruludur. Program ayrıca Birleşmiş Milletler Sürdürülebilir Kalkınma Amaçları (SDGs) ile ilişkilendirilir.',
     details: [
-      { title: 'İngilizce', desc: 'İçerik tabanlı öğrenme (BBC Modeli), konuşma ve tartışma pratikleri, English Movie Nights, İngilizce tiyatro ve drama, disiplinlerarası entegrasyon, Cambridge modeli.' },
-      { title: 'Almanca', desc: 'İletişim temelli dil öğrenimi, drama ve kültür etkinlikleri, Alman sineması ve medya çalışmaları, disiplinlerarası entegrasyon, Avrupa kültürü.' },
+      { 
+        title: 'Yabancı Dil Öğrenme Felsefesi', 
+        desc: 'Kolej Sancaktepe TED AD\'de yabancı dil; bir ders saati değil yaşam alanıdır, bir dil bilgisi sistemi değil anlam ve iletişim aracıdır, bir sınav hedefi değil dünya ile bağ kurma yoludur. Bu yaklaşımda öğrenciler dili ezberlemez; dili kullanarak düşünür, tartışır, üretir ve dünyayı anlamlandırır.' 
+      },
+      { 
+        title: 'İçerik Tabanlı Öğrenme (BBC Modeli)', 
+        desc: 'İngilizce dersleri yalnızca dil öğretimi üzerine değil; içerik temelli öğrenme üzerine kuruludur. Öğrenciler günlük ve haftalık podcast içerikleri dinler, bilim, çevre, kültür ve güncel olayları tartışır, dinleme-konuşma-yazma becerilerini birlikte geliştirir. Dil öğrenimi burada bir amaç değil; bilgi üretmenin aracıdır.' 
+      },
+      { 
+        title: 'Konuşma ve Tartışma Pratikleri', 
+        desc: 'Öğrenciler haftalık konuşma saatlerinde münazara, yuvarlak masa tartışmaları, güncel mesele analizleri gibi etkinliklerle İngilizceyi aktif şekilde kullanırlar. Tartışma konuları arasında etik problemler, teknolojik gelişmeler, küresel sorunlar ve sosyal meseleler yer alır.' 
+      },
+      { 
+        title: 'English Movie Nights', 
+        desc: 'Belirli dönemlerde düzenlenen sinema günlerinde öğrenciler orijinal dilde film izler, film karakterlerini analiz eder, tarih, sosyoloji ve psikoloji bağlamında değerlendirme yapar. Bu çalışmalar öğrencilerin eleştirel düşünme ve kültürel okuma becerilerini geliştirir.' 
+      },
+      { 
+        title: 'İngilizce Tiyatro ve Drama', 
+        desc: 'Drama temelli öğrenme modeli ile öğrenciler sahne dili, beden dili ve anlatım becerileri üzerinde çalışır. Her yıl düzenlenen İngilizce tiyatro gösterileri, öğrencilerin dili doğal ve yaratıcı biçimde kullanmasını sağlar.' 
+      },
+      { 
+        title: 'Disiplinlerarası Entegrasyon', 
+        desc: 'Kolej Sancaktepe TED AD\'de İngilizce öğretimi fen bilimleri, coğrafya, tarih, sürdürülebilirlik ve teknoloji gibi alanlarla entegre şekilde yürütülür. Öğrenciler iklim krizi, göç, yapay zekâ, etik sorunlar gibi küresel konuları İngilizce üzerinden araştırır ve tartışır. Program ayrıca Birleşmiş Milletler Sürdürülebilir Kalkınma Amaçları (SDGs) ile ilişkilendirilir. Bu yaklaşım sayesinde öğrenci İngilizce dersi yapmaz; İngilizce ile dünyayı okur.' 
+      },
+      { 
+        title: 'Cambridge Modeli ile Dil Öğrenme Süreci', 
+        desc: 'Kolej Sancaktepe TED AD yabancı dil programı, Cambridge uluslararası eğitim yaklaşımının ilkeleri doğrultusunda yaşa uygun aşamalar halinde yapılandırılmıştır.' 
+      },
+      { 
+        title: 'Almanca İkinci Yabancı Dil Programı', 
+        desc: 'Avrupa Kültürü, Akademik Dil ve Uluslararası Bağlantı Modeli. Kolej Sancaktepe TED AD\'de Almanca öğretimi yalnızca ikinci bir yabancı dil olarak değil; öğrencilerin Avrupa kültürü, akademik dünyası ve uluslararası eğitim olanakları ile güçlü bağlar kurmasını sağlayan stratejik bir öğrenme alanı olarak tasarlanmıştır. Almanca programı İngilizce ile paralel ilerler ve öğrencilerin çok dilli düşünme becerisi geliştirmesini hedefler. Amaç; öğrencilerin yalnızca bir dil öğrenmesi değil, çok kültürlü bir düşünme yapısı geliştirmesidir.' 
+      },
+      { 
+        title: 'İkinci Yabancı Dil Öğrenme Felsefesi', 
+        desc: 'Kolej Sancaktepe TED AD\'de Almanca öğretimi ezbere dayalı dil öğretimi değildir, iletişim ve kültür temelli öğrenmeye dayanır ve öğrenciyi Avrupa kültürü ile buluşturur. Programın temel amacı öğrencilerin çok dilli düşünme becerisi kazanması, Avrupa kültürünü tanıması ve uluslararası eğitim ve kariyer olanaklarına hazırlanmasıdır.' 
+      },
+      { 
+        title: 'İletişim Temelli Dil Öğrenimi', 
+        desc: 'Almanca dersleri günlük iletişim, diyalog çalışmaları, rol oynama etkinlikleri ve konuşma pratikleri üzerine kuruludur. Öğrenciler dili yalnızca öğrenmez, aktif olarak kullanır.' 
+      },
+      { 
+        title: 'Drama ve Kültür Etkinlikleri', 
+        desc: 'Almanca öğretimi drama çalışmaları, kültürel sunumlar ve Alman kültürü ve tarihi üzerine etkinlikler ile desteklenir. Öğrenciler Alman edebiyatı, müzik, sanat ve kültürel gelenekler ile tanışır.' 
+      },
+      { 
+        title: 'Alman Sineması ve Medya Çalışmaları', 
+        desc: 'Program kapsamında öğrenciler Almanca kısa filmler, belgeseller ve kültürel içerikler izleyerek dil becerilerini geliştirir. Bu çalışmalar dinleme becerisi, kültürel farkındalık ve eleştirel düşünme alanlarını güçlendirir.' 
+      },
+      { 
+        title: 'Disiplinlerarası Entegrasyon (Almanca)', 
+        desc: 'Almanca programı tarih, coğrafya, kültür çalışmaları, Avrupa Birliği yapısı ve küresel konular ile ilişkilendirilir. Öğrenciler Almanca aracılığıyla Avrupa toplumlarını, kültürleri ve tarihsel süreçleri tanıma fırsatı bulur.' 
+      },
+      { 
+        title: 'Almanca Dil Gelişim Süreci', 
+        desc: 'Program, öğrencinin yaş gelişimine uygun olarak aşamalı biçimde ilerler.' 
+      },
     ],
   },
 
