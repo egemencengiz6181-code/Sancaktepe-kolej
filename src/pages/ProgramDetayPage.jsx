@@ -216,7 +216,7 @@ export default function ProgramDetayPage() {
                   
                   {/* 1. ORTAOKUL */}
                   <div style={{ marginBottom: '3.5rem' }}>
-                    <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.5rem' }}>1️⃣ Ortaokul</h2>
+                    <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.5rem' }}>Ortaokul</h2>
                     <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', fontStyle: 'italic', marginBottom: '2rem' }}>
                       (Kimlik, düşünme, dünya ile bağ kurma)
                     </p>
@@ -266,7 +266,7 @@ export default function ProgramDetayPage() {
 
                   {/* 2. LİSE */}
                   <div style={{ marginBottom: '3.5rem' }}>
-                    <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.5rem' }}>2️⃣ LİSE</h2>
+                    <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.5rem' }}>LİSE</h2>
                     <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', fontStyle: 'italic', marginBottom: '1rem' }}>
                       Yön, Anlam ve Gelecek
                     </p>
