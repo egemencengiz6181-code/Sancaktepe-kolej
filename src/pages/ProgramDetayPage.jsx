@@ -393,8 +393,74 @@ export default function ProgramDetayPage() {
                 </motion.div>
               ) : (
                 <>
-                  {/* Detay bölümleri */}
-                  {prog.details && prog.details.length > 0 && (
+                  {/* Sections veya Detay bölümleri */}
+                  {prog.sections ? (
+                    <motion.div {...fadeUp(0.1)} style={{ marginBottom: '3.5rem' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
+                        <div style={{ width: '4px', height: '32px', background: `linear-gradient(180deg, ${prog.color}, ${prog.accent})`, borderRadius: '2px' }} />
+                        <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)' }}>Program</h2>
+                      </div>
+                      {prog.sections.map((section, secIdx) => {
+                        if (section.type === 'intro') {
+                          return (
+                            <motion.div key={secIdx} {...fadeUp(secIdx * 0.1)} style={{ marginBottom: '2.5rem' }}>
+                              <div style={{ background: `linear-gradient(135deg, ${prog.color}08, ${prog.color}03)`, borderRadius: '10px', border: `1px solid ${prog.color}20`, padding: '2rem' }}>
+                                <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.4rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1rem' }}>{section.title}</h3>
+                                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.8, color: 'var(--text-mid)' }}>{section.content}</p>
+                              </div>
+                            </motion.div>
+                          );
+                        }
+                        
+                        if (section.type === 'single') {
+                          return (
+                            <motion.div key={secIdx} {...fadeUp(secIdx * 0.1)} style={{ marginBottom: '2.5rem' }}>
+                              <div style={{ background: 'var(--white)', borderRadius: '10px', border: '1px solid var(--grey-light)', padding: '2rem', boxShadow: '0 2px 20px rgba(35,46,92,0.06)' }}>
+                                <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.3rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1rem' }}>{section.title}</h3>
+                                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.8, color: 'var(--text-mid)' }}>{section.content}</p>
+                              </div>
+                            </motion.div>
+                          );
+                        }
+                        
+                        if (section.type === 'group') {
+                          return (
+                            <motion.div key={secIdx} {...fadeUp(secIdx * 0.1)} style={{ marginBottom: '3.5rem' }}>
+                              <div style={{ marginBottom: '1.5rem' }}>
+                                <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.6rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.02em' }}>{section.title}</h3>
+                                {section.subtitle && (
+                                  <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: prog.color, fontStyle: 'italic', marginBottom: '0.75rem' }}>{section.subtitle}</p>
+                                )}
+                                {section.intro && (
+                                  <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.75, color: 'var(--text-mid)', marginBottom: '1rem' }}>{section.intro}</p>
+                                )}
+                              </div>
+                              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.25rem' }} className="details-grid">
+                                {section.items && section.items.map((item, itemIdx) => (
+                                  <motion.div key={itemIdx} {...fadeUp((secIdx + itemIdx) * 0.08)} style={{ background: 'var(--white)', borderRadius: '10px', padding: '1.75rem', border: '1px solid var(--grey-light)', boxShadow: '0 2px 20px rgba(35,46,92,0.06)', position: 'relative', overflow: 'hidden' }}>
+                                    <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: `linear-gradient(90deg, ${prog.color}, ${prog.accent})` }} />
+                                    <h4 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.05rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.8rem', lineHeight: 1.35 }}>{item.title}</h4>
+                                    {item.desc && <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', color: 'var(--text-mid)', lineHeight: 1.75 }}>{item.desc}</p>}
+                                    {item.subitems && item.subitems.length > 0 && (
+                                      <div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: `1px solid ${prog.color}15` }}>
+                                        {item.subitems.map((subitem, subIdx) => (
+                                          <div key={subIdx} style={{ marginBottom: '1rem' }}>
+                                            <h5 style={{ fontFamily: 'var(--font-sans)', fontSize: '0.88rem', fontWeight: 600, color: prog.color, marginBottom: '0.4rem' }}>• {subitem.title}</h5>
+                                            <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.82rem', color: 'var(--text-mid)', lineHeight: 1.65, marginLeft: '0.8rem' }}>{subitem.desc}</p>
+                                          </div>
+                                        ))}
+                                      </div>
+                                    )}
+                                  </motion.div>
+                                ))}
+                              </div>
+                            </motion.div>
+                          );
+                        }
+                        return null;
+                      })}
+                    </motion.div>
+                  ) : prog.details && prog.details.length > 0 && (
                 <motion.div {...fadeUp(0.1)} style={{ marginBottom: '3.5rem' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
                     <div style={{ width: '4px', height: '32px', background: `linear-gradient(180deg, ${prog.color}, ${prog.accent})`, borderRadius: '2px' }} />
