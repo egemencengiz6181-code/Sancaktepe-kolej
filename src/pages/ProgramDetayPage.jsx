@@ -406,7 +406,11 @@ export default function ProgramDetayPage() {
                             <motion.div key={secIdx} {...fadeUp(secIdx * 0.1)} style={{ marginBottom: '2.5rem' }}>
                               <div style={{ background: `linear-gradient(135deg, ${prog.color}08, ${prog.color}03)`, borderRadius: '10px', border: `1px solid ${prog.color}20`, padding: '2rem' }}>
                                 <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.4rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1rem' }}>{section.title}</h3>
-                                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.8, color: 'var(--text-mid)' }}>{section.content}</p>
+                                <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.8, color: 'var(--text-mid)' }}>
+                                  {section.content.split('\n\n').map((para, pIdx) => (
+                                    <p key={pIdx} style={{ marginBottom: pIdx < section.content.split('\n\n').length - 1 ? '0.75rem' : 0 }}>{para}</p>
+                                  ))}
+                                </div>
                               </div>
                             </motion.div>
                           );
@@ -417,7 +421,11 @@ export default function ProgramDetayPage() {
                             <motion.div key={secIdx} {...fadeUp(secIdx * 0.1)} style={{ marginBottom: '2.5rem' }}>
                               <div style={{ background: 'var(--white)', borderRadius: '10px', border: '1px solid var(--grey-light)', padding: '2rem', boxShadow: '0 2px 20px rgba(35,46,92,0.06)' }}>
                                 <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.3rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1rem' }}>{section.title}</h3>
-                                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.8, color: 'var(--text-mid)' }}>{section.content}</p>
+                                <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.8, color: 'var(--text-mid)' }}>
+                                  {section.content.split('\n\n').map((para, pIdx) => (
+                                    <p key={pIdx} style={{ marginBottom: pIdx < section.content.split('\n\n').length - 1 ? '0.75rem' : 0 }}>{para}</p>
+                                  ))}
+                                </div>
                               </div>
                             </motion.div>
                           );
@@ -444,9 +452,18 @@ export default function ProgramDetayPage() {
                                     {item.subitems && item.subitems.length > 0 && (
                                       <div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: `1px solid ${prog.color}15` }}>
                                         {item.subitems.map((subitem, subIdx) => (
-                                          <div key={subIdx} style={{ marginBottom: '1rem' }}>
-                                            <h5 style={{ fontFamily: 'var(--font-sans)', fontSize: '0.88rem', fontWeight: 600, color: prog.color, marginBottom: '0.4rem' }}>• {subitem.title}</h5>
-                                            <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.82rem', color: 'var(--text-mid)', lineHeight: 1.65, marginLeft: '0.8rem' }}>{subitem.desc}</p>
+                                          <div key={subIdx} style={{ marginBottom: '0.75rem' }}>
+                                            {typeof subitem === 'string' ? (
+                                              <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.88rem', color: 'var(--text-mid)', lineHeight: 1.65, display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
+                                                <span style={{ color: prog.color, fontWeight: 600, flexShrink: 0 }}>•</span>
+                                                <span>{subitem}</span>
+                                              </p>
+                                            ) : (
+                                              <>
+                                                <h5 style={{ fontFamily: 'var(--font-sans)', fontSize: '0.88rem', fontWeight: 600, color: prog.color, marginBottom: '0.4rem' }}>• {subitem.title}</h5>
+                                                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.82rem', color: 'var(--text-mid)', lineHeight: 1.65, marginLeft: '0.8rem' }}>{subitem.desc}</p>
+                                              </>
+                                            )}
                                           </div>
                                         ))}
                                       </div>
