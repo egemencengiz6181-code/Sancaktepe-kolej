@@ -156,32 +156,7 @@ function MegaMenu({ type, onClose }) {
         borderRadius: '2px 0 0 0', rotate: '45deg',
       }} />
 
-      <div style={{ display: 'grid', gridTemplateColumns: type === 'programlar' ? '1.1fr repeat(4, 1fr)' : 'repeat(4, 1fr)', gap: '0.75rem' }}>
-        {type === 'programlar' && (
-          <Link to={basePath} onClick={onClose} style={{ textDecoration: 'none' }}>
-            <div style={{
-              background: 'linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%)',
-              borderRadius: '8px', padding: '1.5rem',
-              height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
-              transition: 'transform 0.25s',
-            }}
-              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-3px)'; }}
-              onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; }}
-            >
-              <div>
-                <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 800, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)', marginBottom: '0.5rem' }}>
-                  Programlar
-                </div>
-                <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.15rem', fontWeight: 700, color: '#fff', lineHeight: 1.3, marginBottom: '0.6rem' }}>{overviewLabel}</h3>
-                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.78rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.65 }}>{overviewDesc}</p>
-              </div>
-              <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, color: 'rgba(255,255,255,0.5)', letterSpacing: '0.08em', marginTop: '1.5rem' }}>
-                Genel Bakış →
-              </div>
-            </div>
-          </Link>
-        )}
-
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.75rem' }}>
         {type === 'programlar' && items.map((item) => {
           const colorVal = item.color === 'var(--primary)' ? '#232e5c'
             : item.color === 'var(--red)' ? '#e61936'
@@ -207,21 +182,10 @@ function MegaMenu({ type, onClose }) {
                   e.currentTarget.style.transform = 'translateY(0)';
                 }}
               >
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.6rem' }}>
-                  <span style={{
-                    fontFamily: 'var(--font-display)', fontSize: '0.55rem', fontWeight: 900,
-                    letterSpacing: '0.15em', textTransform: 'uppercase',
-                    color: colorVal, background: `${colorVal}12`,
-                    border: `1px solid ${colorVal}25`,
-                    padding: '0.2rem 0.45rem', borderRadius: '3px',
-                  }}>
-                    {type === 'programlar' ? item.tag : item.ages.split('·')[0].trim()}
-                  </span>
-                </div>
                 <p style={{ fontFamily: 'var(--font-serif)', fontSize: '0.88rem', fontWeight: 700, color: 'var(--primary)', lineHeight: 1.35, marginBottom: '0.4rem', flexGrow: 1 }}>
-                  {type === 'programlar' ? item.title : item.level}
+                  {type === 'programlar' ? item.tag : item.level}
                 </p>
-                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.73rem', color: 'var(--grey)', lineHeight: 1.55, marginBottom: '0.6rem' }}>
+                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.73rem', color: 'var(--text-mid)', lineHeight: 1.55, marginBottom: '0.6rem' }}>
                   {item.subtitle}
                 </p>
                 <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 800, color: 'var(--red)', letterSpacing: '0.06em' }}>
@@ -319,7 +283,6 @@ function MegaMenu({ type, onClose }) {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                 {[
                   { to: '/siniflar/lise/genel-bilgiler', label: 'Genel Bilgiler' },
-                  { to: '/siniflar/lise/uluslararasi-programlar', label: 'Uluslararası Programlar' },
                   { to: '/siniflar/lise/akademik-bolumler', label: 'Akademik Bölümler' },
                   { to: '/siniflar/lise/rehberlik-kariyer', label: 'Rehberlik ve Kariyer' },
                   { to: '/siniflar/lise/yurt-ici-universite', label: 'Yurt İçi Üniversite' },
@@ -337,38 +300,6 @@ function MegaMenu({ type, onClose }) {
                 ))}
               </div>
             </div>
-          </div>
-        </div>
-      )}
-
-      {type === 'programlar' && (
-        <div style={{ borderTop: '1px solid rgba(35,46,92,0.08)', paddingTop: '0.85rem', marginTop: '0.85rem' }}>
-          <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.58rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: '0.6rem' }}>
-            Uluslararası Programlar
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.6rem' }}>
-            <Link to="/programlar/uluslararasi" onClick={onClose} style={{ textDecoration: 'none' }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.65rem 1rem', borderRadius: '7px', background: 'rgba(35,46,92,0.04)', border: '1px solid rgba(35,46,92,0.08)', transition: 'all 0.2s' }}
-                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(35,46,92,0.09)'; e.currentTarget.style.borderColor = 'rgba(35,46,92,0.2)'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(35,46,92,0.04)'; e.currentTarget.style.borderColor = 'rgba(35,46,92,0.08)'; }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.72rem', fontWeight: 800, color: 'var(--primary)', letterSpacing: '0.02em' }}>Uluslararası Programlar</span>
-                </div>
-                <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 800, color: 'var(--red)' }}>→</span>
-              </div>
-            </Link>
-            <Link to="/programlar/ap-sinav-merkezi" onClick={onClose} style={{ textDecoration: 'none' }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.65rem 1rem', borderRadius: '7px', background: 'rgba(230,25,54,0.04)', border: '1px solid rgba(230,25,54,0.12)', transition: 'all 0.2s' }}
-                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(230,25,54,0.09)'; e.currentTarget.style.borderColor = 'rgba(230,25,54,0.25)'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(230,25,54,0.04)'; e.currentTarget.style.borderColor = 'rgba(230,25,54,0.12)'; }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.72rem', fontWeight: 800, color: 'var(--red)', letterSpacing: '0.02em' }}>AP Sınav Merkezi</span>
-                </div>
-                <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 800, color: 'var(--red)' }}>→</span>
-              </div>
-            </Link>
           </div>
         </div>
       )}
@@ -394,7 +325,7 @@ export default function Navbar() {
   const handleMegaEnter = (key) => { clearTimeout(megaTimer.current); setOpenMega(key); };
   const handleMegaLeave = () => { megaTimer.current = setTimeout(() => setOpenMega(null), 120); };
 
-  const NAV_H = 64;
+  const NAV_H = 100;
 
   const linkStyle = (active) => ({
     textDecoration: 'none',
@@ -513,7 +444,7 @@ export default function Navbar() {
             <img
               src="/logo/kolej%20sancaktepe%20logo%20-%20yatay.png?v=2"
               alt="Kolej Sancaktepe"
-              style={{ height: '72px', width: 'auto', display: 'block', objectFit: 'contain' }}
+              style={{ height: '90px', width: 'auto', display: 'block', objectFit: 'contain' }}
             />
           </Link>
 
@@ -531,13 +462,13 @@ export default function Navbar() {
       {/* ── Mobile bar ── */}
       <div className="nav-mobile-bar" style={{
         display: 'none', position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
-        height: '58px', background: 'var(--primary)',
+        height: '80px', background: 'var(--primary)',
         boxShadow: '0 2px 16px rgba(10,18,50,0.28)',
         alignItems: 'center', justifyContent: 'space-between', padding: '0 1.25rem',
       }}>
         <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
           <img src="/logo/kolej%20sancaktepe%20logo%20-%20yatay.png?v=2" alt="Kolej Sancaktepe"
-            style={{ height: '54px', width: 'auto', objectFit: 'contain' }} />
+            style={{ height: '70px', width: 'auto', objectFit: 'contain' }} />
         </Link>
         <button onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menü"
           style={{ background: 'none', border: 'none', display: 'flex', flexDirection: 'column', gap: '5px', padding: '4px', cursor: 'pointer' }}>

@@ -45,48 +45,6 @@ export default function LiseYurtDisiPage() {
         </div>
       </section>
       <div style={{ height: '4px', background: 'linear-gradient(90deg, var(--red), var(--primary), transparent)' }} />
-
-      <section style={{ padding: '5.5rem 0', background: 'var(--off-white)' }}>
-        <div className="section-container">
-          <div style={{ maxWidth: '860px', margin: '0 auto' }}>
-            <motion.div {...fadeUp(0)} style={{ background: 'var(--white)', borderRadius: '14px', padding: '2rem 2.5rem', border: '1px solid var(--grey-light)', borderLeft: '5px solid var(--primary)', marginBottom: '3rem', boxShadow: '0 4px 20px rgba(35,46,92,0.06)' }}>
-              <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.75rem' }}>Amacımız</p>
-              <P>Yurt dışı kariyer danışmanlığı birimimiz, yurt dışında eğitim almayı hedefleyen öğrenci ve velilere, sürecin her aşamasında bireysel destek sunar.</P>
-              <P>Amacımız; öğrenci ve velilere ülke, üniversite ve bölüm seçimleri konusunda birebir rehberlik ederek, öğrencilerin kendilerine en uygun ve mutlu olabilecekleri üniversite tercihlerine yönelmelerini sağlamaktır.</P>
-              <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#059669', marginTop: '1rem', marginBottom: '0' }}>Danışmanlık hizmetimiz lisemizdeki tüm sınıf seviyelerindeki öğrencilere yöneliktir.</p>
-            </motion.div>
-
-            <motion.h2 {...fadeUp(0.06)} style={{ fontFamily: 'var(--font-serif)', fontSize: '1.5rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.5rem' }}>Danışmanlık Kapsamımız</motion.h2>
-
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }} className="yurt-disi-grid">
-              {SERVICES.map((s, i) => (
-                <motion.div key={i} {...fadeUp(0.08 + i * 0.04)}>
-                  <div style={{ background: 'var(--white)', borderRadius: '10px', padding: '1.25rem 1.5rem', border: '1px solid var(--grey-light)', display: 'flex', gap: '0.85rem', height: '100%', transition: 'transform 0.2s, box-shadow 0.2s' }}
-                    onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(35,46,92,0.08)'; }}
-                    onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}
-                  >
-                    
-                    <div>
-                      <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.3rem' }}>{s.title}</p>
-                      <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.82rem', color: 'var(--text-mid)', lineHeight: 1.75, margin: 0 }}>{s.body}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            <motion.div {...fadeUp(0.4)} style={{ display: 'flex', gap: '1rem', marginTop: '3rem', flexWrap: 'wrap' }}>
-              <Link to="/siniflar/lise/uluslararasi-programlar" style={{ fontFamily: 'var(--font-display)', fontSize: '0.72rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#fff', background: 'var(--primary)', padding: '0.85rem 1.75rem', borderRadius: '5px', textDecoration: 'none' }}>
-                Uluslararası Programlar →
-              </Link>
-              <a href="mailto:info@kolejsancaktepe.com" style={{ fontFamily: 'var(--font-display)', fontSize: '0.72rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', border: '2px solid var(--primary)', padding: '0.85rem 1.75rem', borderRadius: '5px', textDecoration: 'none' }}>
-                Bize Ulaşın
-              </a>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-      <style>{`@media (max-width: 640px) { .yurt-disi-grid { grid-template-columns: 1fr !important; } }`}</style>
     </>
   );
 }

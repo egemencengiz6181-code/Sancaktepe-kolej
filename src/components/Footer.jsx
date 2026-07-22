@@ -34,13 +34,55 @@ export default function Footer() {
               <img
                 src="/logo/kolej%20sancaktepe%20logo%20-%20yatay.png?v=2"
                 alt="Kolej Sancaktepe"
-                style={{ height: '120px', objectFit: 'contain' }}
+                style={{ height: '180px', objectFit: 'contain' }}
                 onError={(e) => { e.target.style.display = 'none'; }}
               />
             </div>
-            <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.88rem', lineHeight: 1.85, color: 'rgba(255,255,255,0.5)', maxWidth: '300px' }}>
+            <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.88rem', lineHeight: 1.85, color: 'rgba(255,255,255,0.5)', maxWidth: '300px', marginBottom: '2rem' }}>
               Eğitimde başarı için yanınızdayız. Kaliteli eğitim anlayışı ve uzman kadromuzla öğrencilerin geleceğini inşa ediyoruz.
             </p>
+            
+            {/* Bağlantılarımız */}
+            <div>
+              <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)', marginBottom: '1.2rem' }}>Bağlantılarımız</h4>
+              <div style={{ display: 'flex', gap: '2.5rem', alignItems: 'center', flexWrap: 'nowrap' }}>
+                <img 
+                  src="/logo/TED_png.png" 
+                  alt="TED" 
+                  style={{ height: '48px', width: 'auto', objectFit: 'contain', opacity: 0.7, transition: 'opacity 0.3s' }}
+                  onMouseEnter={(e) => e.target.style.opacity = '1'}
+                  onMouseLeave={(e) => e.target.style.opacity = '0.7'}
+                />
+                <img 
+                  src="/logo/tedmem.png" 
+                  alt="TEDMEM" 
+                  style={{ height: '48px', width: 'auto', objectFit: 'contain', opacity: 0.7, transition: 'opacity 0.3s' }}
+                  onMouseEnter={(e) => e.target.style.opacity = '1'}
+                  onMouseLeave={(e) => e.target.style.opacity = '0.7'}
+                />
+                <img 
+                  src="/logo/ted%20üni%20logo.png" 
+                  alt="TED Üniversitesi" 
+                  style={{ height: '48px', width: 'auto', objectFit: 'contain', opacity: 0.7, transition: 'opacity 0.3s' }}
+                  onMouseEnter={(e) => e.target.style.opacity = '1'}
+                  onMouseLeave={(e) => e.target.style.opacity = '0.7'}
+                />
+                <img 
+                  src="/logo/ap%20logo.png" 
+                  alt="AP" 
+                  style={{ height: '48px', width: 'auto', objectFit: 'contain', opacity: 0.7, transition: 'opacity 0.3s' }}
+                  onMouseEnter={(e) => e.target.style.opacity = '1'}
+                  onMouseLeave={(e) => e.target.style.opacity = '0.7'}
+                />
+                <img 
+                  src="/logo/Global-Schools-Program.png" 
+                  alt="Global Schools Program" 
+                  style={{ height: '48px', width: 'auto', objectFit: 'contain', opacity: 0.7, transition: 'opacity 0.3s' }}
+                  onMouseEnter={(e) => e.target.style.opacity = '1'}
+                  onMouseLeave={(e) => e.target.style.opacity = '0.7'}
+                />
+              </div>
+            </div>
           </div>
 
           {/* Links */}

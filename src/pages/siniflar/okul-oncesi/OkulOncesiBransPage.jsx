@@ -170,87 +170,11 @@ export default function OkulOncesiBransPage() {
             <span style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.7rem' }}>›</span>
             <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.65)' }}>Branş Dersleri</span>
           </motion.div>
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.7, ease: [0.22, 1, 0.36, 1] }} style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2rem,4vw,3.2rem)', fontWeight: 700, color: '#fff', lineHeight: 1.12, marginBottom: '0.75rem' }}>
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.7, ease: [0.22, 1, 0.36, 1] }} style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2rem,4vw,3.2rem)', fontWeight: 700, color: '#fff', lineHeight: 1.12 }}>
             Branş Dersleri
           </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35, duration: 0.65 }} style={{ fontFamily: 'var(--font-sans)', fontSize: '0.97rem', color: 'rgba(255,255,255,0.6)', maxWidth: '580px', lineHeight: 1.85 }}>
-            İngilizce, Görsel Sanatlar, Beden Eğitimi, Bilişim Teknolojileri ve Müzik eğitimlerimiz hakkında detaylı bilgi.
-          </motion.p>
-          {/* Jump links */}
-          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.55 }} style={{ display: 'flex', gap: '0.6rem', marginTop: '2rem', flexWrap: 'wrap' }}>
-            {SUBJECTS.map((s) => (
-              <a key={s.id} href={`#${s.id}`} style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)', background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '5px', padding: '0.45rem 0.9rem', textDecoration: 'none', transition: 'all 0.2s' }}
-                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.13)'; e.currentTarget.style.color = '#fff'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.07)'; e.currentTarget.style.color = 'rgba(255,255,255,0.55)'; }}
-              >
-                {s.title}
-              </a>
-            ))}
-          </motion.div>
         </div>
       </section>
-
-      <div style={{ height: '4px', background: 'linear-gradient(90deg, #f59e0b, var(--primary), transparent)' }} />
-
-      {/* Subject sections */}
-      {SUBJECTS.map((subj, idx) => (
-        <section key={subj.id} id={subj.id} style={{ padding: '5rem 0', background: idx % 2 === 0 ? 'var(--off-white)' : 'var(--white)', scrollMarginTop: '80px' }}>
-          <div className="section-container">
-            <div style={{ maxWidth: '860px', margin: '0 auto' }}>
-              <motion.div {...fadeUp(0)} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-                
-                <div>
-                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.15em', textTransform: 'uppercase', color: subj.color, background: `${subj.color}12`, border: `1px solid ${subj.color}25`, padding: '0.2rem 0.55rem', borderRadius: '4px' }}>{subj.tag}</span>
-                  {subj.subtitle && <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 700, color: 'var(--grey)', letterSpacing: '0.06em', marginTop: '0.4rem' }}>{subj.subtitle}</p>}
-                </div>
-              </motion.div>
-              <motion.h2 {...fadeUp(0.04)} style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.5rem,2.8vw,2rem)', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.75rem' }}>{subj.title}</motion.h2>
-
-              {subj.sections.map((sec, j) => (
-                <motion.div key={j} {...fadeUp(0.06 + j * 0.04)}>
-                  {sec.heading && <SectionTitle>{sec.heading}</SectionTitle>}
-                  {sec.body.map((p, k) => <P key={k}>{p}</P>)}
-                </motion.div>
-              ))}
-
-              {subj.levels && (
-                <motion.div {...fadeUp(0.1)} style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem', margin: '1.5rem 0' }} className="phonics-grid">
-                  {subj.levels.map((lv, j) => (
-                    <div key={j} style={{ background: 'var(--white)', borderRadius: '10px', padding: '1.25rem 1.5rem', border: `1px solid ${subj.color}30`, borderLeft: `4px solid ${subj.color}` }}>
-                      <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 900, letterSpacing: '0.1em', textTransform: 'uppercase', color: subj.color, marginBottom: '0.5rem' }}>{lv.label}</p>
-                      <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.87rem', color: 'var(--text-mid)', lineHeight: 1.8 }}>{lv.content}</p>
-                    </div>
-                  ))}
-                </motion.div>
-              )}
-
-              {subj.bullets && (
-                <motion.div {...fadeUp(0.1)} style={{ background: 'var(--white)', borderRadius: '10px', padding: '1.5rem 2rem', border: '1px solid var(--grey-light)', margin: '1.5rem 0' }}>
-                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: '0.75rem' }}>Ders Hedefleri / Konu Başlıkları</p>
-                  <BulletList items={subj.bullets} />
-                </motion.div>
-              )}
-
-              {subj.footer && <motion.div {...fadeUp(0.12)}><P>{subj.footer}</P></motion.div>}
-
-              {subj.events && (
-                <motion.div {...fadeUp(0.12)} style={{ marginTop: '1.25rem' }}>
-                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: '0.75rem' }}>Katılınan Etkinlikler</p>
-                  <div style={{ display: 'flex', gap: '0.65rem', flexWrap: 'wrap' }}>
-                    {subj.events.map((ev, j) => (
-                      <span key={j} style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase', color: subj.color, background: `${subj.color}0f`, border: `1px solid ${subj.color}25`, borderRadius: '5px', padding: '0.35rem 0.75rem' }}>{ev}</span>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-            </div>
-          </div>
-        </section>
-      ))}
-
-      <style>{`
-        @media (max-width: 600px) { .phonics-grid { grid-template-columns: 1fr !important; } }
-      `}</style>
     </>
   );
 }

@@ -39,7 +39,7 @@ export default function LiseGenelPage() {
             Lise Eğitim<br />ve Öğretim
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.65 }} style={{ fontFamily: 'var(--font-sans)', fontSize: '1.05rem', color: 'rgba(255,255,255,0.65)', maxWidth: '580px', lineHeight: 1.85, marginBottom: '2.5rem' }}>
-            Kolej Sancaktepe Lisesi; 1 yıl hazırlık ve 4 yıl lise olmak üzere "Hazırlık Sınıfı Bulunan Özel Anadolu Lisesi" statüsüne sahiptir. 21. yüzyıl becerilerine sahip, yaratıcı ve özgür düşünen bireyler yetiştiriyoruz.
+            21. Yüzyıl becerilerine sahip, yaratıcı ve özgür düşünen bireyler yetiştiriyoruz.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.55, duration: 0.55 }} style={{ display: 'flex', gap: '0.65rem', flexWrap: 'wrap' }}>
             {SUB_LINKS.map((l) => (

@@ -57,8 +57,24 @@ export default function TEDPage() {
                 <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)' }}>
                   31 Ocak 1928
                 </div>
-                <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', color: 'rgba(255,255,255,0.75)', marginTop: '0.4rem' }}>
+                <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', color: 'rgba(255,255,255,0.75)', marginTop: '0.4rem', marginBottom: '2rem' }}>
                   Resmi Kuruluş Tarihi
+                </div>
+                
+                {/* TED Logo */}
+                <div style={{ marginTop: '2rem', paddingTop: '2rem', borderTop: '1px solid rgba(255,255,255,0.15)' }}>
+                  <img 
+                    src="/logo/TED_png.png" 
+                    alt="TED" 
+                    style={{ 
+                      width: '100%', 
+                      maxWidth: '200px', 
+                      height: 'auto', 
+                      margin: '0 auto', 
+                      display: 'block',
+                      opacity: 1
+                    }}
+                  />
                 </div>
               </div>
             </motion.div>

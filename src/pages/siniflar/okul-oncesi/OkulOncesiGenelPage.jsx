@@ -1,5 +1,8 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
+
+const PdfFlipBook = lazy(() => import('../../../components/PdfFlipBook'));
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
@@ -28,10 +31,7 @@ export default function OkulOncesiGenelPage() {
             <span style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.7rem' }}>›</span>
             <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.65)' }}>Genel Bilgiler</span>
           </motion.div>
-          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15, duration: 0.6 }} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(245,158,11,0.15)', border: '1px solid rgba(245,158,11,0.3)', borderRadius: '4px', padding: '0.35rem 0.9rem', marginBottom: '1.5rem' }}>
-            <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.15em', color: '#f59e0b', textTransform: 'uppercase' }}>Anaokulu · 4–5 Yaş</span>
-          </motion.div>
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25, duration: 0.75, ease: [0.22, 1, 0.36, 1] }} style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2.2rem,4.5vw,3.6rem)', fontWeight: 700, color: '#fff', lineHeight: 1.1, marginBottom: '0.75rem' }}>
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25, duration: 0.75, ease: [0.22, 1, 0.36, 1] }} style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2.2rem,4.5vw,3.6rem)', fontWeight: 700, color: '#fff', lineHeight: 1.1, marginBottom: '0.75rem', marginTop: '2rem' }}>
             Heyecanla Atılan İlk Adımlar
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.7 }} style={{ fontFamily: 'var(--font-sans)', fontSize: '1rem', color: 'rgba(255,255,255,0.6)', maxWidth: '600px', lineHeight: 1.85 }}>
@@ -112,6 +112,52 @@ export default function OkulOncesiGenelPage() {
                 Kendini ifade edebilen, merak eden, öğrenmekten keyif alan ve sosyal açıdan güçlü çocuklar yetiştirmek.
               </p>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* PDF Kitapçık Bölümü */}
+      <section style={{ padding: '5rem 0', background: 'linear-gradient(135deg, #1a2347 0%, #232e5c 55%, #2e3d7a 100%)', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px)', backgroundSize: '56px 56px', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', top: '-80px', left: '15%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(245,158,11,0.12) 0%, transparent 65%)', pointerEvents: 'none' }} />
+        <div className="section-container" style={{ position: 'relative', zIndex: 1 }}>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', justifyContent: 'center', marginBottom: '0.75rem' }}>
+              <div style={{ width: '40px', height: '1px', background: 'rgba(245,158,11,0.6)' }} />
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)' }}>Tanıtım Dergisi</span>
+              <div style={{ width: '40px', height: '1px', background: 'rgba(245,158,11,0.6)' }} />
+            </div>
+            <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.8rem,3.5vw,2.6rem)', fontWeight: 700, color: '#fff', lineHeight: 1.2 }}>
+              Kolej Sancaktepe <span style={{ color: 'rgba(255,255,255,0.5)', fontStyle: 'italic' }}>Dergisi</span>
+            </h2>
+            <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'rgba(255,255,255,0.45)', maxWidth: '480px', margin: '0.75rem auto 0', lineHeight: 1.85 }}>
+              Okulumuzun eğitim anlayışını, programlarını ve okul yaşamını tanıtan dijital dergimizi sayfaları çevirerek keşfedin.
+            </p>
+          </motion.div>
+
+          <Suspense fallback={
+            <div style={{ textAlign: 'center', padding: '4rem', color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-display)', fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
+              Yükleniyor...
+            </div>
+          }>
+            <PdfFlipBook />
+          </Suspense>
+
+          <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
+            <a
+              href="/web%20genel%20dergi.pdf"
+              download="Kolej-Sancaktepe-Dergi.pdf"
+              style={{
+                fontFamily: 'var(--font-display)', fontSize: '0.72rem', fontWeight: 800,
+                letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)',
+                border: '1px solid rgba(255,255,255,0.2)', padding: '0.75rem 1.75rem',
+                borderRadius: '4px', textDecoration: 'none', transition: 'all 0.2s', display: 'inline-block',
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.5)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(255,255,255,0.6)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'; }}
+            >
+              ⬇ PDF İndir
+            </a>
           </div>
         </div>
       </section>

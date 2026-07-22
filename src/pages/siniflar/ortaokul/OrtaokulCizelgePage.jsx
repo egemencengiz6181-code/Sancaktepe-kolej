@@ -20,21 +20,6 @@ export default function OrtaokulCizelgePage() {
         </div>
       </section>
       <div style={{ height: '4px', background: 'linear-gradient(90deg, var(--red), #8b0f1e, transparent)' }} />
-      <section style={{ padding: '6rem 0', background: 'var(--off-white)' }}>
-        <div className="section-container">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.65 }} style={{ maxWidth: '580px', margin: '0 auto', textAlign: 'center' }}>
-            
-            <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1rem' }}>Ders Programı Hazırlanıyor</h2>
-            <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.9, marginBottom: '2rem' }}>
-              Ortaokul haftalık zaman çizelgesi yeni dönem başlamadan önce bu sayfada yayımlanacaktır. Detaylı bilgi için kayıt ofisimizle iletişime geçebilirsiniz.
-            </p>
-            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <a href="mailto:info@kolejsancaktepe.com" style={{ fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#fff', background: 'var(--red)', padding: '0.85rem 2rem', borderRadius: '5px', textDecoration: 'none' }}>E-posta Gönder →</a>
-              <Link to="/siniflar/ortaokul" style={{ fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--primary)', border: '2px solid var(--primary)', padding: '0.85rem 2rem', borderRadius: '5px', textDecoration: 'none' }}>Ortaokul Sayfası ←</Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
     </>
   );
 }

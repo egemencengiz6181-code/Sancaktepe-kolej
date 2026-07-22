@@ -57,41 +57,6 @@ export default function IlkokulUygulamalarPage() {
       </section>
 
       <div style={{ height: '4px', background: 'linear-gradient(90deg, var(--red), var(--primary), transparent)' }} />
-
-      <section style={{ padding: '5.5rem 0', background: 'var(--off-white)' }}>
-        <div className="section-container">
-          <div style={{ maxWidth: '860px', margin: '0 auto' }}>
-            {APPS.map((app, i) => (
-              <motion.div key={i} {...fadeUp(i * 0.06)}>
-                <div style={{ background: 'var(--white)', borderRadius: '12px', padding: '2rem', border: '1px solid var(--grey-light)', marginBottom: '1.25rem', boxShadow: '0 2px 12px rgba(35,46,92,0.05)', display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
-                  
-                  <div>
-                    <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 900, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.5rem' }}>{app.tag}</p>
-                    <P>{app.body}</P>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-
-            {/* Değerler listesi */}
-            <motion.div {...fadeUp(0.3)}>
-              <div style={{ background: 'var(--white)', borderRadius: '12px', padding: '2rem', border: '1px solid var(--grey-light)', boxShadow: '0 2px 12px rgba(35,46,92,0.05)' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.25rem' }}>
-                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 900, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--primary)' }}>Müfredatımızdaki Değerler</p>
-                </div>
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                  {VALUES.map((v, i) => (
-                    <span key={i} style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.05em', color: 'var(--primary)', background: 'rgba(35,46,92,0.06)', border: '1px solid rgba(35,46,92,0.12)', borderRadius: '5px', padding: '0.35rem 0.75rem' }}>{v}</span>
-                  ))}
-                </div>
-                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', color: 'var(--text-mid)', lineHeight: 1.75, marginTop: '1rem' }}>
-                  Her ders içeriğimize kattığımız değerlerimizi etkinlik ve çalışmalarımızla arşivleyerek sene sonunda panel haline getirmekteyiz.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

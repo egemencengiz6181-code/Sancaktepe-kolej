@@ -204,8 +204,197 @@ export default function ProgramDetayPage() {
             {/* RIGHT: Detailed content */}
             <div>
 
-              {/* Detay bölümleri */}
-              {prog.details && prog.details.length > 0 && (
+              {/* KVYOD özel içerik */}
+              {prog.id === 'kvyod' ? (
+                <motion.div {...fadeUp(0.1)} style={{ 
+                  background: 'var(--white)', 
+                  borderRadius: '10px',
+                  padding: '3rem',
+                  border: '1px solid var(--grey-light)',
+                  boxShadow: '0 2px 20px rgba(35,46,92,0.06)',
+                }}>
+                  
+                  {/* 1. ORTAOKUL */}
+                  <div style={{ marginBottom: '3.5rem' }}>
+                    <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.5rem' }}>1️⃣ Ortaokul</h2>
+                    <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', fontStyle: 'italic', marginBottom: '2rem' }}>
+                      (Kimlik, düşünme, dünya ile bağ kurma)
+                    </p>
+
+                    <div style={{ marginBottom: '2.5rem' }}>
+                      <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.2rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1rem' }}>
+                        Düşünme ve Anlamlandırma Dersleri
+                      </h3>
+                      <ul style={{ listStyle: 'disc', paddingLeft: '1.5rem', fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.8, color: 'var(--text-mid)' }}>
+                        <li>Eleştirel düşünme</li>
+                        <li>Sorgulama kültürü</li>
+                        <li>Argümantasyon ve akıl yürütme</li>
+                        <li>Medya okuryazarlığı ve bilgi kirliliği analizi</li>
+                      </ul>
+                      <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.8, color: 'var(--text-mid)', marginTop: '0.75rem' }}>
+                        <strong>Amaç:</strong> Ezberleyen değil, <strong>düşünen ve anlam kuran öğrenci</strong> yetiştirmek.
+                      </p>
+                    </div>
+
+                    <div style={{ marginBottom: '2.5rem' }}>
+                      <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.2rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1rem' }}>
+                        Dünya, Toplum ve Kültür
+                      </h3>
+                      <ul style={{ listStyle: 'disc', paddingLeft: '1.5rem', fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.8, color: 'var(--text-mid)' }}>
+                        <li>Küresel yurttaşlık</li>
+                        <li>Kültürlerarası farkındalık</li>
+                        <li>Tarihsel okuma ve güncel olay analizi</li>
+                        <li>Yerel–küresel bağlantılar</li>
+                      </ul>
+                      <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.8, color: 'var(--text-mid)', marginTop: '0.75rem' }}>
+                        <strong>Amaç:</strong> Öğrencinin kendini <strong>dünyanın parçası</strong> olarak görmesi.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.2rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1rem' }}>
+                        Yaşam Becerileri ve Kendini Tanıma
+                      </h3>
+                      <ul style={{ listStyle: 'disc', paddingLeft: '1.5rem', fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.8, color: 'var(--text-mid)' }}>
+                        <li>Duygusal okuryazarlık</li>
+                        <li>Empati ve etik farkındalık</li>
+                        <li>Karar verme ve problem çözme</li>
+                        <li>Zaman ve sorumluluk yönetimi</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* 2. LİSE */}
+                  <div style={{ marginBottom: '3.5rem' }}>
+                    <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.5rem' }}>2️⃣ LİSE</h2>
+                    <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', fontStyle: 'italic', marginBottom: '1rem' }}>
+                      Yön, Anlam ve Gelecek
+                    </p>
+                    <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.8, color: 'var(--text-mid)', marginBottom: '2.5rem' }}>
+                      Lise programı, öğrencinin yalnızca akademik olarak derinleştiği değil; <strong>yaşamına yön verdiği</strong>, 
+                      geleceğini bilinçli biçimde tasarladığı ve toplumsal sorumluluk üstlendiği bir evre olarak kurgulanmıştır. 
+                      Bu yapı, öğrenciyi üniversiteye hazırlanmanın ötesinde; <strong>hayata hazırlamayı</strong> hedefler.
+                    </p>
+
+                    <div style={{ marginBottom: '2.5rem' }}>
+                      <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.2rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.75rem' }}>
+                        A. Akademik Derinleşme ve Disiplinlerarası Dersler
+                      </h3>
+                      <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.8, color: 'var(--text-mid)', marginBottom: '1rem' }}>
+                        Bu ders alanı, öğrencinin bilgiyi yüzeysel değil; <strong>derinlikli, eleştirel ve disiplinlerarası</strong> bir bakış açısıyla ele almasını sağlar.
+                      </p>
+                      <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', fontWeight: 600, color: 'var(--primary)', marginBottom: '0.5rem' }}>İçerik Başlıkları:</p>
+                      <ul style={{ listStyle: 'disc', paddingLeft: '1.5rem', fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.8, color: 'var(--text-mid)', marginBottom: '1rem' }}>
+                        <li>Bilim, teknoloji ve toplum ilişkisi</li>
+                        <li>Felsefe, etik ve çağdaş problemler</li>
+                        <li>Veri okuryazarlığı ve analitik düşünme</li>
+                        <li>Bilimsel araştırma yöntemleri</li>
+                        <li>Akademik okuma, yazma ve proje üretimi</li>
+                      </ul>
+                      <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', fontWeight: 600, color: 'var(--primary)', marginBottom: '0.5rem' }}>Amaç:</p>
+                      <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.8, color: 'var(--text-mid)' }}>
+                        Öğrencinin bilgiyi yalnızca öğrenen değil; <strong>sorgulayan, ilişkilendiren ve üreten</strong> bir birey hâline gelmesini sağlamak. 
+                        Üniversite ve akademik yaşam için güçlü bir düşünsel altyapı oluşturmak.
+                      </p>
+                    </div>
+
+                    <div style={{ marginBottom: '2.5rem' }}>
+                      <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.2rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.75rem' }}>
+                        B. Gelecek, Meslek ve Yaşam Tasarımı
+                      </h3>
+                      <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.8, color: 'var(--text-mid)', marginBottom: '1rem' }}>
+                        Bu ders alanı, öğrencinin kendi potansiyelini keşfetmesini ve geleceğini bilinçli tercihlerle şekillendirmesini hedefler.
+                      </p>
+                      <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', fontWeight: 600, color: 'var(--primary)', marginBottom: '0.5rem' }}>İçerik Başlıkları:</p>
+                      <ul style={{ listStyle: 'disc', paddingLeft: '1.5rem', fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.8, color: 'var(--text-mid)', marginBottom: '1rem' }}>
+                        <li>Kariyer farkındalığı ve kendini tanıma</li>
+                        <li>Meslekler dünyası ve yeni iş alanları</li>
+                        <li>Girişimcilik ve sosyal girişimcilik</li>
+                        <li>Üniversite, bölüm ve meslek yolları planlaması</li>
+                        <li>Küresel iş dünyası ve değişen beceri setleri</li>
+                      </ul>
+                      <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', fontWeight: 600, color: 'var(--primary)', marginBottom: '0.5rem' }}>Amaç:</p>
+                      <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.8, color: 'var(--text-mid)' }}>
+                        Öğrencinin geleceğini tesadüflere bırakmadan; <strong>bilinçli, esnek ve çok yönlü</strong> bir yaşam planı oluşturmasını sağlamak.
+                      </p>
+                    </div>
+
+                    <div style={{ marginBottom: '2.5rem' }}>
+                      <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.2rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.75rem' }}>
+                        C. Toplumsal Sorumluluk ve Etki
+                      </h3>
+                      <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.8, color: 'var(--text-mid)', marginBottom: '1rem' }}>
+                        Bu ders alanı, öğrencinin bireysel başarının ötesine geçerek <strong>toplumsal fayda üretmesini</strong> merkeze alır.
+                      </p>
+                      <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', fontWeight: 600, color: 'var(--primary)', marginBottom: '0.5rem' }}>İçerik Başlıkları:</p>
+                      <ul style={{ listStyle: 'disc', paddingLeft: '1.5rem', fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.8, color: 'var(--text-mid)', marginBottom: '1rem' }}>
+                        <li>Toplum hizmeti ve gönüllülük projeleri</li>
+                        <li>Sosyal sorunlara yönelik çözüm geliştirme</li>
+                        <li>Yerel ve küresel etki projeleri</li>
+                        <li>Etik liderlik</li>
+                        <li>Sorumluluk bilinci ve aktif yurttaşlık</li>
+                      </ul>
+                      <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', fontWeight: 600, color: 'var(--primary)', marginBottom: '0.5rem' }}>Amaç:</p>
+                      <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.8, color: 'var(--text-mid)' }}>
+                        Öğrencinin sadece başarılı değil; <strong>sorumlu, duyarlı ve etki üreten</strong> bir birey olarak yetişmesini sağlamak.
+                      </p>
+                    </div>
+
+                    <div style={{ background: `${prog.color}08`, padding: '1.5rem', borderRadius: '8px', borderLeft: `4px solid ${prog.color}` }}>
+                      <h4 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.05rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1rem' }}>
+                        Programın Genel Kazanımları
+                      </h4>
+                      <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.8, color: 'var(--text-mid)', marginBottom: '0.5rem' }}>
+                        Bu yapıyı tamamlayan lise öğrencisi;
+                      </p>
+                      <ul style={{ listStyle: 'disc', paddingLeft: '1.5rem', fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.8, color: 'var(--text-mid)' }}>
+                        <li>Akademik olarak derinleşmiş,</li>
+                        <li>Geleceğine dair bilinçli kararlar alabilen,</li>
+                        <li>Toplumsal sorumluluk bilinci gelişmiş,</li>
+                        <li>Küresel ölçekte düşünebilen,</li>
+                        <li>Üniversite ve yaşam yolculuğuna hazır bir birey olarak mezun olur.</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* 3. SDGs */}
+                  <div>
+                    <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.5rem' }}>
+                      3️⃣ BM Sürdürülebilir Kalkınma Amaçları (SDGs)
+                    </h2>
+                    <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', fontStyle: 'italic', marginBottom: '1.5rem' }}>
+                      Sustainable Goals ile Entegrasyon
+                    </p>
+                    <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.8, color: 'var(--text-mid)', marginBottom: '1.5rem' }}>
+                      TED AD eğitim modeli, <strong>Birleşmiş Milletler Sürdürülebilir Kalkınma Amaçları</strong> ile doğrudan ilişkilendirilir:
+                    </p>
+                    
+                    <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', fontWeight: 600, color: 'var(--primary)', marginBottom: '0.75rem' }}>Öne çıkan hedefler:</p>
+                    <ul style={{ listStyle: 'disc', paddingLeft: '1.5rem', fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.8, color: 'var(--text-mid)', marginBottom: '1.5rem' }}>
+                      <li><strong>Nitelikli Eğitim (SDG 4)</strong></li>
+                      <li><strong>Toplumsal Cinsiyet Eşitliği (SDG 5)</strong></li>
+                      <li><strong>İnsana Yakışır İş ve Ekonomik Büyüme (SDG 8)</strong></li>
+                      <li><strong>Sorumlu Üretim ve Tüketim (SDG 12)</strong></li>
+                      <li><strong>İklim Eylemi (SDG 13)</strong></li>
+                      <li><strong>Barış, Adalet ve Güçlü Kurumlar (SDG 16)</strong></li>
+                    </ul>
+
+                    <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', fontWeight: 600, color: 'var(--primary)', marginBottom: '0.75rem' }}>Uygulama Şekli:</p>
+                    <ul style={{ listStyle: 'disc', paddingLeft: '1.5rem', fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.8, color: 'var(--text-mid)', marginBottom: '1.5rem' }}>
+                      <li>Ders içerikleri SDG temalarıyla eşleştirilir</li>
+                      <li>Öğrenci projeleri bu hedefler doğrultusunda tasarlanır</li>
+                      <li>Toplum hizmeti ve sosyal sorumluluk çalışmaları <strong>ölçülebilir etki</strong> üretir</li>
+                    </ul>
+
+                    <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.8, color: 'var(--text-mid)' }}>
+                      <strong>Amaç:</strong> Akademik başarıyı, <strong>insani ve gezegensel sorumlulukla</strong> birleştirmek.
+                    </p>
+                  </div>
+                </motion.div>
+              ) : (
+                <>
+                  {/* Detay bölümleri */}
+                  {prog.details && prog.details.length > 0 && (
                 <motion.div {...fadeUp(0.1)} style={{ marginBottom: '3.5rem' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
                     <div style={{ width: '4px', height: '32px', background: `linear-gradient(180deg, ${prog.color}, ${prog.accent})`, borderRadius: '2px' }} />
@@ -235,9 +424,11 @@ export default function ProgramDetayPage() {
                   </div>
                 </motion.div>
               )}
+              </>
+              )}
 
-              {/* Alt programlar (BÖGEP, KVYOD gibi) */}
-              {prog.subPrograms && prog.subPrograms.length > 0 && (
+              {/* Alt programlar (BÖGEP, KVYOD gibi) - KVYOD için gösterme */}
+              {!prog.customContent && prog.subPrograms && prog.subPrograms.length > 0 && (
                 <motion.div {...fadeUp(0.15)} style={{ marginBottom: '3.5rem' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
                     <div style={{ width: '4px', height: '32px', background: `linear-gradient(180deg, ${prog.color}, ${prog.accent})`, borderRadius: '2px' }} />
@@ -340,58 +531,6 @@ export default function ProgramDetayPage() {
           </div>
         </section>
       )}
-
-      {/* OTHER PROGRAMS */}
-      <section style={{ padding: '5rem 0', background: 'var(--white)', borderTop: '1px solid var(--grey-light)' }}>
-        <div className="section-container">
-          <motion.div {...fadeUp(0)} style={{ marginBottom: '2.5rem' }}>
-            <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: '0.5rem' }}>Diğer Programlar</p>
-            <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)' }}>Tüm Programlarımız</h2>
-          </motion.div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '1.25rem' }}>
-            {others.map((p, i) => (
-              <motion.div key={p.id} {...fadeUp(i * 0.08)}>
-                <Link to={`/programlar/${p.id}`} style={{ textDecoration: 'none', display: 'block' }}>
-                  <div style={{
-                    background: 'var(--off-white)', borderRadius: '8px',
-                    padding: '1.75rem',
-                    border: '2px solid transparent',
-                    transition: 'all 0.3s',
-                    cursor: 'pointer',
-                  }}
-                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = p.color; e.currentTarget.style.background = 'var(--white)'; e.currentTarget.style.boxShadow = `0 8px 30px ${p.color}20`; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'transparent'; e.currentTarget.style.background = 'var(--off-white)'; e.currentTarget.style.boxShadow = 'none'; }}
-                  >
-                    
-                    <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 900, letterSpacing: '0.15em', color: p.color, textTransform: 'uppercase' }}>{p.tag}</span>
-                    <p style={{ fontFamily: 'var(--font-serif)', fontSize: '0.95rem', fontWeight: 700, color: 'var(--primary)', marginTop: '0.4rem', lineHeight: 1.35 }}>{p.title}</p>
-                    <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 700, color: 'var(--red)', marginTop: '0.75rem', letterSpacing: '0.06em' }}>Keşfet →</p>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-            {/* Back to all */}
-            <motion.div {...fadeUp(others.length * 0.08)}>
-              <Link to="/programlar" style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
-                <div style={{
-                  background: 'linear-gradient(135deg, var(--primary), var(--primary-light))',
-                  borderRadius: '8px', padding: '1.75rem',
-                  height: '100%', minHeight: '160px',
-                  display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start',
-                  cursor: 'pointer', transition: 'transform 0.3s',
-                }}
-                  onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-4px)'; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; }}
-                >
-                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', marginBottom: '0.5rem' }}>Tümüne Bak</p>
-                  <p style={{ fontFamily: 'var(--font-serif)', fontSize: '1.1rem', fontWeight: 700, color: '#fff', lineHeight: 1.35, marginBottom: '1rem' }}>Tüm Programlar</p>
-                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, color: 'rgba(255,255,255,0.6)', letterSpacing: '0.08em' }}>Genel Bakış →</span>
-                </div>
-              </Link>
-            </motion.div>
-          </div>
-        </div>
-      </section>
 
       <style>{`
         @media (max-width: 900px) {

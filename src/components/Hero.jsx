@@ -114,9 +114,23 @@ export default function Hero() {
       </div>
 
       <motion.div
-        style={{ y, opacity, width: '100%' }}
+        style={{ y, opacity, width: '100%', position: 'relative', zIndex: 1 }}
         className="section-container"
       >
+        {/* Logo - Outside maxWidth container */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1, duration: 0.6 }}
+          style={{ marginBottom: '2.5rem' }}
+        >
+          <img
+            src="/logo/tedad-2.png"
+            alt="TED AD"
+            style={{ width: '180px', height: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.4))' }}
+          />
+        </motion.div>
+
         <div style={{ maxWidth: '780px' }}>
           {/* Tag */}
           <motion.div
@@ -246,73 +260,11 @@ export default function Hero() {
             </button>
           </motion.div>
 
-          {/* Bağlantılarımız */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.2, duration: 0.8 }}
-            style={{
-              marginTop: '3.5rem',
-            }}
-          >
-            <div style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: '0.65rem',
-              fontWeight: 700,
-              letterSpacing: '0.18em',
-              textTransform: 'uppercase',
-              color: 'rgba(201,168,76,0.7)',
-              marginBottom: '1.5rem',
-            }}>Bağlantılarımız</div>
-            <div style={{
-              display: 'flex',
-              gap: '2rem',
-              alignItems: 'center',
-              flexWrap: 'wrap',
-            }}>
-              <img 
-                src="/logo/TED_png.png" 
-                alt="TED" 
-                style={{ height: '35px', width: 'auto', objectFit: 'contain', opacity: 0.8, transition: 'opacity 0.3s' }}
-                onMouseEnter={(e) => e.target.style.opacity = '1'}
-                onMouseLeave={(e) => e.target.style.opacity = '0.8'}
-              />
-              <img 
-                src="/logo/tedmem.png" 
-                alt="TEDMEM" 
-                style={{ height: '35px', width: 'auto', objectFit: 'contain', opacity: 0.8, transition: 'opacity 0.3s' }}
-                onMouseEnter={(e) => e.target.style.opacity = '1'}
-                onMouseLeave={(e) => e.target.style.opacity = '0.8'}
-              />
-              <img 
-                src="/logo/ted%20üni%20logo.png" 
-                alt="TED Üniversitesi" 
-                style={{ height: '35px', width: 'auto', objectFit: 'contain', opacity: 0.8, transition: 'opacity 0.3s' }}
-                onMouseEnter={(e) => e.target.style.opacity = '1'}
-                onMouseLeave={(e) => e.target.style.opacity = '0.8'}
-              />
-              <img 
-                src="/logo/ap%20logo.png" 
-                alt="AP" 
-                style={{ height: '35px', width: 'auto', objectFit: 'contain', opacity: 0.8, transition: 'opacity 0.3s' }}
-                onMouseEnter={(e) => e.target.style.opacity = '1'}
-                onMouseLeave={(e) => e.target.style.opacity = '0.8'}
-              />
-              <img 
-                src="/logo/Global-Schools-Program.png" 
-                alt="Global Schools Program" 
-                style={{ height: '35px', width: 'auto', objectFit: 'contain', opacity: 0.8, transition: 'opacity 0.3s' }}
-                onMouseEnter={(e) => e.target.style.opacity = '1'}
-                onMouseLeave={(e) => e.target.style.opacity = '0.8'}
-              />
-            </div>
-          </motion.div>
-
           {/* Stats */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.3, duration: 0.8 }}
+            transition={{ delay: 1.2, duration: 0.8 }}
             style={{
               display: 'flex',
               gap: '3rem',

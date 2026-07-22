@@ -97,54 +97,6 @@ export default function OkulOncesiPDRPage() {
       </section>
 
       <div style={{ height: '4px', background: 'linear-gradient(90deg, #22c55e, var(--primary), transparent)' }} />
-
-      <section style={{ padding: '5.5rem 0', background: 'var(--off-white)' }}>
-        <div className="section-container">
-          <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-
-            {/* Misyon */}
-            <motion.div {...fadeUp(0)} style={{ background: 'var(--white)', borderRadius: '14px', padding: '2rem 2.5rem', border: '1px solid var(--grey-light)', borderLeft: '5px solid #22c55e', marginBottom: '3rem', boxShadow: '0 4px 20px rgba(35,46,92,0.06)' }}>
-              <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#22c55e', marginBottom: '0.75rem' }}>Misyonumuz</p>
-              <P>Okul öncesi rehberlik servisinin misyonu; öğrencilerimizi fiziksel, sosyal, psikolojik ve bilişsel açıdan en iyi şekilde ilköğretime ve hayata hazırlanmalarında gerekli psikolojik desteği sağlamaktır. Bölümümüzde psikolojik ve rehberlik danışmanlık hizmetleri, öğrenci ve ailelerine yönelik çok yönlü çalışmalar olarak planlanır.</P>
-            </motion.div>
-
-            {PDR_SECTIONS.map((section, si) => (
-              <div key={section.group} style={{ marginBottom: '3rem' }}>
-                <motion.div {...fadeUp(0.05)}>
-                  <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.3rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                    
-                    {section.group}
-                  </h3>
-                </motion.div>
-                {section.items.map((item, ii) => (
-                  <motion.div key={ii} {...fadeUp(0.07 + ii * 0.04)}>
-                    <div style={{ background: 'var(--white)', borderRadius: '10px', padding: '1.5rem 2rem', border: '1px solid var(--grey-light)', marginBottom: '1rem', boxShadow: '0 2px 10px rgba(35,46,92,0.04)' }}>
-                      <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 900, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.6rem' }}>{item.title}</h4>
-                      <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', color: 'var(--text-mid)', lineHeight: 1.85, margin: 0 }}>{item.body}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            ))}
-
-            {/* CTA */}
-            <motion.div {...fadeUp(0.1)} style={{ background: 'var(--primary)', borderRadius: '14px', padding: '2rem 2.5rem', display: 'flex', gap: '2rem', alignItems: 'center', flexWrap: 'wrap' }}>
-              <div style={{ flex: 1 }}>
-                <p style={{ fontFamily: 'var(--font-serif)', fontSize: '1.1rem', fontWeight: 700, color: '#fff', marginBottom: '0.4rem' }}>Rehberlik Birimimizle İletişime Geçin</p>
-                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.87rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.7 }}>Çocuğunuzun gelişimine ilişkin sorularınız için PDR biriminize ulaşabilirsiniz.</p>
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                <a href="mailto:info@kolejsancaktepe.com" style={{ fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#fff', background: 'var(--red)', padding: '0.7rem 1.5rem', borderRadius: '5px', textDecoration: 'none', textAlign: 'center' }}>
-                  info@kolejsancaktepe.com
-                </a>
-                <Link to="/birimler/pdr" style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)', textDecoration: 'none', textAlign: 'center' }}>
-                  PDR Birimi Genel Sayfası →
-                </Link>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

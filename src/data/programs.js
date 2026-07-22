@@ -19,12 +19,11 @@ export const programs = [
     tag: 'BÖGEP',
     pdf: '/pdf%20ler/b%C3%B6gep%20web.pdf',
     title: 'TED AD – Bütüncül Öğrenme ve Gelişim Programları (BÖGEP)',
-    subtitle: 'K12 — Tüm kademeler',
+    subtitle: 'Bütüncül Öğrenme ve Gelişim Programları',
     color: '#232e5c',
     accent: '#e61936',
     desc: 'Bu programlar, akademik eğitimi destekleyen; öğrencinin akademik, sosyal, duygusal ve kültürel gelişimini bütüncül olarak ele alan yapılardır.',
     heroDesc: 'TED AD – BÜTÜNCÜL ÖĞRENME VE GELİŞİM PROGRAMLARI (BÖGEP), öğrencinin yalnızca akademik değil; sosyal, duygusal, kültürel ve etik boyutlarda da gelişimini destekleyen kapsamlı bir çerçeve programdır.',
-    subPrograms: ['ssp', 'lll', 'ode', 'mp', 'top'],
     items: [
       { code: '1', label: 'SSP – Sosyal Sorumluluk Programı (Social Responsibility Program)' },
       { code: '2', label: 'LLL – Yaşam Boyu Öğrenme Programı (Life Long Learning Program)' },
@@ -65,7 +64,7 @@ export const programs = [
 
   {
     id: 'kvyod',
-    tag: 'KVYOD',
+    tag: 'Küresel Vizyon ve Yaşam Odaklı Dersler',
     pdf: '/pdf%20ler/k%C3%BCresel%20vizyon%20web.pdf',
     title: 'Küresel Vizyon ve Yaşam Odaklı Dersler',
     subtitle: 'Ortaokul ve Lise',
@@ -73,12 +72,7 @@ export const programs = [
     accent: '#10b981',
     desc: 'Öğrencilerin akademik bilgiyi yaşamla ilişkilendirmesini, dünyayı bütüncül bir bakış açısıyla okuyabilmesini amaçlayan derslerdir.',
     heroDesc: 'KVYOD, öğrencilere küresel ölçekte düşünme ve yerel ölçekte hareket etme becerisi kazandırır. Eleştirel düşünme, küresel kültür farkındalığı ve yaşam becerilerini disiplinlerarası bir çerçevede ele alır.',
-    subPrograms: ['kvyod-ortaokul', 'kvyod-lise', 'sdgs'],
-    items: [
-      { code: '1', label: 'Ortaokul — Düşünme ve Anlamlandırma, Dünya Toplum ve Kültür, Yaşam Becerileri' },
-      { code: '2', label: 'Lise — Akademik Derinleşme, Gelecek Meslek Yaşam Tasarımı, Toplumsal Sorumluluk' },
-      { code: '3', label: 'BM Sürdürülebilir Kalkınma Amaçları (SDGs) Entegrasyonu' },
-    ],
+    customContent: true,
     goals: [
       'Küresel sorunlara duyarlılık ve çözüm odaklı düşünme becerisi',
       'Kültürlerarası yetkinlik ve empati geliştirmek',
@@ -86,19 +80,14 @@ export const programs = [
       'Akademik bilgiyi gerçek yaşam bağlamında kullanabilmek',
     ],
     apply: 'KVYOD dersleri, ortaokul ve lise kademelerinde haftalık ders çizelgesine yerleştirilir. Bazı kazanımlar proje, bazıları disiplinlerarası çalışmalar ve uygulamalı atölyeler yoluyla ele alınır.',
-    details: [
-      { title: 'Ortaokul', desc: 'Kimlik, düşünme, dünya ile bağ kurma: Düşünme ve Anlamlandırma Dersleri, Dünya Toplum ve Kültür, Yaşam Becerileri ve Kendini Tanıma.' },
-      { title: 'Lise', desc: 'Yön, Anlam ve Gelecek: Akademik Derinleşme ve Disiplinlerarası Dersler, Gelecek Meslek ve Yaşam Tasarımı, Toplumsal Sorumluluk ve Etki.' },
-      { title: 'SDGs Entegrasyonu', desc: 'Tüm dersler BM Sürdürülebilir Kalkınma Amaçları ile ilişkilendirilir.' },
-    ],
   },
 
   {
     id: 'okuryazarlik',
-    tag: 'Okuryazarlık',
+    tag: 'OKURYAZARLIK PROGRAMI',
     pdf: '/pdf%20ler/okuryazarl%C4%B1k%20web.pdf',
-    title: 'TED AD – Okuryazarlık Temelli Ortaokul & Lise Eğitim Modeli',
-    subtitle: 'Ortaokul ve Lise',
+    title: 'Okuryazarlık Temelli Ortaokul ve Lise Eğitim Modeli',
+    subtitle: 'Okuryazarlık Temelli Program',
     color: '#312e81',
     accent: '#818cf8',
     desc: 'Bilgi yükleyen değil, bilgiyi okuyan, yorumlayan ve dönüştüren bireyler yetiştirmek.',
@@ -134,9 +123,9 @@ export const programs = [
 
   {
     id: 'yabanci-dil',
-    tag: 'Yabancı Dil',
+    tag: 'YDP',
     title: 'Yabancı Dil Programı',
-    subtitle: 'K12 — Tüm Kademeler',
+    subtitle: 'Yabancı Dil Programı',
     color: '#1e40af',
     accent: '#3b82f6',
     desc: 'Bir ders saati değil yaşam alanı; bir dil bilgisi sistemi değil anlam ve iletişim aracı; bir sınav hedefi değil dünya ile bağ kurma yolu.',
@@ -161,10 +150,10 @@ export const programs = [
 
   {
     id: 'uygulamali-dersler',
-    tag: 'Branşlaşma',
+    tag: 'UDP',
     pdf: '/pdf%20ler/uygulamal%C4%B1%20dersler%20web.pdf',
     title: 'Kolej Sancaktepe TED AD – Uygulamalı Dersler ve Branşlaşma Modeli',
-    subtitle: 'K12 — Tüm Kademeler (Sanat, Spor ve Yaşam Odaklı)',
+    subtitle: 'Uygulamalı Dersler ve Branşlaşma Modeli',
     color: '#134e4a',
     accent: '#14b8a6',
     desc: 'Çocukların çok yönlü gelişimini desteklemek, yaratıcılıklarını ortaya çıkarmak, öğrenmeyi keyifli hale getirmek ve özgüven ile ifade becerilerini geliştirmek.',
@@ -195,7 +184,7 @@ export const programs = [
 
   {
     id: 'clil',
-    tag: 'CLIL',
+    tag: 'CLIL & Co-Teaching Programı',
     title: 'CLIL & Co-Teaching Programı',
     subtitle: 'Anaokulu, İlkokul, Ortaokul 5-6. Sınıf',
     color: '#4c1d95',
@@ -223,7 +212,7 @@ export const programs = [
 
   {
     id: 'ap',
-    tag: 'AP',
+    tag: 'AP (Advanced Placement)',
     title: 'AP (Advanced Placement)',
     subtitle: 'Lise Kademesi',
     color: '#166534',
@@ -255,7 +244,7 @@ export const programs = [
 
   {
     id: 'p4c',
-    tag: 'P4C',
+    tag: 'P4C (Philosophy for Children)',
     title: 'P4C (Philosophy for Children)',
     subtitle: 'Anaokulu',
     color: '#831843',
