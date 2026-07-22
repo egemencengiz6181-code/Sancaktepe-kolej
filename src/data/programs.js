@@ -215,7 +215,7 @@ export const programs = [
     id: 'uygulamali-dersler',
     tag: 'UDP - Uygulamalı Dersler Programı',
     pdf: '/pdf%20ler/uygulamal%C4%B1%20dersler%20web.pdf',
-    title: 'Kolej Sancaktepe TED AD – Uygulamalı Dersler ve Branşlaşma Modeli',
+    title: 'Uygulamalı Dersler ve Branşlaşma Modeli',
     subtitle: '(Sanat, Spor ve Yaşam Odaklı Eğitim)',
     color: '#134e4a',
     accent: '#14b8a6',
@@ -236,13 +236,97 @@ export const programs = [
       'Herkes bir alanda derinleşir',
     ],
     apply: 'Öğrenciler beden eğitimi dersi kapsamında branş seçimi yapar; temel kondisyon ve branşa özgü teknik eğitim alır. Yetenekli öğrenciler için ileri seviye yönlendirme sağlanır. Gönüllülük esaslı kulüp ve kurslar performans, sergi, turnuva ve gösteri odaklı yürütülür.',
-    details: [
-      { title: 'Uygulamalı Derslerin Amacı', desc: 'Kolej Sancaktepe TED AD Koleji\'nde uygulamalı derslerin temel amacı; çocukların çok yönlü gelişimini desteklemek, yaratıcılıklarını ortaya çıkarmak, öğrenmeyi keyifli hale getirmek ve özgüven ve ifade becerilerini geliştirmektir. Bu program sayesinde öğrenciler yalnızca akademik bilgi edinmez; aynı zamanda keşfeden, düşünen ve üreten bireyler olarak gelişir.' },
-      { title: 'Müzik Eğitimi – Enstrüman Temelli Yapı', desc: 'Öğrencilerin ilgi ve yatkınlıklarına göre enstrüman seçimi. Temel müzik okuryazarlığı. Uygulamalı enstrüman eğitimi. Bireysel ve grup çalışmaları. Dönem sonu dinleti, performans ve sahne çalışmaları. Amaç: Müziği dinleyen değil, üreten ve icra eden öğrenci yetiştirmek.' },
-      { title: 'Görsel Sanatlar – Atölye Temelli Eğitim', desc: 'Resim, desen, seramik, dijital sanat. Ürün odaklı çalışma (eser ortaya koyma). Sergi, portfolyo ve süreç değerlendirmesi. Sanat tarihi ve çağdaş sanatla bağ kurma. Amaç: Sanatı ders değil, ifade alanı haline getirmek.' },
-      { title: 'Beden Eğitimi ve Spor – Branşlaşma Modeli', desc: 'Spor Branşları: Basketbol, Voleybol, Yüzme, Hentbol, Futbol, Masa tenisi, Badminton, Dans (modern, ritmik, halk dansları vb.), Atletizm ve temel kondisyon. Uygulama: Öğrenciler beden eğitimi dersi kapsamında branş seçimi yapar. Temel kondisyon + branşa özgü teknik eğitim. Yetenekli öğrenciler için ileri seviye yönlendirme. Amaç: "Herkes her şeyi yapar" yerine, "Herkes bir alanda derinleşir."' },
-      { title: 'Okul Sonrası Kurslar ve Kulüp Sistemi', desc: 'Akademik, Sanatsal ve Sportif Kurslar: Enstrüman kursları, Spor branşı kulüpleri, Drama ve tiyatro, Robotik ve kodlama, Sanat atölyeleri. Yapı: Gönüllülük esaslı, Yetenek ve ilgiye göre yönlendirme, Performans, sergi, turnuva ve gösteri odaklı. "Biz yeteneği aramıyoruz, ortaya çıkarıyoruz. Okul sadece akademik değil, hayatın provasıdır."' },
-    ],
+    sections: [
+      {
+        type: 'intro',
+        title: 'Uygulamalı Derslerin Amacı',
+        content: 'Kolej Sancaktepe TED AD Koleji\'nde uygulamalı derslerin temel amacı;\n\n• çocukların çok yönlü gelişimini desteklemek\n\n• yaratıcılıklarını ortaya çıkarmak\n\n• öğrenmeyi keyifli hale getirmek\n\n• özgüven ve ifade becerilerini geliştirmektir.\n\nBu program sayesinde öğrenciler yalnızca akademik bilgi edinmez; aynı zamanda keşfeden, düşünen ve üreten bireyler olarak gelişir.'
+      },
+      {
+        type: 'group',
+        title: 'Sanat Derslerinde Branşlaşma ve Uygulamalı Model',
+        items: [
+          {
+            title: 'Müzik Eğitimi – Enstrüman Temelli Yapı',
+            subitems: [
+              'Öğrencilerin ilgi ve yatkınlıklarına göre enstrüman seçimi',
+              'Temel müzik okuryazarlığı',
+              'Uygulamalı enstrüman eğitimi',
+              'Bireysel ve grup çalışmaları',
+              'Dönem sonu dinleti, performans ve sahne çalışmaları',
+              'Amaç: Müziği dinleyen değil, üreten ve icra eden öğrenci yetiştirmek.'
+            ]
+          },
+          {
+            title: 'Görsel Sanatlar – Atölye Temelli Eğitim',
+            subitems: [
+              'Resim',
+              'desen',
+              'seramik',
+              'dijital sanat',
+              'Ürün odaklı çalışma (eser ortaya koyma)',
+              'Sergi, portfolyo ve süreç değerlendirmesi',
+              'Sanat tarihi ve çağdaş sanatla bağ kurma',
+              'Amaç: Sanatı ders değil, ifade alanı haline getirmek.'
+            ]
+          }
+        ]
+      },
+      {
+        type: 'group',
+        title: 'Beden Eğitimi ve Spor – Branşlaşma Modeli',
+        items: [
+          {
+            title: 'Spor Branşları',
+            subitems: [
+              'Basketbol',
+              'Voleybol',
+              'Yüzme',
+              'Hentbol',
+              'Futbol',
+              'Masa tenisi',
+              'Badminton',
+              'Dans (modern, ritmik, halk dansları vb.)',
+              'Atletizm ve temel kondisyon'
+            ]
+          },
+          {
+            title: 'Uygulama',
+            subitems: [
+              'Öğrenciler beden eğitimi dersi kapsamında branş seçimi yapar',
+              'Temel kondisyon + branşa özgü teknik eğitim',
+              'Yetenekli öğrenciler için ileri seviye yönlendirme',
+              'Amaç: "Herkes her şeyi yapar" yerine, "Herkes bir alanda derinleşir."'
+            ]
+          }
+        ]
+      },
+      {
+        type: 'group',
+        title: 'Okul Sonrası Kurslar ve Kulüp Sistemi',
+        items: [
+          {
+            title: 'Akademik, Sanatsal ve Sportif Kurslar',
+            subitems: [
+              'Enstrüman kursları',
+              'Spor branşı kulüpleri',
+              'Drama ve tiyatro',
+              'Robotik ve kodlama',
+              'Sanat atölyeleri'
+            ]
+          },
+          {
+            title: 'Yapı',
+            subitems: [
+              'Gönüllülük esaslı',
+              'Yetenek ve ilgiye göre yönlendirme',
+              'Performans, sergi, turnuva ve gösteri odaklı',
+              '"Biz yeteneği aramıyoruz, ortaya çıkarıyoruz. Okul sadece akademik değil, hayatın provasıdır."'
+            ]
+          }
+        ]
+      }
+    ]
   },
 
   {
