@@ -114,9 +114,58 @@ export default function BasvuruFormuPage() {
   const goNext = () => setStep(s => Math.min(s + 1, 4));
   const goBack = () => setStep(s => Math.max(s - 1, 1));
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    
+    if (!finalKvkkOnay) {
+      alert('KVKK metnini onaylamanız gerekmektedir.');
+      return;
+    }
+
+    try {
+      const formData = {
+        _subject: 'Yeni Başvuru Formu - Kolej Sancaktepe',
+        // Öğrenci Bilgileri
+        'Öğrenci Adı': ogrenci.ad,
+        'Öğrenci Soyadı': ogrenci.soyad,
+        'TC Kimlik No': ogrenci.tc,
+        'Doğum Tarihi': ogrenci.dogumTarihi,
+        'Cinsiyet': ogrenci.cinsiyet,
+        'Uyruk': ogrenci.uyruk,
+        'Kayıt Yılı': ogrenci.kayitYili,
+        'Kayıt Dönemi': kayit.donem,
+        'Sınıf': kayit.sinif,
+        // Anne Bilgileri
+        'Anne Adı': anne.ad,
+        'Anne Soyadı': anne.soyad,
+        'Anne Telefon': anne.telefon,
+        'Anne E-posta': anne.eposta,
+        'Anne İlçe': anne.ilce,
+        'Anne Meslek': anne.meslek,
+        // Baba Bilgileri
+        'Baba Adı': baba.ad,
+        'Baba Soyadı': baba.soyad,
+        'Baba Telefon': baba.telefon,
+        'Baba E-posta': baba.eposta,
+        'Baba İlçe': baba.ilce,
+        'Baba Meslek': baba.meslek,
+      };
+
+      const response = await fetch('https://formsubmit.co/ajax/info@kolejsancaktepe.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        alert('Form gönderilemedi. Lütfen tekrar deneyin.');
+      }
+    } catch (error) {
+      console.error('Form gönderim hatası:', error);
+      alert('Bir hata oluştu. Lütfen daha sonra tekrar deneyin.');
+    }
   };
 
   const VeliFields = ({ data, set, prefix }) => (

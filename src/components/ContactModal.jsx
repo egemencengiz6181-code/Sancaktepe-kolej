@@ -52,10 +52,43 @@ export default function ContactModal() {
 
   const handleChange = (e) => setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!kvkkAccepted) {
+      alert('KVKK metnini onaylamanız gerekmektedir.');
+      return;
+    }
     setLoading(true);
-    setTimeout(() => { setLoading(false); setSent(true); }, 1200);
+    
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/info@kolejsancaktepe.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: 'Yeni İletişim (Modal) - Kolej Sancaktepe',
+          'Öğrenci Adı': form.studentName,
+          'Okul': form.school,
+          'Sınıf': form.grade,
+          'Veli Adı': form.parentName,
+          'Telefon': form.phone,
+          'Mesaj': form.message,
+        })
+      });
+      
+      if (response.ok) {
+        setSent(true);
+        setTimeout(() => {
+          handleClose();
+        }, 2000);
+      } else {
+        alert('Form gönderilemedi. Lütfen tekrar deneyin.');
+        setLoading(false);
+      }
+    } catch (error) {
+      console.error('Form gönderim hatası:', error);
+      alert('Bir hata oluştu. Lütfen daha sonra tekrar deneyin.');
+      setLoading(false);
+    }
   };
 
   const handleClose = () => {
