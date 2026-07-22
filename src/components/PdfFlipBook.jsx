@@ -1,138 +1,253 @@
 import { useState } from 'react';
+import { Document, Page, pdfjs } from 'react-pdf';
+import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
+import 'react-pdf/dist/esm/Page/TextLayer.css';
+
+// Configure PDF.js worker
+pdfjs.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.js';
 
 /**
- * PdfFlipBook — PDF viewer component
- * Opens PDF in new tab for reliable cross-browser compatibility
+ * PdfFlipBook — Interactive PDF viewer with page-turning functionality
  */
 export default function PdfFlipBook({ url = '/web-genel-dergi.pdf' }) {
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem', width: '100%' }}>
-      {/* PDF Viewer Card */}
-      <div style={{
-        position: 'relative',
-        width: '100%',
-        maxWidth: '900px',
-        borderRadius: '16px',
-        overflow: 'hidden',
-        boxShadow: '0 30px 80px rgba(0,0,0,0.55)',
-        background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)',
-        padding: '4rem 3rem',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: '2rem',
-        textAlign: 'center',
+  const [numPages, setNumPages] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  function onDocumentLoadSuccess({ numPages }) {
+    setNumPages(numPages);
+    setLoading(false);
+  }
+
+  function onDocumentLoadError(error) {
+    console.error('PDF yükleme hatası:', error);
+    setError('PDF yüklenirken bir hata oluştu.');
+    setLoading(false);
+  }
+
+  const goToPrevPage = () => {
+    setCurrentPage((prev) => Math.max(1, prev - 2));
+  };
+
+  const goToNextPage = () => {
+    setCurrentPage((prev) => Math.min(numPages, prev + 2));
+  };
+
+  const canGoPrev = currentPage > 1;
+  const canGoNext = currentPage < numPages;
+
+  if (error) {
+    return (
+      <div style={{ 
+        textAlign: 'center', 
+        padding: '3rem', 
+        background: 'rgba(220,38,38,0.1)', 
+        borderRadius: '12px',
+        color: 'var(--red)'
       }}>
-        {/* PDF Icon */}
-        <div style={{
-          width: '80px',
-          height: '80px',
-          borderRadius: '50%',
-          background: 'rgba(220,38,38,0.15)',
-          border: '2px solid rgba(220,38,38,0.3)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          fontSize: '2rem',
-        }}>
-          📄
-        </div>
-
-        {/* Title */}
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '0.75rem',
-        }}>
-          <h3 style={{
-            fontFamily: 'var(--font-display)',
-            fontSize: '1.5rem',
-            fontWeight: 700,
-            color: '#fff',
-            margin: 0,
-            letterSpacing: '-0.02em',
-          }}>
-            PDF Görüntüleyici
-          </h3>
-          <p style={{
-            fontFamily: 'var(--font-sans)',
-            fontSize: '0.95rem',
-            color: 'rgba(255,255,255,0.6)',
-            margin: 0,
-            lineHeight: 1.6,
-          }}>
-            Dijital dergimizi görüntülemek için aşağıdaki butona tıklayın.
-            <br />
-            PDF yeni sekmede açılacaktır.
-          </p>
-        </div>
-
-        {/* View PDF Button */}
-        <a
-          href={url}
-          target="_blank"
+        <p style={{ fontFamily: 'var(--font-sans)', fontSize: '1rem', margin: 0 }}>{error}</p>
+        <a 
+          href={url} 
+          target="_blank" 
           rel="noopener noreferrer"
           style={{
-            padding: '1rem 2.5rem',
+            marginTop: '1rem',
+            display: 'inline-block',
+            padding: '0.75rem 1.5rem',
             background: 'var(--red)',
             color: '#fff',
             borderRadius: '8px',
-            fontFamily: 'var(--font-display)',
-            fontWeight: 700,
-            fontSize: '0.9rem',
-            letterSpacing: '0.05em',
             textDecoration: 'none',
-            textTransform: 'uppercase',
-            transition: 'all 0.2s',
-            boxShadow: '0 4px 16px rgba(220,38,38,0.3)',
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '0.5rem',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translateY(-2px)';
-            e.currentTarget.style.boxShadow = '0 6px 24px rgba(220,38,38,0.4)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = '0 4px 16px rgba(220,38,38,0.3)';
-          }}
-        >
-          <span>PDF'i Görüntüle</span>
-          <span style={{ fontSize: '1.2rem' }}>→</span>
-        </a>
-
-        {/* Download Link */}
-        <a
-          href={url}
-          download
-          style={{
             fontFamily: 'var(--font-sans)',
-            fontSize: '0.85rem',
-            color: 'rgba(255,255,255,0.5)',
-            textDecoration: 'underline',
-            transition: 'color 0.2s',
+            fontSize: '0.9rem'
           }}
-          onMouseEnter={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}
-          onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.5)'}
         >
-          veya indirmek için tıklayın
+          PDF'i Yeni Sekmede Aç
         </a>
       </div>
+    );
+  }
 
-      {/* Hint */}
-      <p style={{
-        fontFamily: 'var(--font-sans)',
-        fontSize: '0.75rem',
-        color: 'rgba(255,255,255,0.22)',
-        textAlign: 'center',
-        margin: 0,
-        maxWidth: '600px',
-        lineHeight: 1.6,
+  return (
+    <div style={{ 
+      display: 'flex', 
+      flexDirection: 'column', 
+      alignItems: 'center', 
+      gap: '2rem',
+      width: '100%',
+      padding: '2rem 1rem'
+    }}>
+      {/* PDF Viewer Container */}
+      <div style={{
+        position: 'relative',
+        width: '100%',
+        maxWidth: '1200px',
+        background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)',
+        borderRadius: '16px',
+        boxShadow: '0 30px 80px rgba(0,0,0,0.55)',
+        overflow: 'hidden',
       }}>
-        PDF, tarayıcınızın yerleşik görüntüleyicisi ile açılacaktır. Sayfalar arasında gezinmek,
-        yakınlaştırmak ve yazdırmak için tarayıcınızın kontrol panelini kullanabilirsiniz.
-      </p>
+        {loading && (
+          <div style={{
+            padding: '4rem',
+            textAlign: 'center',
+            color: 'rgba(255,255,255,0.7)',
+            fontFamily: 'var(--font-sans)'
+          }}>
+            <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>📄</div>
+            <p>PDF yükleniyor...</p>
+          </div>
+        )}
+
+        <Document
+          file={url}
+          onLoadSuccess={onDocumentLoadSuccess}
+          onLoadError={onDocumentLoadError}
+          loading=""
+        >
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'flex-start',
+            gap: '1rem',
+            padding: '2rem',
+            minHeight: '600px',
+          }}>
+            {/* Left Page */}
+            {currentPage <= numPages && (
+              <div style={{
+                flex: '0 0 45%',
+                maxWidth: '500px',
+                boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
+                borderRadius: '8px',
+                overflow: 'hidden',
+                background: '#fff',
+                transition: 'transform 0.3s ease',
+              }}>
+                <Page
+                  pageNumber={currentPage}
+                  renderTextLayer={false}
+                  renderAnnotationLayer={false}
+                  width={500}
+                />
+              </div>
+            )}
+
+            {/* Right Page */}
+            {currentPage + 1 <= numPages && (
+              <div style={{
+                flex: '0 0 45%',
+                maxWidth: '500px',
+                boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
+                borderRadius: '8px',
+                overflow: 'hidden',
+                background: '#fff',
+                transition: 'transform 0.3s ease',
+              }}>
+                <Page
+                  pageNumber={currentPage + 1}
+                  renderTextLayer={false}
+                  renderAnnotationLayer={false}
+                  width={500}
+                />
+              </div>
+            )}
+          </div>
+        </Document>
+
+        {/* Navigation Controls */}
+        {!loading && numPages && (
+          <div style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            padding: '1.5rem 2rem',
+            background: 'rgba(0,0,0,0.3)',
+            borderTop: '1px solid rgba(255,255,255,0.1)',
+          }}>
+            {/* Previous Button */}
+            <button
+              onClick={goToPrevPage}
+              disabled={!canGoPrev}
+              style={{
+                padding: '0.75rem 1.5rem',
+                background: canGoPrev ? 'var(--red)' : 'rgba(255,255,255,0.1)',
+                color: canGoPrev ? '#fff' : 'rgba(255,255,255,0.3)',
+                border: 'none',
+                borderRadius: '8px',
+                fontFamily: 'var(--font-sans)',
+                fontSize: '0.9rem',
+                fontWeight: 600,
+                cursor: canGoPrev ? 'pointer' : 'not-allowed',
+                transition: 'all 0.2s',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+              }}
+            >
+              <span>←</span>
+              <span>Önceki</span>
+            </button>
+
+            {/* Page Info */}
+            <div style={{
+              fontFamily: 'var(--font-sans)',
+              fontSize: '0.9rem',
+              color: 'rgba(255,255,255,0.8)',
+              textAlign: 'center',
+            }}>
+              <div style={{ fontWeight: 600, marginBottom: '0.25rem' }}>
+                Sayfa {currentPage}{currentPage + 1 <= numPages && `-${currentPage + 1}`}
+              </div>
+              <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)' }}>
+                Toplam {numPages} sayfa
+              </div>
+            </div>
+
+            {/* Next Button */}
+            <button
+              onClick={goToNextPage}
+              disabled={!canGoNext}
+              style={{
+                padding: '0.75rem 1.5rem',
+                background: canGoNext ? 'var(--red)' : 'rgba(255,255,255,0.1)',
+                color: canGoNext ? '#fff' : 'rgba(255,255,255,0.3)',
+                border: 'none',
+                borderRadius: '8px',
+                fontFamily: 'var(--font-sans)',
+                fontSize: '0.9rem',
+                fontWeight: 600,
+                cursor: canGoNext ? 'pointer' : 'not-allowed',
+                transition: 'all 0.2s',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+              }}
+            >
+              <span>Sonraki</span>
+              <span>→</span>
+            </button>
+          </div>
+        )}
+      </div>
+
+      {/* Download Link */}
+      <a
+        href={url}
+        download
+        style={{
+          fontFamily: 'var(--font-sans)',
+          fontSize: '0.85rem',
+          color: 'rgba(255,255,255,0.5)',
+          textDecoration: 'underline',
+          transition: 'color 0.2s',
+        }}
+        onMouseEnter={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}
+        onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.5)'}
+      >
+        ⬇ PDF İndir
+      </a>
     </div>
   );
 }
