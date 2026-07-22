@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 
 // Configure PDF.js worker
@@ -6,12 +6,26 @@ pdfjs.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.js';
 
 /**
  * PdfFlipBook — Interactive PDF viewer with page-turning functionality
+ * Desktop: 2 pages side-by-side | Mobile: 1 page at a time
  */
 export default function PdfFlipBook({ url = '/web-genel-dergi.pdf' }) {
   const [numPages, setNumPages] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile/tablet devices
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 900);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
@@ -25,15 +39,17 @@ export default function PdfFlipBook({ url = '/web-genel-dergi.pdf' }) {
   }
 
   const goToPrevPage = () => {
-    setCurrentPage((prev) => Math.max(1, prev - 2));
+    const step = isMobile ? 1 : 2;
+    setCurrentPage((prev) => Math.max(1, prev - step));
   };
 
   const goToNextPage = () => {
-    setCurrentPage((prev) => Math.min(numPages, prev + 2));
+    const step = isMobile ? 1 : 2;
+    setCurrentPage((prev) => Math.min(numPages, prev + step));
   };
 
   const canGoPrev = currentPage > 1;
-  const canGoNext = currentPage < numPages;
+  const canGoNext = isMobile ? currentPage < numPages : currentPage < numPages;
 
   if (error) {
     return (
@@ -109,14 +125,14 @@ export default function PdfFlipBook({ url = '/web-genel-dergi.pdf' }) {
             justifyContent: 'center',
             alignItems: 'flex-start',
             gap: '1rem',
-            padding: '2rem',
-            minHeight: '600px',
+            padding: isMobile ? '1rem' : '2rem',
+            minHeight: isMobile ? '400px' : '600px',
           }}>
-            {/* Left Page */}
+            {/* Left/Current Page */}
             {currentPage <= numPages && (
               <div style={{
-                flex: '0 0 45%',
-                maxWidth: '500px',
+                flex: isMobile ? '1 1 auto' : '0 0 45%',
+                maxWidth: isMobile ? '100%' : '500px',
                 boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
                 borderRadius: '8px',
                 overflow: 'hidden',
@@ -127,13 +143,13 @@ export default function PdfFlipBook({ url = '/web-genel-dergi.pdf' }) {
                   pageNumber={currentPage}
                   renderTextLayer={false}
                   renderAnnotationLayer={false}
-                  width={500}
+                  width={isMobile ? Math.min(window.innerWidth - 60, 400) : 500}
                 />
               </div>
             )}
 
-            {/* Right Page */}
-            {currentPage + 1 <= numPages && (
+            {/* Right Page (Desktop only) */}
+            {!isMobile && currentPage + 1 <= numPages && (
               <div style={{
                 flex: '0 0 45%',
                 maxWidth: '500px',
@@ -160,22 +176,23 @@ export default function PdfFlipBook({ url = '/web-genel-dergi.pdf' }) {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            padding: '1.5rem 2rem',
+            padding: isMobile ? '1rem' : '1.5rem 2rem',
             background: 'rgba(0,0,0,0.3)',
             borderTop: '1px solid rgba(255,255,255,0.1)',
+            gap: '0.5rem',
           }}>
             {/* Previous Button */}
             <button
               onClick={goToPrevPage}
               disabled={!canGoPrev}
               style={{
-                padding: '0.75rem 1.5rem',
+                padding: isMobile ? '0.6rem 1rem' : '0.75rem 1.5rem',
                 background: canGoPrev ? 'var(--red)' : 'rgba(255,255,255,0.1)',
                 color: canGoPrev ? '#fff' : 'rgba(255,255,255,0.3)',
                 border: 'none',
                 borderRadius: '8px',
                 fontFamily: 'var(--font-sans)',
-                fontSize: '0.9rem',
+                fontSize: isMobile ? '0.8rem' : '0.9rem',
                 fontWeight: 600,
                 cursor: canGoPrev ? 'pointer' : 'not-allowed',
                 transition: 'all 0.2s',
@@ -191,12 +208,15 @@ export default function PdfFlipBook({ url = '/web-genel-dergi.pdf' }) {
             {/* Page Info */}
             <div style={{
               fontFamily: 'var(--font-sans)',
-              fontSize: '0.9rem',
+              fontSize: isMobile ? '0.8rem' : '0.9rem',
               color: 'rgba(255,255,255,0.8)',
               textAlign: 'center',
             }}>
               <div style={{ fontWeight: 600, marginBottom: '0.25rem' }}>
-                Sayfa {currentPage}{currentPage + 1 <= numPages && `-${currentPage + 1}`}
+                {isMobile 
+                  ? `Sayfa ${currentPage}` 
+                  : `Sayfa ${currentPage}${currentPage + 1 <= numPages ? `-${currentPage + 1}` : ''}`
+                }
               </div>
               <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)' }}>
                 Toplam {numPages} sayfa
@@ -208,13 +228,13 @@ export default function PdfFlipBook({ url = '/web-genel-dergi.pdf' }) {
               onClick={goToNextPage}
               disabled={!canGoNext}
               style={{
-                padding: '0.75rem 1.5rem',
+                padding: isMobile ? '0.6rem 1rem' : '0.75rem 1.5rem',
                 background: canGoNext ? 'var(--red)' : 'rgba(255,255,255,0.1)',
                 color: canGoNext ? '#fff' : 'rgba(255,255,255,0.3)',
                 border: 'none',
                 borderRadius: '8px',
                 fontFamily: 'var(--font-sans)',
-                fontSize: '0.9rem',
+                fontSize: isMobile ? '0.8rem' : '0.9rem',
                 fontWeight: 600,
                 cursor: canGoNext ? 'pointer' : 'not-allowed',
                 transition: 'all 0.2s',
