@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
+import { t } from '../i18n';
 const FloatingParticle = ({ style }) => (
   <motion.div
     style={{
@@ -126,7 +127,7 @@ export default function Hero() {
         >
           <img
             src="/logo/tedad-2.png"
-            alt="TED AD"
+            alt={t("TED AD")}
             style={{ width: '180px', height: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.4))' }}
           />
         </motion.div>
@@ -140,7 +141,7 @@ export default function Hero() {
             style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}
           >
             <div className="gold-line" />
-            <span className="section-tag">TED Akreditasyon & Danışmanlık</span>
+            <span className="section-tag">{t("TED Akreditasyon & Danışmanlık")}</span>
           </motion.div>
 
           {/* Main title */}
@@ -158,7 +159,7 @@ export default function Hero() {
             }}
           >
             Kolej{' '}
-            <em style={{ color: 'var(--gold-light)', fontStyle: 'italic' }}>Sancaktepe</em>
+            <em style={{ color: 'var(--gold-light)', fontStyle: 'italic' }}>{t("Sancaktepe")}</em>
           </motion.h1>
 
           <motion.div
@@ -188,7 +189,7 @@ export default function Hero() {
               lineHeight: 1.5,
             }}
           >
-            Eğitimde başarı için yanınızdayız.
+            {t("Eğitimde başarı için yanınızdayız.")}
           </motion.p>
 
           <motion.p
@@ -205,7 +206,7 @@ export default function Hero() {
               marginBottom: '3rem',
             }}
           >
-            Kolej Sancaktepe TED-AD okulları, kaliteli eğitim anlayışı ve uzman kadrosuyla öğrencilere bireysel gelişimlerini destekleyerek gelecekte başarılı bireyler olmaları için önemli bir adım atıyor.
+            {t("Kolej Sancaktepe TED-AD okulları, kaliteli eğitim anlayışı ve uzman kadrosuyla öğrencilere bireysel gelişimlerini destekleyerek gelecekte başarılı bireyler olmaları için önemli bir adım atıyor.")}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -235,7 +236,7 @@ export default function Hero() {
               onMouseEnter={(e) => { e.target.style.transform = 'translateY(-2px)'; e.target.style.boxShadow = '0 12px 40px rgba(201,168,76,0.35)'; }}
               onMouseLeave={(e) => { e.target.style.transform = 'translateY(0)'; e.target.style.boxShadow = '0 8px 32px rgba(201,168,76,0.25)'; }}
             >
-              Kayıt & İletişim
+              {t("Kayıt & İletişim")}
             </button>
             <button
               onClick={() => handleScroll('#about')}
@@ -256,7 +257,7 @@ export default function Hero() {
               onMouseEnter={(e) => { e.target.style.borderColor = 'var(--gold)'; e.target.style.background = 'rgba(201,168,76,0.08)'; }}
               onMouseLeave={(e) => { e.target.style.borderColor = 'rgba(201,168,76,0.4)'; e.target.style.background = 'transparent'; }}
             >
-              Keşfet
+              {t("Keşfet")}
             </button>
           </motion.div>
 
@@ -295,7 +296,7 @@ export default function Hero() {
                   letterSpacing: '0.15em',
                   textTransform: 'uppercase',
                   color: 'rgba(255,255,255,0.45)',
-                }}>{stat.label}</div>
+                }}>{t(stat.label)}</div>
               </div>
             ))}
           </motion.div>
@@ -327,7 +328,7 @@ export default function Hero() {
           letterSpacing: '0.2em',
           textTransform: 'uppercase',
           color: 'rgba(255,255,255,0.35)',
-        }}>Kaydır</span>
+        }}>{t("Kaydır")}</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.5 }}

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 
+import { t } from '../i18n';
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
@@ -64,14 +65,14 @@ export default function VizMisyonPage() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
               <div style={{ width: '40px', height: '3px', background: 'rgba(255,255,255,0.35)', borderRadius: '2px' }} />
               <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)' }}>
-                Kurumsal
+                {t("Kurumsal")}
               </span>
             </div>
             <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 700, color: '#fff', lineHeight: 1.12, marginBottom: '1rem' }}>
-              Vizyonumuz, Misyonumuz<br />ve Değerlerimiz
+              {t("Vizyonumuz, Misyonumuz")}<br />{t("ve Değerlerimiz")}
             </h1>
             <p style={{ fontFamily: 'var(--font-sans)', fontSize: '1rem', color: 'rgba(255,255,255,0.65)', maxWidth: '560px', lineHeight: 1.85 }}>
-              Sürdürülebilir bir dünyaya hizmet eden, evrensel değerleri özümsemiş bireyler yetiştirme hedefimiz.
+              {t("Sürdürülebilir bir dünyaya hizmet eden, evrensel değerleri özümsemiş bireyler yetiştirme hedefimiz.")}
             </p>
           </motion.div>
         </div>
@@ -84,11 +85,11 @@ export default function VizMisyonPage() {
           <motion.div {...fadeUp(0)} style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', justifyContent: 'center', marginBottom: '0.75rem' }}>
               <div style={{ flex: 1, height: '1px', background: 'rgba(201,168,76,0.3)', maxWidth: '60px' }} />
-              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.7)' }}>Vizyonumuz</span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.7)' }}>{t("Vizyonumuz")}</span>
               <div style={{ flex: 1, height: '1px', background: 'rgba(201,168,76,0.3)', maxWidth: '60px' }} />
             </div>
             <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 700, color: '#fff', lineHeight: 1.2 }}>
-              Vizyonumuz
+              {t("Vizyonumuz")}
             </h2>
           </motion.div>
 
@@ -101,7 +102,7 @@ export default function VizMisyonPage() {
               padding: '2.5rem 3rem',
             }}>
               <p style={{ fontFamily: 'var(--font-serif)', fontSize: '1.08rem', color: 'rgba(255,255,255,0.88)', lineHeight: 2, fontStyle: 'italic' }}>
-                Kolej Sancaktepe olarak sürdürülebilir bir dünyaya hizmet etmeyi ilke edinmiş, evrensel değerleri özümsemiş, çoklu becerileriyle yaşamın her alanında fark edilen, bedensel ve ruhsal iyi oluş haliyle toplum için değer üreten, geleceğe dönüşümle uyumlanan bireyler yetiştirmek.
+                {t("Kolej Sancaktepe olarak sürdürülebilir bir dünyaya hizmet etmeyi ilke edinmiş, evrensel değerleri özümsemiş, çoklu becerileriyle yaşamın her alanında fark edilen, bedensel ve ruhsal iyi oluş haliyle toplum için değer üreten, geleceğe dönüşümle uyumlanan bireyler yetiştirmek.")}
               </p>
             </div>
           </motion.div>
@@ -115,11 +116,11 @@ export default function VizMisyonPage() {
           <motion.div {...fadeUp(0)} style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', justifyContent: 'center', marginBottom: '0.75rem' }}>
               <div className="red-line" />
-              <span className="section-tag">Misyonumuz</span>
+              <span className="section-tag">{t("Misyonumuz")}</span>
               <div className="red-line" />
             </div>
             <h2 className="section-title" style={{ textAlign: 'center' }}>
-              Türk Eğitim Derneği'nin Misyonu,<br /><span>Okulumuzun Misyonudur</span>
+              {t("Türk Eğitim Derneği'nin Misyonu,")}<br /><span>{t("Okulumuzun Misyonudur")}</span>
             </h2>
           </motion.div>
 
@@ -146,7 +147,7 @@ export default function VizMisyonPage() {
                   }}>
                     {i + 1}
                   </div>
-                  <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-dark)', lineHeight: 1.75, margin: 0 }}>{item}</p>
+                  <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-dark)', lineHeight: 1.75, margin: 0 }}>{t(item)}</p>
                 </div>
               </motion.div>
             ))}
@@ -160,20 +161,20 @@ export default function VizMisyonPage() {
           <motion.div {...fadeUp(0)} style={{ textAlign: 'center', marginBottom: '4rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', justifyContent: 'center', marginBottom: '0.75rem' }}>
               <div className="red-line" />
-              <span className="section-tag">Değerlerimiz</span>
+              <span className="section-tag">{t("Değerlerimiz")}</span>
               <div className="red-line" />
             </div>
             <h2 className="section-title" style={{ textAlign: 'center' }}>
-              Bizi <span>Tanımlayan Değerler</span>
+              {t("Bizi")} <span>{t("Tanımlayan Değerler")}</span>
             </h2>
             <p style={{ fontFamily: 'var(--font-sans)', fontSize: '1rem', color: 'var(--text-mid)', maxWidth: '520px', margin: '1rem auto 0', lineHeight: 1.85 }}>
-              Kolej Sancaktepe öğrencisini şekillendiren sekiz temel değer.
+              {t("Kolej Sancaktepe öğrencisini şekillendiren sekiz temel değer.")}
             </p>
           </motion.div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem' }} className="values-grid">
             {values.map((v, i) => (
-              <motion.div key={v.title} {...fadeUp(i * 0.06)}>
+              <motion.div key={t(v.title)} {...fadeUp(i * 0.06)}>
                 <div style={{
                   background: 'var(--off-white)', borderRadius: '14px', padding: '2rem 2rem',
                   border: '1px solid var(--grey-light)', height: '100%',
@@ -185,9 +186,9 @@ export default function VizMisyonPage() {
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
                     <span style={{ fontSize: '1.6rem' }}>{v.emoji}</span>
-                    <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.05rem', fontWeight: 700, color: 'var(--primary)', margin: 0 }}>{v.title}</h3>
+                    <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.05rem', fontWeight: 700, color: 'var(--primary)', margin: 0 }}>{t(v.title)}</h3>
                   </div>
-                  <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.88rem', color: 'var(--text-mid)', lineHeight: 1.85, margin: 0 }}>{v.text}</p>
+                  <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.88rem', color: 'var(--text-mid)', lineHeight: 1.85, margin: 0 }}>{t(v.text)}</p>
                 </div>
               </motion.div>
             ))}

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 
+import { t } from '../../i18n';
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
@@ -15,13 +16,13 @@ export default function SKSPage() {
           <motion.div {...fadeUp(0.1)}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
               <div style={{ width: '40px', height: '3px', background: 'rgba(255,255,255,0.35)', borderRadius: '2px' }} />
-              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)' }}>Birimler</span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)' }}>{t("Birimler")}</span>
             </div>
             <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2rem,4vw,3.2rem)', fontWeight: 700, color: '#fff', lineHeight: 1.12, marginBottom: '1rem' }}>
-              ODE Koordinatörlüğü
+              {t("ODE Koordinatörlüğü")}
             </h1>
             <p style={{ fontFamily: 'var(--font-sans)', fontSize: '1rem', color: 'rgba(255,255,255,0.65)', maxWidth: '600px', lineHeight: 1.85 }}>
-              Sosyal, Kültürel ve Sportif Etkinlikler Koordinatörlüğü
+              {t("Sosyal, Kültürel ve Sportif Etkinlikler Koordinatörlüğü")}
             </p>
           </motion.div>
         </div>
@@ -34,15 +35,15 @@ export default function SKSPage() {
             <motion.div {...fadeUp(0)} style={{ marginBottom: '2.5rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.75rem' }}>
                 <div className="red-line" />
-                <span className="section-tag">ODE Koordinatörlüğü</span>
+                <span className="section-tag">{t("ODE Koordinatörlüğü")}</span>
               </div>
-              <h2 className="section-title" style={{ marginBottom: '1.5rem' }}>İçerik Hazırlanıyor</h2>
+              <h2 className="section-title" style={{ marginBottom: '1.5rem' }}>{t("İçerik Hazırlanıyor")}</h2>
             </motion.div>
 
             <motion.div {...fadeUp(0.08)}>
               <div style={{ background: 'var(--white)', borderRadius: '16px', padding: '2.5rem', border: '1px solid var(--grey-light)', boxShadow: '0 4px 20px rgba(35,46,92,0.06)' }}>
                 <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.97rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: '1.25rem' }}>
-                  Bu sayfanın içeriği yakında yüklenecektir.
+                  {t("Bu sayfanın içeriği yakında yüklenecektir.")}
                 </p>
               </div>
             </motion.div>

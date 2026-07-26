@@ -2,6 +2,7 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { classes } from '../data/classes';
 
+import { t } from '../i18n';
 const CLASS_SUB_PAGES = {
   'okul-oncesi': [
     { to: '/siniflar/okul-oncesi/genel-bilgiler', label: 'Genel Bilgiler', desc: 'Program ve eğitim anlayışı' },
@@ -108,9 +109,9 @@ export default function SinifDetayPage() {
             <Link to="/siniflar" style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}
               onMouseEnter={(e) => { e.currentTarget.style.color = 'rgba(255,255,255,0.8)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(255,255,255,0.4)'; }}
-            >Kademeler</Link>
+            >{t("Kademeler")}</Link>
             <span style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.7rem' }}>›</span>
-            <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)' }}>{cls.level}</span>
+            <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)' }}>{t(cls.level)}</span>
           </motion.div>
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: '4rem', alignItems: 'center' }} className="sinif-hero-grid">
@@ -127,14 +128,14 @@ export default function SinifDetayPage() {
                 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25, duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
                 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 700, color: '#fff', lineHeight: 1.1, marginBottom: '0.75rem' }}
               >
-                {cls.level}
+                {t(cls.level)}
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.7 }}
                 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.15rem', fontStyle: 'italic', color: 'rgba(255,255,255,0.6)', marginBottom: '1.5rem' }}
               >
-                {cls.subtitle}
+                {t(cls.subtitle)}
               </motion.p>
 
               <motion.p
@@ -157,8 +158,8 @@ export default function SinifDetayPage() {
                 background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)',
                 borderRadius: '6px', padding: '0.75rem 1.25rem',
               }}>
-                <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', marginBottom: '0.2rem' }}>{h.title}</div>
-                <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.82rem', color: 'rgba(255,255,255,0.75)' }}>{h.desc}</div>
+                <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', marginBottom: '0.2rem' }}>{t(h.title)}</div>
+                <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.82rem', color: 'rgba(255,255,255,0.75)' }}>{t(h.desc)}</div>
               </div>
             ))}
           </motion.div>
@@ -206,7 +207,7 @@ export default function SinifDetayPage() {
             <div className="section-container">
               <div style={{ display: 'grid', gridTemplateColumns: `repeat(${Math.min(features.length, 4)}, 1fr)`, gap: '1rem' }} className="features-strip">
                 {features.map((f, i) => (
-                  <motion.div key={f.label} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.07 }}>
+                  <motion.div key={t(f.label)} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.07 }}>
                     <div style={{
                       padding: '1.5rem 1.25rem',
                       background: `${accentColor}08`,
@@ -219,8 +220,8 @@ export default function SinifDetayPage() {
                       onMouseLeave={(e) => { e.currentTarget.style.background = `${accentColor}08`; e.currentTarget.style.borderColor = `${accentColor}20`; e.currentTarget.style.transform = 'translateY(0)'; }}
                     >
                       <div>
-                        <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 900, letterSpacing: '0.08em', textTransform: 'uppercase', color: accentColor, marginBottom: '0.25rem' }}>{f.label}</div>
-                        <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.8rem', color: 'var(--text-mid)', lineHeight: 1.6 }}>{f.desc}</div>
+                        <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 900, letterSpacing: '0.08em', textTransform: 'uppercase', color: accentColor, marginBottom: '0.25rem' }}>{t(f.label)}</div>
+                        <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.8rem', color: 'var(--text-mid)', lineHeight: 1.6 }}>{t(f.desc)}</div>
                       </div>
                     </div>
                   </motion.div>
@@ -248,11 +249,11 @@ export default function SinifDetayPage() {
               }}>
                 <div style={{ height: '4px', background: 'linear-gradient(90deg, var(--red), var(--primary))' }} />
                 <div style={{ padding: '2rem' }}>
-                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: '1.25rem' }}>Eğitim Yaklaşımı</p>
+                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: '1.25rem' }}>{t("Eğitim Yaklaşımı")}</p>
                   {cls.approach.map((a, i) => (
                     <div key={i} style={{ display: 'flex', gap: '0.65rem', marginBottom: '0.75rem', alignItems: 'flex-start' }}>
                       <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--red)', marginTop: '0.45rem', flexShrink: 0 }} />
-                      <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', color: 'var(--text-mid)', lineHeight: 1.65 }}>{a}</span>
+                      <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', color: 'var(--text-mid)', lineHeight: 1.65 }}>{t(a)}</span>
                     </div>
                   ))}
                 </div>
@@ -265,7 +266,7 @@ export default function SinifDetayPage() {
                 borderLeft: '4px solid var(--primary)',
                 padding: '1.75rem', marginBottom: '1.5rem',
               }}>
-                <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.75rem' }}>Hedefimiz</p>
+                <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.75rem' }}>{t("Hedefimiz")}</p>
                 <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.87rem', lineHeight: 1.8, color: 'var(--text-mid)', fontStyle: 'italic' }}>{cls.goal}</p>
               </motion.div>
 
@@ -283,7 +284,7 @@ export default function SinifDetayPage() {
                   onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 10px 32px rgba(230,25,54,0.4)'; }}
                   onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 6px 24px rgba(230,25,54,0.3)'; }}
                 >
-                  Kayıt &amp; Bilgi Al →
+                  {t("Kayıt & Bilgi Al →")}
                 </Link>
               </motion.div>
             </div>
@@ -294,7 +295,7 @@ export default function SinifDetayPage() {
               <motion.div {...fadeUp(0)} style={{ marginBottom: '3.5rem' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
                   <div style={{ width: '4px', height: '32px', background: 'linear-gradient(180deg, var(--red), var(--primary))', borderRadius: '2px' }} />
-                  <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)' }}>Ders Programı</h2>
+                  <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)' }}>{t("Ders Programı")}</h2>
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(230px, 1fr))', gap: '0.9rem' }}>
                   {cls.content.map((item, i) => (
@@ -310,7 +311,7 @@ export default function SinifDetayPage() {
                       }}
                       whileHover={{ x: 4 }}
                     >
-                      <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', color: 'var(--text-mid)', lineHeight: 1.5 }}>{item.label}</span>
+                      <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', color: 'var(--text-mid)', lineHeight: 1.5 }}>{t(item.label)}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -320,7 +321,7 @@ export default function SinifDetayPage() {
               <motion.div {...fadeUp(0.1)} style={{ marginBottom: '3.5rem' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
                   <div style={{ width: '4px', height: '32px', background: 'linear-gradient(180deg, var(--red), var(--primary))', borderRadius: '2px' }} />
-                  <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)' }}>Öne Çıkan Özellikler</h2>
+                  <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)' }}>{t("Öne Çıkan Özellikler")}</h2>
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.25rem' }} className="highlights-grid">
                   {cls.highlights.map((h, i) => (
@@ -337,8 +338,8 @@ export default function SinifDetayPage() {
                     >
                       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'linear-gradient(90deg, var(--red), var(--primary))' }} />
                       <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--red)', marginBottom: '0.6rem' }}>0{i + 1}</div>
-                      <h4 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.05rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.5rem' }}>{h.title}</h4>
-                      <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.82rem', color: 'var(--text-mid)', lineHeight: 1.7 }}>{h.desc}</p>
+                      <h4 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.05rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.5rem' }}>{t(h.title)}</h4>
+                      <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.82rem', color: 'var(--text-mid)', lineHeight: 1.7 }}>{t(h.desc)}</p>
                     </motion.div>
                   ))}
                 </div>
@@ -349,7 +350,7 @@ export default function SinifDetayPage() {
                 <motion.div {...fadeUp(0.15)} style={{ marginBottom: '3.5rem' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.75rem' }}>
                     <div style={{ width: '4px', height: '32px', background: 'linear-gradient(180deg, var(--red), var(--primary))', borderRadius: '2px' }} />
-                    <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)' }}>Bölüm Sayfaları</h2>
+                    <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)' }}>{t("Bölüm Sayfaları")}</h2>
                   </div>
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }} className="subpages-grid">
                     {CLASS_SUB_PAGES[cls.id].map((sp) => (
@@ -359,8 +360,8 @@ export default function SinifDetayPage() {
                           onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--grey-light)'; e.currentTarget.style.boxShadow = '0 2px 8px rgba(35,46,92,0.05)'; e.currentTarget.style.transform = 'translateY(0)'; }}
                         >
                           <div style={{ flex: 1 }}>
-                            <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 900, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.2rem' }}>{sp.label}</div>
-                            <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.8rem', color: 'var(--grey)' }}>{sp.desc}</div>
+                            <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 900, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.2rem' }}>{t(sp.label)}</div>
+                            <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.8rem', color: 'var(--grey)' }}>{t(sp.desc)}</div>
                           </div>
                           <span style={{ color: 'var(--red)', fontFamily: 'var(--font-display)', fontSize: '0.75rem', fontWeight: 800, flexShrink: 0 }}>→</span>
                         </div>
@@ -378,8 +379,8 @@ export default function SinifDetayPage() {
                 boxShadow: '0 4px 24px rgba(35,46,92,0.06)',
                 borderLeft: '5px solid var(--primary)',
               }}>
-                <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: '1rem' }}>Kademe Hakkında</p>
-                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', lineHeight: 1.9, color: 'var(--text-mid)' }}>{cls.desc}</p>
+                <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: '1rem' }}>{t("Kademe Hakkında")}</p>
+                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', lineHeight: 1.9, color: 'var(--text-mid)' }}>{t(cls.desc)}</p>
               </motion.div>
             </div>
           </div>
@@ -391,8 +392,8 @@ export default function SinifDetayPage() {
         <section style={{ padding: '5rem 0', background: 'var(--off-white)', borderTop: '1px solid var(--grey-light)' }}>
           <div className="section-container">
             <motion.div {...fadeUp(0)} style={{ marginBottom: '2.5rem' }}>
-              <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: '0.5rem' }}>Fotoğraf Galerisi</p>
-              <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)' }}>{cls.level} Yaşamından</h2>
+              <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: '0.5rem' }}>{t("Fotoğraf Galerisi")}</p>
+              <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)' }}>{t(cls.level)} Yaşamından</h2>
             </motion.div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.9rem' }} className="photo-grid-4">
               {photos.map((src, i) => (
@@ -402,7 +403,7 @@ export default function SinifDetayPage() {
                 }}>
                   <img
                     src={src}
-                    alt={`${cls.level} - ${i + 1}`}
+                    alt={`${t(cls.level)} - ${i + 1}`}
                     style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.5s cubic-bezier(0.22,1,0.36,1)' }}
                     onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.06)'; }}
                     onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}

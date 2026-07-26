@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useModal } from '../context/ModalContext';
 
+import { t } from '../i18n';
 const WHATSAPP_NUMBER = '902166060833';
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=Merhaba%2C%20Kolej%20Sancaktepe%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.`;
 
@@ -36,7 +37,7 @@ export default function FloatingContact() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              title="WhatsApp ile Ulaş"
+              title={t("WhatsApp ile Ulaş")}
               initial={{ opacity: 0, y: 16, scale: 0.7 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 16, scale: 0.7 }}
@@ -68,7 +69,7 @@ export default function FloatingContact() {
             {/* Form */}
             <motion.button
               onClick={handleForm}
-              title="İletişim Formu"
+              title={t("İletişim Formu")}
               initial={{ opacity: 0, y: 16, scale: 0.7 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 16, scale: 0.7 }}
@@ -102,7 +103,7 @@ export default function FloatingContact() {
       {/* Main toggle button */}
       <motion.button
         onClick={() => setOpen((v) => !v)}
-        aria-label="İletişim"
+        aria-label={t("İletişim")}
         style={{
           width: '56px',
           height: '56px',
@@ -185,7 +186,7 @@ export default function FloatingContact() {
               boxShadow: '0 2px 10px rgba(35,46,92,0.25)',
             }}
           >
-            Bize Ulaşın
+            {t("Bize Ulaşın")}
           </motion.span>
         )}
       </AnimatePresence>

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 
+import { t } from '../../i18n';
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
@@ -13,13 +14,13 @@ const P = ({ children }) => (
 
 const SubSection = ({ title, items, intro, delay = 0 }) => (
   <motion.div {...fadeUp(delay)} style={{ marginBottom: '2rem' }}>
-    <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.72rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.75rem', paddingBottom: '0.4rem', borderBottom: '1px solid var(--grey-light)' }}>{title}</h4>
-    {intro && <P>{intro}</P>}
+    <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.72rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.75rem', paddingBottom: '0.4rem', borderBottom: '1px solid var(--grey-light)' }}>{t(title)}</h4>
+    {intro && <P>{t(intro)}</P>}
     {items && (
       <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
         {items.map((item, i) => (
           <li key={i} style={{ display: 'flex', gap: '0.75rem', fontFamily: 'var(--font-sans)', fontSize: '0.88rem', color: 'var(--text-mid)', lineHeight: 1.8, marginBottom: '0.4rem', paddingLeft: '0.25rem' }}>
-            <span style={{ color: 'var(--red)', flexShrink: 0 }}>•</span>{item}
+            <span style={{ color: 'var(--red)', flexShrink: 0 }}>•</span>{t(item)}
           </li>
         ))}
       </ul>
@@ -31,12 +32,12 @@ const LevelSection = ({ level, groups }) => (
   <div style={{ marginBottom: '3rem' }}>
     <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.25rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
       <span style={{ width: '32px', height: '32px', background: 'var(--red)', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-        <span style={{ color: '#fff', fontSize: '0.7rem', fontFamily: 'var(--font-display)', fontWeight: 900 }}>PDR</span>
+        <span style={{ color: '#fff', fontSize: '0.7rem', fontFamily: 'var(--font-display)', fontWeight: 900 }}>{t("PDR")}</span>
       </span>
-      {level}
+      {t(level)}
     </h3>
     {groups.map((g, i) => (
-      <SubSection key={g.title} title={g.title} items={g.items} intro={g.intro} delay={i * 0.04} />
+      <SubSection key={t(g.title)} title={t(g.title)} items={g.items} intro={g.intro} delay={i * 0.04} />
     ))}
   </div>
 );
@@ -144,13 +145,13 @@ export default function PDRPage() {
           <motion.div {...fadeUp(0.1)}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
               <div style={{ width: '40px', height: '3px', background: 'rgba(255,255,255,0.35)', borderRadius: '2px' }} />
-              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)' }}>Birimler</span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)' }}>{t("Birimler")}</span>
             </div>
             <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2rem,4vw,3.2rem)', fontWeight: 700, color: '#fff', lineHeight: 1.12, marginBottom: '1rem' }}>
-              Psikolojik Danışmanlık ve Rehberlik
+              {t("Psikolojik Danışmanlık ve Rehberlik")}
             </h1>
             <p style={{ fontFamily: 'var(--font-sans)', fontSize: '1rem', color: 'rgba(255,255,255,0.65)', maxWidth: '600px', lineHeight: 1.85 }}>
-              Öğrencilerimizin akademik, kişisel ve mesleki gelişimini destekleyen kapsamlı rehberlik programları.
+              {t("Öğrencilerimizin akademik, kişisel ve mesleki gelişimini destekleyen kapsamlı rehberlik programları.")}
             </p>
           </motion.div>
         </div>
@@ -161,8 +162,8 @@ export default function PDRPage() {
         <div className="section-container">
           <div style={{ maxWidth: '900px', margin: '0 auto' }}>
             <motion.div {...fadeUp(0)} style={{ marginBottom: '3rem' }}>
-              <SubSection title="İçerik Hazırlanıyor" delay={0}>
-                <P>Bu sayfanın içeriği yakında yüklenecektir.</P>
+              <SubSection title={t("İçerik Hazırlanıyor")} delay={0}>
+                <P>{t("Bu sayfanın içeriği yakında yüklenecektir.")}</P>
               </SubSection>
             </motion.div>
           </div>

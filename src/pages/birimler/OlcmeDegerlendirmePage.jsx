@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 
+import { t } from '../../i18n';
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
@@ -17,7 +18,7 @@ const BulletItem = ({ children }) => (
 
 const SubSection = ({ title, children, delay = 0 }) => (
   <motion.div {...fadeUp(delay)} style={{ marginBottom: '2.5rem' }}>
-    <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.1rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1rem', paddingBottom: '0.5rem', borderBottom: '2px solid var(--grey-light)' }}>{title}</h3>
+    <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.1rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1rem', paddingBottom: '0.5rem', borderBottom: '2px solid var(--grey-light)' }}>{t(title)}</h3>
     {children}
   </motion.div>
 );
@@ -30,13 +31,13 @@ export default function OlcmeDegerlendirmePage() {
           <motion.div {...fadeUp(0.1)}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
               <div style={{ width: '40px', height: '3px', background: 'rgba(255,255,255,0.35)', borderRadius: '2px' }} />
-              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)' }}>Birimler</span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)' }}>{t("Birimler")}</span>
             </div>
             <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2rem,4vw,3.2rem)', fontWeight: 700, color: '#fff', lineHeight: 1.12, marginBottom: '1rem' }}>
-              Ölçme ve Değerlendirme Birimi
+              {t("Ölçme ve Değerlendirme Birimi")}
             </h1>
             <p style={{ fontFamily: 'var(--font-sans)', fontSize: '1rem', color: 'rgba(255,255,255,0.65)', maxWidth: '600px', lineHeight: 1.85 }}>
-              Eğitim süreçlerini planlayan, geliştiren ve veri temelli değerlendirme yaparak öğretmen, öğrenci ve veliye geri bildirim sağlayan birim.
+              {t("Eğitim süreçlerini planlayan, geliştiren ve veri temelli değerlendirme yaparak öğretmen, öğrenci ve veliye geri bildirim sağlayan birim.")}
             </p>
           </motion.div>
         </div>
@@ -47,12 +48,12 @@ export default function OlcmeDegerlendirmePage() {
         <div className="section-container">
           <div style={{ maxWidth: '900px', margin: '0 auto' }}>
 
-            <SubSection title="Bölümün Amacı" delay={0}>
-              <P>Ölçme ve Değerlendirme Birimi, Kolej Sancaktepe'nin eğitime bakış açısı ve ilkeleri doğrultusunda, eğitim-öğretim programlarını planlama, geliştirme ve eğitim sürecinin çeşitli aşamalarında alınacak kararlara temel olacak verileri toplama ve değerlendirme amacıyla çalışmalarını yürütür.</P>
-              <P>Öğrenme sürecinin farklı aşamalarında öğrencilerin ne bildiklerini, ne anladıklarını ve neler yapabileceklerini belirleyerek farklılaştırılmış eğitim felsefesiyle öğretmen ve öğrencinin yeni hedefler belirlemesine yardımcı olur.</P>
+            <SubSection title={t("Bölümün Amacı")} delay={0}>
+              <P>{t("Ölçme ve Değerlendirme Birimi, Kolej Sancaktepe'nin eğitime bakış açısı ve ilkeleri doğrultusunda, eğitim-öğretim programlarını planlama, geliştirme ve eğitim sürecinin çeşitli aşamalarında alınacak kararlara temel olacak verileri toplama ve değerlendirme amacıyla çalışmalarını yürütür.")}</P>
+              <P>{t("Öğrenme sürecinin farklı aşamalarında öğrencilerin ne bildiklerini, ne anladıklarını ve neler yapabileceklerini belirleyerek farklılaştırılmış eğitim felsefesiyle öğretmen ve öğrencinin yeni hedefler belirlemesine yardımcı olur.")}</P>
             </SubSection>
 
-            <SubSection title="Bölümün Görevleri" delay={0.05}>
+            <SubSection title={t("Bölümün Görevleri")} delay={0.05}>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                 {[
                   'Ölçme ve değerlendirme literatürünün doğru kullanılmasını, ortak dil ve tutum geliştirilmesini sağlar.',
@@ -66,15 +67,15 @@ export default function OlcmeDegerlendirmePage() {
                 ].map((item, i) => (
                   <li key={i} style={{ display: 'flex', gap: '0.75rem', fontFamily: 'var(--font-sans)', fontSize: '0.9rem', color: 'var(--text-mid)', lineHeight: 1.8, marginBottom: '0.6rem', padding: '0.6rem 0.75rem', background: 'var(--white)', borderRadius: '8px', border: '1px solid var(--grey-light)' }}>
                     <span style={{ color: 'var(--red)', fontWeight: 700, flexShrink: 0 }}>•</span>
-                    {item}
+                    {t(item)}
                   </li>
                 ))}
               </ul>
             </SubSection>
 
-            <SubSection title="Bölümün İlkeleri" delay={0.08}>
-              <P>Öğrenci başarısını belirlemek amacıyla hazırlanan ölçme araçlarında yalnızca bilgi ve kavrama düzeyindeki davranışlar değil; eleştirel düşünme, girişimcilik, öz yönetim, iş birliği, yaratıcı düşünme, iletişim, araştırma ve problem çözme gibi 21. yüzyıl becerilerinin ölçülmesine de ağırlık verilir.</P>
-              <P>Ölçme değerlendirme çalışmaları hem süreç hem de sonuç odaklı olarak uygulanır. Süreç odaklı değerlendirmelerde performans görevleri, projeler ve portfolyo çalışmaları için dereceli puanlama anahtarı, kontrol listesi ve gözlem formu gibi uygun araçlar öğretmenlerle birlikte hazırlanır.</P>
+            <SubSection title={t("Bölümün İlkeleri")} delay={0.08}>
+              <P>{t("Öğrenci başarısını belirlemek amacıyla hazırlanan ölçme araçlarında yalnızca bilgi ve kavrama düzeyindeki davranışlar değil; eleştirel düşünme, girişimcilik, öz yönetim, iş birliği, yaratıcı düşünme, iletişim, araştırma ve problem çözme gibi 21. yüzyıl becerilerinin ölçülmesine de ağırlık verilir.")}</P>
+              <P>{t("Ölçme değerlendirme çalışmaları hem süreç hem de sonuç odaklı olarak uygulanır. Süreç odaklı değerlendirmelerde performans görevleri, projeler ve portfolyo çalışmaları için dereceli puanlama anahtarı, kontrol listesi ve gözlem formu gibi uygun araçlar öğretmenlerle birlikte hazırlanır.")}</P>
             </SubSection>
 
             {[
@@ -99,7 +100,7 @@ export default function OlcmeDegerlendirmePage() {
                 items: ['Öğrencilerin öğrenme ve gelişimlerine dair somut kanıtlar gösterilir; öğrenci süreci şeffaf biçimde paylaşılır.'],
               },
             ].map((group, i) => (
-              <SubSection key={group.title} title={group.title} delay={0.1 + i * 0.04}>
+              <SubSection key={t(group.title)} title={t(group.title)} delay={0.1 + i * 0.04}>
                 <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                   {group.items.map((item, j) => <BulletItem key={j}>• {item}</BulletItem>)}
                 </ul>

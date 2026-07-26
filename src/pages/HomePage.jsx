@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useModal } from '../context/ModalContext';
 import { news } from '../data/news';
 
+import { t } from '../i18n';
 // ── Spotlight card with border glow (no Tailwind) ──────────────
 function SpotlightCard({ children, glowColor = 'blue', style = {}, onClick }) {
   const cardRef = useRef(null);
@@ -153,7 +154,7 @@ export default function HomePage() {
                 >
                   <img
                     src="/logo/tedad-2.png"
-                    alt="TED AD"
+                    alt={t("TED AD")}
                     style={{ width: '180px', height: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.15))' }}
                   />
                 </motion.div>
@@ -165,7 +166,7 @@ export default function HomePage() {
                 >
                   <div style={{ width: '40px', height: '3px', background: 'var(--red)', borderRadius: '2px' }} />
                   <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--grey)' }}>
-                    TED Akreditasyon &amp; Danışmanlık
+                    {t("TED Akreditasyon & Danışmanlık")}
                   </span>
                 </motion.div>
 
@@ -173,13 +174,13 @@ export default function HomePage() {
                   initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.45, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
                   style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(3.2rem, 7vw, 6.5rem)', fontWeight: 700, lineHeight: 1.0, color: 'var(--primary)', marginBottom: '0.5rem' }}
                 >
-                  Bir Okuldan
+                  {t("Bir Okuldan")}
                 </motion.h1>
                 <motion.h1
                   initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.55, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
                   style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(3.2rem, 7vw, 6.5rem)', fontWeight: 700, lineHeight: 1.0, color: 'var(--red)', fontStyle: 'italic', marginBottom: '1rem' }}
                 >
-                  Daha Fazlası
+                  {t("Daha Fazlası")}
                 </motion.h1>
 
                 <motion.div
@@ -190,14 +191,14 @@ export default function HomePage() {
                   initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 0.7 }}
                   style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.15rem, 2vw, 1.4rem)', fontWeight: 400, fontStyle: 'italic', color: 'var(--text-dark)', marginBottom: '1.5rem', lineHeight: 1.6 }}
                 >
-                  Düşünen, üreten ve dünyaya değer katan bireyler yetiştiriyoruz.
+                  {t("Düşünen, üreten ve dünyaya değer katan bireyler yetiştiriyoruz.")}
                 </motion.p>
 
                 <motion.p
                   initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.78, duration: 0.7 }}
                   style={{ fontFamily: 'var(--font-sans)', fontSize: '1rem', color: 'var(--grey-dark)', lineHeight: 1.85, maxWidth: '560px', marginBottom: '3rem' }}
                 >
-                  Kolej Sancaktepe TED-AD okulları, kaliteli eğitim anlayışı ve uzman kadrosuyla öğrencilere bireysel gelişimlerini destekleyerek gelecekte başarılı bireyler olmaları için önemli bir adım atıyor.
+                  {t("Kolej Sancaktepe TED-AD okulları, kaliteli eğitim anlayışı ve uzman kadrosuyla öğrencilere bireysel gelişimlerini destekleyerek gelecekte başarılı bireyler olmaları için önemli bir adım atıyor.")}
                 </motion.p>
 
                 <motion.div
@@ -214,7 +215,7 @@ export default function HomePage() {
                     onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 14px 36px rgba(230,25,54,0.4)'; }}
                     onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 8px 28px rgba(230,25,54,0.3)'; }}
                   >
-                    Kayıt &amp; İletişim
+                    {t("Kayıt & İletişim")}
                   </button>
                   <Link to="/hakkimizda" style={{
                     textDecoration: 'none', fontFamily: 'var(--font-display)', fontSize: '0.78rem', fontWeight: 800,
@@ -225,7 +226,7 @@ export default function HomePage() {
                     onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; e.currentTarget.style.background = 'rgba(35,46,92,0.06)'; e.currentTarget.style.color = 'var(--primary)'; }}
                     onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--primary)'; }}
                   >
-                    Bizi Tanıyın
+                    {t("Bizi Tanıyın")}
                   </Link>
                 </motion.div>
               </div>
@@ -267,7 +268,7 @@ export default function HomePage() {
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.8 }}
           style={{ position: 'absolute', bottom: '2.5rem', left: '50%', transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.4rem' }}
         >
-          <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)' }}>Kaydır</span>
+          <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)' }}>{t("Kaydır")}</span>
           <motion.div animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 1.4 }} style={{ width: '1px', height: '36px', background: 'linear-gradient(180deg, rgba(255,255,255,0.5), transparent)' }} />
         </motion.div>
 
@@ -285,11 +286,11 @@ export default function HomePage() {
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.75rem' }}>
               <div className="red-line" />
-              <span className="section-tag">Güncel</span>
+              <span className="section-tag">{t("Güncel")}</span>
               <div className="red-line" />
             </div>
             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
-              <h2 className="section-title"><span>Portal</span></h2>
+              <h2 className="section-title"><span>{t("Portal")}</span></h2>
               <Link to="/haberler" style={{
                 textDecoration: 'none', fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800,
                 letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--red)',
@@ -297,7 +298,7 @@ export default function HomePage() {
                 padding: '0.5rem 0', borderBottom: '2px solid var(--red)',
                 transition: 'opacity 0.2s',
               }}>
-                Tüm Haberler →
+                {t("Tüm Haberler →")}
               </Link>
             </div>
           </motion.div>
@@ -338,7 +339,7 @@ export default function HomePage() {
                   <div style={{ height: '180px', overflow: 'hidden', position: 'relative' }}>
                     <img
                       src={item.imgThumb}
-                      alt={item.title}
+                      alt={t(item.title)}
                       style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.5s' }}
                       onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.06)')}
                       onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
@@ -349,13 +350,13 @@ export default function HomePage() {
                       fontFamily: 'var(--font-display)', fontSize: '0.58rem', fontWeight: 900,
                       letterSpacing: '0.18em', textTransform: 'uppercase',
                       padding: '0.25rem 0.6rem', borderRadius: '3px',
-                    }}>{item.tag}</div>
+                    }}>{t(item.tag)}</div>
                   </div>
                   <div style={{ padding: '1.25rem' }}>
                     <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 700, color: 'var(--grey)', letterSpacing: '0.08em', marginBottom: '0.5rem' }}>{item.date}</div>
-                    <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1rem', fontWeight: 700, color: 'var(--text-dark)', lineHeight: 1.4, marginBottom: '0.6rem' }}>{item.title}</h3>
-                    <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.8rem', color: 'var(--text-mid)', lineHeight: 1.7 }}>{item.desc}</p>
-                    <div style={{ marginTop: '1rem', fontFamily: 'var(--font-display)', fontSize: '0.63rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--red)' }}>Devamını Oku →</div>
+                    <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1rem', fontWeight: 700, color: 'var(--text-dark)', lineHeight: 1.4, marginBottom: '0.6rem' }}>{t(item.title)}</h3>
+                    <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.8rem', color: 'var(--text-mid)', lineHeight: 1.7 }}>{t(item.desc)}</p>
+                    <div style={{ marginTop: '1rem', fontFamily: 'var(--font-display)', fontSize: '0.63rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--red)' }}>{t("Devamını Oku →")}</div>
                   </div>
                 </Link>
               </motion.div>
@@ -389,13 +390,13 @@ export default function HomePage() {
         <div className="section-container" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <div style={{ display: 'inline-block', background: 'var(--red)', color: '#fff', fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.2em', textTransform: 'uppercase', padding: '0.4rem 1rem', borderRadius: '2px', marginBottom: '1.5rem' }}>
-              2026-2027 Kayıt Dönemi
+              {t("2026-2027 Kayıt Dönemi")}
             </div>
             <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, color: '#fff', marginBottom: '1rem' }}>
-              Çocuğunuzun Geleceğini <em style={{ color: 'rgba(255,255,255,0.75)', fontStyle: 'italic' }}>Birlikte</em> İnşa Edelim
+              {t("Çocuğunuzun Geleceğini")} <em style={{ color: 'rgba(255,255,255,0.75)', fontStyle: 'italic' }}>{t("Birlikte")}</em> {t("İnşa Edelim")}
             </h2>
             <p style={{ fontFamily: 'var(--font-sans)', fontSize: '1rem', color: 'rgba(255,255,255,0.65)', maxWidth: '540px', margin: '0 auto 2.5rem', lineHeight: 1.8 }}>
-              Kayıt ve bilgi almak için formumuzu doldurun veya bizi arayın.
+              {t("Kayıt ve bilgi almak için formumuzu doldurun veya bizi arayın.")}
             </p>
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
               <button onClick={() => openModal(true)} style={{
@@ -408,7 +409,7 @@ export default function HomePage() {
                 onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 14px 36px rgba(230,25,54,0.45)'; }}
                 onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 8px 28px rgba(230,25,54,0.35)'; }}
               >
-                Bilgi Talep Et
+                {t("Bilgi Talep Et")}
               </button>
               <a href="tel:02166060833" style={{
                 textDecoration: 'none', fontFamily: 'var(--font-display)', fontSize: '0.78rem', fontWeight: 800,

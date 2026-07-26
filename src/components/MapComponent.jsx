@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
+import { t } from '../i18n';
 // Fix for default marker icon
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -44,7 +45,10 @@ export default function MapComponent({ style, interactive = true }) {
 
     // Add marker
     const marker = L.marker(position).addTo(map);
-    marker.bindPopup('<b>Kolej Sancaktepe TED-AD</b><br>Eyüp Sultan Mah. Zulal Sk. B Blok No:2/2/1<br>Sancaktepe / İstanbul');
+    // Leaflet popups take an HTML string, so translate the pieces before interpolating
+    marker.bindPopup(
+      `<b>Kolej Sancaktepe TED-AD</b><br>${t('Eyüp Sultan Mah. Zulal Sk. B Blok No:2/2/1')}<br>Sancaktepe / İstanbul`
+    );
 
     // Cleanup on unmount
     return () => {

@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
+import { t } from '../i18n';
 const values = [
   {
       title: 'Milli ve Kültürel Değerlere Bağlılık',
@@ -66,17 +67,17 @@ export default function Values() {
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', justifyContent: 'center', marginBottom: '1rem' }}>
             <div className="gold-line" />
-            <span className="section-tag">Değerlerimiz</span>
+            <span className="section-tag">{t("Değerlerimiz")}</span>
             <div className="gold-line" />
           </div>
           <h2 className="section-title" style={{ textAlign: 'center' }}>
-            Temel <span>Değerlerimiz</span>
+            {t("Temel")} <span>{t("Değerlerimiz")}</span>
           </h2>
           <p className="section-subtitle" style={{
             margin: '1.5rem auto 0',
             textAlign: 'center',
           }}>
-            Eğitim anlayışımızın temelini oluşturan değerler, her öğrencinin gelişim yolculuğuna rehberlik eder.
+            {t("Eğitim anlayışımızın temelini oluşturan değerler, her öğrencinin gelişim yolculuğuna rehberlik eder.")}
           </p>
         </motion.div>
 
@@ -87,7 +88,7 @@ export default function Values() {
         }}>
           {values.map((val, i) => (
             <motion.div
-              key={val.title}
+              key={t(val.title)}
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
@@ -133,7 +134,7 @@ export default function Values() {
                 marginBottom: '0.75rem',
                 lineHeight: 1.3,
               }}>
-                {val.title}
+                {t(val.title)}
               </h3>
 
               <p style={{
@@ -142,7 +143,7 @@ export default function Values() {
                 lineHeight: 1.75,
                 color: 'rgba(255,255,255,0.55)',
               }}>
-                {val.desc}
+                {t(val.desc)}
               </p>
             </motion.div>
           ))}

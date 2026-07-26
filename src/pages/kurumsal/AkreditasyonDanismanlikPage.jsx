@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 
+import { t } from '../../i18n';
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
@@ -88,7 +89,7 @@ export default function AkreditasyonDanismanlikPage() {
           >
             <img
               src="/logo/tedad-2.png"
-              alt="TED AD"
+              alt={t("TED AD")}
               style={{ width: '180px', height: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.4))' }}
             />
           </motion.div>
@@ -100,13 +101,13 @@ export default function AkreditasyonDanismanlikPage() {
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
               <div style={{ width: '40px', height: '3px', background: 'rgba(255,255,255,0.35)', borderRadius: '2px' }} />
-              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)' }}>Kurumsal</span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)' }}>{t("Kurumsal")}</span>
             </div>
             <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2.2rem,4.5vw,3.6rem)', fontWeight: 700, color: '#fff', lineHeight: 1.12, marginBottom: '1rem' }}>
-              Akreditasyon &amp; Danışmanlık
+              {t("Akreditasyon & Danışmanlık")}
             </h1>
             <p style={{ fontFamily: 'var(--font-sans)', fontSize: '1rem', color: 'rgba(255,255,255,0.65)', maxWidth: '620px', lineHeight: 1.85 }}>
-              TED Akreditasyon ve Danışmanlık hizmetleri kapsamında eğitim kurumlarına kurumsal dönüşüm desteği.
+              {t("TED Akreditasyon ve Danışmanlık hizmetleri kapsamında eğitim kurumlarına kurumsal dönüşüm desteği.")}
             </p>
           </motion.div>
         </div>
@@ -128,17 +129,17 @@ export default function AkreditasyonDanismanlikPage() {
               }}>
                 <div style={{ height: '4px', background: 'linear-gradient(90deg, var(--red), var(--primary))' }} />
                 <div style={{ padding: '1.75rem' }}>
-                  <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--red)', marginBottom: '0.75rem' }}>TED AD</div>
+                  <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--red)', marginBottom: '0.75rem' }}>{t("TED AD")}</div>
                   <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.15rem', fontWeight: 700, color: 'var(--primary)', lineHeight: 1.35, marginBottom: '1rem' }}>
-                    TED Akreditasyon ve Danışmanlık
+                    {t("TED Akreditasyon ve Danışmanlık")}
                   </h3>
                   <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.83rem', lineHeight: 1.75, color: 'var(--text-mid)', marginBottom: '1.25rem' }}>
-                    2020'den günümüze Türk eğitim sistemine çok yönlü katkı sağlayan kurumsal hizmet programı.
+                    {t("2020'den günümüze Türk eğitim sistemine çok yönlü katkı sağlayan kurumsal hizmet programı.")}
                   </p>
                   <div style={{ padding: '1rem', background: 'rgba(35,46,92,0.04)', borderRadius: '8px', border: '1px solid rgba(35,46,92,0.08)' }}>
-                    <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 900, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.5rem' }}>Kabul Oranı</div>
+                    <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 900, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.5rem' }}>{t("Kabul Oranı")}</div>
                     <div style={{ fontFamily: 'var(--font-serif)', fontSize: '2rem', fontWeight: 700, color: 'var(--red)', lineHeight: 1 }}>~35%</div>
-                    <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.75rem', color: 'var(--text-mid)', marginTop: '0.25rem' }}>2020'den günümüze</div>
+                    <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.75rem', color: 'var(--text-mid)', marginTop: '0.25rem' }}>{t("2020'den günümüze")}</div>
                   </div>
                 </div>
               </motion.div>
@@ -147,11 +148,11 @@ export default function AkreditasyonDanismanlikPage() {
             {/* Main text */}
             <div>
               <motion.div {...fadeUp(0)} style={{ marginBottom: '3rem' }}>
-                <P>Türk eğitim sistemine çok yönlü katkılar sağlamayı amaçlayan Türk Eğitim Derneği, kurumsal değerlerinin ülke genelinde yaygınlaşmasını artırmak ve özel okul sektörünün nitelikli gelişimine katkı sağlamak amacıyla TED Akreditasyon ve Danışmanlık (TED AD) hizmetleri kapsamında eğitim kurumlarına ve bireylere kurumsal danışmanlık hizmetleri önermektedir.</P>
-                <P>TED Akreditasyonu programı belirtilen şartları taşıyan ve halen faaliyette olan okulların kurumsal dönüşüm sürecine girmelerine ve beklenen yetkinlikleri geliştirdikleri takdirde TED Okulu olmalarına imkân tanımaktadır. Ayrıca TED AD kapsamında okulların her türlü eğitim gereksinimlerine yönelik danışmanlık paketleri sunulmakta, okul öncesi eğitim kurumlarına ve özel okul açmak isteyen yatırımcılara yönelik özelleştirilmiş hizmetler önerilmektedir.</P>
-                <P>TED AD kapsamında sunulan tüm programlar için öncelikle başvuru sahibinin olası gelişim alanlarını saptamaya yönelik bir "Mevcut Durumun Değerlendirilmesi" çalışması yapılmaktadır. Bu çalışma sonrasında oluşturulan rapor, TED AD kapsamında alınacak kurumsal hizmetin başvuru sahibinin kendisine özgü gereksinimlerine uygun olarak verilmesine olanak tanımaktadır.</P>
-                <P>TED AD hizmetlerinin başarısı başvuru sahiplerinin yeniliğe ve ortak çalışma kültürüne açık, ayrıca TED'in kurumsal değerlerine uygun bir yaklaşım içerisinde olmalarına bağlıdır. Yapılan başvuruların kabul edilme oranı, TED AD'nin başlangıç tarihi olan 2020'den günümüze yaklaşık %35'tir. TED AD hizmetlerinden faydalanan okulların listesi "TED AD Okullarımız" başlığında verilmektedir.</P>
-                <P>Birlikte çalışma imkânı bulabildiğimiz okulların öğrencilerinin, öğretmenlerinin ve yöneticilerinin başarısını artırmak için geliştirdiğimiz strateji ve çözümlerin yanı sıra, TED AD kapsamında iş birliği yaptığımız okullara çok yönlü katkılar sunuyoruz. İş birliği yaptığımız okulların;</P>
+                <P>{t("Türk eğitim sistemine çok yönlü katkılar sağlamayı amaçlayan Türk Eğitim Derneği, kurumsal değerlerinin ülke genelinde yaygınlaşmasını artırmak ve özel okul sektörünün nitelikli gelişimine katkı sağlamak amacıyla TED Akreditasyon ve Danışmanlık (TED AD) hizmetleri kapsamında eğitim kurumlarına ve bireylere kurumsal danışmanlık hizmetleri önermektedir.")}</P>
+                <P>{t("TED Akreditasyonu programı belirtilen şartları taşıyan ve halen faaliyette olan okulların kurumsal dönüşüm sürecine girmelerine ve beklenen yetkinlikleri geliştirdikleri takdirde TED Okulu olmalarına imkân tanımaktadır. Ayrıca TED AD kapsamında okulların her türlü eğitim gereksinimlerine yönelik danışmanlık paketleri sunulmakta, okul öncesi eğitim kurumlarına ve özel okul açmak isteyen yatırımcılara yönelik özelleştirilmiş hizmetler önerilmektedir.")}</P>
+                <P>{t("TED AD kapsamında sunulan tüm programlar için öncelikle başvuru sahibinin olası gelişim alanlarını saptamaya yönelik bir \"Mevcut Durumun Değerlendirilmesi\" çalışması yapılmaktadır. Bu çalışma sonrasında oluşturulan rapor, TED AD kapsamında alınacak kurumsal hizmetin başvuru sahibinin kendisine özgü gereksinimlerine uygun olarak verilmesine olanak tanımaktadır.")}</P>
+                <P>{t("TED AD hizmetlerinin başarısı başvuru sahiplerinin yeniliğe ve ortak çalışma kültürüne açık, ayrıca TED'in kurumsal değerlerine uygun bir yaklaşım içerisinde olmalarına bağlıdır. Yapılan başvuruların kabul edilme oranı, TED AD'nin başlangıç tarihi olan 2020'den günümüze yaklaşık %35'tir. TED AD hizmetlerinden faydalanan okulların listesi \"TED AD Okullarımız\" başlığında verilmektedir.")}</P>
+                <P>{t("Birlikte çalışma imkânı bulabildiğimiz okulların öğrencilerinin, öğretmenlerinin ve yöneticilerinin başarısını artırmak için geliştirdiğimiz strateji ve çözümlerin yanı sıra, TED AD kapsamında iş birliği yaptığımız okullara çok yönlü katkılar sunuyoruz. İş birliği yaptığımız okulların;")}</P>
               </motion.div>
 
               {/* Bullet list */}
@@ -164,13 +165,13 @@ export default function AkreditasyonDanismanlikPage() {
               }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                   {bullets.map((b, i) => (
-                    <p key={i} style={{ fontFamily: 'var(--font-sans)', fontSize: '0.93rem', color: 'var(--text-mid)', lineHeight: 1.85, margin: 0 }}>{b}</p>
+                    <p key={i} style={{ fontFamily: 'var(--font-sans)', fontSize: '0.93rem', color: 'var(--text-mid)', lineHeight: 1.85, margin: 0 }}>{t(b)}</p>
                   ))}
                 </div>
               </motion.div>
 
               <motion.div {...fadeUp(0.1)} style={{ marginBottom: '1rem' }}>
-                <P>Sunduğumuz hizmetleri detaylı bir şekilde inceleyebilmek için <strong>Hizmetlerimiz</strong> başlığına gidebilirsiniz.</P>
+                <P>{t("Sunduğumuz hizmetleri detaylı bir şekilde inceleyebilmek için")} <strong>{t("Hizmetlerimiz")}</strong> {t("başlığına gidebilirsiniz.")}</P>
               </motion.div>
             </div>
           </div>

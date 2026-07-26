@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 
+import { t } from '../../i18n';
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
@@ -34,13 +35,13 @@ export default function YabanciDilPage() {
           <motion.div {...fadeUp(0.1)}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
               <div style={{ width: '40px', height: '3px', background: 'rgba(255,255,255,0.35)', borderRadius: '2px' }} />
-              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)' }}>Birimler</span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)' }}>{t("Birimler")}</span>
             </div>
             <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2rem,4vw,3.2rem)', fontWeight: 700, color: '#fff', lineHeight: 1.12, marginBottom: '1rem' }}>
-              Yabancı Dil Birimi
+              {t("Yabancı Dil Birimi")}
             </h1>
             <p style={{ fontFamily: 'var(--font-sans)', fontSize: '1rem', color: 'rgba(255,255,255,0.65)', maxWidth: '600px', lineHeight: 1.85 }}>
-              21. yüzyıl becerilerini ve uluslararası ortaklıklarla güçlenen yabancı dil eğitimi.
+              {t("21. yüzyıl becerilerini ve uluslararası ortaklıklarla güçlenen yabancı dil eğitimi.")}
             </p>
           </motion.div>
         </div>
@@ -54,10 +55,10 @@ export default function YabanciDilPage() {
             <motion.div {...fadeUp(0)} style={{ marginBottom: '2.5rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.75rem' }}>
                 <div className="red-line" />
-                <span className="section-tag">Yabancı Dil Eğitimi</span>
+                <span className="section-tag">{t("Yabancı Dil Eğitimi")}</span>
               </div>
-              <h2 className="section-title" style={{ marginBottom: '1.5rem' }}>21. Yüzyıl Becerilerini Geliştiren Yabancı Dil Eğitimi</h2>
-              <P>Kolej Sancaktepe Yabancı Dil Birimi, öğrencilere uluslararası standartlarda dil eğitimi sunarak küresel vatandaşlık becerilerini geliştirir.</P>
+              <h2 className="section-title" style={{ marginBottom: '1.5rem' }}>{t("21. Yüzyıl Becerilerini Geliştiren Yabancı Dil Eğitimi")}</h2>
+              <P>{t("Kolej Sancaktepe Yabancı Dil Birimi, öğrencilere uluslararası standartlarda dil eğitimi sunarak küresel vatandaşlık becerilerini geliştirir.")}</P>
             </motion.div>
 
           </div>

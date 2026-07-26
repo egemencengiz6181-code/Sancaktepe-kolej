@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 
+import { t } from '../i18n';
 const programs = [
   {
     id: 'bogep',
@@ -115,14 +116,14 @@ export default function Programs() {
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', justifyContent: 'center', marginBottom: '1rem' }}>
             <div className="gold-line" />
-            <span className="section-tag">Eğitim Programları</span>
+            <span className="section-tag">{t("Eğitim Programları")}</span>
             <div className="gold-line" />
           </div>
           <h2 className="section-title" style={{ textAlign: 'center' }}>
-            Eğitim <span>Programlarımız</span>
+            {t("Eğitim")} <span>{t("Programlarımız")}</span>
           </h2>
           <p className="section-subtitle" style={{ margin: '1.5rem auto 0', textAlign: 'center' }}>
-            Bütüncül öğrenme yaklaşımıyla öğrencilerimizin tüm yönlerden gelişimini destekliyoruz.
+            {t("Bütüncül öğrenme yaklaşımıyla öğrencilerimizin tüm yönlerden gelişimini destekliyoruz.")}
           </p>
         </motion.div>
 
@@ -184,7 +185,7 @@ export default function Programs() {
                   border: `1px solid ${prog.color}30`,
                   padding: '0.3rem 0.7rem',
                   borderRadius: '2px',
-                }}>{prog.tag}</span>
+                }}>{t(prog.tag)}</span>
               </div>
 
               <h3 style={{
@@ -194,7 +195,7 @@ export default function Programs() {
                 color: 'var(--white)',
                 marginBottom: '0.5rem',
                 lineHeight: 1.3,
-              }}>{prog.title}</h3>
+              }}>{t(prog.title)}</h3>
 
               <p style={{
                 fontFamily: 'var(--font-display)',
@@ -204,7 +205,7 @@ export default function Programs() {
                 color: prog.color,
                 marginBottom: '0.8rem',
                 textTransform: 'uppercase',
-              }}>{prog.subtitle}</p>
+              }}>{t(prog.subtitle)}</p>
 
               <p style={{
                 fontFamily: 'var(--font-sans)',
@@ -212,7 +213,7 @@ export default function Programs() {
                 lineHeight: 1.7,
                 color: 'rgba(255,255,255,0.5)',
                 marginBottom: '1rem',
-              }}>{prog.desc}</p>
+              }}>{t(prog.desc)}</p>
 
               {/* Expand indicator */}
               <motion.div
@@ -257,7 +258,7 @@ export default function Programs() {
                         textTransform: 'uppercase',
                         color: 'rgba(255,255,255,0.4)',
                         marginBottom: '0.75rem',
-                      }}>Program İçeriği</p>
+                      }}>{t("Program İçeriği")}</p>
                       {prog.items.map((item, j) => (
                         <div key={j} style={{
                           display: 'flex',
@@ -266,7 +267,7 @@ export default function Programs() {
                           alignItems: 'flex-start',
                         }}>
                           <span style={{ color: prog.color, fontWeight: 700, fontSize: '0.8rem', flexShrink: 0 }}>{item.code}</span>
-                          <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.83rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.6 }}>{item.label}</span>
+                          <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.83rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.6 }}>{t(item.label)}</span>
                         </div>
                       ))}
 
@@ -278,11 +279,11 @@ export default function Programs() {
                         textTransform: 'uppercase',
                         color: 'rgba(255,255,255,0.4)',
                         margin: '1.2rem 0 0.75rem',
-                      }}>Amaç</p>
+                      }}>{t("Amaç")}</p>
                       {prog.goals.map((g, j) => (
                         <div key={j} style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.4rem', alignItems: 'flex-start' }}>
                           <span style={{ color: prog.color, flexShrink: 0 }}></span>
-                          <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.83rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>{g}</span>
+                          <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.83rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>{t(g)}</span>
                         </div>
                       ))}
 

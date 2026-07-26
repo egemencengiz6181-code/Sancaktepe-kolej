@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+import { t } from '../i18n';
 // ─── All photos ────────────────────────────────────────────────
 const enc = (path) => path.replace(/ /g, '%20');
 
@@ -58,9 +59,9 @@ const ALL_PHOTOS = [
   { src: enc('/gallery/kütüphane/7.png'), cat: 'kutuphane', label: 'Kütüphane' },
   
   // Sosyal Bahçe (3 görseller)
-  { src: enc('/gallery/sosyal bahçe/9.png'), cat: 'sosyal-bahce', label: 'Sosyal Bahçe' },
-  { src: enc('/gallery/sosyal bahçe/10.png'), cat: 'sosyal-bahce', label: 'Sosyal Bahçe' },
-  { src: enc('/gallery/sosyal bahçe/11.png'), cat: 'sosyal-bahce', label: 'Sosyal Bahçe' },
+  { src: enc('/gallery/sosyal bahçe/9.png'), cat: 'sosyal-bahce', label: 'Bahçe' },
+  { src: enc('/gallery/sosyal bahçe/10.png'), cat: 'sosyal-bahce', label: 'Bahçe' },
+  { src: enc('/gallery/sosyal bahçe/11.png'), cat: 'sosyal-bahce', label: 'Bahçe' },
 ];
 
 const TABS = [
@@ -71,7 +72,7 @@ const TABS = [
   { id: 'ortaokul', label: 'Ortaokul' },
   { id: 'lise', label: 'Anadolu Lisesi' },
   { id: 'kutuphane', label: 'Kütüphane' },
-  { id: 'sosyal-bahce', label: 'Sosyal Bahçe' },
+  { id: 'sosyal-bahce', label: 'Bahçe' },
 ];
 
 // ─── Lightbox ─────────────────────────────────────────────────
@@ -170,7 +171,7 @@ function Lightbox({ photos, index, onClose, onNav }) {
       >
         <img
           src={photo.src}
-          alt={photo.label}
+          alt={t(photo.label)}
           style={{ width: '100%', display: 'block', maxHeight: '80vh', objectFit: 'contain', background: '#08102a' }}
         />
         {/* Caption bar */}
@@ -181,7 +182,7 @@ function Lightbox({ photos, index, onClose, onNav }) {
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         }}>
           <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)' }}>
-            {photo.label}
+            {t(photo.label)}
           </span>
           <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.12em', color: 'rgba(255,255,255,0.35)' }}>
             {index + 1} / {photos.length}
@@ -218,7 +219,7 @@ function PhotoCard({ photo, globalIndex, onOpen }) {
     >
       <img
         src={photo.src}
-        alt={photo.label}
+        alt={t(photo.label)}
         loading="lazy"
         onLoad={() => setLoaded(true)}
         style={{
@@ -249,7 +250,7 @@ function PhotoCard({ photo, globalIndex, onOpen }) {
           background: 'rgba(255,255,255,0.12)',
           padding: '0.3rem 0.65rem', borderRadius: '2px',
         }}>
-          {photo.label} ↗
+          {t(photo.label)} ↗
         </span>
       </motion.div>
     </motion.div>
@@ -271,13 +272,13 @@ export default function GaleriPage() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.7 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
               <div style={{ width: '40px', height: '3px', background: 'rgba(255,255,255,0.35)', borderRadius: '2px' }} />
-              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)' }}>Galeri</span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)' }}>{t("Galeri")}</span>
             </div>
             <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 700, color: '#fff', lineHeight: 1.1, marginBottom: '1rem' }}>
-              Okul <span style={{ color: 'var(--red)' }}>Yaşamı</span>
+              {t("Okul")} <span style={{ color: 'var(--red)' }}>{t("Yaşamı")}</span>
             </h1>
             <p style={{ fontFamily: 'var(--font-sans)', fontSize: '1.05rem', color: 'rgba(255,255,255,0.65)', maxWidth: '560px', lineHeight: 1.85 }}>
-              Kolej Sancaktepe'deki eğitim, etkinlik ve okul hayatından anlar.
+              {t("Kolej Sancaktepe'deki eğitim, etkinlik ve okul hayatından anlar.")}
             </p>
           </motion.div>
         </div>
@@ -316,7 +317,7 @@ export default function GaleriPage() {
                 onMouseEnter={(e) => { if (activeTab !== tab.id) e.currentTarget.style.background = 'rgba(35,46,92,0.1)'; }}
                 onMouseLeave={(e) => { if (activeTab !== tab.id) e.currentTarget.style.background = 'rgba(35,46,92,0.05)'; }}
               >
-                {tab.label}
+                {t(tab.label)}
                 {tab.id !== 'all' && (
                   <span style={{ marginLeft: '0.35rem', opacity: 0.55, fontSize: '0.6rem' }}>
                     ({ALL_PHOTOS.filter(p => p.cat === tab.id).length})
@@ -360,7 +361,7 @@ export default function GaleriPage() {
           {filtered.length === 0 && (
             <div style={{ textAlign: 'center', padding: '5rem 0', color: 'var(--grey)' }}>
               
-              <p style={{ fontFamily: 'var(--font-sans)' }}>Bu kategori için henüz fotoğraf eklenmedi.</p>
+              <p style={{ fontFamily: 'var(--font-sans)' }}>{t("Bu kategori için henüz fotoğraf eklenmedi.")}</p>
             </div>
           )}
         </div>

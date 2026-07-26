@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { news } from '../data/news';
 
+import { t } from '../i18n';
 const tagColors = {
   Haberlerimiz: '#e61936',
   'Eğitim Yazıları': '#232e5c',
@@ -66,20 +67,20 @@ export default function HaberlerPage() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.2rem' }}>
               <div style={{ width: '40px', height: '3px', background: 'rgba(255,255,255,0.35)', borderRadius: '2px' }} />
               <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)' }}>
-                Güncel
+                {t("Güncel")}
               </span>
             </div>
             <h1 style={{
               fontFamily: 'var(--font-serif)', fontSize: 'clamp(2.5rem, 6vw, 4rem)',
               fontWeight: 700, color: '#fff', lineHeight: 1.1, marginBottom: '1rem',
             }}>
-              Okul <em style={{ color: 'var(--yellow)', fontStyle: 'italic' }}>Haberlerimiz</em>
+              {t("Okul")} <em style={{ color: 'var(--yellow)', fontStyle: 'italic' }}>{t("Haberlerimiz")}</em>
             </h1>
             <p style={{
               fontFamily: 'var(--font-sans)', fontSize: '1rem',
               color: 'rgba(255,255,255,0.6)', maxWidth: '540px', lineHeight: 1.8,
             }}>
-              Kolej Sancaktepe\'deki akademik başarıları, etkinlikleri, kültürel gelişmeleri ve spor haberlerini buradan takip edebilirsiniz.
+              {t("Kolej Sancaktepe'deki akademik başarıları, etkinlikleri, kültürel gelişmeleri ve spor haberlerini buradan takip edebilirsiniz.")}
             </p>
           </motion.div>
         </div>
@@ -108,7 +109,7 @@ export default function HaberlerPage() {
                   onMouseEnter={(e) => { if (!active) { e.currentTarget.style.color = color; e.currentTarget.style.background = `${color}10`; } }}
                   onMouseLeave={(e) => { if (!active) { e.currentTarget.style.color = 'var(--grey)'; e.currentTarget.style.background = 'transparent'; } }}
                 >
-                  {tag}
+                  {t(tag)}
                 </button>
               );
             })}
@@ -147,7 +148,7 @@ export default function HaberlerPage() {
                   <div style={{ position: 'relative', overflow: 'hidden', minHeight: '340px' }}>
                     <img
                       src={featured.img}
-                      alt={featured.title}
+                      alt={t(featured.title)}
                       style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.6s' }}
                       onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.04)')}
                       onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
@@ -159,14 +160,14 @@ export default function HaberlerPage() {
                       fontFamily: 'var(--font-display)', fontSize: '0.58rem', fontWeight: 900,
                       letterSpacing: '0.18em', textTransform: 'uppercase',
                       padding: '0.3rem 0.75rem', borderRadius: '3px',
-                    }}>{featured.tag}</div>
+                    }}>{t(featured.tag)}</div>
                     <div style={{
                       position: 'absolute', top: '1rem', right: '1rem',
                       background: 'rgba(0,0,0,0.55)', backdropFilter: 'blur(8px)',
                       color: 'rgba(255,255,255,0.85)',
                       fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 700,
                       padding: '0.25rem 0.65rem', borderRadius: '20px',
-                    }}>Öne Çıkan</div>
+                    }}>{t("Öne Çıkan")}</div>
                   </div>
                   {/* Text */}
                   <div style={{ padding: '3rem 2.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
@@ -176,13 +177,13 @@ export default function HaberlerPage() {
                       <span>{featured.readTime}</span>
                     </div>
                     <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', fontWeight: 700, color: 'var(--text-dark)', lineHeight: 1.3, marginBottom: '1rem' }}>
-                      {featured.title}
+                      {t(featured.title)}
                     </h2>
                     <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.92rem', color: 'var(--text-mid)', lineHeight: 1.8, marginBottom: '1.5rem' }}>
-                      {featured.desc}
+                      {t(featured.desc)}
                     </p>
                     <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--red)' }}>
-                      Devamını Oku →
+                      {t("Devamını Oku →")}
                     </div>
                   </div>
                 </div>
@@ -217,7 +218,7 @@ export default function HaberlerPage() {
                       <div style={{ height: '200px', overflow: 'hidden', position: 'relative', flexShrink: 0 }}>
                         <img
                           src={item.imgThumb}
-                          alt={item.title}
+                          alt={t(item.title)}
                           style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.5s' }}
                           onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.06)')}
                           onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
@@ -228,7 +229,7 @@ export default function HaberlerPage() {
                           fontFamily: 'var(--font-display)', fontSize: '0.57rem', fontWeight: 900,
                           letterSpacing: '0.18em', textTransform: 'uppercase',
                           padding: '0.25rem 0.6rem', borderRadius: '3px',
-                        }}>{item.tag}</div>
+                        }}>{t(item.tag)}</div>
                       </div>
                       <div style={{ padding: '1.4rem', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
                         <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 700, color: 'var(--grey)', letterSpacing: '0.08em', marginBottom: '0.5rem', display: 'flex', gap: '0.75rem' }}>
@@ -237,13 +238,13 @@ export default function HaberlerPage() {
                           <span>{item.readTime}</span>
                         </div>
                         <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-dark)', lineHeight: 1.4, marginBottom: '0.6rem', flexGrow: 1 }}>
-                          {item.title}
+                          {t(item.title)}
                         </h3>
                         <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.82rem', color: 'var(--text-mid)', lineHeight: 1.75, marginBottom: '1rem' }}>
-                          {item.desc}
+                          {t(item.desc)}
                         </p>
                         <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.63rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--red)' }}>
-                          Devamını Oku →
+                          {t("Devamını Oku →")}
                         </div>
                       </div>
                     </div>
@@ -255,7 +256,7 @@ export default function HaberlerPage() {
 
           {filtered.length === 0 && (
             <div style={{ textAlign: 'center', padding: '5rem 0', color: 'var(--grey)', fontFamily: 'var(--font-sans)' }}>
-              Bu kategoride henüz haber bulunmuyor.
+              {t("Bu kategoride henüz haber bulunmuyor.")}
             </div>
           )}
         </div>

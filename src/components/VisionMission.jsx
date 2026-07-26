@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
+import { t } from '../i18n';
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0 },
@@ -41,11 +42,11 @@ export default function VisionMission() {
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', justifyContent: 'center', marginBottom: '1rem' }}>
             <div className="gold-line" />
-            <span className="section-tag">Kimliğimiz</span>
+            <span className="section-tag">{t("Kimliğimiz")}</span>
             <div className="gold-line" />
           </div>
           <h2 className="section-title" style={{ textAlign: 'center' }}>
-            Vizyon & <span>Misyon</span>
+            {t("Vizyon &")} <span>{t("Misyon")}</span>
           </h2>
         </motion.div>
 
@@ -106,7 +107,7 @@ export default function VisionMission() {
                 letterSpacing: '0.18em',
                 textTransform: 'uppercase',
                 color: 'var(--gold)',
-              }}>Vizyonumuz</span>
+              }}>{t("Vizyonumuz")}</span>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
@@ -143,7 +144,7 @@ export default function VisionMission() {
               fontStyle: 'italic',
               color: 'rgba(255,255,255,0.45)',
             }}>
-              Eğitimi yalnızca akademik başarıyla sınırlamayan; düşünmeyi, sorgulamayı, üretmeyi ve yaşamla bağ kurmayı merkeze alan bütüncül bir eğitim ekolü oluşturmayı hedefleriz.
+              {t("Eğitimi yalnızca akademik başarıyla sınırlamayan; düşünmeyi, sorgulamayı, üretmeyi ve yaşamla bağ kurmayı merkeze alan bütüncül bir eğitim ekolü oluşturmayı hedefleriz.")}
             </div>
           </motion.div>
 
@@ -195,7 +196,7 @@ export default function VisionMission() {
                 letterSpacing: '0.18em',
                 textTransform: 'uppercase',
                 color: 'rgba(255,255,255,0.7)',
-              }}>Misyonumuz</span>
+              }}>{t("Misyonumuz")}</span>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -230,7 +231,7 @@ export default function VisionMission() {
                     lineHeight: 1.75,
                     color: item.accent ? 'rgba(255,255,255,0.8)' : 'rgba(255,255,255,0.55)',
                   }}>
-                    {item.text}
+                    {t(item.text)}
                   </p>
                 </motion.div>
               ))}
@@ -250,7 +251,7 @@ export default function VisionMission() {
                 color: 'rgba(255,255,255,0.6)',
                 lineHeight: 1.7,
               }}>
-                Öğrencilerin kendi potansiyellerini tanıyan, sorumluluk alan, eleştirel düşünebilen ve topluma değer katan bireyler olarak yetişmesini amaçlarız.
+                {t("Öğrencilerin kendi potansiyellerini tanıyan, sorumluluk alan, eleştirel düşünebilen ve topluma değer katan bireyler olarak yetişmesini amaçlarız.")}
               </p>
             </div>
           </motion.div>

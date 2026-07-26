@@ -2,6 +2,7 @@ import { lazy, Suspense, Component, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
 import { ModalProvider } from './context/ModalContext';
+import { LanguageProvider, t } from './i18n';
 import ContactModal from './components/ContactModal';
 import FloatingContact from './components/FloatingContact';
 import Navbar from './components/Navbar';
@@ -80,7 +81,7 @@ class ErrorBoundary extends Component {
     }
   }
   render() {
-    if (this.state.hasError) return <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#666', fontFamily: 'sans-serif', fontSize: '1rem' }}>Sayfa yüklenemedi. <button onClick={() => window.location.reload()} style={{ marginLeft: 8, color: 'var(--red)', background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline' }}>Yenile</button></div>;
+    if (this.state.hasError) return <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#666', fontFamily: 'sans-serif', fontSize: '1rem' }}>{t("Sayfa yüklenemedi.")} <button onClick={() => window.location.reload()} style={{ marginLeft: 8, color: 'var(--red)', background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline' }}>{t("Yenile")}</button></div>;
     return this.props.children;
   }
 }
@@ -128,6 +129,7 @@ export default function App() {
   );
 
   return (
+    <LanguageProvider>
     <ModalProvider>
       <BrowserRouter>
         <Layout>
@@ -198,5 +200,6 @@ export default function App() {
         </Layout>
       </BrowserRouter>
     </ModalProvider>
+    </LanguageProvider>
   );
 }

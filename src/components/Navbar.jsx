@@ -4,6 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { getTopLevelPrograms } from '../data/programs';
 import { classes } from '../data/classes';
 import { useModal } from '../context/ModalContext';
+import { t } from '../i18n';
+import LanguageToggle from './LanguageToggle';
 
 const leftLinks = [
   { label: 'Ana Sayfa', href: '/' },
@@ -31,7 +33,7 @@ const kampusLinks = [
   { label: 'Fiziki Yapı', href: '/kampus/fiziki-yapi' },
   { label: 'Spor Tesisleri', href: '/kampus/spor-tesisleri' },
   { label: 'Sağlık Hizmetleri', href: '/kampus/saglik-hizmetleri' },
-  { label: 'Kütuphane', href: '/kampus/kutuphane' },
+  { label: 'Kütüphane', href: '/kampus/kutuphane' },
   { label: 'Atölyeler', href: '/kampus/atolyeler' },
   { label: 'Yemek Hizmetleri', href: '/kampus/yemek-hizmetleri' },
   { label: 'Ulaşım Hizmetleri', href: '/kampus/ulasim-hizmetleri' },
@@ -102,10 +104,7 @@ function DropdownMenu({ links, triggerRef, onClose }) {
             onMouseEnter={e => { e.currentTarget.style.background = 'rgba(35,46,92,0.06)'; e.currentTarget.style.color = 'var(--red)'; e.currentTarget.style.paddingLeft = '1.6rem'; }}
             onMouseLeave={e => { e.currentTarget.style.background = ''; e.currentTarget.style.color = 'var(--primary)'; e.currentTarget.style.paddingLeft = '1.25rem'; }}
           >
-            {i === 0 && (
-              <span style={{ display: 'inline-block', width: '6px', height: '6px', borderRadius: '50%', background: 'var(--primary)', marginRight: '0.6rem', verticalAlign: 'middle', position: 'relative', top: '-1px' }} />
-            )}
-            {link.label}
+            {t(link.label)}
           </Link>
         ))}
       </motion.div>
@@ -186,10 +185,10 @@ function MegaMenu({ type, onClose }) {
                   {type === 'programlar' ? item.tag : item.level}
                 </p>
                 <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.73rem', color: 'var(--text-mid)', lineHeight: 1.55, marginBottom: '0.6rem' }}>
-                  {item.subtitle}
+                  {t(item.subtitle)}
                 </p>
                 <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 800, color: 'var(--red)', letterSpacing: '0.06em' }}>
-                  Keşfet →
+                  {t("Keşfet →")}
                 </span>
               </div>
             </Link>
@@ -203,7 +202,7 @@ function MegaMenu({ type, onClose }) {
             {/* Okul Öncesi */}
             <div>
               <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.58rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#a16207', marginBottom: '0.5rem' }}>
-                Okul Öncesi
+                {t("Okul Öncesi")}
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                 {[
@@ -217,7 +216,7 @@ function MegaMenu({ type, onClose }) {
                       onMouseEnter={e => { e.currentTarget.style.background = 'rgba(245,158,11,0.12)'; e.currentTarget.style.borderColor = 'rgba(245,158,11,0.3)'; }}
                       onMouseLeave={e => { e.currentTarget.style.background = 'rgba(245,158,11,0.05)'; e.currentTarget.style.borderColor = 'rgba(245,158,11,0.15)'; }}
                     >
-                      <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 800, color: '#a16207', letterSpacing: '0.02em' }}>{link.label}</span>
+                      <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 800, color: '#a16207', letterSpacing: '0.02em' }}>{t(link.label)}</span>
                     </div>
                   </Link>
                 ))}
@@ -227,7 +226,7 @@ function MegaMenu({ type, onClose }) {
             {/* İlkokul */}
             <div>
               <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.58rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.5rem' }}>
-                İlkokul
+                {t("İlkokul")}
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                 {[
@@ -243,7 +242,7 @@ function MegaMenu({ type, onClose }) {
                       onMouseEnter={e => { e.currentTarget.style.background = 'rgba(35,46,92,0.1)'; e.currentTarget.style.borderColor = 'rgba(35,46,92,0.25)'; }}
                       onMouseLeave={e => { e.currentTarget.style.background = 'rgba(35,46,92,0.04)'; e.currentTarget.style.borderColor = 'rgba(35,46,92,0.1)'; }}
                     >
-                      <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 800, color: 'var(--primary)', letterSpacing: '0.02em' }}>{link.label}</span>
+                      <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 800, color: 'var(--primary)', letterSpacing: '0.02em' }}>{t(link.label)}</span>
                     </div>
                   </Link>
                 ))}
@@ -253,7 +252,7 @@ function MegaMenu({ type, onClose }) {
             {/* Ortaokul */}
             <div>
               <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.58rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--red)', marginBottom: '0.5rem' }}>
-                Ortaokul
+                {t("Ortaokul")}
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                 {[
@@ -268,7 +267,7 @@ function MegaMenu({ type, onClose }) {
                       onMouseEnter={e => { e.currentTarget.style.background = 'rgba(230,25,54,0.1)'; e.currentTarget.style.borderColor = 'rgba(230,25,54,0.28)'; }}
                       onMouseLeave={e => { e.currentTarget.style.background = 'rgba(230,25,54,0.04)'; e.currentTarget.style.borderColor = 'rgba(230,25,54,0.12)'; }}
                     >
-                      <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 800, color: '#b01528', letterSpacing: '0.02em' }}>{link.label}</span>
+                      <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 800, color: '#b01528', letterSpacing: '0.02em' }}>{t(link.label)}</span>
                     </div>
                   </Link>
                 ))}
@@ -278,7 +277,7 @@ function MegaMenu({ type, onClose }) {
             {/* Lise */}
             <div>
               <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.58rem', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.5rem' }}>
-                Lise
+                {t("Lise")}
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                 {[
@@ -294,7 +293,7 @@ function MegaMenu({ type, onClose }) {
                       onMouseEnter={e => { e.currentTarget.style.background = 'rgba(35,46,92,0.1)'; e.currentTarget.style.borderColor = 'rgba(35,46,92,0.25)'; }}
                       onMouseLeave={e => { e.currentTarget.style.background = 'rgba(35,46,92,0.04)'; e.currentTarget.style.borderColor = 'rgba(35,46,92,0.1)'; }}
                     >
-                      <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 800, color: 'var(--primary)', letterSpacing: '0.02em' }}>{link.label}</span>
+                      <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 800, color: 'var(--primary)', letterSpacing: '0.02em' }}>{t(link.label)}</span>
                     </div>
                   </Link>
                 ))}
@@ -363,7 +362,7 @@ export default function Navbar() {
           onMouseEnter={e => { if (!active) { e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderBottomColor = 'rgba(255,255,255,0.5)'; } }}
           onMouseLeave={e => { if (!active) { e.currentTarget.style.color = 'rgba(255,255,255,0.78)'; e.currentTarget.style.borderBottomColor = 'transparent'; } }}
         >
-          {link.label}
+          {t(link.label)}
           {hasPopup && (
             <svg width="9" height="5" viewBox="0 0 10 6" fill="none" style={{ opacity: 0.6, transition: 'transform 0.2s', transform: openMega === popupKey ? 'rotate(180deg)' : 'rotate(0)' }}>
               <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -443,7 +442,7 @@ export default function Navbar() {
           >
             <img
               src="/logo/kolej%20sancaktepe%20logo%20-%20yatay.png?v=2"
-              alt="Kolej Sancaktepe"
+              alt={t("Kolej Sancaktepe")}
               style={{ height: '90px', width: 'auto', display: 'block', objectFit: 'contain' }}
             />
           </Link>
@@ -456,6 +455,11 @@ export default function Navbar() {
           }}>
             {rightLinks.map(renderLink)}
           </ul>
+
+          {/* Language switch — pinned right so it never shifts the centered logo */}
+          <div style={{ position: 'absolute', right: '1.5rem', top: '50%', transform: 'translateY(-50%)' }}>
+            <LanguageToggle />
+          </div>
         </div>
       </motion.nav>
 
@@ -467,11 +471,13 @@ export default function Navbar() {
         alignItems: 'center', justifyContent: 'space-between', padding: '0 1.25rem',
       }}>
         <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-          <img src="/logo/kolej%20sancaktepe%20logo%20-%20yatay.png?v=2" alt="Kolej Sancaktepe"
+          <img src="/logo/kolej%20sancaktepe%20logo%20-%20yatay.png?v=2" alt={t("Kolej Sancaktepe")}
             style={{ height: '70px', width: 'auto', objectFit: 'contain' }} />
         </Link>
-        <button onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menü"
-          style={{ background: 'none', border: 'none', display: 'flex', flexDirection: 'column', gap: '5px', padding: '4px', cursor: 'pointer' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+          <LanguageToggle size="sm" />
+          <button onClick={() => setMobileOpen(!mobileOpen)} aria-label={t('Menü')}
+            style={{ background: 'none', border: 'none', display: 'flex', flexDirection: 'column', gap: '5px', padding: '4px', cursor: 'pointer' }}>
             {[0, 1, 2].map((i) => (
               <motion.span key={i}
                 animate={mobileOpen
@@ -481,6 +487,7 @@ export default function Navbar() {
               />
             ))}
           </button>
+        </div>
       </div>
 
       {/* ── Mobile menu ── */}
@@ -509,7 +516,7 @@ export default function Navbar() {
                     display: 'block', padding: '0.8rem 0.5rem',
                     borderBottom: '1px solid rgba(255,255,255,0.1)',
                   }}>
-                    {link.label}
+                    {t(link.label)}
                   </Link>
                   {link.mega && (
                     <div style={{ paddingLeft: '1rem', paddingBottom: '0.5rem' }}>
@@ -532,7 +539,7 @@ export default function Navbar() {
                           color: 'rgba(255,255,255,0.55)', display: 'block',
                           padding: '0.45rem 0.5rem', borderBottom: '1px solid rgba(255,255,255,0.07)',
                         }}>
-                          {sub.label}
+                          {t(sub.label)}
                         </Link>
                       ))}
                     </div>
@@ -545,7 +552,7 @@ export default function Navbar() {
                           color: 'rgba(255,255,255,0.55)', display: 'block',
                           padding: '0.45rem 0.5rem', borderBottom: '1px solid rgba(255,255,255,0.07)',
                         }}>
-                          {sub.label}
+                          {t(sub.label)}
                         </Link>
                       ))}
                     </div>
@@ -558,7 +565,7 @@ export default function Navbar() {
                           color: 'rgba(255,255,255,0.55)', display: 'block',
                           padding: '0.45rem 0.5rem', borderBottom: '1px solid rgba(255,255,255,0.07)',
                         }}>
-                          {sub.label}
+                          {t(sub.label)}
                         </Link>
                       ))}
                     </div>
@@ -572,7 +579,7 @@ export default function Navbar() {
                   background: 'var(--red)', padding: '0.9rem 1.5rem', borderRadius: '3px',
                   display: 'block', textAlign: 'center', width: '100%', border: 'none', cursor: 'pointer',
                 }}>
-                  Kayıt &amp; İletişim
+                  {t("Kayıt & İletişim")}
                 </button>
               </li>
             </ul>

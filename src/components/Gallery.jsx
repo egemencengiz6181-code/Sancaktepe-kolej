@@ -1,6 +1,7 @@
 import { useRef, useState, useCallback } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 
+import { t } from '../i18n';
 const enc = (p) => p.replace(/ /g, '%20');
 
 const galleryImages = [
@@ -51,9 +52,9 @@ const galleryImages = [
   { src: enc('/gallery/kütüphane/7.png'), alt: 'Kolej Sancaktepe Kütüphane' },
   
   // Sosyal Bahçe (3 görseller)
-  { src: enc('/gallery/sosyal bahçe/9.png'), alt: 'Kolej Sancaktepe Sosyal Bahçe' },
-  { src: enc('/gallery/sosyal bahçe/10.png'), alt: 'Kolej Sancaktepe Sosyal Bahçe' },
-  { src: enc('/gallery/sosyal bahçe/11.png'), alt: 'Kolej Sancaktepe Sosyal Bahçe' },
+  { src: enc('/gallery/sosyal bahçe/9.png'), alt: 'Kolej Sancaktepe Bahçe' },
+  { src: enc('/gallery/sosyal bahçe/10.png'), alt: 'Kolej Sancaktepe Bahçe' },
+  { src: enc('/gallery/sosyal bahçe/11.png'), alt: 'Kolej Sancaktepe Bahçe' },
   
   // Okul Öncesi (4 görseller)
   { src: enc('/gallery/okul öncesi/27.png'), alt: 'Kolej Sancaktepe Okul Öncesi' },
@@ -143,7 +144,7 @@ function GalleryItem({ img, index, onClick }) {
               letterSpacing: '0.15em',
               textTransform: 'uppercase',
               color: 'var(--gold-light)',
-            }}>Büyüt ↗</span>
+            }}>{t("Büyüt ↗")}</span>
           </motion.div>
         </>
       ) : (
@@ -207,11 +208,11 @@ export default function Gallery() {
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', justifyContent: 'center', marginBottom: '1rem' }}>
             <div className="gold-line" />
-            <span className="section-tag">Galeri</span>
+            <span className="section-tag">{t("Galeri")}</span>
             <div className="gold-line" />
           </div>
           <h2 className="section-title" style={{ textAlign: 'center' }}>
-            Okul <span>Yaşamı</span>
+            {t("Okul")} <span>{t("Yaşamı")}</span>
           </h2>
           <p className="section-subtitle" style={{ margin: '1.5rem auto 0', textAlign: 'center' }}>
             Kolej Sancaktepe'de eğitim ve yaşam iç içe geçer. Fotoğrafları{' '}

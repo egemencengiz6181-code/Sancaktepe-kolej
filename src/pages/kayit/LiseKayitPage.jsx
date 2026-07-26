@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 
+import { t } from '../../i18n';
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
@@ -14,7 +15,7 @@ const P = ({ children }) => (
 const BulletList = ({ items }) => (
   <ul style={{ margin: '0.5rem 0 1rem', paddingLeft: '1.25rem' }}>
     {items.map((item, i) => (
-      <li key={i} style={{ fontFamily: 'var(--font-sans)', fontSize: '0.92rem', color: 'var(--text-mid)', lineHeight: 1.8, marginBottom: '0.4rem' }}>{item}</li>
+      <li key={i} style={{ fontFamily: 'var(--font-sans)', fontSize: '0.92rem', color: 'var(--text-mid)', lineHeight: 1.8, marginBottom: '0.4rem' }}>{t(item)}</li>
     ))}
   </ul>
 );
@@ -34,13 +35,13 @@ export default function LiseKayitPage() {
           <motion.div {...fadeUp(0.1)}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
               <div style={{ width: '40px', height: '3px', background: 'rgba(255,255,255,0.35)', borderRadius: '2px' }} />
-              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)' }}>Kayıt</span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)' }}>{t("Kayıt")}</span>
             </div>
             <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2.2rem,4.5vw,3.6rem)', fontWeight: 700, color: '#fff', lineHeight: 1.12, marginBottom: '1rem' }}>
-              Lise Kayıt
+              {t("Lise Kayıt")}
             </h1>
             <p style={{ fontFamily: 'var(--font-sans)', fontSize: '1rem', color: 'rgba(255,255,255,0.65)', maxWidth: '560px', lineHeight: 1.85 }}>
-              Kolej Sancaktepe Anadolu Lisesi hazırlık, 9 ve 10. sınıf kayıt süreçleri.
+              {t("Kolej Sancaktepe Anadolu Lisesi hazırlık, 9 ve 10. sınıf kayıt süreçleri.")}
             </p>
           </motion.div>
         </div>
@@ -53,9 +54,9 @@ export default function LiseKayitPage() {
           <motion.div {...fadeUp(0)}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.75rem' }}>
               <div className="red-line" />
-              <span className="section-tag">Süreç</span>
+              <span className="section-tag">{t("Süreç")}</span>
             </div>
-            <h2 className="section-title" style={{ marginBottom: '3rem' }}>Kayıt Adımları</h2>
+            <h2 className="section-title" style={{ marginBottom: '3rem' }}>{t("Kayıt Adımları")}</h2>
           </motion.div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.25rem', marginBottom: '4rem' }} className="steps-grid">
@@ -72,8 +73,8 @@ export default function LiseKayitPage() {
                   }}>
                     {s.num}
                   </div>
-                  <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.05rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.6rem' }}>{s.title}</h3>
-                  <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.88rem', color: 'var(--text-mid)', lineHeight: 1.8 }}>{s.desc}</p>
+                  <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.05rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.6rem' }}>{t(s.title)}</h3>
+                  <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.88rem', color: 'var(--text-mid)', lineHeight: 1.8 }}>{t(s.desc)}</p>
                 </div>
               </motion.div>
             ))}
@@ -86,16 +87,16 @@ export default function LiseKayitPage() {
               borderRadius: '16px', padding: '2.5rem', color: '#fff', marginBottom: '3rem',
             }}>
               <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', marginBottom: '1rem' }}>
-                8. Sınıf Tamamlayanlar
+                {t("8. Sınıf Tamamlayanlar")}
               </p>
               <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.3rem', fontWeight: 700, color: '#fff', marginBottom: '1rem' }}>
-                LGS ve TOGS Bilgileri
+                {t("LGS ve TOGS Bilgileri")}
               </h3>
               <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.92rem', color: 'rgba(255,255,255,0.8)', lineHeight: 1.85, marginBottom: '1rem' }}>
-                Hazırlık sınıfına yerleşmek isteyen aday öğrenciler TOGS'ta belirlenen taban puanı sağlamaları durumunda mülakat sürecine davet edilirler. Mülakat komisyonu akademik gelişim potansiyelini ve kişisel yetkinlikleri değerlendirerek kayıt hakkı kazananları belirler.
+                {t("Hazırlık sınıfına yerleşmek isteyen aday öğrenciler TOGS'ta belirlenen taban puanı sağlamaları durumunda mülakat sürecine davet edilirler. Mülakat komisyonu akademik gelişim potansiyelini ve kişisel yetkinlikleri değerlendirerek kayıt hakkı kazananları belirler.")}
               </p>
               <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.92rem', color: 'rgba(255,255,255,0.8)', lineHeight: 1.85 }}>
-                LGS puan sıralamasına göre belirlenen taban puanı sağlayan ve LGS'de Kolej Sancaktepe'ye yerleşen öğrenciler de Kolej Sancaktepe Anadolu Lisesi'ne doğrudan kayıt hakkı kazanırlar.
+                {t("LGS puan sıralamasına göre belirlenen taban puanı sağlayan ve LGS'de Kolej Sancaktepe'ye yerleşen öğrenciler de Kolej Sancaktepe Anadolu Lisesi'ne doğrudan kayıt hakkı kazanırlar.")}
               </p>
             </div>
           </motion.div>
@@ -104,14 +105,14 @@ export default function LiseKayitPage() {
           <motion.div {...fadeUp(0.12)}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
               <div className="red-line" />
-              <span className="section-tag">Başarı Bursu</span>
+              <span className="section-tag">{t("Başarı Bursu")}</span>
             </div>
             <div style={{
               background: 'var(--white)', borderRadius: '14px', padding: '2rem',
               border: '1px solid var(--grey-light)', marginBottom: '3rem',
               boxShadow: '0 2px 12px rgba(35,46,92,0.05)',
             }}>
-              <P>TOGS sonucunda belirlenen taban puanı ve üzerinde puan alan aday öğrenciler arasından, puan sıralamasına göre belirlenen kontenjan dahilinde başarı bursu verilir. Başarı bursu süreci öğretmen mülakatının ardından tamamlanır ve öğrenci başarı bursunu kazanarak kayıt hakkı elde eder.</P>
+              <P>{t("TOGS sonucunda belirlenen taban puanı ve üzerinde puan alan aday öğrenciler arasından, puan sıralamasına göre belirlenen kontenjan dahilinde başarı bursu verilir. Başarı bursu süreci öğretmen mülakatının ardından tamamlanır ve öğrenci başarı bursunu kazanarak kayıt hakkı elde eder.")}</P>
             </div>
           </motion.div>
 
@@ -119,15 +120,15 @@ export default function LiseKayitPage() {
           <motion.div {...fadeUp(0.14)}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
               <div className="red-line" />
-              <span className="section-tag">9 ve 10. Sınıf Nakil</span>
+              <span className="section-tag">{t("9 ve 10. Sınıf Nakil")}</span>
             </div>
             <div style={{
               background: 'var(--white)', borderRadius: '14px', padding: '2rem',
               border: '1px solid var(--grey-light)', marginBottom: '3rem',
               boxShadow: '0 2px 12px rgba(35,46,92,0.05)',
             }}>
-              <P>Diğer kurumlardan naklen başvuran 9 ve 10. sınıf aday öğrencilerden TOGS'ta belirlenen puan sağlamaları beklenir. Uygun puanı sağlayan adaylar ardından mülakat sürecine davet edilir.</P>
-              <P>Kontenjan bilgisi için kayıt ofisiyle iletişime geçiniz.</P>
+              <P>{t("Diğer kurumlardan naklen başvuran 9 ve 10. sınıf aday öğrencilerden TOGS'ta belirlenen puan sağlamaları beklenir. Uygun puanı sağlayan adaylar ardından mülakat sürecine davet edilir.")}</P>
+              <P>{t("Kontenjan bilgisi için kayıt ofisiyle iletişime geçiniz.")}</P>
             </div>
           </motion.div>
 
@@ -135,14 +136,14 @@ export default function LiseKayitPage() {
           <motion.div {...fadeUp(0.16)}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
               <div className="red-line" />
-              <span className="section-tag">Kesin Kayıt</span>
+              <span className="section-tag">{t("Kesin Kayıt")}</span>
             </div>
             <div style={{
               background: 'var(--white)', borderRadius: '14px', padding: '2rem',
               border: '1px solid var(--grey-light)', marginBottom: '3rem',
               boxShadow: '0 2px 12px rgba(35,46,92,0.05)',
             }}>
-              <p style={{ fontFamily: 'var(--font-serif)', fontSize: '1rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1rem' }}>Kesin Kayıt İçin Gerekli Belgeler</p>
+              <p style={{ fontFamily: 'var(--font-serif)', fontSize: '1rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1rem' }}>{t("Kesin Kayıt İçin Gerekli Belgeler")}</p>
               <BulletList items={[
                 'Öğrenci T.C. kimlik kartı veya nüfus cüzdanı fotokopisi',
                 'Anne/baba T.C. kimlik kartı fotokopisi',
@@ -162,22 +163,22 @@ export default function LiseKayitPage() {
               border: '1px solid var(--grey-light)',
               boxShadow: '0 2px 12px rgba(35,46,92,0.05)',
             }}>
-              <p style={{ fontFamily: 'var(--font-serif)', fontSize: '1rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>İletişim &amp; Başvuru</p>
+              <p style={{ fontFamily: 'var(--font-serif)', fontSize: '1rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>{t("İletişim & Başvuru")}</p>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }} className="contact-grid">
                 <div>
-                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: '0.4rem' }}>Başvuru Portalı</p>
+                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: '0.4rem' }}>{t("Başvuru Portalı")}</p>
                   <a href="/kayit/basvuru-formu" style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', color: 'var(--red)', fontWeight: 600 }}>
-                    Başvuru Formu →
+                    {t("Başvuru Formu →")}
                   </a>
                 </div>
                 <div>
-                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: '0.4rem' }}>E-Posta</p>
+                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: '0.4rem' }}>{t("E-Posta")}</p>
                   <a href="mailto:info@kolejsancaktepe.com" style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', color: 'var(--red)', fontWeight: 600 }}>
                     info@kolejsancaktepe.com
                   </a>
                 </div>
                 <div>
-                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: '0.4rem' }}>Telefon</p>
+                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: '0.4rem' }}>{t("Telefon")}</p>
                   <a href="tel:02166060833" style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', color: 'var(--red)', fontWeight: 600 }}>
                     0216 606 0 833
                   </a>

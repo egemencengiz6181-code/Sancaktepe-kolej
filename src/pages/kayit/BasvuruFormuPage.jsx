@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+import { t } from '../../i18n';
 const ILCELER = [
   'Adalar', 'Arnavutköy', 'Ataşehir', 'Avcılar', 'Bağcılar', 'Bahçelievler', 'Bakırköy',
   'Başakşehir', 'Bayrampaşa', 'Beşiktaş', 'Beykoz', 'Beylikdüzü', 'Beyoğlu', 'Büyükçekmece',
@@ -170,32 +171,32 @@ export default function BasvuruFormuPage() {
 
   const VeliFields = ({ data, set, prefix }) => (
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0 1.5rem' }} className="form-grid">
-      <FormField label="Adı" required><Input value={data.ad} onChange={e => set({ ...data, ad: e.target.value })} placeholder="Ad" /></FormField>
-      <FormField label="Soyadı" required><Input value={data.soyad} onChange={e => set({ ...data, soyad: e.target.value })} placeholder="Soyad" /></FormField>
-      <FormField label="Cep Telefonu" required><Input value={data.telefon} onChange={e => set({ ...data, telefon: e.target.value })} placeholder="05XX XXX XX XX" /></FormField>
-      <FormField label="E-Posta Adresi" required><Input type="email" value={data.eposta} onChange={e => set({ ...data, eposta: e.target.value })} placeholder="ornek@eposta.com" /></FormField>
+      <FormField label="Adı" required><Input value={data.ad} onChange={e => set({ ...data, ad: e.target.value })} placeholder={t("Ad")} /></FormField>
+      <FormField label="Soyadı" required><Input value={data.soyad} onChange={e => set({ ...data, soyad: e.target.value })} placeholder={t("Soyad")} /></FormField>
+      <FormField label="Cep Telefonu" required><Input value={data.telefon} onChange={e => set({ ...data, telefon: e.target.value })} placeholder={t("05XX XXX XX XX")} /></FormField>
+      <FormField label="E-Posta Adresi" required><Input type="email" value={data.eposta} onChange={e => set({ ...data, eposta: e.target.value })} placeholder={t("ornek@eposta.com")} /></FormField>
       <FormField label="İl">
-        <Input value={data.il} onChange={e => set({ ...data, il: e.target.value })} placeholder="İstanbul" />
+        <Input value={data.il} onChange={e => set({ ...data, il: e.target.value })} placeholder={t("İstanbul")} />
       </FormField>
       <FormField label="İlçe" required>
         <Select value={data.ilce} onChange={e => set({ ...data, ilce: e.target.value })}>
-          <option value="">Seçiniz</option>
+          <option value="">{t("Seçiniz")}</option>
           {ILCELER.map(i => <option key={i}>{i}</option>)}
         </Select>
       </FormField>
       <FormField label="Semt">
-        <Input value={data.semt} onChange={e => set({ ...data, semt: e.target.value })} placeholder="Semt / Mahalle" />
+        <Input value={data.semt} onChange={e => set({ ...data, semt: e.target.value })} placeholder={t("Semt / Mahalle")} />
       </FormField>
       <FormField label="Mesleği" required>
         <Select value={data.meslek} onChange={e => set({ ...data, meslek: e.target.value })}>
-          <option value="">Seçiniz</option>
-          {MESLEKLER.map(m => <option key={m}>{m}</option>)}
+          <option value="">{t("Seçiniz")}</option>
+          {MESLEKLER.map(m => <option key={m}>{t(m)}</option>)}
         </Select>
       </FormField>
       <FormField label="Eğitim Durumu" required>
         <Select value={data.egitim} onChange={e => set({ ...data, egitim: e.target.value })}>
-          <option value="">Seçiniz</option>
-          {EGITIM_DURUMU.map(e => <option key={e}>{e}</option>)}
+          <option value="">{t("Seçiniz")}</option>
+          {EGITIM_DURUMU.map(e => <option key={e}>{t(e)}</option>)}
         </Select>
       </FormField>
       <FormField label="TED Mezunuyum">
@@ -211,13 +212,13 @@ export default function BasvuruFormuPage() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
               <div style={{ width: '40px', height: '3px', background: 'rgba(255,255,255,0.35)', borderRadius: '2px' }} />
-              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)' }}>Kayıt</span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)' }}>{t("Kayıt")}</span>
             </div>
             <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2.2rem,4.5vw,3.6rem)', fontWeight: 700, color: '#fff', lineHeight: 1.12, marginBottom: '1rem' }}>
-              Başvuru Formu
+              {t("Başvuru Formu")}
             </h1>
             <p style={{ fontFamily: 'var(--font-sans)', fontSize: '1rem', color: 'rgba(255,255,255,0.65)', maxWidth: '560px', lineHeight: 1.85 }}>
-              Kolej Sancaktepe'ye aday öğrenci başvurusu için aşağıdaki formu doldurunuz.
+              {t("Kolej Sancaktepe'ye aday öğrenci başvurusu için aşağıdaki formu doldurunuz.")}
             </p>
           </motion.div>
         </div>
@@ -238,8 +239,8 @@ export default function BasvuruFormuPage() {
                   transition: 'background 0.3s',
                 }}>
                   
-                  <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.75rem', color: step >= s.num ? 'rgba(255,255,255,0.85)' : 'var(--grey)', display: 'none' }} className="step-label">{s.label}</div>
-                  <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.72rem', fontWeight: 600, color: step >= s.num ? '#fff' : 'var(--grey)' }}>{s.label}</div>
+                  <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.75rem', color: step >= s.num ? 'rgba(255,255,255,0.85)' : 'var(--grey)', display: 'none' }} className="step-label">{t(s.label)}</div>
+                  <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.72rem', fontWeight: 600, color: step >= s.num ? '#fff' : 'var(--grey)' }}>{t(s.label)}</div>
                 </div>
               ))}
             </div>
@@ -251,10 +252,10 @@ export default function BasvuruFormuPage() {
                 style={{ background: 'var(--white)', borderRadius: '20px', padding: '4rem', textAlign: 'center', boxShadow: '0 4px 24px rgba(35,46,92,0.1)' }}
               >
                 
-                <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1rem' }}>Başvurunuz Alındı</h2>
+                <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1rem' }}>{t("Başvurunuz Alındı")}</h2>
                 <p style={{ fontFamily: 'var(--font-sans)', fontSize: '1rem', color: 'var(--text-mid)', lineHeight: 1.85, maxWidth: '500px', margin: '0 auto' }}>
                   Başvurunuz başarıyla iletilmiştir. En kısa sürede kayıt ofisimiz sizinle iletişime geçecektir. Soru ve talepleriniz için{' '}
-                  <a href="mailto:info@kolejsancaktepe.com" style={{ color: 'var(--red)', fontWeight: 600 }}>info@kolejsancaktepe.com</a> adresine yazabilirsiniz.
+                  <a href="mailto:info@kolejsancaktepe.com" style={{ color: 'var(--red)', fontWeight: 600 }}>info@kolejsancaktepe.com</a> {t("adresine yazabilirsiniz.")}
                 </p>
               </motion.div>
             ) : (
@@ -264,21 +265,21 @@ export default function BasvuruFormuPage() {
                     {/* STEP 1 — Öğrenci Bilgileri */}
                     {step === 1 && (
                       <motion.div key="s1" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.3 }}>
-                        <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.4rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '2rem' }}>Öğrenci Bilgileri</h2>
+                        <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.4rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '2rem' }}>{t("Öğrenci Bilgileri")}</h2>
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0 1.5rem' }} className="form-grid">
-                          <FormField label="Adı" required><Input value={ogrenci.ad} onChange={e => setOgrenci({ ...ogrenci, ad: e.target.value })} placeholder="Ad" /></FormField>
-                          <FormField label="Soyadı" required><Input value={ogrenci.soyad} onChange={e => setOgrenci({ ...ogrenci, soyad: e.target.value })} placeholder="Soyad" /></FormField>
+                          <FormField label="Adı" required><Input value={ogrenci.ad} onChange={e => setOgrenci({ ...ogrenci, ad: e.target.value })} placeholder={t("Ad")} /></FormField>
+                          <FormField label="Soyadı" required><Input value={ogrenci.soyad} onChange={e => setOgrenci({ ...ogrenci, soyad: e.target.value })} placeholder={t("Soyad")} /></FormField>
                           <FormField label="Uyruk" required>
                             <Select value={ogrenci.uyruk} onChange={e => setOgrenci({ ...ogrenci, uyruk: e.target.value })}>
-                              <option value="">Seçiniz</option>
+                              <option value="">{t("Seçiniz")}</option>
                               <option>T.C.</option>
-                              <option>Yabancı Uyruklu</option>
-                              <option>Çift Uyruklu</option>
+                              <option>{t("Yabancı Uyruklu")}</option>
+                              <option>{t("Çift Uyruklu")}</option>
                             </Select>
                           </FormField>
-                          <FormField label="T.C. Kimlik No / Pasaport No" required><Input value={ogrenci.kimlikNo} onChange={e => setOgrenci({ ...ogrenci, kimlikNo: e.target.value })} placeholder="11 haneli T.C. kimlik no" maxLength={11} /></FormField>
+                          <FormField label="T.C. Kimlik No / Pasaport No" required><Input value={ogrenci.kimlikNo} onChange={e => setOgrenci({ ...ogrenci, kimlikNo: e.target.value })} placeholder={t("11 haneli T.C. kimlik no")} maxLength={11} /></FormField>
                           <FormField label="Doğum Tarihi" required><Input type="date" value={ogrenci.dogumTarihi} onChange={e => setOgrenci({ ...ogrenci, dogumTarihi: e.target.value })} /></FormField>
-                          <FormField label="En Son Okuduğu Okul"><Input value={ogrenci.sonOkul} onChange={e => setOgrenci({ ...ogrenci, sonOkul: e.target.value })} placeholder="Okul adı" /></FormField>
+                          <FormField label="En Son Okuduğu Okul"><Input value={ogrenci.sonOkul} onChange={e => setOgrenci({ ...ogrenci, sonOkul: e.target.value })} placeholder={t("Okul adı")} /></FormField>
                           <FormField label="Cinsiyeti" required>
                             <RadioGroup name="cinsiyet" options={['Kız', 'Erkek']} value={ogrenci.cinsiyet} onChange={v => setOgrenci({ ...ogrenci, cinsiyet: v })} />
                           </FormField>
@@ -290,14 +291,14 @@ export default function BasvuruFormuPage() {
                           </FormField>
                           <FormField label="Kayıt Olacağı Sınıf" required>
                             <Select value={ogrenci.sinif} onChange={e => setOgrenci({ ...ogrenci, sinif: e.target.value })}>
-                              <option value="">Seçiniz</option>
-                              {SINIFLAR.map(s => <option key={s}>{s}</option>)}
+                              <option value="">{t("Seçiniz")}</option>
+                              {SINIFLAR.map(s => <option key={s}>{t(s)}</option>)}
                             </Select>
                           </FormField>
                           <FormField label="Nereden Duydunuz?">
                             <Select value={ogrenci.nereden} onChange={e => setOgrenci({ ...ogrenci, nereden: e.target.value })}>
-                              <option value="">Seçiniz</option>
-                              {NEREDEN.map(n => <option key={n}>{n}</option>)}
+                              <option value="">{t("Seçiniz")}</option>
+                              {NEREDEN.map(n => <option key={n}>{t(n)}</option>)}
                             </Select>
                           </FormField>
                         </div>
@@ -307,7 +308,7 @@ export default function BasvuruFormuPage() {
                     {/* STEP 2 — Anne */}
                     {step === 2 && (
                       <motion.div key="s2" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.3 }}>
-                        <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.4rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '2rem' }}>Veli Bilgileri — Anne</h2>
+                        <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.4rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '2rem' }}>{t("Veli Bilgileri — Anne")}</h2>
                         <VeliFields data={anne} set={setAnne} prefix="anne" />
                       </motion.div>
                     )}
@@ -315,7 +316,7 @@ export default function BasvuruFormuPage() {
                     {/* STEP 3 — Baba */}
                     {step === 3 && (
                       <motion.div key="s3" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.3 }}>
-                        <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.4rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '2rem' }}>Veli Bilgileri — Baba</h2>
+                        <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.4rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '2rem' }}>{t("Veli Bilgileri — Baba")}</h2>
                         <VeliFields data={baba} set={setBaba} prefix="baba" />
                       </motion.div>
                     )}
@@ -323,7 +324,7 @@ export default function BasvuruFormuPage() {
                     {/* STEP 4 — Onaylar */}
                     {step === 4 && (
                       <motion.div key="s4" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.3 }}>
-                        <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.4rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '2rem' }}>Genel Bilgiler ve Onaylar</h2>
+                        <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.4rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '2rem' }}>{t("Genel Bilgiler ve Onaylar")}</h2>
 
                         {/* KVKK Metni */}
                         <div style={{
@@ -356,8 +357,8 @@ export default function BasvuruFormuPage() {
                             border: '1px solid var(--grey-light)', borderRadius: '12px',
                             padding: '1.5rem', marginBottom: '1.25rem',
                           }}>
-                            <p style={{ fontFamily: 'var(--font-serif)', fontSize: '0.95rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.5rem' }}>{item.title}</p>
-                            <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.82rem', color: 'var(--text-mid)', lineHeight: 1.75, marginBottom: '1rem' }}>{item.desc}</p>
+                            <p style={{ fontFamily: 'var(--font-serif)', fontSize: '0.95rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.5rem' }}>{t(item.title)}</p>
+                            <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.82rem', color: 'var(--text-mid)', lineHeight: 1.75, marginBottom: '1rem' }}>{t(item.desc)}</p>
                             <div style={{ display: 'flex', gap: '2rem' }}>
                               {['İZİN VERİYORUM', 'İZİN VERMİYORUM'].map(opt => (
                                 <label key={opt} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.08em', color: onaylar[item.key] === opt ? 'var(--primary)' : 'var(--grey)', cursor: 'pointer', transition: 'color 0.2s' }}>
@@ -409,8 +410,8 @@ export default function BasvuruFormuPage() {
                                 onMouseEnter={(e) => e.target.style.opacity = '0.8'}
                                 onMouseLeave={(e) => e.target.style.opacity = '1'}
                               >
-                                KVKK Aydınlatma Metni
-                              </a>'ni kabul ediyorum. *
+                                {t("KVKK Aydınlatma Metni")}
+                              </a>{t("'ni kabul ediyorum. *")}
                             </label>
                           </div>
                         </div>
@@ -433,7 +434,7 @@ export default function BasvuruFormuPage() {
                         transition: 'all 0.2s',
                       }}
                     >
-                      ← Geri
+                      {t("← Geri")}
                     </button>
 
                     <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.8rem', color: 'var(--grey)' }}>
@@ -451,7 +452,7 @@ export default function BasvuruFormuPage() {
                           cursor: 'pointer', transition: 'background 0.2s',
                         }}
                       >
-                        İleri →
+                        {t("İleri →")}
                       </button>
                     ) : (
                       <button
@@ -469,7 +470,7 @@ export default function BasvuruFormuPage() {
                           opacity: (!finalKvkkOnay || onaylar.kvkkAcikRiza !== 'İZİN VERİYORUM') ? 0.6 : 1,
                         }}
                       >
-                        Başvuruyu Gönder 
+                        {t("Başvuruyu Gönder")} 
                       </button>
                     )}
                   </div>

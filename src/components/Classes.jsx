@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 
+import { t } from '../i18n';
 const classes = [
   {
     id: 'okul-oncesi',
@@ -117,11 +118,11 @@ export default function Classes() {
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', justifyContent: 'center', marginBottom: '1rem' }}>
             <div className="gold-line" />
-            <span className="section-tag">Kademeler</span>
+            <span className="section-tag">{t("Kademeler")}</span>
             <div className="gold-line" />
           </div>
           <h2 className="section-title" style={{ textAlign: 'center' }}>
-            Eğitim <span>Kademelerimiz</span>
+            {t("Eğitim")} <span>{t("Kademelerimiz")}</span>
           </h2>
         </motion.div>
 
@@ -162,7 +163,7 @@ export default function Classes() {
                 gap: '0.5rem',
               }}
             >
-              {cls.level}
+              {t(cls.level)}
             </button>
           ))}
         </motion.div>
@@ -220,7 +221,7 @@ export default function Classes() {
                   color: 'var(--white)',
                   marginBottom: '0.75rem',
                   lineHeight: 1.2,
-                }}>{active.level}</h3>
+                }}>{t(active.level)}</h3>
 
                 <p style={{
                   fontFamily: 'var(--font-sans)',
@@ -229,7 +230,7 @@ export default function Classes() {
                   color: active.color,
                   marginBottom: '1.5rem',
                   lineHeight: 1.6,
-                }}>{active.subtitle}</p>
+                }}>{t(active.subtitle)}</p>
 
                 <p style={{
                   fontFamily: 'var(--font-sans)',
@@ -237,7 +238,7 @@ export default function Classes() {
                   lineHeight: 1.8,
                   color: 'rgba(255,255,255,0.6)',
                   marginBottom: '2rem',
-                }}>{active.desc}</p>
+                }}>{t(active.desc)}</p>
 
                 {/* Goal */}
                 <div style={{
@@ -254,7 +255,7 @@ export default function Classes() {
                     textTransform: 'uppercase',
                     color: active.color,
                     marginBottom: '0.5rem',
-                  }}>Hedefimiz</p>
+                  }}>{t("Hedefimiz")}</p>
                   <p style={{
                     fontFamily: 'var(--font-sans)',
                     fontSize: '0.85rem',
@@ -275,7 +276,7 @@ export default function Classes() {
                     textTransform: 'uppercase',
                     color: 'rgba(255,255,255,0.4)',
                     marginBottom: '1rem',
-                  }}>Eğitim Yaklaşımı</p>
+                  }}>{t("Eğitim Yaklaşımı")}</p>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
                     {active.approach.map((a, i) => (
                       <motion.div
@@ -298,7 +299,7 @@ export default function Classes() {
                           fontSize: '0.88rem',
                           color: 'rgba(255,255,255,0.7)',
                           lineHeight: 1.6,
-                        }}>{a}</span>
+                        }}>{t(a)}</span>
                       </motion.div>
                     ))}
                   </div>
@@ -313,7 +314,7 @@ export default function Classes() {
                     textTransform: 'uppercase',
                     color: 'rgba(255,255,255,0.4)',
                     marginBottom: '1rem',
-                  }}>Program İçeriği</p>
+                  }}>{t("Program İçeriği")}</p>
                   <div style={{
                     display: 'grid',
                     gridTemplateColumns: '1fr 1fr',
@@ -341,7 +342,7 @@ export default function Classes() {
                           fontSize: '0.8rem',
                           color: 'rgba(255,255,255,0.6)',
                           lineHeight: 1.5,
-                        }}>{item}</span>
+                        }}>{t(item)}</span>
                       </motion.div>
                     ))}
                   </div>

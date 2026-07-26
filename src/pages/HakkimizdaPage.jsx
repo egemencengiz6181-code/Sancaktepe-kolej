@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { lazy, Suspense } from 'react';
 
+import { t } from '../i18n';
 const PdfFlipBook = lazy(() => import('../components/PdfFlipBook'));
 
 const fadeUp = (delay = 0) => ({
@@ -23,11 +24,11 @@ export default function HakkimizdaPage() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
               <div style={{ width: '40px', height: '3px', background: 'rgba(255,255,255,0.35)', borderRadius: '2px' }} />
               <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)' }}>
-                Kurumsal
+                {t("Kurumsal")}
               </span>
             </div>
             <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 700, color: '#fff', lineHeight: 1.1, marginBottom: '1rem' }}>
-              Hakkımızda
+              {t("Hakkımızda")}
             </h1>
           </motion.div>
         </div>
@@ -41,7 +42,7 @@ export default function HakkimizdaPage() {
             <motion.div {...fadeUp(0)} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2rem' }}>
               <img 
                 src="/logo/tedad-2.png" 
-                alt="TED-AD Logo" 
+                alt={t("TED-AD Logo")} 
                 style={{ 
                   width: '100%', 
                   maxWidth: '320px',
@@ -64,7 +65,7 @@ export default function HakkimizdaPage() {
                   color: 'var(--text-dark)', 
                   lineHeight: 1.7 
                 }}>
-                  Türk Eğitim Derneği Danışmanlığı kapsamında eğitim kurumlarına ve bireylere kurumsal danışmanlık hizmetleri sunulmaktadır.
+                  {t("Türk Eğitim Derneği Danışmanlığı kapsamında eğitim kurumlarına ve bireylere kurumsal danışmanlık hizmetleri sunulmaktadır.")}
                 </p>
               </div>
             </motion.div>
@@ -73,26 +74,26 @@ export default function HakkimizdaPage() {
             <div>
               <motion.div {...fadeUp(0)} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.2rem' }}>
                 <div className="red-line" />
-                <span className="section-tag">TED Danışmanlık</span>
+                <span className="section-tag">{t("TED Danışmanlık")}</span>
               </motion.div>
               <motion.h2 {...fadeUp(0.1)} className="section-title" style={{ marginBottom: '1.5rem' }}>
-                Türk Eğitim Derneği <span>Danışmanlığı</span>
+                {t("Türk Eğitim Derneği")} <span>{t("Danışmanlığı")}</span>
               </motion.h2>
               <motion.div {...fadeUp(0.2)} style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
                 <p className="section-subtitle" style={{ maxWidth: '100%' }}>
-                  Türk eğitim sistemine çok yönlü katkılar sağlamayı amaçlayan Türk Eğitim Derneği, kurumsal değerlerinin ülke genelinde yaygınlaşmasını artırmak ve özel okul sektörünün nitelikli gelişimine katkı sağlamak amacıyla TED Akreditasyon ve Danışmanlık (TED AD) hizmetleri kapsamında eğitim kurumlarına ve bireylere kurumsal danışmanlık hizmetleri önermektedir.
+                  {t("Türk eğitim sistemine çok yönlü katkılar sağlamayı amaçlayan Türk Eğitim Derneği, kurumsal değerlerinin ülke genelinde yaygınlaşmasını artırmak ve özel okul sektörünün nitelikli gelişimine katkı sağlamak amacıyla TED Akreditasyon ve Danışmanlık (TED AD) hizmetleri kapsamında eğitim kurumlarına ve bireylere kurumsal danışmanlık hizmetleri önermektedir.")}
                 </p>
                 <p className="section-subtitle" style={{ maxWidth: '100%' }}>
-                  TED Akreditasyonu programı belirtilen şartları taşıyan ve halen faaliyette olan okulların kurumsal dönüşüm sürecine girmelerine ve beklenen yetkinlikleri geliştirdikleri takdirde TED Okulu olmalarına imkân tanımaktadır. Ayrıca TED AD kapsamında okulların her türlü eğitim gereksinimlerine yönelik danışmanlık paketleri sunulmakta, okul öncesi eğitim kurumlarına ve özel okul açmak isteyen yatırımcılara yönelik özelleştirilmiş hizmetler önerilmektedir.
+                  {t("TED Akreditasyonu programı belirtilen şartları taşıyan ve halen faaliyette olan okulların kurumsal dönüşüm sürecine girmelerine ve beklenen yetkinlikleri geliştirdikleri takdirde TED Okulu olmalarına imkân tanımaktadır. Ayrıca TED AD kapsamında okulların her türlü eğitim gereksinimlerine yönelik danışmanlık paketleri sunulmakta, okul öncesi eğitim kurumlarına ve özel okul açmak isteyen yatırımcılara yönelik özelleştirilmiş hizmetler önerilmektedir.")}
                 </p>
                 <p className="section-subtitle" style={{ maxWidth: '100%' }}>
-                  TED AD kapsamında sunulan tüm programlar için öncelikle başvuru sahibinin olası gelişim alanlarını saptamaya yönelik bir "Mevcut Durumun Değerlendirilmesi" çalışması yapılmaktadır. Bu çalışma sonrasında oluşturulan rapor, TED AD kapsamında alınacak kurumsal hizmetin başvuru sahibinin kendisine özgü gereksinimlerine uygun olarak verilmesine olanak tanımaktadır.
+                  {t("TED AD kapsamında sunulan tüm programlar için öncelikle başvuru sahibinin olası gelişim alanlarını saptamaya yönelik bir \"Mevcut Durumun Değerlendirilmesi\" çalışması yapılmaktadır. Bu çalışma sonrasında oluşturulan rapor, TED AD kapsamında alınacak kurumsal hizmetin başvuru sahibinin kendisine özgü gereksinimlerine uygun olarak verilmesine olanak tanımaktadır.")}
                 </p>
                 <p className="section-subtitle" style={{ maxWidth: '100%' }}>
-                  TED AD hizmetlerinin başarısı başvuru sahiplerinin yeniliğe ve ortak çalışma kültürüne açık, ayrıca TED'in kurumsal değerlerine uygun bir yaklaşım içerisinde olmalarına bağlıdır. Yapılan başvuruların kabul edilme oranı, TED AD'nin başlangıç tarihi olan 2020'den günümüze yaklaşık %35'tir. TED AD hizmetlerinden faydalanan okulların listesi "TED AD Okullarımız" başlığında verilmektedir.
+                  {t("TED AD hizmetlerinin başarısı başvuru sahiplerinin yeniliğe ve ortak çalışma kültürüne açık, ayrıca TED'in kurumsal değerlerine uygun bir yaklaşım içerisinde olmalarına bağlıdır. Yapılan başvuruların kabul edilme oranı, TED AD'nin başlangıç tarihi olan 2020'den günümüze yaklaşık %35'tir. TED AD hizmetlerinden faydalanan okulların listesi \"TED AD Okullarımız\" başlığında verilmektedir.")}
                 </p>
                 <p className="section-subtitle" style={{ maxWidth: '100%' }}>
-                  Birlikte çalışma imkânı bulabildiğimiz okulların öğrencilerinin, öğretmenlerinin ve yöneticilerinin başarısını artırmak için geliştirdiğimiz strateji ve çözümlerin yanı sıra, TED AD kapsamında iş birliği yaptığımız okullara çok yönlü katkılar sunuyoruz. İş birliği yaptığımız okulların;
+                  {t("Birlikte çalışma imkânı bulabildiğimiz okulların öğrencilerinin, öğretmenlerinin ve yöneticilerinin başarısını artırmak için geliştirdiğimiz strateji ve çözümlerin yanı sıra, TED AD kapsamında iş birliği yaptığımız okullara çok yönlü katkılar sunuyoruz. İş birliği yaptığımız okulların;")}
                 </p>
                 
                 <div style={{ 
@@ -113,12 +114,12 @@ export default function HakkimizdaPage() {
                     flexDirection: 'column',
                     gap: '0.85rem'
                   }}>
-                    <li>Ülke genelinde etkinlik gösteren okulları, TED Üniversitesi, düşünce kuruluşu TEDMEM, mezun dernekleri, gönüllü çalışma komiteleri, spor kulüpleri, senfoni orkestrası ve eşsiz burs sistemi ile Türkiye'nin en köklü sivil toplum kuruluşu olan Türk Eğitim Derneğinin ayrıcalıklı ekosistemine dâhil olmalarını sağlıyoruz.</li>
-                    <li>Sürecin başında uyguladığımız Mevcut Durumun Değerlendirilmesi çalışması ile akademik, yönetsel, finansal ve fiziksel açılardan derinlemesine inceleyerek okulun güçlü ve gelişime açık yanlarını tespit ediyoruz.</li>
-                    <li>Mevcut Durumun Değerlendirilmesi çalışmasından elde edilen veriyle okula özgü bir gelişim planı oluşturarak çalışmalarımızı yürütüyoruz.</li>
-                    <li>Süreç boyunca sunduğumuz hizmetlerin etkisini ölçmek ve geribildirim almak için Genel Merkezimiz tarafından geliştirilen Değer Ölçütleri sistemini uyguluyoruz. Bu kapsamda okulları; TED Akreditasyonunda her yıl 4 ana ölçüt ve 70 alt ölçütte, Eğitim Danışmanlıklarında her yıl 3 ana ölçüt ve 61 alt ölçütte değerlendirerek gelişimlerini gerçek zamanlı olarak takip ediyoruz. Değerlendirme sonuçlarını eğitim öğretim yılı içerisinde iki kez raporluyoruz.</li>
-                    <li>TED'e özgü yayınlar, akademik programlar ve yazılımlardan faydalanmalarını sağlıyoruz.</li>
-                    <li>TED Okullarında kullanılan mobilya, eğitim araç-gereçleri ve okul giysilerini kullanabilmelerine imkân sağlıyoruz.</li>
+                    <li>{t("Ülke genelinde etkinlik gösteren okulları, TED Üniversitesi, düşünce kuruluşu TEDMEM, mezun dernekleri, gönüllü çalışma komiteleri, spor kulüpleri, senfoni orkestrası ve eşsiz burs sistemi ile Türkiye'nin en köklü sivil toplum kuruluşu olan Türk Eğitim Derneğinin ayrıcalıklı ekosistemine dâhil olmalarını sağlıyoruz.")}</li>
+                    <li>{t("Sürecin başında uyguladığımız Mevcut Durumun Değerlendirilmesi çalışması ile akademik, yönetsel, finansal ve fiziksel açılardan derinlemesine inceleyerek okulun güçlü ve gelişime açık yanlarını tespit ediyoruz.")}</li>
+                    <li>{t("Mevcut Durumun Değerlendirilmesi çalışmasından elde edilen veriyle okula özgü bir gelişim planı oluşturarak çalışmalarımızı yürütüyoruz.")}</li>
+                    <li>{t("Süreç boyunca sunduğumuz hizmetlerin etkisini ölçmek ve geribildirim almak için Genel Merkezimiz tarafından geliştirilen Değer Ölçütleri sistemini uyguluyoruz. Bu kapsamda okulları; TED Akreditasyonunda her yıl 4 ana ölçüt ve 70 alt ölçütte, Eğitim Danışmanlıklarında her yıl 3 ana ölçüt ve 61 alt ölçütte değerlendirerek gelişimlerini gerçek zamanlı olarak takip ediyoruz. Değerlendirme sonuçlarını eğitim öğretim yılı içerisinde iki kez raporluyoruz.")}</li>
+                    <li>{t("TED'e özgü yayınlar, akademik programlar ve yazılımlardan faydalanmalarını sağlıyoruz.")}</li>
+                    <li>{t("TED Okullarında kullanılan mobilya, eğitim araç-gereçleri ve okul giysilerini kullanabilmelerine imkân sağlıyoruz.")}</li>
                   </ul>
                 </div>
               </motion.div>
@@ -143,11 +144,11 @@ export default function HakkimizdaPage() {
           <motion.div {...fadeUp(0)} style={{ textAlign: 'center', marginBottom: '5rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', justifyContent: 'center', marginBottom: '0.75rem' }}>
               <div style={{ width: '40px', height: '1px', background: 'rgba(230,25,54,0.6)' }} />
-              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)' }}>Kimliğimiz</span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)' }}>{t("Kimliğimiz")}</span>
               <div style={{ width: '40px', height: '1px', background: 'rgba(230,25,54,0.6)' }} />
             </div>
             <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, color: '#fff', lineHeight: 1.15 }}>
-              Vizyon & <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>Misyon</em>
+              {t("Vizyon &")} <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>{t("Misyon")}</em>
             </h2>
           </motion.div>
 
@@ -168,7 +169,7 @@ export default function HakkimizdaPage() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem' }}>
                 
                 <div>
-                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--red)' }}>Vizyonumuz</span>
+                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--red)' }}>{t("Vizyonumuz")}</span>
                 </div>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '2rem' }}>
@@ -180,13 +181,13 @@ export default function HakkimizdaPage() {
                 ].map((line, i) => (
                   <div key={i} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
                     <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: line.accent ? 'var(--red)' : 'rgba(255,255,255,0.25)', marginTop: '0.55rem', flexShrink: 0 }} />
-                    <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.75, color: line.accent ? '#fff' : 'rgba(255,255,255,0.6)', fontWeight: line.accent ? 600 : 400 }}>{line.text}</p>
+                    <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.75, color: line.accent ? '#fff' : 'rgba(255,255,255,0.6)', fontWeight: line.accent ? 600 : 400 }}>{t(line.text)}</p>
                   </div>
                 ))}
               </div>
               <div style={{ padding: '1.25rem', background: 'rgba(230,25,54,0.08)', borderRadius: '8px', borderLeft: '3px solid rgba(230,25,54,0.5)' }}>
                 <p style={{ fontFamily: 'var(--font-serif)', fontSize: '0.92rem', fontStyle: 'italic', color: 'rgba(255,255,255,0.65)', lineHeight: 1.75 }}>
-                  Eğitimi yalnızca akademik başarıyla sınırlamayan; düşünmeyi, sorgulamayı, üretmeyi ve yaşamla bağ kurmayı merkeze alan bütüncül bir eğitim ekolü oluşturmayı hedefleriz.
+                  {t("Eğitimi yalnızca akademik başarıyla sınırlamayan; düşünmeyi, sorgulamayı, üretmeyi ve yaşamla bağ kurmayı merkeze alan bütüncül bir eğitim ekolü oluşturmayı hedefleriz.")}
                 </p>
               </div>
             </motion.div>
@@ -207,7 +208,7 @@ export default function HakkimizdaPage() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem' }}>
                 
                 <div>
-                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(180,196,230,0.9)' }}>Misyonumuz</span>
+                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(180,196,230,0.9)' }}>{t("Misyonumuz")}</span>
                 </div>
               </div>
               {[
@@ -218,12 +219,12 @@ export default function HakkimizdaPage() {
               ].map((item, i) => (
                 <div key={i} style={{ display: 'flex', gap: '0.75rem', marginBottom: '0.85rem', alignItems: 'flex-start' }}>
                   <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: item.accent ? 'var(--red)' : 'rgba(255,255,255,0.2)', marginTop: '0.55rem', flexShrink: 0 }} />
-                  <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.75, color: item.accent ? 'rgba(255,255,255,0.9)' : 'rgba(255,255,255,0.55)', fontWeight: item.accent ? 500 : 400 }}>{item.text}</p>
+                  <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', lineHeight: 1.75, color: item.accent ? 'rgba(255,255,255,0.9)' : 'rgba(255,255,255,0.55)', fontWeight: item.accent ? 500 : 400 }}>{t(item.text)}</p>
                 </div>
               ))}
               <div style={{ marginTop: '1.5rem', padding: '1.25rem', background: 'rgba(35,46,92,0.35)', borderRadius: '8px', borderLeft: '3px solid rgba(255,255,255,0.2)' }}>
                 <p style={{ fontFamily: 'var(--font-serif)', fontSize: '0.92rem', fontStyle: 'italic', color: 'rgba(255,255,255,0.6)', lineHeight: 1.75 }}>
-                  Öğrencilerin kendi potansiyellerini tanıyan, sorumluluk alan, eleştirel düşünebilen ve topluma değer katan bireyler olarak yetişmesini amaçlarız.
+                  {t("Öğrencilerin kendi potansiyellerini tanıyan, sorumluluk alan, eleştirel düşünebilen ve topluma değer katan bireyler olarak yetişmesini amaçlarız.")}
                 </p>
               </div>
             </motion.div>
@@ -236,10 +237,10 @@ export default function HakkimizdaPage() {
           <motion.div {...fadeUp(0)} style={{ textAlign: 'center', marginBottom: '4rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', justifyContent: 'center', marginBottom: '0.75rem' }}>
               <div className="red-line" />
-              <span className="section-tag">Değerlerimiz</span>
+              <span className="section-tag">{t("Değerlerimiz")}</span>
               <div className="red-line" />
             </div>
-            <h2 className="section-title" style={{ textAlign: 'center' }}>Temel <span>Değerlerimiz</span></h2>
+            <h2 className="section-title" style={{ textAlign: 'center' }}>{t("Temel")} <span>{t("Değerlerimiz")}</span></h2>
           </motion.div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(310px, 1fr))', gap: '1.5rem' }}>
@@ -252,7 +253,7 @@ export default function HakkimizdaPage() {
               { title: 'Yaşam Boyu Öğrenme', color: 'var(--red)', desc: 'Öğrenmeyi okul yıllarıyla sınırlamayan; merak eden, araştıran ve kendini sürekli geliştiren bireyler yetiştiririz.' },
               { title: 'Bütüncül Gelişim', color: 'var(--primary)', desc: 'Akademik başarının; sosyal, duygusal, sanatsal ve fiziksel gelişimle birlikte anlam kazandığına inanırız.' },
             ].map((v, i) => (
-              <motion.div key={v.title} {...fadeUp(i * 0.07)} className="deger-card" style={{
+              <motion.div key={t(v.title)} {...fadeUp(i * 0.07)} className="deger-card" style={{
                 padding: '2rem', position: 'relative', overflow: 'hidden',
                 background: 'var(--white)',
                 border: '1px solid var(--grey-light)',
@@ -271,8 +272,8 @@ export default function HakkimizdaPage() {
               >
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: v.color }} />
                 
-                <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.15rem', fontWeight: 700, color: 'var(--text-dark)', marginBottom: '0.75rem', lineHeight: 1.3 }}>{v.title}</h3>
-                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.87rem', lineHeight: 1.78, color: 'var(--text-mid)' }}>{v.desc}</p>
+                <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.15rem', fontWeight: 700, color: 'var(--text-dark)', marginBottom: '0.75rem', lineHeight: 1.3 }}>{t(v.title)}</h3>
+                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.87rem', lineHeight: 1.78, color: 'var(--text-mid)' }}>{t(v.desc)}</p>
               </motion.div>
             ))}
           </div>
@@ -293,20 +294,20 @@ export default function HakkimizdaPage() {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', justifyContent: 'center', marginBottom: '0.75rem' }}>
               <div style={{ width: '40px', height: '1px', background: 'rgba(230,25,54,0.6)' }} />
-              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)' }}>Tanıtım Dergisi</span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)' }}>{t("Tanıtım Dergisi")}</span>
               <div style={{ width: '40px', height: '1px', background: 'rgba(230,25,54,0.6)' }} />
             </div>
             <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.8rem,3.5vw,2.6rem)', fontWeight: 700, color: '#fff', lineHeight: 1.2 }}>
-              Kolej Sancaktepe <span style={{ color: 'rgba(255,255,255,0.5)', fontStyle: 'italic' }}>Dergisi</span>
+              {t("Kolej Sancaktepe")} <span style={{ color: 'rgba(255,255,255,0.5)', fontStyle: 'italic' }}>{t("Dergisi")}</span>
             </h2>
             <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'rgba(255,255,255,0.45)', maxWidth: '480px', margin: '0.75rem auto 0', lineHeight: 1.85 }}>
-              Okulumuzun eğitim anlayışını, programlarını ve okul yaşamını tanıtan dijital dergimizi sayfaları çevirerek keşfedin.
+              {t("Okulumuzun eğitim anlayışını, programlarını ve okul yaşamını tanıtan dijital dergimizi sayfaları çevirerek keşfedin.")}
             </p>
           </motion.div>
 
           <Suspense fallback={
             <div style={{ textAlign: 'center', padding: '4rem', color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-display)', fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
-              Yükleniyor...
+              {t("Yükleniyor...")}
             </div>
           }>
             <PdfFlipBook />
@@ -325,7 +326,7 @@ export default function HakkimizdaPage() {
               onMouseEnter={(e) => { e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.5)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(255,255,255,0.6)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'; }}
             >
-              ⬇ PDF İndir
+              {t("⬇ PDF İndir")}
             </a>
           </div>
         </div>

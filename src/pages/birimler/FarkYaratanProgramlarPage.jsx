@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
+import { t } from '../../i18n';
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
@@ -83,13 +84,13 @@ export default function FarkYaratanProgramlarPage() {
           <motion.div {...fadeUp(0.1)}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
               <div style={{ width: '40px', height: '3px', background: 'rgba(255,255,255,0.35)', borderRadius: '2px' }} />
-              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)' }}>Birimler</span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)' }}>{t("Birimler")}</span>
             </div>
             <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2rem,4vw,3.2rem)', fontWeight: 700, color: '#fff', lineHeight: 1.12, marginBottom: '1rem' }}>
-              Fark Yaratan Programlar
+              {t("Fark Yaratan Programlar")}
             </h1>
             <p style={{ fontFamily: 'var(--font-sans)', fontSize: '1rem', color: 'rgba(255,255,255,0.65)', maxWidth: '600px', lineHeight: 1.85 }}>
-              Kolej Sancaktepe öğrencilerini dünyaya hazırlayan özgün akademik ve kültürel programlar.
+              {t("Kolej Sancaktepe öğrencilerini dünyaya hazırlayan özgün akademik ve kültürel programlar.")}
             </p>
           </motion.div>
         </div>
@@ -103,23 +104,23 @@ export default function FarkYaratanProgramlarPage() {
               <motion.div {...fadeUp(0)} style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
                 
                 <div>
-                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--red)', background: 'rgba(230,25,54,0.08)', padding: '0.2rem 0.6rem', borderRadius: '4px', border: '1px solid rgba(230,25,54,0.2)' }}>{prog.tag}</span>
+                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--red)', background: 'rgba(230,25,54,0.08)', padding: '0.2rem 0.6rem', borderRadius: '4px', border: '1px solid rgba(230,25,54,0.2)' }}>{t(prog.tag)}</span>
                 </div>
               </motion.div>
               <motion.div {...fadeUp(0.05)}>
-                <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.5rem,2.8vw,2rem)', fontWeight: 700, color: 'var(--primary)', lineHeight: 1.2, marginBottom: '1.5rem' }}>{prog.title}</h2>
-                {prog.body.map((p, j) => <P key={j}>{p}</P>)}
+                <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.5rem,2.8vw,2rem)', fontWeight: 700, color: 'var(--primary)', lineHeight: 1.2, marginBottom: '1.5rem' }}>{t(prog.title)}</h2>
+                {prog.body.map((p, j) => <P key={j}>{t(p)}</P>)}
                 {prog.action && prog.action.internal && (
                   <Link to={prog.action.to} style={{ display: 'inline-block', marginTop: '0.75rem', fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--red)', border: '2px solid var(--red)', padding: '0.65rem 1.4rem', borderRadius: '4px', textDecoration: 'none' }}>
-                    {prog.action.label}
+                    {t(prog.action.label)}
                   </Link>
                 )}
                 {prog.steps && (
                   <motion.div {...fadeUp(0.08)} style={{ marginTop: '1.5rem', background: 'var(--white)', borderRadius: '12px', padding: '1.5rem 2rem', border: '1px solid var(--grey-light)' }}>
-                    <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.75rem' }}>Program Süreci (10 Adım)</p>
+                    <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.75rem' }}>{t("Program Süreci (10 Adım)")}</p>
                     <ol style={{ paddingLeft: '1.25rem', margin: 0 }}>
                       {prog.steps.map((step, j) => (
-                        <li key={j} style={{ fontFamily: 'var(--font-sans)', fontSize: '0.88rem', color: 'var(--text-mid)', lineHeight: 1.8, marginBottom: '0.35rem' }}>{step}</li>
+                        <li key={j} style={{ fontFamily: 'var(--font-sans)', fontSize: '0.88rem', color: 'var(--text-mid)', lineHeight: 1.8, marginBottom: '0.35rem' }}>{t(step)}</li>
                       ))}
                     </ol>
                   </motion.div>

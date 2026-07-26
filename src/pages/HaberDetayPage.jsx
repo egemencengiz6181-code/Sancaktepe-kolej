@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { getNewsBySlug, getRelatedNews } from '../data/news';
 
+import { t } from '../i18n';
 const tagColors = {
   Akademi: '#232e5c',
   Etkinlik: '#0891b2',
@@ -22,7 +23,7 @@ function BlockRenderer({ block, i }) {
           marginBottom: '2rem', paddingBottom: '2rem',
           borderBottom: '1px solid var(--grey-light)',
         }}>
-          {block.text}
+          {t(block.text)}
         </p>
       );
     case 'heading':
@@ -33,7 +34,7 @@ function BlockRenderer({ block, i }) {
           marginTop: '2.5rem', marginBottom: '1rem',
           paddingTop: '0.5rem',
         }}>
-          {block.text}
+          {t(block.text)}
         </h2>
       );
     case 'paragraph':
@@ -43,7 +44,7 @@ function BlockRenderer({ block, i }) {
           color: 'var(--text-mid)', lineHeight: 1.9,
           marginBottom: '1.25rem',
         }}>
-          {block.text}
+          {t(block.text)}
         </p>
       );
     case 'list':
@@ -58,7 +59,7 @@ function BlockRenderer({ block, i }) {
               borderRadius: '6px',
               borderLeft: '3px solid var(--red)',
             }}>
-              {item}
+              {t(item)}
             </li>
           ))}
         </ul>
@@ -79,7 +80,7 @@ function BlockRenderer({ block, i }) {
             color: 'var(--primary)', lineHeight: 1.6,
             marginBottom: '0.75rem',
           }}>
-            {block.text}
+            {t(block.text)}
           </p>
           {block.attribution && (
             <cite style={{
@@ -109,9 +110,9 @@ export default function HaberDetayPage() {
   if (!article) {
     return (
       <div style={{ minHeight: '80vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '1.5rem' }}>
-        <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '2rem', color: 'var(--primary)' }}>Haber bulunamadı</h2>
+        <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '2rem', color: 'var(--primary)' }}>{t("Haber bulunamadı")}</h2>
         <Link to="/haberler" style={{ fontFamily: 'var(--font-display)', fontSize: '0.75rem', fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--red)', textDecoration: 'none' }}>
-          ← Tüm Haberler
+          {t("← Tüm Haberler")}
         </Link>
       </div>
     );
@@ -127,7 +128,7 @@ export default function HaberDetayPage() {
       <div style={{ position: 'relative', height: 'clamp(300px, 50vw, 520px)', overflow: 'hidden' }}>
         <motion.img
           src={article.img}
-          alt={article.title}
+          alt={t(article.title)}
           initial={{ scale: 1.08 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
@@ -151,11 +152,11 @@ export default function HaberDetayPage() {
             >
               {/* Breadcrumb */}
               <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap' }}>
-                <Link to="/" style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>Ana Sayfa</Link>
+                <Link to="/" style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>{t("Ana Sayfa")}</Link>
                 <span style={{ color: 'rgba(255,255,255,0.3)' }}>›</span>
-                <Link to="/haberler" style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>Haberler</Link>
+                <Link to="/haberler" style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>{t("Haberler")}</Link>
                 <span style={{ color: 'rgba(255,255,255,0.3)' }}>›</span>
-                <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)' }}>{article.tag}</span>
+                <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)' }}>{t(article.tag)}</span>
               </div>
               {/* Tag */}
               <div style={{
@@ -165,7 +166,7 @@ export default function HaberDetayPage() {
                 letterSpacing: '0.2em', textTransform: 'uppercase',
                 padding: '0.3rem 0.8rem', borderRadius: '3px',
                 marginBottom: '1rem',
-              }}>{article.tag}</div>
+              }}>{t(article.tag)}</div>
               {/* Title */}
               <h1 style={{
                 fontFamily: 'var(--font-serif)',
@@ -173,7 +174,7 @@ export default function HaberDetayPage() {
                 fontWeight: 700, color: '#fff', lineHeight: 1.2,
                 maxWidth: '820px',
               }}>
-                {article.title}
+                {t(article.title)}
               </h1>
             </motion.div>
           </div>
@@ -252,7 +253,7 @@ export default function HaberDetayPage() {
                 onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--primary)'; e.currentTarget.style.background = 'var(--primary)'; e.currentTarget.style.color = '#fff'; }}
                 onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--grey-light)'; e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--primary)'; }}
               >
-                ← Tüm Haberlere Dön
+                {t("← Tüm Haberlere Dön")}
               </Link>
             </div>
           </motion.article>
@@ -274,7 +275,7 @@ export default function HaberDetayPage() {
               boxShadow: '0 4px 20px rgba(35,46,92,0.05)',
             }}>
               <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 900, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: '1rem' }}>
-                Haber Detayları
+                {t("Haber Detayları")}
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                 {[
@@ -283,9 +284,9 @@ export default function HaberDetayPage() {
                   { label: 'Okuma Süresi', value: article.readTime },
                   { label: 'Yazar', value: article.author },
                 ].map((row) => (
-                  <div key={row.label} style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
-                    <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--grey)' }}>{row.label}</span>
-                    <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', fontWeight: 600, color: row.color || 'var(--text-dark)' }}>{row.value}</span>
+                  <div key={t(row.label)} style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
+                    <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--grey)' }}>{t(row.label)}</span>
+                    <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', fontWeight: 600, color: row.color || 'var(--text-dark)' }}>{t(row.value)}</span>
                   </div>
                 ))}
               </div>
@@ -301,14 +302,14 @@ export default function HaberDetayPage() {
                 boxShadow: '0 4px 20px rgba(35,46,92,0.05)',
               }}>
                 <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 900, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: '1rem' }}>
-                  İlgili Haberler
+                  {t("İlgili Haberler")}
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                   {related.map((rel) => (
                     <Link key={rel.slug} to={`/haberler/${rel.slug}`} style={{ textDecoration: 'none', display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
                       <img
                         src={rel.imgThumb}
-                        alt={rel.title}
+                        alt={t(rel.title)}
                         style={{ width: '64px', height: '48px', objectFit: 'cover', borderRadius: '6px', flexShrink: 0 }}
                       />
                       <div>
@@ -320,7 +321,7 @@ export default function HaberDetayPage() {
                           letterSpacing: '0.12em', textTransform: 'uppercase',
                           padding: '0.15rem 0.4rem', borderRadius: '2px',
                           marginBottom: '0.3rem',
-                        }}>{rel.tag}</div>
+                        }}>{t(rel.tag)}</div>
                         <p style={{
                           fontFamily: 'var(--font-sans)', fontSize: '0.8rem', fontWeight: 600,
                           color: 'var(--text-dark)', lineHeight: 1.4,
@@ -329,7 +330,7 @@ export default function HaberDetayPage() {
                           onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--red)')}
                           onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-dark)')}
                         >
-                          {rel.title}
+                          {t(rel.title)}
                         </p>
                       </div>
                     </Link>
@@ -345,10 +346,10 @@ export default function HaberDetayPage() {
               textAlign: 'center',
             }}>
               <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1rem', fontWeight: 700, color: '#fff', marginBottom: '0.5rem' }}>
-                Okul hakkında daha fazla bilgi alın
+                {t("Okul hakkında daha fazla bilgi alın")}
               </div>
               <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)', marginBottom: '1rem', lineHeight: 1.6 }}>
-                Kayıt ve bilgi için bizimle iletişime geçin.
+                {t("Kayıt ve bilgi için bizimle iletişime geçin.")}
               </p>
               <Link to="/iletisim" style={{
                 display: 'block',
@@ -363,7 +364,7 @@ export default function HaberDetayPage() {
                 onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 20px rgba(230,25,54,0.45)'; }}
                 onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 14px rgba(230,25,54,0.35)'; }}
               >
-                İletişime Geç
+                {t("İletişime Geç")}
               </Link>
             </div>
           </motion.aside>

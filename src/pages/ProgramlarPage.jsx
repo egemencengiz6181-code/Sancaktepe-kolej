@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { programs, getTopLevelPrograms } from '../data/programs';
 
+import { t } from '../i18n';
 const topLevel = getTopLevelPrograms();
 
 const fadeUp = (delay = 0) => ({
@@ -25,11 +26,11 @@ export default function ProgramlarPage() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.7 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
               <div style={{ width: '40px', height: '3px', background: 'rgba(255,255,255,0.35)', borderRadius: '2px' }} />
-              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)' }}>Eğitim</span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)' }}>{t("Eğitim")}</span>
             </div>
-            <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 700, color: '#fff', lineHeight: 1.1, marginBottom: '1rem' }}>Eğitim Programlarımız</h1>
+            <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 700, color: '#fff', lineHeight: 1.1, marginBottom: '1rem' }}>{t("Eğitim Programlarımız")}</h1>
             <p style={{ fontFamily: 'var(--font-sans)', fontSize: '1.05rem', color: 'rgba(255,255,255,0.65)', maxWidth: '580px', lineHeight: 1.85 }}>
-              Bütüncül öğrenme yaklaşımıyla öğrencilerimizin tüm yönlerden gelişimini destekliyoruz.
+              {t("Bütüncül öğrenme yaklaşımıyla öğrencilerimizin tüm yönlerden gelişimini destekliyoruz.")}
             </p>
           </motion.div>
         </div>
@@ -59,11 +60,11 @@ export default function ProgramlarPage() {
                 <div style={{ padding: '2rem' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.2rem' }}>
                     
-                    <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 900, letterSpacing: '0.15em', color: prog.color, background: `${prog.color}12`, border: `1px solid ${prog.color}30`, padding: '0.3rem 0.7rem', borderRadius: '3px' }}>{prog.tag}</span>
+                    <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 900, letterSpacing: '0.15em', color: prog.color, background: `${prog.color}12`, border: `1px solid ${prog.color}30`, padding: '0.3rem 0.7rem', borderRadius: '3px' }}>{t(prog.tag)}</span>
                   </div>
-                  <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.25rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.4rem', lineHeight: 1.3 }}>{prog.title}</h3>
-                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: prog.color, marginBottom: '0.8rem' }}>{prog.subtitle}</p>
-                  <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.86rem', lineHeight: 1.75, color: 'var(--text-mid)', marginBottom: '1.2rem' }}>{prog.desc}</p>
+                  <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.25rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.4rem', lineHeight: 1.3 }}>{t(prog.title)}</h3>
+                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: prog.color, marginBottom: '0.8rem' }}>{t(prog.subtitle)}</p>
+                  <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.86rem', lineHeight: 1.75, color: 'var(--text-mid)', marginBottom: '1.2rem' }}>{t(prog.desc)}</p>
 
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '0.25rem' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: prog.color, fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
@@ -72,7 +73,7 @@ export default function ProgramlarPage() {
                     <Link to={`/programlar/${prog.id}`} onClick={(e) => e.stopPropagation()} style={{ textDecoration: 'none', fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--red)', padding: '0.3rem 0.7rem', border: '1px solid rgba(230,25,54,0.3)', borderRadius: '3px', transition: 'all 0.2s' }}
                       onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--red)'; e.currentTarget.style.color = '#fff'; }}
                       onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--red)'; }}
-                    >Detay Sayfası →</Link>
+                    >{t("Detay Sayfası →")}</Link>
                   </div>
 
                   <AnimatePresence>
@@ -87,11 +88,11 @@ export default function ProgramlarPage() {
                         <div style={{ marginTop: '1.5rem', paddingTop: '1.5rem', borderTop: `2px solid ${prog.color}20` }}>
                           {prog.items && prog.items.length > 0 && (
                             <>
-                              <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.63rem', fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: '0.75rem' }}>Program İçeriği</p>
+                              <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.63rem', fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: '0.75rem' }}>{t("Program İçeriği")}</p>
                               {prog.items.map((item, j) => (
                                 <div key={j} style={{ display: 'flex', gap: '0.7rem', marginBottom: '0.45rem' }}>
                                   <span style={{ color: prog.color, fontWeight: 800, fontSize: '0.78rem', flexShrink: 0, minWidth: '28px' }}>{item.code}</span>
-                                  <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.83rem', color: 'var(--text-mid)', lineHeight: 1.6 }}>{item.label}</span>
+                                  <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.83rem', color: 'var(--text-mid)', lineHeight: 1.6 }}>{t(item.label)}</span>
                                 </div>
                               ))}
                             </>
@@ -99,11 +100,11 @@ export default function ProgramlarPage() {
 
                           {prog.goals && prog.goals.length > 0 && (
                             <>
-                              <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.63rem', fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--grey)', margin: '1.2rem 0 0.75rem' }}>Amaç</p>
+                              <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.63rem', fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--grey)', margin: '1.2rem 0 0.75rem' }}>{t("Amaç")}</p>
                               {prog.goals.map((g, j) => (
                                 <div key={j} style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.4rem' }}>
                                   <span style={{ color: prog.color }}></span>
-                                  <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.83rem', color: 'var(--text-mid)', lineHeight: 1.6 }}>{g}</span>
+                                  <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.83rem', color: 'var(--text-mid)', lineHeight: 1.6 }}>{t(g)}</span>
                                 </div>
                               ))}
                             </>

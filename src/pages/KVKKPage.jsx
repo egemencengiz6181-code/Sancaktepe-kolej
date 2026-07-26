@@ -3,6 +3,7 @@ import { motion, useInView } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
+import { t } from '../i18n';
 export default function KVKKPage() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
@@ -59,7 +60,7 @@ export default function KVKKPage() {
                 letterSpacing: '0.2em',
                 textTransform: 'uppercase',
                 color: 'rgba(255,255,255,0.8)',
-              }}>Gizlilik ve Güvenlik</span>
+              }}>{t("Gizlilik ve Güvenlik")}</span>
             </div>
             <h1 style={{
               fontFamily: 'var(--font-serif)',
@@ -69,7 +70,7 @@ export default function KVKKPage() {
               lineHeight: 1.2,
               marginBottom: '1.5rem',
             }}>
-              Kişisel Verilerin Korunması
+              {t("Kişisel Verilerin Korunması")}
             </h1>
             <p style={{
               fontFamily: 'var(--font-sans)',
@@ -79,7 +80,7 @@ export default function KVKKPage() {
               maxWidth: '700px',
               margin: '0 auto',
             }}>
-              Kolej Sancaktepe TED-AD olarak kişisel verilerinizin güvenliği bizim için önceliktir.
+              {t("Kolej Sancaktepe TED-AD olarak kişisel verilerinizin güvenliği bizim için önceliktir.")}
             </p>
           </motion.div>
         </div>
@@ -107,14 +108,14 @@ export default function KVKKPage() {
                   fontWeight: 700,
                   color: 'var(--primary)',
                   marginBottom: '1rem',
-                }}>1. Veri Sorumlusu</h2>
+                }}>{t("1. Veri Sorumlusu")}</h2>
                 <p style={{
                   fontFamily: 'var(--font-sans)',
                   fontSize: '1rem',
                   lineHeight: 1.8,
                   color: 'var(--grey-dark)',
                 }}>
-                  Kolej Sancaktepe TED-AD, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") kapsamında veri sorumlusu sıfatıyla kişisel verilerinizi işlemektedir.
+                  {t("Kolej Sancaktepe TED-AD, 6698 sayılı Kişisel Verilerin Korunması Kanunu (\"KVKK\") kapsamında veri sorumlusu sıfatıyla kişisel verilerinizi işlemektedir.")}
                 </p>
               </div>
 
@@ -126,7 +127,7 @@ export default function KVKKPage() {
                   fontWeight: 700,
                   color: 'var(--primary)',
                   marginBottom: '1rem',
-                }}>2. İşlenen Kişisel Veriler</h2>
+                }}>{t("2. İşlenen Kişisel Veriler")}</h2>
                 <p style={{
                   fontFamily: 'var(--font-sans)',
                   fontSize: '1rem',
@@ -134,7 +135,7 @@ export default function KVKKPage() {
                   color: 'var(--grey-dark)',
                   marginBottom: '1rem',
                 }}>
-                  Web sitemiz üzerinden iletişim formlarını doldurduğunuzda aşağıdaki kişisel verileriniz işlenmektedir:
+                  {t("Web sitemiz üzerinden iletişim formlarını doldurduğunuzda aşağıdaki kişisel verileriniz işlenmektedir:")}
                 </p>
                 <ul style={{
                   fontFamily: 'var(--font-sans)',
@@ -143,11 +144,11 @@ export default function KVKKPage() {
                   color: 'var(--grey-dark)',
                   paddingLeft: '1.5rem',
                 }}>
-                  <li>Öğrenci adı ve soyadı</li>
-                  <li>Veli adı ve soyadı</li>
-                  <li>İletişim bilgileri (telefon numarası)</li>
-                  <li>Eğitim bilgileri (mevcut okul, sınıf bilgisi)</li>
-                  <li>İletişim içeriği (form mesajı)</li>
+                  <li>{t("Öğrenci adı ve soyadı")}</li>
+                  <li>{t("Veli adı ve soyadı")}</li>
+                  <li>{t("İletişim bilgileri (telefon numarası)")}</li>
+                  <li>{t("Eğitim bilgileri (mevcut okul, sınıf bilgisi)")}</li>
+                  <li>{t("İletişim içeriği (form mesajı)")}</li>
                 </ul>
               </div>
 
@@ -159,14 +160,14 @@ export default function KVKKPage() {
                   fontWeight: 700,
                   color: 'var(--primary)',
                   marginBottom: '1rem',
-                }}>3. Kişisel Verilerin İşlenme Amaçları</h2>
+                }}>{t("3. Kişisel Verilerin İşlenme Amaçları")}</h2>
                 <p style={{
                   fontFamily: 'var(--font-sans)',
                   fontSize: '1rem',
                   lineHeight: 1.8,
                   color: 'var(--grey-dark)',
                 }}>
-                  Kişisel verileriniz yalnızca kayıt ve bilgilendirme süreçlerinin yürütülmesi, eğitim hizmetlerimiz hakkında bilgi verilmesi ve iletişim talebinize yanıt verilmesi amacıyla işlenmektedir.
+                  {t("Kişisel verileriniz yalnızca kayıt ve bilgilendirme süreçlerinin yürütülmesi, eğitim hizmetlerimiz hakkında bilgi verilmesi ve iletişim talebinize yanıt verilmesi amacıyla işlenmektedir.")}
                 </p>
               </div>
 
@@ -178,14 +179,14 @@ export default function KVKKPage() {
                   fontWeight: 700,
                   color: 'var(--primary)',
                   marginBottom: '1rem',
-                }}>4. Verilerin Paylaşımı ve Aktarımı</h2>
+                }}>{t("4. Verilerin Paylaşımı ve Aktarımı")}</h2>
                 <p style={{
                   fontFamily: 'var(--font-sans)',
                   fontSize: '1rem',
                   lineHeight: 1.8,
                   color: 'var(--grey-dark)',
                 }}>
-                  Kişisel verileriniz, KVKK ve ilgili mevzuat hükümlerine uygun olarak, yalnızca hukuki yükümlülüklerimizi yerine getirmek ve yukarıda belirtilen amaçları gerçekleştirmek için gerekli olduğu ölçüde üçüncü kişilerle paylaşılabilir.
+                  {t("Kişisel verileriniz, KVKK ve ilgili mevzuat hükümlerine uygun olarak, yalnızca hukuki yükümlülüklerimizi yerine getirmek ve yukarıda belirtilen amaçları gerçekleştirmek için gerekli olduğu ölçüde üçüncü kişilerle paylaşılabilir.")}
                 </p>
               </div>
 
@@ -197,7 +198,7 @@ export default function KVKKPage() {
                   fontWeight: 700,
                   color: 'var(--primary)',
                   marginBottom: '1rem',
-                }}>5. KVKK Kapsamındaki Haklarınız</h2>
+                }}>{t("5. KVKK Kapsamındaki Haklarınız")}</h2>
                 <p style={{
                   fontFamily: 'var(--font-sans)',
                   fontSize: '1rem',
@@ -205,7 +206,7 @@ export default function KVKKPage() {
                   color: 'var(--grey-dark)',
                   marginBottom: '1rem',
                 }}>
-                  KVKK'nın 11. maddesi uyarınca aşağıdaki haklara sahipsiniz:
+                  {t("KVKK'nın 11. maddesi uyarınca aşağıdaki haklara sahipsiniz:")}
                 </p>
                 <ul style={{
                   fontFamily: 'var(--font-sans)',
@@ -214,15 +215,15 @@ export default function KVKKPage() {
                   color: 'var(--grey-dark)',
                   paddingLeft: '1.5rem',
                 }}>
-                  <li>Kişisel verilerinizin işlenip işlenmediğini öğrenme</li>
-                  <li>İşlenmişse buna ilişkin bilgi talep etme</li>
-                  <li>İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme</li>
-                  <li>Yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme</li>
-                  <li>Eksik veya yanlış işlenmişse düzeltilmesini isteme</li>
-                  <li>KVKK'nın 7. maddesinde öngörülen şartlar çerçevesinde silinmesini veya yok edilmesini isteme</li>
-                  <li>Aktarıldığı üçüncü kişilere yukarıdaki hususların bildirilmesini isteme</li>
-                  <li>Münhasıran otomatik sistemler ile analiz edilmesi nedeniyle aleyhinize bir sonuç doğmasına itiraz etme</li>
-                  <li>Kanuna aykırı olarak işlenmesi sebebiyle zarara uğramanız halinde zararın giderilmesini talep etme</li>
+                  <li>{t("Kişisel verilerinizin işlenip işlenmediğini öğrenme")}</li>
+                  <li>{t("İşlenmişse buna ilişkin bilgi talep etme")}</li>
+                  <li>{t("İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme")}</li>
+                  <li>{t("Yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme")}</li>
+                  <li>{t("Eksik veya yanlış işlenmişse düzeltilmesini isteme")}</li>
+                  <li>{t("KVKK'nın 7. maddesinde öngörülen şartlar çerçevesinde silinmesini veya yok edilmesini isteme")}</li>
+                  <li>{t("Aktarıldığı üçüncü kişilere yukarıdaki hususların bildirilmesini isteme")}</li>
+                  <li>{t("Münhasıran otomatik sistemler ile analiz edilmesi nedeniyle aleyhinize bir sonuç doğmasına itiraz etme")}</li>
+                  <li>{t("Kanuna aykırı olarak işlenmesi sebebiyle zarara uğramanız halinde zararın giderilmesini talep etme")}</li>
                 </ul>
               </div>
 
@@ -234,14 +235,14 @@ export default function KVKKPage() {
                   fontWeight: 700,
                   color: 'var(--primary)',
                   marginBottom: '1rem',
-                }}>6. İletişim</h2>
+                }}>{t("6. İletişim")}</h2>
                 <p style={{
                   fontFamily: 'var(--font-sans)',
                   fontSize: '1rem',
                   lineHeight: 1.8,
                   color: 'var(--grey-dark)',
                 }}>
-                  KVKK kapsamındaki haklarınızı kullanmak için talebinizi yazılı olarak veya 0216 606 0 833 numaralı telefondan bize iletebilirsiniz. Başvurularınız en kısa sürede ve en geç 30 gün içinde yanıtlanacaktır.
+                  {t("KVKK kapsamındaki haklarınızı kullanmak için talebinizi yazılı olarak veya 0216 606 0 833 numaralı telefondan bize iletebilirsiniz. Başvurularınız en kısa sürede ve en geç 30 gün içinde yanıtlanacaktır.")}
                 </p>
               </div>
             </div>

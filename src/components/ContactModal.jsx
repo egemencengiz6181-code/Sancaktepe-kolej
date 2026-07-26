@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useModal } from '../context/ModalContext';
 
+import { t } from '../i18n';
 const inputStyle = {
   width: '100%',
   background: 'rgba(255,255,255,0.07)',
@@ -152,7 +153,7 @@ export default function ContactModal() {
             {/* Close button */}
             <button
               onClick={handleClose}
-              aria-label="Kapat"
+              aria-label={t("Kapat")}
               style={{
                 position: 'absolute', top: '1.25rem', right: '1.25rem',
                 background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.1)',
@@ -169,13 +170,13 @@ export default function ContactModal() {
               {/* Header */}
               <div style={{ marginBottom: '2rem' }}>
                 <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(230,25,54,0.15)', border: '1px solid rgba(230,25,54,0.3)', borderRadius: '4px', padding: '0.3rem 0.8rem', marginBottom: '1rem' }}>
-                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#ff6b85' }}>2025–2026 Kayıt Dönemi</span>
+                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#ff6b85' }}>{t("2025–2026 Kayıt Dönemi")}</span>
                 </div>
                 <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 700, color: '#fff', lineHeight: 1.2, marginBottom: '0.4rem' }}>
-                  Bilgi Talebi Formu
+                  {t("Bilgi Talebi Formu")}
                 </h2>
                 <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', color: 'rgba(255,255,255,0.45)', lineHeight: 1.6 }}>
-                  Formu doldurun, en kısa sürede sizi arayalım.
+                  {t("Formu doldurun, en kısa sürede sizi arayalım.")}
                 </p>
               </div>
 
@@ -186,31 +187,31 @@ export default function ContactModal() {
                   style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '1.25rem', padding: '2rem 0', textAlign: 'center' }}
                 >
                   
-                  <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', fontWeight: 700, color: '#fff' }}>Mesajınız İletildi!</h3>
+                  <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', fontWeight: 700, color: '#fff' }}>{t("Mesajınız İletildi!")}</h3>
                   <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, maxWidth: '320px' }}>
-                    En kısa sürede sizinle iletişime geçeceğiz. Kolej Sancaktepe ailesi olarak sizi bekliyoruz.
+                    {t("En kısa sürede sizinle iletişime geçeceğiz. Kolej Sancaktepe ailesi olarak sizi bekliyoruz.")}
                   </p>
                   <button
                     onClick={handleClose}
                     style={{ fontFamily: 'var(--font-display)', fontSize: '0.72rem', fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#fff', background: 'var(--red)', border: 'none', padding: '0.85rem 2rem', borderRadius: '6px', cursor: 'pointer' }}
                   >
-                    Kapat
+                    {t("Kapat")}
                   </button>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit}>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }} className="modal-form-grid">
                     <div>
-                      <label style={labelStyle}>Öğrenci Ad - Soyad *</label>
-                      <input type="text" name="studentName" required value={form.studentName} onChange={handleChange} placeholder="Öğrencinin adı soyadı"
+                      <label style={labelStyle}>{t("Öğrenci Ad - Soyad *")}</label>
+                      <input type="text" name="studentName" required value={form.studentName} onChange={handleChange} placeholder={t("Öğrencinin adı soyadı")}
                         style={inputStyle}
                         onFocus={(e) => { e.target.style.borderColor = 'rgba(230,25,54,0.6)'; e.target.style.background = 'rgba(255,255,255,0.1)'; }}
                         onBlur={(e) => { e.target.style.borderColor = 'rgba(255,255,255,0.15)'; e.target.style.background = 'rgba(255,255,255,0.07)'; }}
                       />
                     </div>
                     <div>
-                      <label style={labelStyle}>Öğrenim Gördüğü Okul</label>
-                      <input type="text" name="school" value={form.school} onChange={handleChange} placeholder="Mevcut okul adı"
+                      <label style={labelStyle}>{t("Öğrenim Gördüğü Okul")}</label>
+                      <input type="text" name="school" value={form.school} onChange={handleChange} placeholder={t("Mevcut okul adı")}
                         style={inputStyle}
                         onFocus={(e) => { e.target.style.borderColor = 'rgba(230,25,54,0.6)'; e.target.style.background = 'rgba(255,255,255,0.1)'; }}
                         onBlur={(e) => { e.target.style.borderColor = 'rgba(255,255,255,0.15)'; e.target.style.background = 'rgba(255,255,255,0.07)'; }}
@@ -219,14 +220,14 @@ export default function ContactModal() {
                   </div>
 
                   <div style={{ marginBottom: '1rem' }}>
-                    <label style={labelStyle}>Bilgi Almak İstediğiniz Sınıf *</label>
+                    <label style={labelStyle}>{t("Bilgi Almak İstediğiniz Sınıf *")}</label>
                     <select name="grade" required value={form.grade} onChange={handleChange}
                       style={{ ...inputStyle, cursor: 'pointer' }}
                       onFocus={(e) => { e.target.style.borderColor = 'rgba(230,25,54,0.6)'; }}
                       onBlur={(e) => { e.target.style.borderColor = 'rgba(255,255,255,0.15)'; }}
                     >
-                      <option value="" style={{ background: '#1a2347' }}>Sınıf Seçiniz</option>
-                      <option value="okul-oncesi" style={{ background: '#1a2347' }}>Okul Öncesi (Anaokulu)</option>
+                      <option value="" style={{ background: '#1a2347' }}>{t("Sınıf Seçiniz")}</option>
+                      <option value="okul-oncesi" style={{ background: '#1a2347' }}>{t("Okul Öncesi (Anaokulu)")}</option>
                       {[1,2,3,4].map(n => <option key={n} value={`ilkokul-${n}`} style={{ background: '#1a2347' }}>{n}. Sınıf (İlkokul)</option>)}
                       {[5,6,7,8].map(n => <option key={n} value={`ortaokul-${n}`} style={{ background: '#1a2347' }}>{n}. Sınıf (Ortaokul)</option>)}
                       {[9,10,11,12].map(n => <option key={n} value={`lise-${n}`} style={{ background: '#1a2347' }}>{n}. Sınıf (Anadolu Lisesi)</option>)}
@@ -235,16 +236,16 @@ export default function ContactModal() {
 
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }} className="modal-form-grid">
                     <div>
-                      <label style={labelStyle}>Veli Adı *</label>
-                      <input type="text" name="parentName" required value={form.parentName} onChange={handleChange} placeholder="Veli adı soyadı"
+                      <label style={labelStyle}>{t("Veli Adı *")}</label>
+                      <input type="text" name="parentName" required value={form.parentName} onChange={handleChange} placeholder={t("Veli adı soyadı")}
                         style={inputStyle}
                         onFocus={(e) => { e.target.style.borderColor = 'rgba(230,25,54,0.6)'; e.target.style.background = 'rgba(255,255,255,0.1)'; }}
                         onBlur={(e) => { e.target.style.borderColor = 'rgba(255,255,255,0.15)'; e.target.style.background = 'rgba(255,255,255,0.07)'; }}
                       />
                     </div>
                     <div>
-                      <label style={labelStyle}>İrtibat Numarası *</label>
-                      <input type="tel" name="phone" required value={form.phone} onChange={handleChange} placeholder="05XX XXX XX XX"
+                      <label style={labelStyle}>{t("İrtibat Numarası *")}</label>
+                      <input type="tel" name="phone" required value={form.phone} onChange={handleChange} placeholder={t("05XX XXX XX XX")}
                         style={inputStyle}
                         onFocus={(e) => { e.target.style.borderColor = 'rgba(230,25,54,0.6)'; e.target.style.background = 'rgba(255,255,255,0.1)'; }}
                         onBlur={(e) => { e.target.style.borderColor = 'rgba(255,255,255,0.15)'; e.target.style.background = 'rgba(255,255,255,0.07)'; }}
@@ -253,8 +254,8 @@ export default function ContactModal() {
                   </div>
 
                   <div style={{ marginBottom: '1.75rem' }}>
-                    <label style={labelStyle}>Mesaj</label>
-                    <textarea name="message" value={form.message} onChange={handleChange} rows={3} placeholder="Merak ettiklerinizi yazabilirsiniz..."
+                    <label style={labelStyle}>{t("Mesaj")}</label>
+                    <textarea name="message" value={form.message} onChange={handleChange} rows={3} placeholder={t("Merak ettiklerinizi yazabilirsiniz...")}
                       style={{ ...inputStyle, resize: 'vertical', minHeight: '90px' }}
                       onFocus={(e) => { e.target.style.borderColor = 'rgba(230,25,54,0.6)'; e.target.style.background = 'rgba(255,255,255,0.1)'; }}
                       onBlur={(e) => { e.target.style.borderColor = 'rgba(255,255,255,0.15)'; e.target.style.background = 'rgba(255,255,255,0.07)'; }}
@@ -290,8 +291,8 @@ export default function ContactModal() {
                         onMouseEnter={(e) => e.target.style.opacity = '0.8'}
                         onMouseLeave={(e) => e.target.style.opacity = '1'}
                       >
-                        KVKK Aydınlatma Metni
-                      </a>'ni okudum, kişisel verilerimin işlenmesini kabul ediyorum. *
+                        {t("KVKK Aydınlatma Metni")}
+                      </a>{t("'ni okudum, kişisel verilerimin işlenmesini kabul ediyorum. *")}
                     </label>
                   </div>
 

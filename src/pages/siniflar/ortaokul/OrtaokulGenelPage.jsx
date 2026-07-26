@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
+import { t } from '../../../i18n';
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
@@ -24,15 +25,15 @@ export default function OrtaokulGenelPage() {
         <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)', backgroundSize: '64px 64px' }} />
         <div className="section-container" style={{ position: 'relative', zIndex: 1 }}>
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
-            <Link to="/siniflar" style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}>Kademeler</Link>
+            <Link to="/siniflar" style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}>{t("Kademeler")}</Link>
             <span style={{ color: 'rgba(255,255,255,0.25)' }}>›</span>
-            <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.65)' }}>Ortaokul</span>
+            <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.65)' }}>{t("Ortaokul")}</span>
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.75 }} style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2rem,4.5vw,3.5rem)', fontWeight: 700, color: '#fff', lineHeight: 1.1, marginBottom: '1.5rem', marginTop: '2rem' }}>
-            Ortaokul Eğitim<br />ve Öğretim
+            {t("Ortaokul Eğitim")}<br />{t("ve Öğretim")}
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.65 }} style={{ fontFamily: 'var(--font-sans)', fontSize: '1.05rem', color: 'rgba(255,255,255,0.65)', maxWidth: '560px', lineHeight: 1.85, marginBottom: '2.5rem' }}>
-            Kolej Sancaktepe Ortaokul kademesinde donanımlı sınıf ortamları ve laboratuvarlar, disiplinler arası çalışmalar ve 21. yüzyıl becerileriyle öğrencilerimizi geleceğe hazırlıyoruz.
+            {t("Kolej Sancaktepe Ortaokul kademesinde donanımlı sınıf ortamları ve laboratuvarlar, disiplinler arası çalışmalar ve 21. yüzyıl becerileriyle öğrencilerimizi geleceğe hazırlıyoruz.")}
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.55, duration: 0.55 }} style={{ display: 'flex', gap: '0.65rem', flexWrap: 'wrap' }}>
             {SUB_LINKS.map((l) => (
@@ -40,7 +41,7 @@ export default function OrtaokulGenelPage() {
                 onMouseEnter={e => { e.currentTarget.style.background = COLOR; e.currentTarget.style.borderColor = COLOR; e.currentTarget.style.color = '#fff'; }}
                 onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)'; e.currentTarget.style.color = 'rgba(255,255,255,0.7)'; }}
               >
-                {l.icon} {l.label}
+                {l.icon} {t(l.label)}
               </Link>
             ))}
           </motion.div>
@@ -53,29 +54,29 @@ export default function OrtaokulGenelPage() {
           <div style={{ maxWidth: '900px', margin: '0 auto' }}>
             <motion.div {...fadeUp(0)} style={{ background: 'var(--white)', borderRadius: '14px', padding: '3rem', border: '1px solid var(--grey-light)', borderLeft: `5px solid ${COLOR}`, boxShadow: '0 4px 20px rgba(35,46,92,0.06)' }}>
               <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '2rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.5rem', textAlign: 'center' }}>
-                Kolej Sancaktepe TED AD ORTAOKULU
+                {t("Kolej Sancaktepe TED AD ORTAOKULU")}
               </h2>
               <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.35rem', fontWeight: 600, color: COLOR, fontStyle: 'italic', marginBottom: '2rem', textAlign: 'center' }}>
-                Düşünen, Sorgulayan, Dünyayı Okuyan Öğrenciler
+                {t("Düşünen, Sorgulayan, Dünyayı Okuyan Öğrenciler")}
               </h3>
 
               <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: '1rem' }}>
-                Kolej Sancaktepe TED AD Ortaokulu, öğrencilerin akademik gelişimlerinin yanında <strong>eleştirel düşünme, problem çözme ve küresel farkındalık</strong> kazandıkları bir öğrenme süreci sunar.
+                {t("Kolej Sancaktepe TED AD Ortaokulu, öğrencilerin akademik gelişimlerinin yanında")} <strong>{t("eleştirel düşünme, problem çözme ve küresel farkındalık")}</strong> {t("kazandıkları bir öğrenme süreci sunar.")}
               </p>
 
               <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: '1rem' }}>
-                Kolej Sancaktepe TED AD Ortaokulu'nda öğretim süreci, UbD – Understanding by Design (Anlamaya Dayalı Tasarım) yaklaşımı esas alınarak yapılandırılır.
+                {t("Kolej Sancaktepe TED AD Ortaokulu'nda öğretim süreci, UbD – Understanding by Design (Anlamaya Dayalı Tasarım) yaklaşımı esas alınarak yapılandırılır.")}
               </p>
 
               <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: '1rem' }}>
-                Bu yaklaşımda amaç, öğrencilerin yalnızca konuları öğrenmesi değil; bilgiyi anlamlandırması, transfer edebilmesi ve gerçek yaşamda kullanabilmesidir.
+                {t("Bu yaklaşımda amaç, öğrencilerin yalnızca konuları öğrenmesi değil; bilgiyi anlamlandırması, transfer edebilmesi ve gerçek yaşamda kullanabilmesidir.")}
               </p>
 
               <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: '2.5rem' }}>
-                Programımız, <strong>LGS uyumlu</strong> olmakla birlikte; <strong>PISA ve TIMSS gibi uluslararası ölçütleri</strong> esas alan beceri temelli bir yapıya sahiptir.
+                {t("Programımız,")} <strong>{t("LGS uyumlu")}</strong> {t("olmakla birlikte;")} <strong>{t("PISA ve TIMSS gibi uluslararası ölçütleri")}</strong> {t("esas alan beceri temelli bir yapıya sahiptir.")}
               </p>
 
-              <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.9rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '1.25rem', marginTop: '2.5rem' }}>Eğitim Yaklaşımımız</h4>
+              <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.9rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '1.25rem', marginTop: '2.5rem' }}>{t("Eğitim Yaklaşımımız")}</h4>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, marginBottom: '2.5rem' }}>
                 {[
                   'Okuryazarlık temelli öğretim',
@@ -85,12 +86,12 @@ export default function OrtaokulGenelPage() {
                 ].map((item, i) => (
                   <li key={i} style={{ display: 'flex', gap: '0.85rem', marginBottom: '0.75rem', alignItems: 'flex-start' }}>
                     <span style={{ color: COLOR, flexShrink: 0, fontSize: '1.2rem', lineHeight: 1 }}>●</span>
-                    <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.8 }}>{item}</span>
+                    <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.8 }}>{t(item)}</span>
                   </li>
                 ))}
               </ul>
 
-              <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.9rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '1.25rem', marginTop: '2.5rem' }}>Program İçeriği</h4>
+              <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.9rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '1.25rem', marginTop: '2.5rem' }}>{t("Program İçeriği")}</h4>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, marginBottom: '2.5rem' }}>
                 {[
                   'Türkçe, Matematik, Fen Bilimleri',
@@ -104,14 +105,14 @@ export default function OrtaokulGenelPage() {
                 ].map((item, i) => (
                   <li key={i} style={{ display: 'flex', gap: '0.85rem', marginBottom: '0.75rem', alignItems: 'flex-start' }}>
                     <span style={{ color: COLOR, flexShrink: 0, fontSize: '1.2rem', lineHeight: 1 }}>●</span>
-                    <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.8 }}>{item}</span>
+                    <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.8 }}>{t(item)}</span>
                   </li>
                 ))}
               </ul>
 
-              <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.9rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '1.25rem', marginTop: '2.5rem' }}>Hedefimiz</h4>
+              <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.9rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '1.25rem', marginTop: '2.5rem' }}>{t("Hedefimiz")}</h4>
               <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.95, margin: 0 }}>
-                Akademik başarıyı, düşünme becerileri ve yaşam farkındalığıyla birlikte geliştiren öğrenciler yetiştirmek.
+                {t("Akademik başarıyı, düşünme becerileri ve yaşam farkındalığıyla birlikte geliştiren öğrenciler yetiştirmek.")}
               </p>
             </motion.div>
           </div>

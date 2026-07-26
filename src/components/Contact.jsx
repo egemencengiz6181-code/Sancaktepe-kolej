@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 
+import { t } from '../i18n';
 export default function Contact() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
@@ -86,14 +87,14 @@ export default function Contact() {
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', justifyContent: 'center', marginBottom: '1rem' }}>
             <div className="gold-line" />
-            <span className="section-tag">İletişim</span>
+            <span className="section-tag">{t("İletişim")}</span>
             <div className="gold-line" />
           </div>
           <h2 className="section-title" style={{ textAlign: 'center' }}>
-            Bize <span>Ulaşın</span>
+            {t("Bize")} <span>{t("Ulaşın")}</span>
           </h2>
           <p className="section-subtitle" style={{ margin: '1.5rem auto 0', textAlign: 'center' }}>
-            Çocuğunuzun geleceği için ilk adımı atın. Size en kısa sürede dönüş yapacağız.
+            {t("Çocuğunuzun geleceği için ilk adımı atın. Size en kısa sürede dönüş yapacağız.")}
           </p>
         </motion.div>
 
@@ -136,7 +137,7 @@ export default function Contact() {
                 textTransform: 'uppercase',
                 color: 'var(--gold)',
                 marginBottom: '1rem',
-              }}>Telefon</h3>
+              }}>{t("Telefon")}</h3>
               <a href="tel:02166060833" style={{
                 display: 'block',
                 fontFamily: 'var(--font-serif)',
@@ -172,16 +173,16 @@ export default function Contact() {
                 textTransform: 'uppercase',
                 color: 'rgba(255,255,255,0.5)',
                 marginBottom: '1rem',
-              }}>Adres</h3>
+              }}>{t("Adres")}</h3>
               <p style={{
                 fontFamily: 'var(--font-sans)',
                 fontSize: '0.95rem',
                 lineHeight: 1.8,
                 color: 'rgba(255,255,255,0.75)',
               }}>
-                EYÜP SULTAN MAH. ZULAL SK.<br />
-                B BLOK NO:2/2/1<br />
-                <strong style={{ color: 'var(--white)' }}>Sancaktepe / İSTANBUL</strong>
+                {t("EYÜP SULTAN MAH. ZULAL SK.")}<br />
+                {t("B BLOK NO:2/2/1")}<br />
+                <strong style={{ color: 'var(--white)' }}>{t("Sancaktepe / İSTANBUL")}</strong>
               </p>
             </div>
 
@@ -208,10 +209,10 @@ export default function Contact() {
                 fontWeight: 800,
                 color: 'var(--navy)',
                 flexShrink: 0,
-              }}>TED</div>
+              }}>{t("TED")}</div>
               <div>
-                <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', color: 'var(--gold)', marginBottom: '0.2rem' }}>TED-AD Akredite</div>
-                <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.8rem', color: 'rgba(255,255,255,0.5)' }}>Türk Eğitim Derneği Akreditasyonu</div>
+                <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', color: 'var(--gold)', marginBottom: '0.2rem' }}>{t("TED-AD Akredite")}</div>
+                <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.8rem', color: 'rgba(255,255,255,0.5)' }}>{t("Türk Eğitim Derneği Akreditasyonu")}</div>
               </div>
             </div>
           </motion.div>
@@ -259,15 +260,15 @@ export default function Contact() {
                   fontSize: '1.8rem',
                   fontWeight: 600,
                   color: 'var(--white)',
-                }}>Mesajınız İletildi!</h3>
+                }}>{t("Mesajınız İletildi!")}</h3>
                 <p style={{
                   fontFamily: 'var(--font-sans)',
                   fontSize: '0.95rem',
                   color: 'rgba(255,255,255,0.6)',
                   lineHeight: 1.7,
                 }}>
-                  En kısa sürede sizinle iletişime geçeceğiz.<br />
-                  Kolej Sancaktepe TED-AD ailesi olarak sizi bekliyoruz.
+                  {t("En kısa sürede sizinle iletişime geçeceğiz.")}<br />
+                  {t("Kolej Sancaktepe TED-AD ailesi olarak sizi bekliyoruz.")}
                 </p>
                 <button
                   onClick={() => { setSent(false); setForm({ studentName: '', school: '', grade: '', parentName: '', phone: '', message: '' }); setKvkkAccepted(false); }}
@@ -285,7 +286,7 @@ export default function Contact() {
                     cursor: 'pointer',
                   }}
                 >
-                  Yeni Form
+                  {t("Yeni Form")}
                 </button>
               </motion.div>
             ) : (
@@ -296,31 +297,31 @@ export default function Contact() {
                   fontWeight: 600,
                   color: 'var(--white)',
                   marginBottom: '2rem',
-                }}>Bilgi Talebi Formu</h3>
+                }}>{t("Bilgi Talebi Formu")}</h3>
 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.2rem', marginBottom: '1.2rem' }}>
                   <div>
-                    <label style={labelStyle}>Öğrenci Ad - Soyad *</label>
+                    <label style={labelStyle}>{t("Öğrenci Ad - Soyad *")}</label>
                     <input
                       type="text"
                       name="studentName"
                       required
                       value={form.studentName}
                       onChange={handleChange}
-                      placeholder="Adı Soyadı"
+                      placeholder={t("Adı Soyadı")}
                       style={inputStyle}
                       onFocus={(e) => (e.target.style.borderColor = 'rgba(201,168,76,0.5)')}
                       onBlur={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
                     />
                   </div>
                   <div>
-                    <label style={labelStyle}>Öğrenim Gördüğü Okul</label>
+                    <label style={labelStyle}>{t("Öğrenim Gördüğü Okul")}</label>
                     <input
                       type="text"
                       name="school"
                       value={form.school}
                       onChange={handleChange}
-                      placeholder="Mevcut Okul"
+                      placeholder={t("Mevcut Okul")}
                       style={inputStyle}
                       onFocus={(e) => (e.target.style.borderColor = 'rgba(201,168,76,0.5)')}
                       onBlur={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
@@ -329,7 +330,7 @@ export default function Contact() {
                 </div>
 
                 <div style={{ marginBottom: '1.2rem' }}>
-                  <label style={labelStyle}>Bilgi Almak İstediğiniz Sınıf *</label>
+                  <label style={labelStyle}>{t("Bilgi Almak İstediğiniz Sınıf *")}</label>
                   <select
                     name="grade"
                     required
@@ -339,8 +340,8 @@ export default function Contact() {
                     onFocus={(e) => (e.target.style.borderColor = 'rgba(201,168,76,0.5)')}
                     onBlur={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
                   >
-                    <option value="" style={{ background: '#0a1628' }}>Sınıf Seçiniz</option>
-                    <option value="okul-oncesi" style={{ background: '#0a1628' }}>Okul Öncesi (Anaokulu)</option>
+                    <option value="" style={{ background: '#0a1628' }}>{t("Sınıf Seçiniz")}</option>
+                    <option value="okul-oncesi" style={{ background: '#0a1628' }}>{t("Okul Öncesi (Anaokulu)")}</option>
                     {[1,2,3,4].map(n => <option key={n} value={`ilkokul-${n}`} style={{ background: '#0a1628' }}>{n}. Sınıf (İlkokul)</option>)}
                     {[5,6,7,8].map(n => <option key={n} value={`ortaokul-${n}`} style={{ background: '#0a1628' }}>{n}. Sınıf (Ortaokul)</option>)}
                     {[9,10,11,12].map(n => <option key={n} value={`lise-${n}`} style={{ background: '#0a1628' }}>{n}. Sınıf (Anadolu Lisesi)</option>)}
@@ -349,28 +350,28 @@ export default function Contact() {
 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.2rem', marginBottom: '1.2rem' }}>
                   <div>
-                    <label style={labelStyle}>Veli Ad *</label>
+                    <label style={labelStyle}>{t("Veli Ad *")}</label>
                     <input
                       type="text"
                       name="parentName"
                       required
                       value={form.parentName}
                       onChange={handleChange}
-                      placeholder="Veli Adı Soyadı"
+                      placeholder={t("Veli Adı Soyadı")}
                       style={inputStyle}
                       onFocus={(e) => (e.target.style.borderColor = 'rgba(201,168,76,0.5)')}
                       onBlur={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
                     />
                   </div>
                   <div>
-                    <label style={labelStyle}>Veli İrtibat Numarası *</label>
+                    <label style={labelStyle}>{t("Veli İrtibat Numarası *")}</label>
                     <input
                       type="tel"
                       name="phone"
                       required
                       value={form.phone}
                       onChange={handleChange}
-                      placeholder="05XX XXX XX XX"
+                      placeholder={t("05XX XXX XX XX")}
                       style={inputStyle}
                       onFocus={(e) => (e.target.style.borderColor = 'rgba(201,168,76,0.5)')}
                       onBlur={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
@@ -379,13 +380,13 @@ export default function Contact() {
                 </div>
 
                 <div style={{ marginBottom: '1.5rem' }}>
-                  <label style={labelStyle}>Mesaj</label>
+                  <label style={labelStyle}>{t("Mesaj")}</label>
                   <textarea
                     name="message"
                     value={form.message}
                     onChange={handleChange}
                     rows={4}
-                    placeholder="Merak ettiklerinizi yazabilirsiniz..."
+                    placeholder={t("Merak ettiklerinizi yazabilirsiniz...")}
                     style={{
                       ...inputStyle,
                       resize: 'vertical',
@@ -425,8 +426,8 @@ export default function Contact() {
                       onMouseEnter={(e) => e.target.style.opacity = '0.8'}
                       onMouseLeave={(e) => e.target.style.opacity = '1'}
                     >
-                      KVKK Aydınlatma Metni
-                    </a>'ni okudum, kişisel verilerimin işlenmesini kabul ediyorum. *
+                      {t("KVKK Aydınlatma Metni")}
+                    </a>{t("'ni okudum, kişisel verilerimin işlenmesini kabul ediyorum. *")}
                   </label>
                 </div>
 
@@ -464,7 +465,7 @@ export default function Contact() {
                         transition={{ repeat: Infinity, duration: 0.8, ease: 'linear' }}
                         style={{ display: 'inline-block' }}
                       >⟳</motion.span>
-                      Gönderiliyor...
+                      {t("Gönderiliyor...")}
                     </>
                   ) : (
                     'Bilgi Talep Et →'

@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
+import { t } from '../i18n';
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0 },
@@ -52,7 +53,7 @@ export default function About() {
               style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}
             >
               <div className="gold-line" />
-              <span className="section-tag">Hakkımızda</span>
+              <span className="section-tag">{t("Hakkımızda")}</span>
             </motion.div>
 
             <motion.h2
@@ -64,7 +65,7 @@ export default function About() {
               style={{ marginBottom: '1.5rem' }}
             >
               Türk Eğitim Derneği{' '}
-              <span>Akreditasyonu</span>
+              <span>{t("Akreditasyonu")}</span>
             </motion.h2>
 
             <motion.div
@@ -131,7 +132,7 @@ export default function About() {
                 marginBottom: '1rem',
                 paddingLeft: '1rem',
               }}>
-                Akreditasyon Süreci
+                {t("Akreditasyon Süreci")}
               </h3>
               <p style={{
                 fontFamily: 'var(--font-sans)',
@@ -140,7 +141,7 @@ export default function About() {
                 color: 'rgba(255,255,255,0.65)',
                 paddingLeft: '1rem',
               }}>
-                Akreditasyon Süreci ile farklı bir isimle faaliyet gösteren özel bir okul, gerekli şartları taşıması ve geçiş dönemini başarıyla tamamlaması halinde TED Okuluna dönüşmesi sağlanmaktadır. Akreditasyon sürecine kabul edilen okullar, en az iki, en çok üç yıl sürebilecek Geçiş Dönemini başarıyla tamamladıkları takdirde TED Okulu adını alırlar.
+                {t("Akreditasyon Süreci ile farklı bir isimle faaliyet gösteren özel bir okul, gerekli şartları taşıması ve geçiş dönemini başarıyla tamamlaması halinde TED Okuluna dönüşmesi sağlanmaktadır. Akreditasyon sürecine kabul edilen okullar, en az iki, en çok üç yıl sürebilecek Geçiş Dönemini başarıyla tamamladıkları takdirde TED Okulu adını alırlar.")}
               </p>
             </div>
 
@@ -152,7 +153,7 @@ export default function About() {
                 { label: 'Süreç', value: '2-3 Yıl' },
                 { label: 'Standart', value: 'TED Akredite' },
               ].map((item) => (
-                <div key={item.label} style={{
+                <div key={t(item.label)} style={{
                   background: 'rgba(255,255,255,0.03)',
                   border: '1px solid rgba(255,255,255,0.07)',
                   borderRadius: '4px',
@@ -163,8 +164,8 @@ export default function About() {
                   onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)')}
                 >
                   <div style={{ fontSize: '1.4rem', marginBottom: '0.5rem' }}></div>
-                  <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)', marginBottom: '0.3rem' }}>{item.label}</div>
-                  <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', fontWeight: 600, color: 'var(--white)' }}>{item.value}</div>
+                  <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)', marginBottom: '0.3rem' }}>{t(item.label)}</div>
+                  <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', fontWeight: 600, color: 'var(--white)' }}>{t(item.value)}</div>
                 </div>
               ))}
             </div>

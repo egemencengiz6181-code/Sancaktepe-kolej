@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
+import { t } from '../../i18n';
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
@@ -53,13 +54,13 @@ export default function UluslararasiProgramlarPage() {
           <motion.div {...fadeUp(0.1)}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
               <div style={{ width: '40px', height: '3px', background: 'rgba(255,255,255,0.35)', borderRadius: '2px' }} />
-              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)' }}>Programlar</span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)' }}>{t("Programlar")}</span>
             </div>
             <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2.2rem,4.5vw,3.6rem)', fontWeight: 700, color: '#fff', lineHeight: 1.12, marginBottom: '1rem' }}>
-              Uluslararası Programlar
+              {t("Uluslararası Programlar")}
             </h1>
             <p style={{ fontFamily: 'var(--font-sans)', fontSize: '1rem', color: 'rgba(255,255,255,0.65)', maxWidth: '600px', lineHeight: 1.85 }}>
-              Kolej Sancaktepe öğrencilerine sınır ötesi deneyimler, uluslararası sertifikalar ve akademik üstünlük fırsatları sunuyoruz.
+              {t("Kolej Sancaktepe öğrencilerine sınır ötesi deneyimler, uluslararası sertifikalar ve akademik üstünlük fırsatları sunuyoruz.")}
             </p>
             <div style={{ display: 'flex', gap: '1rem', marginTop: '2rem', flexWrap: 'wrap' }}>
               <Link to="/programlar/ap-sinav-merkezi" style={{
@@ -68,7 +69,7 @@ export default function UluslararasiProgramlarPage() {
                 background: 'var(--red)', padding: '0.85rem 2rem', borderRadius: '4px',
                 textDecoration: 'none', boxShadow: '0 4px 16px rgba(230,25,54,0.35)',
               }}>
-                AP Sınav Merkezi →
+                {t("AP Sınav Merkezi →")}
               </Link>
             </div>
           </motion.div>
@@ -92,24 +93,24 @@ export default function UluslararasiProgramlarPage() {
               >
                 <img
                   src={prog.img}
-                  alt={prog.title}
+                  alt={t(prog.title)}
                   style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover', borderRadius: '16px', boxShadow: '0 20px 50px rgba(35,46,92,0.15)' }}
                   loading="lazy"
                 />
               </motion.div>
               <motion.div {...fadeUp(0.1)} style={{ direction: 'ltr' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
-                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--red)', background: 'rgba(230,25,54,0.08)', padding: '0.25rem 0.7rem', borderRadius: '4px', border: '1px solid rgba(230,25,54,0.2)' }}>{prog.tag}</span>
+                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--red)', background: 'rgba(230,25,54,0.08)', padding: '0.25rem 0.7rem', borderRadius: '4px', border: '1px solid rgba(230,25,54,0.2)' }}>{t(prog.tag)}</span>
                 </div>
-                <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: '0.5rem' }}>{prog.subtitle}</p>
-                <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.6rem,2.8vw,2.2rem)', fontWeight: 700, color: 'var(--primary)', lineHeight: 1.2, marginBottom: '1.5rem' }}>{prog.title}</h2>
-                {prog.content.map((p, j) => <P key={j}>{p}</P>)}
+                <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: '0.5rem' }}>{t(prog.subtitle)}</p>
+                <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.6rem,2.8vw,2.2rem)', fontWeight: 700, color: 'var(--primary)', lineHeight: 1.2, marginBottom: '1.5rem' }}>{t(prog.title)}</h2>
+                {prog.content.map((p, j) => <P key={j}>{t(p)}</P>)}
                 {prog.steps && (
                   <div style={{ marginTop: '1.25rem', background: 'var(--white)', borderRadius: '10px', padding: '1.25rem 1.5rem', border: '1px solid var(--grey-light)' }}>
-                    <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.75rem' }}>Program Adımları</p>
+                    <p style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '0.75rem' }}>{t("Program Adımları")}</p>
                     <ol style={{ paddingLeft: '1.25rem', margin: 0 }}>
                       {prog.steps.map((s, j) => (
-                        <li key={j} style={{ fontFamily: 'var(--font-sans)', fontSize: '0.88rem', color: 'var(--text-mid)', lineHeight: 1.8, marginBottom: '0.3rem' }}>{s}</li>
+                        <li key={j} style={{ fontFamily: 'var(--font-sans)', fontSize: '0.88rem', color: 'var(--text-mid)', lineHeight: 1.8, marginBottom: '0.3rem' }}>{t(s)}</li>
                       ))}
                     </ol>
                   </div>
