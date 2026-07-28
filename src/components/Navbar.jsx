@@ -185,7 +185,7 @@ function MegaMenu({ type, onClose }) {
                   {type === 'programlar' ? item.tag : item.level}
                 </p>
                 <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.73rem', color: 'var(--text-mid)', lineHeight: 1.55, marginBottom: '0.6rem' }}>
-                  {t(item.subtitle)}
+                  {t(item.menuDesc || item.subtitle)}
                 </p>
                 <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.62rem', fontWeight: 800, color: 'var(--red)', letterSpacing: '0.06em' }}>
                   {t("Keşfet →")}

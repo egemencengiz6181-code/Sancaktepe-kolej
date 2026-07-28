@@ -102,7 +102,7 @@ export default function SiniflarPage() {
   return (
     <>
       <div className="page-hero" style={{
-        backgroundImage: "linear-gradient(135deg, rgba(26,35,71,0.92) 0%, rgba(35,46,92,0.88) 55%, rgba(46,61,122,0.88) 100%), url('/gallery/IMG_0832.jpeg')",
+        backgroundImage: "linear-gradient(135deg, rgba(26,35,71,0.92) 0%, rgba(35,46,92,0.88) 55%, rgba(46,61,122,0.88) 100%), url('/gallery/idari/IMG_0832.jpg')",
         backgroundSize: 'cover', backgroundPosition: 'center',
       }}>
         <div className="section-container" style={{ position: 'relative', zIndex: 1 }}>

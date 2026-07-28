@@ -3,65 +3,28 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 import { t } from '../i18n';
 // ─── All photos ────────────────────────────────────────────────
-const enc = (path) => path.replace(/ /g, '%20');
+// Klasör adları ASCII; her görselin optimize edilmiş tam boy (max 1800px) ve
+// thumb (max 800px) sürümü var. Izgarada thumb, lightbox'ta tam boy kullanılır.
+// Orijinal yüksek çözünürlüklü dosyalar repo kökünde originals/gallery/ altında.
+const group = (cat, label, dir, files) =>
+  files.map((f) => ({
+    src: `/gallery/${dir}/${f}.jpg`,
+    thumb: `/gallery/${dir}/thumb/${f}.jpg`,
+    cat,
+    label,
+  }));
 
 const ALL_PHOTOS = [
-  // İdari (10 görseller)
-  { src: enc('/gallery/idari/IMG_0828.jpeg'), cat: 'idari', label: 'İdari' },
-  { src: enc('/gallery/idari/IMG_0830.jpeg'), cat: 'idari', label: 'İdari' },
-  { src: enc('/gallery/idari/IMG_0831.jpeg'), cat: 'idari', label: 'İdari' },
-  { src: enc('/gallery/idari/IMG_0832.jpeg'), cat: 'idari', label: 'İdari' },
-  { src: enc('/gallery/idari/IMG_0833.jpeg'), cat: 'idari', label: 'İdari' },
-  { src: enc('/gallery/idari/IMG_0834.jpeg'), cat: 'idari', label: 'İdari' },
-  { src: enc('/gallery/idari/IMG_0835.jpeg'), cat: 'idari', label: 'İdari' },
-  { src: enc('/gallery/idari/IMG_0836.jpeg'), cat: 'idari', label: 'İdari' },
-  { src: enc('/gallery/idari/IMG_0837.jpeg'), cat: 'idari', label: 'İdari' },
-  { src: enc('/gallery/idari/IMG_0838.jpeg'), cat: 'idari', label: 'İdari' },
-  
-  // Okul Öncesi (4 görseller)
-  { src: enc('/gallery/okul öncesi/27.png'), cat: 'okul-oncesi', label: 'Okul Öncesi' },
-  { src: enc('/gallery/okul öncesi/28.png'), cat: 'okul-oncesi', label: 'Okul Öncesi' },
-  { src: enc('/gallery/okul öncesi/29.png'), cat: 'okul-oncesi', label: 'Okul Öncesi' },
-  { src: enc('/gallery/okul öncesi/30.png'), cat: 'okul-oncesi', label: 'Okul Öncesi' },
-  
-  // İlkokul (7 görseller)
-  { src: enc('/gallery/ilkokul/19.png'), cat: 'ilkokul', label: 'İlkokul' },
-  { src: enc('/gallery/ilkokul/20.png'), cat: 'ilkokul', label: 'İlkokul' },
-  { src: enc('/gallery/ilkokul/21.png'), cat: 'ilkokul', label: 'İlkokul' },
-  { src: enc('/gallery/ilkokul/22.png'), cat: 'ilkokul', label: 'İlkokul' },
-  { src: enc('/gallery/ilkokul/23.png'), cat: 'ilkokul', label: 'İlkokul' },
-  { src: enc('/gallery/ilkokul/24.png'), cat: 'ilkokul', label: 'İlkokul' },
-  { src: enc('/gallery/ilkokul/25.png'), cat: 'ilkokul', label: 'İlkokul' },
-  
-  // Ortaokul (7 görseller)
-  { src: enc('/gallery/ortaokul/32.png'), cat: 'ortaokul', label: 'Ortaokul' },
-  { src: enc('/gallery/ortaokul/33.png'), cat: 'ortaokul', label: 'Ortaokul' },
-  { src: enc('/gallery/ortaokul/34.png'), cat: 'ortaokul', label: 'Ortaokul' },
-  { src: enc('/gallery/ortaokul/35.png'), cat: 'ortaokul', label: 'Ortaokul' },
-  { src: enc('/gallery/ortaokul/36.png'), cat: 'ortaokul', label: 'Ortaokul' },
-  { src: enc('/gallery/ortaokul/37.png'), cat: 'ortaokul', label: 'Ortaokul' },
-  { src: enc('/gallery/ortaokul/38.png'), cat: 'ortaokul', label: 'Ortaokul' },
-  
-  // Anadolu Lisesi (5 görseller)
-  { src: enc('/gallery/anadolu lisesi/13.png'), cat: 'lise', label: 'Anadolu Lisesi' },
-  { src: enc('/gallery/anadolu lisesi/14.png'), cat: 'lise', label: 'Anadolu Lisesi' },
-  { src: enc('/gallery/anadolu lisesi/15.png'), cat: 'lise', label: 'Anadolu Lisesi' },
-  { src: enc('/gallery/anadolu lisesi/16.png'), cat: 'lise', label: 'Anadolu Lisesi' },
-  { src: enc('/gallery/anadolu lisesi/17.png'), cat: 'lise', label: 'Anadolu Lisesi' },
-  
-  // Kütüphane (7 görseller)
-  { src: enc('/gallery/kütüphane/1.png'), cat: 'kutuphane', label: 'Kütüphane' },
-  { src: enc('/gallery/kütüphane/2.png'), cat: 'kutuphane', label: 'Kütüphane' },
-  { src: enc('/gallery/kütüphane/3.png'), cat: 'kutuphane', label: 'Kütüphane' },
-  { src: enc('/gallery/kütüphane/4.png'), cat: 'kutuphane', label: 'Kütüphane' },
-  { src: enc('/gallery/kütüphane/5.png'), cat: 'kutuphane', label: 'Kütüphane' },
-  { src: enc('/gallery/kütüphane/6.png'), cat: 'kutuphane', label: 'Kütüphane' },
-  { src: enc('/gallery/kütüphane/7.png'), cat: 'kutuphane', label: 'Kütüphane' },
-  
-  // Sosyal Bahçe (3 görseller)
-  { src: enc('/gallery/sosyal bahçe/9.png'), cat: 'sosyal-bahce', label: 'Bahçe' },
-  { src: enc('/gallery/sosyal bahçe/10.png'), cat: 'sosyal-bahce', label: 'Bahçe' },
-  { src: enc('/gallery/sosyal bahçe/11.png'), cat: 'sosyal-bahce', label: 'Bahçe' },
+  ...group('idari', 'İdari', 'idari', [
+    'IMG_0828', 'IMG_0830', 'IMG_0831', 'IMG_0832', 'IMG_0833',
+    'IMG_0834', 'IMG_0835', 'IMG_0836', 'IMG_0837', 'IMG_0838',
+  ]),
+  ...group('okul-oncesi', 'Okul Öncesi', 'okul-oncesi', ['27', '28', '29', '30']),
+  ...group('ilkokul', 'İlkokul', 'ilkokul', ['19', '20', '21', '22', '23', '24', '25']),
+  ...group('ortaokul', 'Ortaokul', 'ortaokul', ['32', '33', '34', '35', '36', '37', '38']),
+  ...group('lise', 'Anadolu Lisesi', 'anadolu-lisesi', ['13', '14', '15', '16', '17']),
+  ...group('kutuphane', 'Kütüphane', 'kutuphane', ['1', '2', '3', '4', '5', '6', '7']),
+  ...group('sosyal-bahce', 'Bahçe', 'sosyal-bahce', ['9', '10', '11']),
 ];
 
 const TABS = [
@@ -77,6 +40,10 @@ const TABS = [
 
 // ─── Lightbox ─────────────────────────────────────────────────
 function Lightbox({ photos, index, onClose, onNav }) {
+  // Boolean yerine "hangi src yüklendi" tutulur — görsel değişince
+  // ayrı bir effect'le sıfırlamaya gerek kalmaz.
+  const [loadedSrc, setLoadedSrc] = useState(null);
+
   useEffect(() => {
     const onKey = (e) => {
       if (e.key === 'Escape') onClose();
@@ -86,6 +53,13 @@ function Lightbox({ photos, index, onClose, onNav }) {
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, [index, photos.length, onClose, onNav]);
+
+  // Komşu görselleri önden yükle — ileri/geri anında açılsın
+  useEffect(() => {
+    [index - 1, index + 1].forEach((i) => {
+      if (photos[i]) { const img = new Image(); img.src = photos[i].src; }
+    });
+  }, [index, photos]);
 
   const photo = photos[index];
   return (
@@ -169,11 +143,26 @@ function Lightbox({ photos, index, onClose, onNav }) {
           border: '1px solid rgba(255,255,255,0.08)',
         }}
       >
-        <img
-          src={photo.src}
-          alt={t(photo.label)}
-          style={{ width: '100%', display: 'block', maxHeight: '80vh', objectFit: 'contain', background: '#08102a' }}
-        />
+        {/* Altta bulanık thumb anında görünür, tam boy yüklenince üstüne geçer */}
+        <div style={{ position: 'relative', background: '#08102a' }}>
+          <img
+            src={photo.thumb}
+            alt=""
+            aria-hidden="true"
+            style={{ width: '100%', display: 'block', maxHeight: '80vh', objectFit: 'contain', filter: 'blur(14px)', transform: 'scale(1.03)' }}
+          />
+          <img
+            src={photo.src}
+            alt={t(photo.label)}
+            decoding="async"
+            onLoad={() => setLoadedSrc(photo.src)}
+            style={{
+              position: 'absolute', inset: 0,
+              width: '100%', height: '100%', objectFit: 'contain',
+              opacity: loadedSrc === photo.src ? 1 : 0, transition: 'opacity 0.35s',
+            }}
+          />
+        </div>
         {/* Caption bar */}
         <div style={{
           position: 'absolute', bottom: 0, left: 0, right: 0,
@@ -218,10 +207,12 @@ function PhotoCard({ photo, globalIndex, onOpen }) {
       whileHover={{ scale: 1.015, zIndex: 2 }}
     >
       <img
-        src={photo.src}
+        src={photo.thumb}
         alt={t(photo.label)}
         loading="lazy"
+        decoding="async"
         onLoad={() => setLoaded(true)}
+        onError={(e) => { e.currentTarget.src = photo.src; }}
         style={{
           width: '100%', display: 'block',
           opacity: loaded ? 1 : 0,

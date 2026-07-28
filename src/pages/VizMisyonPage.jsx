@@ -57,7 +57,7 @@ export default function VizMisyonPage() {
     <>
       {/* Page Hero */}
       <div className="page-hero" style={{
-        backgroundImage: 'linear-gradient(135deg, rgba(12,22,56,0.95) 0%, rgba(26,35,71,0.92) 55%, rgba(35,46,92,0.90) 100%), url(\'/gallery/anadolu lisesi/IMG_0822.jpeg\')',
+        backgroundImage: 'linear-gradient(135deg, rgba(12,22,56,0.95) 0%, rgba(26,35,71,0.92) 55%, rgba(35,46,92,0.90) 100%), url(\'/gallery/anadolu-lisesi/15.jpg\')',
         backgroundSize: 'cover', backgroundPosition: 'center',
       }}>
         <div className="section-container" style={{ position: 'relative', zIndex: 1 }}>

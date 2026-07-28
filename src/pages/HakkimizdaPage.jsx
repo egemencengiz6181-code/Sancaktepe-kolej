@@ -16,7 +16,7 @@ export default function HakkimizdaPage() {
     <>
       {/* Page Hero */}
       <div className="page-hero" style={{
-        backgroundImage: "linear-gradient(135deg, rgba(26,35,71,0.92) 0%, rgba(35,46,92,0.88) 55%, rgba(46,61,122,0.88) 100%), url('/gallery/idari/IMG_0828.jpeg')",
+        backgroundImage: "linear-gradient(135deg, rgba(26,35,71,0.92) 0%, rgba(35,46,92,0.88) 55%, rgba(46,61,122,0.88) 100%), url('/gallery/idari/IMG_0828.jpg')",
         backgroundSize: 'cover', backgroundPosition: 'center',
       }}>
         <div className="section-container" style={{ position: 'relative', zIndex: 1 }}>
@@ -315,7 +315,7 @@ export default function HakkimizdaPage() {
 
           <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
             <a
-              href="/web%20genel%20dergi.pdf"
+              href="/web-genel-dergi.pdf"
               download="Kolej-Sancaktepe-Dergi.pdf"
               style={{
                 fontFamily: 'var(--font-display)', fontSize: '0.72rem', fontWeight: 800,

@@ -32,7 +32,7 @@ export default function AkademikKadroPage() {
     <>
       {/* Page Hero */}
       <div className="page-hero" style={{
-        backgroundImage: 'linear-gradient(135deg, rgba(26,35,71,0.93) 0%, rgba(35,46,92,0.89) 55%, rgba(46,61,122,0.89) 100%), url(\'/gallery/ortaokul/IMG_0822.jpeg\')',
+        backgroundImage: 'linear-gradient(135deg, rgba(26,35,71,0.93) 0%, rgba(35,46,92,0.89) 55%, rgba(46,61,122,0.89) 100%), url(\'/gallery/ortaokul/34.jpg\')',
         backgroundSize: 'cover', backgroundPosition: 'center',
       }}>
         <div className="section-container" style={{ position: 'relative', zIndex: 1 }}>

@@ -38,28 +38,28 @@ const CLASS_SUB_PAGES = {
 
 const GALLERY_MAP = {
   'okul-oncesi': [
-    '/gallery/okul-oncesi-1.webp',
-    '/gallery/okul-oncesi-2.webp',
-    '/gallery/okul-oncesi-3.webp',
-    '/gallery/okul-oncesi-4.webp',
+    '/gallery/okul-oncesi/27.jpg',
+    '/gallery/okul-oncesi/28.jpg',
+    '/gallery/okul-oncesi/29.jpg',
+    '/gallery/okul-oncesi/30.jpg',
   ],
   'ilkokul': [
-    '/gallery/ilkokul-1.webp',
-    '/gallery/ilkokul-2.webp',
-    '/gallery/ilkokul-3.webp',
-    '/gallery/ilkokul-4.webp',
+    '/gallery/ilkokul/19.jpg',
+    '/gallery/ilkokul/20.jpg',
+    '/gallery/ilkokul/21.jpg',
+    '/gallery/ilkokul/22.jpg',
   ],
   'ortaokul': [
-    '/gallery/ortaokul-1.webp',
-    '/gallery/ortaokul-2.webp',
-    '/gallery/ortaokul-3.webp',
-    '/gallery/ortaokul-4.webp',
+    '/gallery/ortaokul/32.jpg',
+    '/gallery/ortaokul/33.jpg',
+    '/gallery/ortaokul/34.jpg',
+    '/gallery/ortaokul/35.jpg',
   ],
   'lise': [
-    '/gallery/lise-1.webp',
-    '/gallery/lise-2.webp',
-    '/gallery/lise-3.webp',
-    '/gallery/lise-4.webp',
+    '/gallery/anadolu-lisesi/13.jpg',
+    '/gallery/anadolu-lisesi/14.jpg',
+    '/gallery/anadolu-lisesi/15.jpg',
+    '/gallery/anadolu-lisesi/16.jpg',
   ],
 };
 

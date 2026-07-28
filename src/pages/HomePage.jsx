@@ -1,6 +1,6 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { useModal } from '../context/ModalContext';
 import { news } from '../data/news';
 
@@ -67,30 +67,52 @@ const FloatingDot = ({ style }) => (
   />
 );
 
+// ── Hero sloganları — 4 saniyede bir sırayla değişir ────────────
+const HERO_SLOGANS = [
+  'Düşünen, üreten ve dünyaya değer katan bireyler yetiştiriyoruz.',
+  'Yeteneği aramıyoruz; her öğrencide onu ortaya çıkarıyoruz.',
+  'Akademik başarıyı evrensel değerlerle buluşturuyoruz.',
+];
+
 // ── Floating photo for hero ─────────────────────────────────────
 function HeroPhoto({ src, style, delay = 0, floatY = 12 }) {
+  // Gölge, süzülen kartın ÜZERİNDE olmalı. Dış kutuda kalırsa kart yukarı
+  // hareket ederken sabit duran keskin köşeli gölge dikdörtgeni açıkta kalıyor.
+  const { boxShadow, ...position } = style;
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-      style={{ position: 'absolute', ...style }}
-    >
-      {/* The whole card floats as one unit */}
+    <div style={{ position: 'absolute', ...position }}>
       <motion.div
-        animate={{ y: [0, -floatY, 0] }}
-        transition={{ duration: 5 + delay, repeat: Infinity, ease: 'easeInOut', delay }}
-        style={{ width: '100%', height: '100%', borderRadius: '16px', overflow: 'hidden', position: 'relative' }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+        style={{ width: '100%', height: '100%' }}
       >
-        <img src={src} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-        {/* Soft glow border inside the card */}
-        <div style={{
-          position: 'absolute', inset: 0, borderRadius: '16px',
-          boxShadow: 'inset 0 0 0 1.5px rgba(255,255,255,0.22)',
-          pointerEvents: 'none',
-        }} />
+        {/* Kart tek parça süzülür: yuvarlatma, kırpma ve gölge hep birlikte hareket eder */}
+        <motion.div
+          animate={{ y: [0, -floatY, 0] }}
+          transition={{ duration: 5 + delay, repeat: Infinity, ease: 'easeInOut', delay }}
+          style={{
+            width: '100%', height: '100%', borderRadius: '16px', overflow: 'hidden',
+            position: 'relative', boxShadow,
+            willChange: 'transform', backfaceVisibility: 'hidden',
+          }}
+        >
+          <img
+            src={src}
+            alt=""
+            fetchPriority="high"
+            decoding="async"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', borderRadius: '16px' }}
+          />
+          {/* Soft glow border inside the card */}
+          <div style={{
+            position: 'absolute', inset: 0, borderRadius: '16px',
+            boxShadow: 'inset 0 0 0 1.5px rgba(255,255,255,0.22)',
+            pointerEvents: 'none',
+          }} />
+        </motion.div>
       </motion.div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -100,6 +122,12 @@ export default function HomePage() {
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '25%']);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   const { setOpen: openModal } = useModal();
+
+  const [sloganIndex, setSloganIndex] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setSloganIndex((i) => (i + 1) % HERO_SLOGANS.length), 4000);
+    return () => clearInterval(id);
+  }, []);
 
   return (
     <>
@@ -187,12 +215,24 @@ export default function HomePage() {
                   initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ delay: 0.8, duration: 0.7 }}
                   style={{ width: '140px', height: '3px', background: 'linear-gradient(90deg, var(--red), transparent)', marginBottom: '2rem', transformOrigin: 'left' }}
                 />
-                <motion.p
+                {/* Slogan — 4 sn'de bir değişir; minHeight iki satırı ayırıp yer oynamasını önler */}
+                <motion.div
                   initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 0.7 }}
-                  style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.15rem, 2vw, 1.4rem)', fontWeight: 400, fontStyle: 'italic', color: 'var(--text-dark)', marginBottom: '1.5rem', lineHeight: 1.6 }}
+                  style={{ fontSize: 'clamp(1.15rem, 2vw, 1.4rem)', minHeight: '3.2em', maxWidth: '560px', marginBottom: '1.5rem' }}
                 >
-                  {t("Düşünen, üreten ve dünyaya değer katan bireyler yetiştiriyoruz.")}
-                </motion.p>
+                  <AnimatePresence mode="wait">
+                    <motion.p
+                      key={sloganIndex}
+                      initial={{ opacity: 0, y: 14 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -14 }}
+                      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                      style={{ fontFamily: 'var(--font-serif)', fontSize: '1em', fontWeight: 400, fontStyle: 'italic', color: 'var(--text-dark)', lineHeight: 1.6, margin: 0 }}
+                    >
+                      {t(HERO_SLOGANS[sloganIndex])}
+                    </motion.p>
+                  </AnimatePresence>
+                </motion.div>
 
                 <motion.p
                   initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.78, duration: 0.7 }}
@@ -237,21 +277,21 @@ export default function HomePage() {
               }}>
                 {/* Back photo: ortaokul-4 — top-left, tilted */}
                 <HeroPhoto
-                  src={encodeURI('/gallery/ortaokul/WhatsApp Image 2026-06-22 at 12.23.34 (3).jpeg')}
+                  src="/gallery/ortaokul/thumb/32.jpg"
                   delay={0.7}
                   floatY={8}
                   style={{ width: '230px', height: '165px', top: '0', left: '0', zIndex: 1, transform: 'rotate(-4deg)', boxShadow: '0 20px 60px rgba(0,0,0,0.5)' }}
                 />
                 {/* Main photo: IMG_0835 — center, tall */}
                 <HeroPhoto
-                  src="/gallery/idari/IMG_0835.jpeg"
+                  src="/gallery/idari/thumb/IMG_0835.jpg"
                   delay={0.5}
                   floatY={14}
                   style={{ width: '275px', height: '390px', top: '60px', left: '85px', zIndex: 3, boxShadow: '0 32px 80px rgba(0,0,0,0.55)' }}
                 />
                 {/* Front photo: okul-oncesi-1 — bottom-right */}
                 <HeroPhoto
-                  src={encodeURI('/gallery/okul öncesi/WhatsApp Image 2026-06-22 at 12.35.56.jpeg')}
+                  src="/gallery/okul-oncesi/thumb/27.jpg"
                   delay={0.9}
                   floatY={10}
                   style={{ width: '210px', height: '150px', bottom: '20px', right: '0', zIndex: 4, transform: 'rotate(3deg)', boxShadow: '0 20px 50px rgba(0,0,0,0.5)' }}

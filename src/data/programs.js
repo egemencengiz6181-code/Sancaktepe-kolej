@@ -18,7 +18,7 @@ export const programs = [
     id: 'bogep',
     tag: 'BÖGEP',
     pdf: '/pdf ler/bogep-web.pdf',
-    title: 'TED AD – Bütüncül Öğrenme ve Gelişim Programları (BÖGEP)',
+    title: 'Bütüncül Öğrenme ve Gelişim Programları',
     subtitle: 'Bütüncül Öğrenme ve Gelişim Programları',
     color: '#232e5c',
     accent: '#e61936',
@@ -64,10 +64,11 @@ export const programs = [
 
   {
     id: 'kvyod',
-    tag: 'Küresel Vizyon ve Yaşam Odaklı Dersler',
+    tag: 'KVYOD',
     pdf: '/pdf ler/kuresel-vizyon-web.pdf',
     title: 'Küresel Vizyon ve Yaşam Odaklı Dersler',
     subtitle: 'Ortaokul ve Lise',
+    menuDesc: 'Küresel Vizyon ve Yaşam Odaklı Dersler',
     color: '#059669',
     accent: '#10b981',
     desc: 'Öğrencilerin akademik bilgiyi yaşamla ilişkilendirmesini, dünyayı bütüncül bir bakış açısıyla okuyabilmesini amaçlayan derslerdir.',
@@ -123,7 +124,7 @@ export const programs = [
 
   {
     id: 'yabanci-dil',
-    tag: 'Yabancı Dil Programı',
+    tag: 'YDP',
     title: 'Yabancı Dil Programı',
     subtitle: 'Yabancı Dil Programı',
     color: '#1e40af',
@@ -213,10 +214,11 @@ export const programs = [
 
   {
     id: 'uygulamali-dersler',
-    tag: 'UDP - Uygulamalı Dersler Programı',
+    tag: 'UDP',
     pdf: '/pdf ler/uygulamali-dersler-web.pdf',
     title: 'Uygulamalı Dersler ve Branşlaşma Modeli',
     subtitle: '(Sanat, Spor ve Yaşam Odaklı Eğitim)',
+    menuDesc: 'Uygulamalı Dersler ve Branşlaşma Modeli',
     color: '#134e4a',
     accent: '#14b8a6',
     desc: 'Çocukların çok yönlü gelişimini desteklemek, yaratıcılıklarını ortaya çıkarmak, öğrenmeyi keyifli hale getirmek ve özgüven ile ifade becerilerini geliştirmek.',
@@ -359,9 +361,10 @@ export const programs = [
 
   {
     id: 'ap',
-    tag: 'AP (Advanced Placement)',
+    tag: 'AP',
     title: 'AP (Advanced Placement)',
     subtitle: 'Lise Kademesi',
+    menuDesc: 'Advanced Placement',
     color: '#166534',
     accent: '#22c55e',
     logo: '/logo/ap%20logo.png',
@@ -391,9 +394,10 @@ export const programs = [
 
   {
     id: 'p4c',
-    tag: 'P4C (Philosophy for Children)',
+    tag: 'P4C',
     title: 'P4C (Philosophy for Children)',
     subtitle: 'Anaokulu',
+    menuDesc: 'Philosophy for Children',
     color: '#831843',
     accent: '#f43f5e',
     desc: 'Çocuklar için felsefe programı. Kişilik geliştiren yetiler, sosyal yetiler ve mantıksal yetiler kazandırmak.',

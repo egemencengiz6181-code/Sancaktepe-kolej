@@ -25,7 +25,7 @@ export default function ProgramDetayPage() {
     <>
       {/* HERO */}
       <section style={{
-        background: `linear-gradient(135deg, rgba(26,35,71,0.93) 0%, rgba(35,46,92,0.88) 55%, rgba(46,61,122,0.88) 100%), url('/gallery/IMG_0834.jpeg') center / cover no-repeat`,
+        background: `linear-gradient(135deg, rgba(26,35,71,0.93) 0%, rgba(35,46,92,0.88) 55%, rgba(46,61,122,0.88) 100%), url('/gallery/idari/IMG_0834.jpg') center / cover no-repeat`,
         padding: '8rem 0 6rem',
         position: 'relative',
         overflow: 'hidden',
@@ -85,17 +85,20 @@ export default function ProgramDetayPage() {
 
               <motion.h1
                 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25, duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-                style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2.2rem, 4.5vw, 3.8rem)', fontWeight: 700, color: '#fff', lineHeight: 1.1, marginBottom: '0.75rem' }}
+                style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2.2rem, 4.5vw, 3.8rem)', fontWeight: 700, color: '#fff', lineHeight: 1.1, marginBottom: prog.subtitle !== prog.title ? '0.75rem' : '1.5rem' }}
               >
                 {t(prog.title)}
               </motion.h1>
 
-              <motion.p
-                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.7 }}
-                style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', fontWeight: 600, letterSpacing: '0.05em', color: prog.accent === '#ff3352' ? 'rgba(255,107,133,0.85)' : `${prog.accent}cc`, marginBottom: '1.5rem', textTransform: 'uppercase' }}
-              >
-                {t(prog.subtitle)}
-              </motion.p>
+              {/* Başlıkla aynıysa tekrar etmesin */}
+              {prog.subtitle !== prog.title && (
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.7 }}
+                  style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', fontWeight: 600, letterSpacing: '0.05em', color: prog.accent === '#ff3352' ? 'rgba(255,107,133,0.85)' : `${prog.accent}cc`, marginBottom: '1.5rem', textTransform: 'uppercase' }}
+                >
+                  {t(prog.subtitle)}
+                </motion.p>
+              )}
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.7 }}
