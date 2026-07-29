@@ -131,7 +131,7 @@ export const programs = [
     color: '#1e40af',
     accent: '#3b82f6',
     desc: 'Bir ders saati değil yaşam alanı; bir dil bilgisi sistemi değil anlam ve iletişim aracı; bir sınav hedefi değil dünya ile bağ kurma yolu.',
-    heroDesc: 'Kolej Sancaktepe TED AD\'de yabancı dil; bir ders saati değil yaşam alanıdır, bir dil bilgisi sistemi değil anlam ve iletişim aracıdır. Öğrenciler dili ezberlemez; dili kullanarak düşünür, tartışır, üretir ve dünyayı anlamlandırır.',
+    heroDesc: 'Yabancı dil; bir ders saati değil yaşam alanıdır, bir dil bilgisi sistemi değil anlam ve iletişim aracıdır. Öğrenciler dili ezberlemez; dili kullanarak düşünür, tartışır, üretir ve dünyayı anlamlandırır.',
     items: [
       { code: '1', label: 'İngilizce — İçerik Tabanlı Öğrenme, Konuşma ve Tartışma, Tiyatro ve Drama' },
       { code: '2', label: 'Almanca — İkinci Yabancı Dil, Avrupa Kültürü, Çok Dilli Düşünme' },

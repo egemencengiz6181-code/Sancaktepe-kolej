@@ -1272,6 +1272,7 @@ export const EN = {
   "YKS, IB ve AP perspektifleriyle uyumlu": "Aligned with the YKS, IB and AP perspectives",
   "YKS/sınav hazırlık stratejileri": "YKS/exam preparation strategies",
   "Yabancı Dil": "Foreign Language",
+  "Yabancı dil; bir ders saati değil yaşam alanıdır, bir dil bilgisi sistemi değil anlam ve iletişim aracıdır. Öğrenciler dili ezberlemez; dili kullanarak düşünür, tartışır, üretir ve dünyayı anlamlandırır.": "A foreign language is not a lesson slot but a living space; not a grammar system but a means of meaning and communication. Students do not memorise the language — they use it to think, discuss, create and make sense of the world.",
   "Yabancı Dil Birimi": "Foreign Languages Department",
   "Yabancı Dil Eğitimi": "Foreign Language Education",
   "Yabancı Dil Programı": "Foreign Language Programme",
