@@ -3,8 +3,9 @@ import { Document, Page, pdfjs } from 'react-pdf';
 import HTMLFlipBook from 'react-pageflip';
 import { t } from '../i18n';
 
-// Configure PDF.js worker
-pdfjs.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.js';
+// Configure PDF.js worker — entry, gerçek worker'ı yüklemeden önce
+// URL.parse şimini uygular (bkz. public/pdf.worker.entry.mjs)
+pdfjs.GlobalWorkerOptions.workerSrc = '/pdf.worker.entry.mjs';
 
 // Module-level so the object identity is stable — a new object on every render
 // makes react-pdf reload the document in a loop.

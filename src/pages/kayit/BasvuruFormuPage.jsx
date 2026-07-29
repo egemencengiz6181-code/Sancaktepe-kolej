@@ -129,13 +129,14 @@ export default function BasvuruFormuPage() {
         // Öğrenci Bilgileri
         'Öğrenci Adı': ogrenci.ad,
         'Öğrenci Soyadı': ogrenci.soyad,
-        'TC Kimlik No': ogrenci.tc,
+        'TC Kimlik No / Pasaport No': ogrenci.kimlikNo,
         'Doğum Tarihi': ogrenci.dogumTarihi,
         'Cinsiyet': ogrenci.cinsiyet,
         'Uyruk': ogrenci.uyruk,
-        'Kayıt Yılı': ogrenci.kayitYili,
-        'Kayıt Dönemi': kayit.donem,
-        'Sınıf': kayit.sinif,
+        'En Son Okuduğu Okul': ogrenci.sonOkul,
+        'Başvuru Yılı': ogrenci.basvuruYili,
+        'Sınıf': ogrenci.sinif,
+        'Bizi Nereden Duydunuz': ogrenci.nereden,
         // Anne Bilgileri
         'Anne Adı': anne.ad,
         'Anne Soyadı': anne.soyad,

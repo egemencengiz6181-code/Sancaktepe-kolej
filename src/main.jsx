@@ -1,3 +1,4 @@
+import './lib/url-parse-polyfill'   // pdf.js'ten önce yüklenmeli
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'

@@ -23,7 +23,7 @@ export const programs = [
     color: '#232e5c',
     accent: '#e61936',
     desc: 'Bu programlar, akademik eğitimi destekleyen; öğrencinin akademik, sosyal, duygusal ve kültürel gelişimini bütüncül olarak ele alan yapılardır.',
-    heroDesc: 'TED AD – BÜTÜNCÜL ÖĞRENME VE GELİŞİM PROGRAMLARI (BÖGEP), öğrencinin yalnızca akademik değil; sosyal, duygusal, kültürel ve etik boyutlarda da gelişimini destekleyen kapsamlı bir çerçeve programdır.',
+    heroDesc: 'Öğrencinin yalnızca akademik değil; sosyal, duygusal, kültürel ve etik boyutlarda da gelişimini destekleyen kapsamlı bir çerçeve programdır.',
     items: [
       { code: '1', label: 'SSP – Sosyal Sorumluluk Programı (Social Responsibility Program)' },
       { code: '2', label: 'LLL – Yaşam Boyu Öğrenme Programı (Life Long Learning Program)' },
@@ -85,7 +85,7 @@ export const programs = [
 
   {
     id: 'okuryazarlik',
-    tag: 'OKURYAZARLIK PROGRAMI',
+    tag: 'OYP',
     pdf: '/pdf ler/okuryazarlik-web.pdf',
     title: 'Okuryazarlık Temelli Ortaokul ve Lise Eğitim Modeli',
     subtitle: 'Okuryazarlık Temelli Program',
@@ -125,6 +125,7 @@ export const programs = [
   {
     id: 'yabanci-dil',
     tag: 'YDP',
+    pdf: '/pdf ler/Yabanci-Dil-brosur.pdf',
     title: 'Yabancı Dil Programı',
     subtitle: 'Yabancı Dil Programı',
     color: '#1e40af',
@@ -395,6 +396,7 @@ export const programs = [
   {
     id: 'p4c',
     tag: 'P4C',
+    pdf: '/pdf ler/web-p4c-brosur.pdf',
     title: 'P4C (Philosophy for Children)',
     subtitle: 'Anaokulu',
     menuDesc: 'Philosophy for Children',
