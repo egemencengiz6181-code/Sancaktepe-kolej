@@ -499,17 +499,17 @@ export default function Navbar() {
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.25 }}
             style={{
-              position: 'fixed', top: '58px', left: 0, right: 0,
-              background: 'var(--primary)', zIndex: 99, padding: '1.25rem 1.5rem',
+              position: 'fixed', top: '80px', left: 0, right: 0,
+              background: 'var(--primary)', zIndex: 101, padding: '1.25rem 1.5rem',
               borderBottom: '2px solid rgba(255,255,255,0.15)',
               boxShadow: '0 8px 32px rgba(10,18,50,0.3)',
-              maxHeight: '85vh', overflowY: 'auto',
+              maxHeight: 'calc(100vh - 80px)', overflowY: 'auto', WebkitOverflowScrolling: 'touch',
             }}
           >
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.1rem', margin: 0, padding: 0 }}>
               {allNavLinks.map((link) => (
                 <li key={link.href}>
-                  <Link to={link.href} style={{
+                  <Link to={link.href} onClick={() => setMobileOpen(false)} style={{
                     textDecoration: 'none', fontFamily: 'var(--font-display)', fontSize: '0.8rem', fontWeight: 700,
                     letterSpacing: '0.12em', textTransform: 'uppercase',
                     color: location.pathname === link.href ? '#fff' : 'rgba(255,255,255,0.72)',
@@ -520,8 +520,8 @@ export default function Navbar() {
                   </Link>
                   {link.mega && (
                     <div style={{ paddingLeft: '1rem', paddingBottom: '0.5rem' }}>
-                      {(link.mega === 'programlar' ? programs : classes).map((item) => (
-                        <Link key={item.id} to={`${link.href}/${item.id}`} style={{
+                      {(link.mega === 'programlar' ? getTopLevelPrograms() : classes).map((item) => (
+                        <Link key={item.id} to={`${link.href}/${item.id}`} onClick={() => setMobileOpen(false)} style={{
                           textDecoration: 'none', fontFamily: 'var(--font-sans)', fontSize: '0.78rem',
                           color: 'rgba(255,255,255,0.55)', display: 'block',
                           padding: '0.45rem 0.5rem', borderBottom: '1px solid rgba(255,255,255,0.07)',
