@@ -74,48 +74,6 @@ const HERO_SLOGANS = [
   'Akademik başarıyı evrensel değerlerle buluşturuyoruz.',
 ];
 
-// ── Floating photo for hero ─────────────────────────────────────
-function HeroPhoto({ src, style, delay = 0, floatY = 12 }) {
-  // Gölge, süzülen kartın ÜZERİNDE olmalı. Dış kutuda kalırsa kart yukarı
-  // hareket ederken sabit duran keskin köşeli gölge dikdörtgeni açıkta kalıyor.
-  const { boxShadow, ...position } = style;
-  return (
-    <div style={{ position: 'absolute', ...position }}>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        style={{ width: '100%', height: '100%' }}
-      >
-        {/* Kart tek parça süzülür: yuvarlatma, kırpma ve gölge hep birlikte hareket eder */}
-        <motion.div
-          animate={{ y: [0, -floatY, 0] }}
-          transition={{ duration: 5 + delay, repeat: Infinity, ease: 'easeInOut', delay }}
-          style={{
-            width: '100%', height: '100%', borderRadius: '16px', overflow: 'hidden',
-            position: 'relative', boxShadow,
-            willChange: 'transform', backfaceVisibility: 'hidden',
-          }}
-        >
-          <img
-            src={src}
-            alt=""
-            fetchPriority="high"
-            decoding="async"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', borderRadius: '16px' }}
-          />
-          {/* Soft glow border inside the card */}
-          <div style={{
-            position: 'absolute', inset: 0, borderRadius: '16px',
-            boxShadow: 'inset 0 0 0 1.5px rgba(255,255,255,0.22)',
-            pointerEvents: 'none',
-          }} />
-        </motion.div>
-      </motion.div>
-    </div>
-  );
-}
-
 export default function HomePage() {
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
@@ -172,30 +130,18 @@ export default function HomePage() {
 
         <motion.div style={{ y, opacity, width: '100%', position: 'relative', zIndex: 1, paddingTop: 'clamp(80px, 14vh, 120px)', paddingBottom: 'clamp(40px, 8vh, 80px)' }}>
           <div className="section-container">
-            <div style={{ display: 'flex', alignItems: 'center', gap: '4rem' }}>
-              {/* Left — text */}
-              <div style={{ flex: '1 1 0', minWidth: 0 }}>
-                {/* Logo */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.6 }}
-                  style={{ marginBottom: '2.5rem' }}
-                >
-                  <img
-                    src="/logo/tedad-2.png"
-                    alt={t("TED AD")}
-                    style={{ width: '180px', height: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.15))' }}
-                  />
-                </motion.div>
-
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+              <div style={{ width: '100%', maxWidth: '860px' }}>
                 {/* Tag */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.7 }}
-                  style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}
+                  style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}
                 >
                   <div style={{ width: '40px', height: '3px', background: 'var(--red)', borderRadius: '2px' }} />
                   <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--grey)' }}>
                     {t("TED Akreditasyon & Danışmanlık")}
                   </span>
+                  <div style={{ width: '40px', height: '3px', background: 'var(--red)', borderRadius: '2px' }} />
                 </motion.div>
 
                 <motion.h1
@@ -213,12 +159,12 @@ export default function HomePage() {
 
                 <motion.div
                   initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ delay: 0.8, duration: 0.7 }}
-                  style={{ width: '140px', height: '3px', background: 'linear-gradient(90deg, var(--red), transparent)', marginBottom: '2rem', transformOrigin: 'left' }}
+                  style={{ width: '140px', height: '3px', background: 'linear-gradient(90deg, transparent, var(--red), transparent)', margin: '0 auto 2rem', transformOrigin: 'center' }}
                 />
                 {/* Slogan — 4 sn'de bir değişir; minHeight iki satırı ayırıp yer oynamasını önler */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 0.7 }}
-                  style={{ fontSize: 'clamp(1.15rem, 2vw, 1.4rem)', minHeight: '3.2em', maxWidth: '560px', marginBottom: '1.5rem' }}
+                  style={{ fontSize: 'clamp(1.15rem, 2vw, 1.4rem)', minHeight: '3.2em', maxWidth: '640px', margin: '0 auto 1.5rem' }}
                 >
                   <AnimatePresence mode="wait">
                     <motion.p
@@ -236,14 +182,14 @@ export default function HomePage() {
 
                 <motion.p
                   initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.78, duration: 0.7 }}
-                  style={{ fontFamily: 'var(--font-sans)', fontSize: '1rem', color: 'var(--grey-dark)', lineHeight: 1.85, maxWidth: '560px', marginBottom: '3rem' }}
+                  style={{ fontFamily: 'var(--font-sans)', fontSize: '1rem', color: 'var(--grey-dark)', lineHeight: 1.85, maxWidth: '640px', margin: '0 auto 3rem' }}
                 >
                   {t("Kolej Sancaktepe TED-AD okulları, kaliteli eğitim anlayışı ve uzman kadrosuyla öğrencilere bireysel gelişimlerini destekleyerek gelecekte başarılı bireyler olmaları için önemli bir adım atıyor.")}
                 </motion.p>
 
                 <motion.div
                   initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9, duration: 0.7 }}
-                  style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}
+                  style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}
                 >
                   <button onClick={() => openModal(true)} style={{
                     fontFamily: 'var(--font-display)', fontSize: '0.78rem', fontWeight: 800,
@@ -270,35 +216,6 @@ export default function HomePage() {
                   </Link>
                 </motion.div>
               </div>
-
-              {/* Right — photo collage (desktop only) */}
-              <div className="hero-collage" style={{
-                flex: '0 0 440px', height: '580px', position: 'relative', marginLeft: '-2rem',
-              }}>
-                {/* Back photo: ortaokul-4 — top-left, tilted */}
-                <HeroPhoto
-                  src="/gallery/ortaokul/thumb/32.jpg"
-                  delay={0.7}
-                  floatY={8}
-                  style={{ width: '230px', height: '165px', top: '0', left: '0', zIndex: 1, transform: 'rotate(-4deg)', boxShadow: '0 20px 60px rgba(0,0,0,0.5)' }}
-                />
-                {/* Main photo: IMG_0835 — center, tall */}
-                <HeroPhoto
-                  src="/gallery/idari/thumb/IMG_0835.jpg"
-                  delay={0.5}
-                  floatY={14}
-                  style={{ width: '275px', height: '390px', top: '60px', left: '85px', zIndex: 3, boxShadow: '0 32px 80px rgba(0,0,0,0.55)' }}
-                />
-                {/* Front photo: okul-oncesi-1 — bottom-right */}
-                <HeroPhoto
-                  src="/gallery/okul-oncesi/thumb/27.jpg"
-                  delay={0.9}
-                  floatY={10}
-                  style={{ width: '210px', height: '150px', bottom: '20px', right: '0', zIndex: 4, transform: 'rotate(3deg)', boxShadow: '0 20px 50px rgba(0,0,0,0.5)' }}
-                />
-                {/* Glow behind collage */}
-                <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '360px', height: '360px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(230,25,54,0.14) 0%, transparent 70%)', pointerEvents: 'none', zIndex: 0 }} />
-              </div>
             </div>
           </div>
         </motion.div>
@@ -311,10 +228,6 @@ export default function HomePage() {
           <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)' }}>{t("Kaydır")}</span>
           <motion.div animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 1.4 }} style={{ width: '1px', height: '36px', background: 'linear-gradient(180deg, rgba(255,255,255,0.5), transparent)' }} />
         </motion.div>
-
-        <style>{`
-          @media (max-width: 960px) { .hero-collage { display: none !important; } }
-        `}</style>
       </section>
 
       {/* HABERLER */}

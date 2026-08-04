@@ -314,6 +314,7 @@ export const EN = {
   "Bize": "Us",
   "Bize Ulaşın": "Contact Us",
   "Bizi": "Us",
+  "Bizi Arayın": "Call Us",
   "Bizi Tanıyın": "Get to Know Us",
   "Branş Dersleri": "Subject Courses",
   "Broşürler dağıtılır (Ekim/Kasım)": "Brochures are distributed (October/November)",

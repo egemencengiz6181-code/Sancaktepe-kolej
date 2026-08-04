@@ -1,19 +1,13 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useModal } from '../context/ModalContext';
 
 import { t } from '../i18n';
 const WHATSAPP_NUMBER = '905016223137';
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=Merhaba%2C%20Kolej%20Sancaktepe%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.`;
+const PHONE_NUMBER = '02166060833';
 
 export default function FloatingContact() {
   const [open, setOpen] = useState(false);
-  const { setOpen: openModal } = useModal();
-
-  const handleForm = () => {
-    setOpen(false);
-    openModal(true);
-  };
 
   return (
     <div
@@ -66,10 +60,10 @@ export default function FloatingContact() {
               </svg>
             </motion.a>
 
-            {/* Form */}
-            <motion.button
-              onClick={handleForm}
-              title={t("İletişim Formu")}
+            {/* Telefon */}
+            <motion.a
+              href={`tel:${PHONE_NUMBER}`}
+              title={t("Bizi Arayın")}
               initial={{ opacity: 0, y: 16, scale: 0.7 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 16, scale: 0.7 }}
@@ -84,18 +78,18 @@ export default function FloatingContact() {
                 justifyContent: 'center',
                 boxShadow: '0 4px 20px rgba(35,46,92,0.4)',
                 cursor: 'pointer',
+                textDecoration: 'none',
                 border: 'none',
                 flexShrink: 0,
               }}
               whileHover={{ scale: 1.12 }}
               whileTap={{ scale: 0.95 }}
             >
-              {/* Envelope SVG */}
+              {/* Phone SVG */}
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                <polyline points="22,6 12,13 2,6"/>
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .82h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
               </svg>
-            </motion.button>
+            </motion.a>
           </>
         )}
       </AnimatePresence>
@@ -145,7 +139,7 @@ export default function FloatingContact() {
             </motion.svg>
           ) : (
             <motion.svg
-              key="phone"
+              key="chat"
               initial={{ opacity: 0, scale: 0.7 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.7 }}
@@ -154,7 +148,7 @@ export default function FloatingContact() {
               stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .82h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+              <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/>
             </motion.svg>
           )}
         </AnimatePresence>
