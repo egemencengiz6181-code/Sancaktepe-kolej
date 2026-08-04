@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useModal } from '../context/ModalContext';
 
 import { t } from '../i18n';
 const WHATSAPP_NUMBER = '905016223137';
@@ -8,6 +9,12 @@ const PHONE_NUMBER = '02166060833';
 
 export default function FloatingContact() {
   const [open, setOpen] = useState(false);
+  const { setOpen: openModal } = useModal();
+
+  const handleForm = () => {
+    setOpen(false);
+    openModal(true);
+  };
 
   return (
     <div
@@ -90,6 +97,39 @@ export default function FloatingContact() {
                 <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .82h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
               </svg>
             </motion.a>
+
+            {/* Başvuru formu (pop-up) */}
+            <motion.button
+              onClick={handleForm}
+              title={t("Başvuru Formu")}
+              initial={{ opacity: 0, y: 16, scale: 0.7 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 16, scale: 0.7 }}
+              transition={{ duration: 0.22, delay: 0.12 }}
+              style={{
+                width: '50px',
+                height: '50px',
+                borderRadius: '50%',
+                background: 'linear-gradient(135deg, var(--red), var(--red-light))',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 4px 20px rgba(230,25,54,0.4)',
+                cursor: 'pointer',
+                border: 'none',
+                flexShrink: 0,
+              }}
+              whileHover={{ scale: 1.12 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {/* Form / clipboard SVG */}
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2" />
+                <rect x="8" y="2" width="8" height="4" rx="1" />
+                <line x1="8" y1="12" x2="16" y2="12" />
+                <line x1="8" y1="16" x2="13" y2="16" />
+              </svg>
+            </motion.button>
           </>
         )}
       </AnimatePresence>

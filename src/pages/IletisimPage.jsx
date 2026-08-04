@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
+import BasvuruForm from '../components/BasvuruForm';
 
 import { t } from '../i18n';
 const fadeUp = (delay = 0) => ({
@@ -10,75 +10,6 @@ const fadeUp = (delay = 0) => ({
 });
 
 export default function IletisimPage() {
-  const [form, setForm] = useState({ studentName: '', school: '', grade: '', parentName: '', phone: '', message: '' });
-  const [kvkkAccepted, setKvkkAccepted] = useState(false);
-  const [sent, setSent] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  const handleChange = (e) => setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!kvkkAccepted) {
-      alert('KVKK metnini onaylamanız gerekmektedir.');
-      return;
-    }
-    setLoading(true);
-    
-    try {
-      const response = await fetch('https://formsubmit.co/ajax/info@kolejsancaktepe.com', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-          _subject: 'Yeni İletişim Formu - Kolej Sancaktepe',
-          'Öğrenci Adı': form.studentName,
-          'Okul': form.school,
-          'Sınıf': form.grade,
-          'Veli Adı': form.parentName,
-          'Telefon': form.phone,
-          'Mesaj': form.message,
-        })
-      });
-      
-      if (response.ok) {
-        setSent(true);
-        setForm({ studentName: '', school: '', grade: '', parentName: '', phone: '', message: '' });
-        setKvkkAccepted(false);
-      } else {
-        alert('Form gönderilemedi. Lütfen tekrar deneyin.');
-      }
-    } catch (error) {
-      console.error('Form gönderim hatası:', error);
-      alert('Bir hata oluştu. Lütfen daha sonra tekrar deneyin.');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const inputStyle = {
-    width: '100%',
-    background: 'rgba(35,46,92,0.04)',
-    border: '1.5px solid rgba(35,46,92,0.1)',
-    borderRadius: '6px',
-    padding: '0.85rem 1rem',
-    fontFamily: 'var(--font-sans)',
-    fontSize: '0.9rem',
-    color: 'var(--text-dark)',
-    outline: 'none',
-    transition: 'border-color 0.3s, box-shadow 0.3s, background 0.3s',
-  };
-
-  const labelStyle = {
-    fontFamily: 'var(--font-display)',
-    fontSize: '0.63rem',
-    fontWeight: 800,
-    letterSpacing: '0.15em',
-    textTransform: 'uppercase',
-    color: 'var(--grey)',
-    display: 'block',
-    marginBottom: '0.4rem',
-  };
-
   return (
     <>
       <div className="page-hero" style={{
@@ -212,151 +143,13 @@ export default function IletisimPage() {
                 overflow: 'hidden',
                 borderTop: '5px solid var(--red)',
               }}>
-                <div style={{ padding: '2.5rem' }}>
-                  {sent ? (
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '300px', gap: '1.5rem', textAlign: 'center' }}
-                    >
-                      
-                      <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '2rem', fontWeight: 700, color: 'var(--primary)' }}>{t("Mesajınız İletildi!")}</h3>
-                      <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.8, maxWidth: '360px' }}>
-                        {t("En kısa sürede sizinle iletişime geçeceğiz.")}<br />
-                        {t("Kolej Sancaktepe TED-AD ailesi olarak sizi bekliyoruz.")}
-                      </p>
-                      <button
-                        onClick={() => { setSent(false); setForm({ studentName: '', school: '', grade: '', parentName: '', phone: '', message: '' }); setKvkkAccepted(false); }}
-                        style={{ fontFamily: 'var(--font-display)', fontSize: '0.72rem', fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#fff', background: 'var(--red)', border: 'none', padding: '0.85rem 2.2rem', borderRadius: '4px', cursor: 'pointer' }}
-                      >
-                        {t("Yeni Form Doldur")}
-                      </button>
-                    </motion.div>
-                  ) : (
-                    <form onSubmit={handleSubmit}>
-                      <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.5rem' }}>{t("Bilgi Talebi Formu")}</h2>
-                      <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.88rem', color: 'var(--grey)', marginBottom: '2rem', lineHeight: 1.6 }}>{t("Formu doldurun, en kısa sürede sizinle iletişime geçelim.")}</p>
-
-                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.2rem', marginBottom: '1.2rem' }}>
-                        <div>
-                          <label style={labelStyle}>{t("Öğrenci Ad - Soyad *")}</label>
-                          <input type="text" name="studentName" required value={form.studentName} onChange={handleChange} placeholder={t("Öğrencinin adı soyadı")}
-                            style={inputStyle}
-                            onFocus={(e) => { e.target.style.borderColor = 'var(--primary)'; e.target.style.boxShadow = '0 0 0 3px rgba(35,46,92,0.1)'; }}
-                            onBlur={(e) => { e.target.style.borderColor = 'var(--grey-light)'; e.target.style.boxShadow = 'none'; }}
-                          />
-                        </div>
-                        <div>
-                          <label style={labelStyle}>{t("Öğrenim Gördüğü Okul")}</label>
-                          <input type="text" name="school" value={form.school} onChange={handleChange} placeholder={t("Mevcut okul adı")}
-                            style={inputStyle}
-                            onFocus={(e) => { e.target.style.borderColor = 'var(--primary)'; e.target.style.boxShadow = '0 0 0 3px rgba(35,46,92,0.1)'; }}
-                            onBlur={(e) => { e.target.style.borderColor = 'var(--grey-light)'; e.target.style.boxShadow = 'none'; }}
-                          />
-                        </div>
-                      </div>
-
-                      <div style={{ marginBottom: '1.2rem' }}>
-                        <label style={labelStyle}>{t("Bilgi Almak İstediğiniz Sınıf *")}</label>
-                        <select name="grade" required value={form.grade} onChange={handleChange} style={{ ...inputStyle, cursor: 'pointer' }}
-                          onFocus={(e) => { e.target.style.borderColor = 'var(--primary)'; e.target.style.boxShadow = '0 0 0 3px rgba(35,46,92,0.1)'; }}
-                          onBlur={(e) => { e.target.style.borderColor = 'var(--grey-light)'; e.target.style.boxShadow = 'none'; }}
-                        >
-                          <option value="">{t("Sınıf Seçiniz")}</option>
-                          <option value="okul-oncesi">{t("Okul Öncesi (Anaokulu)")}</option>
-                          {[1,2,3,4].map(n => <option key={n} value={`ilkokul-${n}`}>{n}. Sınıf (İlkokul)</option>)}
-                          {[5,6,7,8].map(n => <option key={n} value={`ortaokul-${n}`}>{n}. Sınıf (Ortaokul)</option>)}
-                          {[9,10,11,12].map(n => <option key={n} value={`lise-${n}`}>{n}. Sınıf (Anadolu Lisesi)</option>)}
-                        </select>
-                      </div>
-
-                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.2rem', marginBottom: '1.2rem' }}>
-                        <div>
-                          <label style={labelStyle}>{t("Veli Ad *")}</label>
-                          <input type="text" name="parentName" required value={form.parentName} onChange={handleChange} placeholder={t("Veli adı soyadı")}
-                            style={inputStyle}
-                            onFocus={(e) => { e.target.style.borderColor = 'var(--primary)'; e.target.style.boxShadow = '0 0 0 3px rgba(35,46,92,0.1)'; }}
-                            onBlur={(e) => { e.target.style.borderColor = 'var(--grey-light)'; e.target.style.boxShadow = 'none'; }}
-                          />
-                        </div>
-                        <div>
-                          <label style={labelStyle}>{t("Veli İrtibat Numarası *")}</label>
-                          <input type="tel" name="phone" required value={form.phone} onChange={handleChange} placeholder={t("05XX XXX XX XX")}
-                            style={inputStyle}
-                            onFocus={(e) => { e.target.style.borderColor = 'var(--primary)'; e.target.style.boxShadow = '0 0 0 3px rgba(35,46,92,0.1)'; }}
-                            onBlur={(e) => { e.target.style.borderColor = 'var(--grey-light)'; e.target.style.boxShadow = 'none'; }}
-                          />
-                        </div>
-                      </div>
-
-                      <div style={{ marginBottom: '1.5rem' }}>
-                        <label style={labelStyle}>{t("Mesaj")}</label>
-                        <textarea name="message" value={form.message} onChange={handleChange} rows={4} placeholder={t("Merak ettiklerinizi yazabilirsiniz...")}
-                          style={{ ...inputStyle, resize: 'vertical', minHeight: '110px' }}
-                          onFocus={(e) => { e.target.style.borderColor = 'var(--primary)'; e.target.style.boxShadow = '0 0 0 3px rgba(35,46,92,0.1)'; }}
-                          onBlur={(e) => { e.target.style.borderColor = 'var(--grey-light)'; e.target.style.boxShadow = 'none'; }}
-                        />
-                      </div>
-
-                      <div style={{ marginBottom: '2rem', display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-                        <input
-                          type="checkbox"
-                          id="kvkk-iletisim"
-                          checked={kvkkAccepted}
-                          onChange={(e) => setKvkkAccepted(e.target.checked)}
-                          style={{
-                            width: '18px',
-                            height: '18px',
-                            cursor: 'pointer',
-                            accentColor: 'var(--red)',
-                            marginTop: '2px',
-                          }}
-                        />
-                        <label htmlFor="kvkk-iletisim" style={{
-                          fontFamily: 'var(--font-sans)',
-                          fontSize: '0.85rem',
-                          color: 'var(--grey-dark)',
-                          lineHeight: 1.6,
-                          cursor: 'pointer',
-                        }}>
-                          <a href="/kvkk" target="_blank" rel="noopener noreferrer" style={{
-                            color: 'var(--red)',
-                            textDecoration: 'underline',
-                            transition: 'opacity 0.2s',
-                          }}
-                            onMouseEnter={(e) => e.target.style.opacity = '0.8'}
-                            onMouseLeave={(e) => e.target.style.opacity = '1'}
-                          >
-                            {t("KVKK Aydınlatma Metni")}
-                          </a>{t("'ni okudum, kişisel verilerimin işlenmesini kabul ediyorum. *")}
-                        </label>
-                      </div>
-
-                      <button type="submit" disabled={loading || !kvkkAccepted} style={{
-                        width: '100%',
-                        fontFamily: 'var(--font-display)', fontSize: '0.78rem', fontWeight: 800,
-                        letterSpacing: '0.15em', textTransform: 'uppercase',
-                        color: '#fff',
-                        background: (loading || !kvkkAccepted) ? 'rgba(230,25,54,0.6)' : 'linear-gradient(135deg, var(--red), var(--red-light))',
-                        border: 'none', padding: '1.1rem', borderRadius: '4px',
-                        cursor: (loading || !kvkkAccepted) ? 'not-allowed' : 'pointer',
-                        boxShadow: '0 6px 24px rgba(230,25,54,0.25)',
-                        display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
-                        transition: 'all 0.3s',
-                        opacity: !kvkkAccepted ? 0.6 : 1,
-                      }}
-                        onMouseEnter={(e) => { if (!loading && kvkkAccepted) { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 10px 32px rgba(230,25,54,0.35)'; } }}
-                        onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 6px 24px rgba(230,25,54,0.25)'; }}
-                      >
-                        {loading ? (
-                          <>
-                            <motion.span animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 0.8, ease: 'linear' }} style={{ display: 'inline-block' }}>⟳</motion.span>
-                            {t("Gönderiliyor...")}
-                          </>
-                        ) : 'Bilgi Talep Et →'}
-                      </button>
-                    </form>
-                  )}
+                <div style={{ padding: '2.5rem' }} className="iletisim-form-body">
+                  <BasvuruForm
+                    theme="light"
+                    subject="Yeni Başvuru Formu (İletişim) - Kolej Sancaktepe"
+                    title="Başvuru & Bilgi Formu"
+                    subtitle="Formu doldurun, en kısa sürede sizinle iletişime geçelim."
+                  />
                 </div>
               </div>
             </motion.div>

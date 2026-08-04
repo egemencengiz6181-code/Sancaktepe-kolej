@@ -46,42 +46,31 @@ export default function Footer() {
             {/* Bağlantılarımız */}
             <div>
               <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)', marginBottom: '1.2rem' }}>{t("Bağlantılarımız")}</h4>
-              <div style={{ display: 'flex', gap: '2.5rem', alignItems: 'center', flexWrap: 'nowrap' }}>
-                <img 
-                  src="/logo/TED_png.png" 
-                  alt={t("TED")} 
-                  style={{ height: '48px', width: 'auto', objectFit: 'contain', opacity: 0.7, transition: 'opacity 0.3s' }}
-                  onMouseEnter={(e) => e.target.style.opacity = '1'}
-                  onMouseLeave={(e) => e.target.style.opacity = '0.7'}
-                />
-                <img 
-                  src="/logo/tedmem.png" 
-                  alt={t("TEDMEM")} 
-                  style={{ height: '48px', width: 'auto', objectFit: 'contain', opacity: 0.7, transition: 'opacity 0.3s' }}
-                  onMouseEnter={(e) => e.target.style.opacity = '1'}
-                  onMouseLeave={(e) => e.target.style.opacity = '0.7'}
-                />
-                <img 
-                  src="/logo/ted%20üni%20logo.png" 
-                  alt={t("TED Üniversitesi")} 
-                  style={{ height: '48px', width: 'auto', objectFit: 'contain', opacity: 0.7, transition: 'opacity 0.3s' }}
-                  onMouseEnter={(e) => e.target.style.opacity = '1'}
-                  onMouseLeave={(e) => e.target.style.opacity = '0.7'}
-                />
-                <img 
-                  src="/logo/ap%20logo.png" 
-                  alt={t("AP")} 
-                  style={{ height: '48px', width: 'auto', objectFit: 'contain', opacity: 0.7, transition: 'opacity 0.3s' }}
-                  onMouseEnter={(e) => e.target.style.opacity = '1'}
-                  onMouseLeave={(e) => e.target.style.opacity = '0.7'}
-                />
-                <img 
-                  src="/logo/Global-Schools-Program-white.png"
-                  alt={t("Global Schools Program")} 
-                  style={{ height: '48px', width: 'auto', objectFit: 'contain', opacity: 0.7, transition: 'opacity 0.3s' }}
-                  onMouseEnter={(e) => e.target.style.opacity = '1'}
-                  onMouseLeave={(e) => e.target.style.opacity = '0.7'}
-                />
+              <div style={{ display: 'flex', gap: '2.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
+                {[
+                  { src: '/logo/TED_png.png', alt: 'TED', href: 'https://ted.org.tr/' },
+                  { src: '/logo/tedmem.png', alt: 'TEDMEM', href: 'https://tedmem.org/' },
+                  { src: '/logo/ted%20üni%20logo.png', alt: 'TED Üniversitesi', href: 'https://www.tedu.edu.tr/' },
+                  { src: '/logo/ap%20logo.png', alt: 'AP', href: 'https://www.collegeboard.org/' },
+                  { src: '/logo/Global-Schools-Program-white.png', alt: 'Global Schools Program', href: 'https://www.globalschoolsprogram.org/' },
+                ].map((item) => (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={t(item.alt)}
+                    style={{ display: 'inline-flex', alignItems: 'center' }}
+                  >
+                    <img
+                      src={item.src}
+                      alt={t(item.alt)}
+                      style={{ height: '48px', width: 'auto', objectFit: 'contain', opacity: 0.7, transition: 'opacity 0.3s, transform 0.3s' }}
+                      onMouseEnter={(e) => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.opacity = '0.7'; e.currentTarget.style.transform = 'translateY(0)'; }}
+                    />
+                  </a>
+                ))}
               </div>
             </div>
           </div>
