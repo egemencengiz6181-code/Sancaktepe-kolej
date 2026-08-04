@@ -46,7 +46,7 @@ export default function Footer() {
             {/* Bağlantılarımız */}
             <div>
               <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)', marginBottom: '1.2rem' }}>{t("Bağlantılarımız")}</h4>
-              <div style={{ display: 'flex', gap: '2.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', gap: '2.5rem', alignItems: 'center', flexWrap: 'nowrap' }}>
                 {[
                   { src: '/logo/TED_png.png', alt: 'TED', href: 'https://ted.org.tr/' },
                   { src: '/logo/tedmem.png', alt: 'TEDMEM', href: 'https://tedmem.org/' },
@@ -60,7 +60,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     title={t(item.alt)}
-                    style={{ display: 'inline-flex', alignItems: 'center' }}
+                    style={{ display: 'inline-flex', alignItems: 'center', flexShrink: 0 }}
                   >
                     <img
                       src={item.src}
