@@ -1,6 +1,7 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { classes } from '../data/classes';
+import { GALLERY_MANIFEST } from '../data/gallery-manifest';
 
 import { t } from '../i18n';
 const CLASS_SUB_PAGES = {
@@ -36,31 +37,19 @@ const CLASS_SUB_PAGES = {
   ],
 };
 
-const GALLERY_MAP = {
-  'okul-oncesi': [
-    '/gallery/okul-oncesi/27.jpg',
-    '/gallery/okul-oncesi/28.jpg',
-    '/gallery/okul-oncesi/29.jpg',
-    '/gallery/okul-oncesi/30.jpg',
-  ],
-  'ilkokul': [
-    '/gallery/ilkokul/19.jpg',
-    '/gallery/ilkokul/20.jpg',
-    '/gallery/ilkokul/21.jpg',
-    '/gallery/ilkokul/22.jpg',
-  ],
-  'ortaokul': [
-    '/gallery/ortaokul/32.jpg',
-    '/gallery/ortaokul/33.jpg',
-    '/gallery/ortaokul/34.jpg',
-    '/gallery/ortaokul/35.jpg',
-  ],
-  'lise': [
-    '/gallery/anadolu-lisesi/13.jpg',
-    '/gallery/anadolu-lisesi/14.jpg',
-    '/gallery/anadolu-lisesi/15.jpg',
-    '/gallery/anadolu-lisesi/16.jpg',
-  ],
+// Sınıf kademesi → public/gallery klasörü. Listeler gerçek dosyalardan üretilir,
+// silinen bir görsel burada kırık bağlantı bırakmaz. Sayfada ilk 4 görsel gösterilir.
+const GALLERY_DIRS = {
+  'okul-oncesi': 'okul-oncesi',
+  'ilkokul': 'ilkokul',
+  'ortaokul': 'ortaokul',
+  'lise': 'anadolu-lisesi',
+};
+
+const photosFor = (classId) => {
+  const dir = GALLERY_DIRS[classId];
+  if (!dir) return [];
+  return (GALLERY_MANIFEST[dir] ?? []).slice(0, 4).map((file) => `/gallery/${dir}/${file}`);
 };
 
 const fadeUp = (delay = 0) => ({
@@ -74,7 +63,7 @@ export default function SinifDetayPage() {
   const { id } = useParams();
   const cls = classes.find((c) => c.id === id);
   if (!cls) return <Navigate to="/siniflar" replace />;
-  const photos = GALLERY_MAP[cls.id] ?? [];
+  const photos = photosFor(cls.id);
   const heroBg = photos[0] ? `linear-gradient(135deg, rgba(26,35,71,0.91) 0%, rgba(35,46,92,0.87) 55%, rgba(46,61,122,0.87) 100%), url('${photos[0]}') center / cover no-repeat` : 'linear-gradient(135deg, #1a2347 0%, #232e5c 55%, #2e3d7a 100%)';
 
   const others = classes.filter((c) => c.id !== id);

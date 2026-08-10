@@ -5,58 +5,63 @@ import { visualizer } from 'rollup-plugin-visualizer'
 import fs from 'fs'
 import path from 'path'
 
-// Auto-copy gallery images to simple ASCII names on dev/build start
-function copyGalleryPlugin() {
-  const copies = [
-    // okul öncesi
-    ["public/gallery/okul \u00f6ncesi/WhatsApp Image 2026-04-04 at 14.07.27-4.webp", "public/gallery/okul-oncesi-1.webp"],
-    ["public/gallery/okul \u00f6ncesi/WhatsApp Image 2026-04-04 at 14.07.30 (1)-8.webp", "public/gallery/okul-oncesi-2.webp"],
-    ["public/gallery/okul \u00f6ncesi/WhatsApp Image 2026-04-04 at 14.07.31 (2)-2.webp", "public/gallery/okul-oncesi-3.webp"],
-    ["public/gallery/okul \u00f6ncesi/WhatsApp Image 2026-04-04 at 14.07.31-7.webp", "public/gallery/okul-oncesi-4.webp"],
-    // ilkokul
-    ["public/gallery/ilkokul/Varl\u0131k 5.webp", "public/gallery/ilkokul-1.webp"],
-    ["public/gallery/ilkokul/Varl\u0131k 6.webp", "public/gallery/ilkokul-2.webp"],
-    ["public/gallery/ilkokul/WhatsApp Image 2026-01-28 at 17.37.08-1.webp", "public/gallery/ilkokul-3.webp"],
-    ["public/gallery/ilkokul/WhatsApp Image 2026-01-28 at 17.37.09-9.webp", "public/gallery/ilkokul-4.webp"],
-    // ortaokul
-    ["public/gallery/ortaokul/WhatsApp Image 2026-01-23 at 16.06.59 (6).webp", "public/gallery/ortaokul-1.webp"],
-    ["public/gallery/ortaokul/WhatsApp Image 2026-01-23 at 16.06.59 (7).webp", "public/gallery/ortaokul-2.webp"],
-    ["public/gallery/ortaokul/WhatsApp Image 2026-01-28 at 17.37.14 (2)-9.webp", "public/gallery/ortaokul-3.webp"],
-    ["public/gallery/ortaokul/WhatsApp Image 2026-01-28 at 17.37.14 (3)-1.webp", "public/gallery/ortaokul-4.webp"],
-    // anadolu lisesi
-    ["public/gallery/anadolu lisesi/WhatsApp Image 2026-01-23 at 16.06.59 (8).webp", "public/gallery/lise-1.webp"],
-    ["public/gallery/anadolu lisesi/WhatsApp Image 2026-01-23 at 16.07.00 (8) - Kopya.webp", "public/gallery/lise-2.webp"],
-    ["public/gallery/anadolu lisesi/WhatsApp Image 2026-01-28 at 17.37.16 (1)-7.webp", "public/gallery/lise-3.webp"],
-    ["public/gallery/anadolu lisesi/WhatsApp Image 2026-01-28 at 17.37.17 (2)-0.webp", "public/gallery/lise-4.webp"],
-  ];
+// public/gallery içindeki dosyaları tarayıp src/data/gallery-manifest.js dosyasını
+// üretir. Görsel silindiğinde/eklendiğinde elle liste güncellemek gerekmesin diye:
+// listeler tek kaynaktan, gerçek dosya sisteminden geliyor. Yalnızca hem tam boy
+// hem thumb sürümü olan dosyalar listeye girer — yarım kalanlar kırık görsel üretmez.
+function galleryManifestPlugin() {
+  const GALLERY_DIR = 'public/gallery'
+  const OUT_FILE = 'src/data/gallery-manifest.js'
+
+  const naturalSort = (a, b) =>
+    a.localeCompare(b, 'en', { numeric: true, sensitivity: 'base' })
+
+  const generate = () => {
+    try {
+      if (!fs.existsSync(GALLERY_DIR)) return
+      const manifest = {}
+      for (const dir of fs.readdirSync(GALLERY_DIR).sort(naturalSort)) {
+        const dirPath = path.join(GALLERY_DIR, dir)
+        if (!fs.statSync(dirPath).isDirectory()) continue
+        const thumbDir = path.join(dirPath, 'thumb')
+        const hasThumb = (f) => fs.existsSync(path.join(thumbDir, f))
+        const files = fs
+          .readdirSync(dirPath)
+          .filter((f) => /\.(jpe?g|png|webp)$/i.test(f) && hasThumb(f))
+          .sort(naturalSort)
+        if (files.length) manifest[dir] = files
+      }
+
+      const body =
+        '// OTOMATİK ÜRETİLİR — elle düzenlemeyin.\n' +
+        '// Kaynak: public/gallery/**, üretici: vite.config.js → galleryManifestPlugin\n' +
+        '// Görsel eklemek/çıkarmak için dosyayı public/gallery altına koyup thumb/ sürümünü\n' +
+        '// de ekleyin; `npm run dev` veya `npm run build` bu listeyi yeniden üretir.\n' +
+        'export const GALLERY_MANIFEST = ' +
+        JSON.stringify(manifest, null, 2) +
+        ';\n'
+
+      fs.mkdirSync(path.dirname(OUT_FILE), { recursive: true })
+      if (!fs.existsSync(OUT_FILE) || fs.readFileSync(OUT_FILE, 'utf8') !== body) {
+        fs.writeFileSync(OUT_FILE, body)
+      }
+    } catch (err) {
+      console.warn('[gallery-manifest] üretilemedi:', err.message)
+    }
+  }
+
   return {
-    name: 'copy-gallery',
-    buildStart() {
-      copies.forEach(([src, dest]) => {
-        try {
-          if (!fs.existsSync(dest)) {
-            fs.copyFileSync(src, dest);
-          }
-        } catch {}
-      });
-    },
-    configureServer(server) {
-      copies.forEach(([src, dest]) => {
-        try {
-          if (!fs.existsSync(dest)) {
-            fs.copyFileSync(src, dest);
-          }
-        } catch {}
-      });
-    },
-  };
+    name: 'gallery-manifest',
+    buildStart: generate,
+    configureServer: generate,
+  }
 }
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    copyGalleryPlugin(),
+    galleryManifestPlugin(),
     viteCompression({
       verbose: true,
       disable: false,

@@ -1,41 +1,41 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+import { GALLERY_MANIFEST } from '../data/gallery-manifest';
 import { t } from '../i18n';
 // ─── All photos ────────────────────────────────────────────────
-// Klasör adları ASCII; her görselin optimize edilmiş tam boy (max 1800px) ve
-// thumb (max 800px) sürümü var. Izgarada thumb, lightbox'ta tam boy kullanılır.
-// Orijinal yüksek çözünürlüklü dosyalar repo kökünde originals/gallery/ altında.
-const group = (cat, label, dir, files) =>
-  files.map((f) => ({
-    src: `/gallery/${dir}/${f}.jpg`,
-    thumb: `/gallery/${dir}/thumb/${f}.jpg`,
+// Her görselin optimize edilmiş tam boy (max 1800px) ve thumb (max 800px) sürümü
+// var; ızgarada thumb, lightbox'ta tam boy kullanılır. Orijinal yüksek çözünürlüklü
+// dosyalar repo kökünde originals/gallery/ altında.
+//
+// Liste public/gallery klasöründen otomatik üretilir (bkz. gallery-manifest.js),
+// bu yüzden bir görsel silindiğinde/eklendiğinde burada elle değişiklik gerekmez.
+// CATEGORIES yalnızca klasör → sekme adı eşlemesini tutar.
+const CATEGORIES = [
+  { dir: 'idari', cat: 'idari', label: 'İdari' },
+  { dir: 'okul-oncesi', cat: 'okul-oncesi', label: 'Okul Öncesi' },
+  { dir: 'ilkokul', cat: 'ilkokul', label: 'İlkokul' },
+  { dir: 'ortaokul', cat: 'ortaokul', label: 'Ortaokul' },
+  { dir: 'anadolu-lisesi', cat: 'lise', label: 'Anadolu Lisesi' },
+  { dir: 'kutuphane', cat: 'kutuphane', label: 'Kütüphane' },
+  { dir: 'sosyal-bahce', cat: 'sosyal-bahce', label: 'Bahçe' },
+];
+
+// Fotoğrafı kalmayan kategori sekmesi gösterilmez.
+const AVAILABLE = CATEGORIES.filter((c) => (GALLERY_MANIFEST[c.dir] ?? []).length > 0);
+
+const ALL_PHOTOS = AVAILABLE.flatMap(({ dir, cat, label }) =>
+  GALLERY_MANIFEST[dir].map((file) => ({
+    src: `/gallery/${dir}/${file}`,
+    thumb: `/gallery/${dir}/thumb/${file}`,
     cat,
     label,
-  }));
-
-const ALL_PHOTOS = [
-  ...group('idari', 'İdari', 'idari', [
-    'IMG_0828', 'IMG_0830', 'IMG_0831', 'IMG_0832', 'IMG_0833',
-    'IMG_0834', 'IMG_0835', 'IMG_0836', 'IMG_0837', 'IMG_0838',
-  ]),
-  ...group('okul-oncesi', 'Okul Öncesi', 'okul-oncesi', ['27', '28', '29', '30']),
-  ...group('ilkokul', 'İlkokul', 'ilkokul', ['19', '20', '21', '22', '23', '24', '25']),
-  ...group('ortaokul', 'Ortaokul', 'ortaokul', ['32', '33', '34', '35', '36', '37', '38']),
-  ...group('lise', 'Anadolu Lisesi', 'anadolu-lisesi', ['13', '14', '15', '16', '17']),
-  ...group('kutuphane', 'Kütüphane', 'kutuphane', ['1', '2', '3', '4', '5', '6', '7']),
-  ...group('sosyal-bahce', 'Bahçe', 'sosyal-bahce', ['9', '10', '11']),
-];
+  }))
+);
 
 const TABS = [
   { id: 'all', label: 'Tümü' },
-  { id: 'idari', label: 'İdari' },
-  { id: 'okul-oncesi', label: 'Okul Öncesi' },
-  { id: 'ilkokul', label: 'İlkokul' },
-  { id: 'ortaokul', label: 'Ortaokul' },
-  { id: 'lise', label: 'Anadolu Lisesi' },
-  { id: 'kutuphane', label: 'Kütüphane' },
-  { id: 'sosyal-bahce', label: 'Bahçe' },
+  ...AVAILABLE.map(({ cat, label }) => ({ id: cat, label })),
 ];
 
 // ─── Lightbox ─────────────────────────────────────────────────
